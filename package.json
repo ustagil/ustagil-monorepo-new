@@ -1,0 +1,33 @@
+{
+  "name": "my-repo",
+  "packageManager": "yarn@3.4.1",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "scripts/*"
+  ],
+  "scripts": {
+    "dev": "turbo run --concurrency=4 dev",
+    "build": "turbo run --concurrency=4 build",
+    "clean": "turbo run clean",
+    "coverage": "turbo run --concurrency=4 coverage",
+    "coverage:ci": "turbo run --concurrency=2 coverage -- --maxWorkers=2 --forceExit",
+    "format": "turbo run --concurrency=4 format",
+    "lint": "turbo run --concurrency=4 lint",
+    "postinstall": "husky install",
+    "release": "yarn build && changeset publish",
+    "test": "turbo run --concurrency=4 test",
+    "test:ci": "turbo run --concurrency=2 test -- --maxWorkers=2 --forceExit",
+    "version": "changeset version && yarn install"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.26.0",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@commitlint/config-lerna-scopes": "^17.4.2",
+    "@manypkg/cli": "^0.20.0",
+    "husky": "^8.0.0",
+    "turbo": "^1.7.2"
+  }
+}
