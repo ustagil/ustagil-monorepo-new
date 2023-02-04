@@ -2,4 +2,4 @@
 
 import { Button } from "ui-react";
 
-export const Btn = () => <Button title="AAADDDSSS" />;
+export const Btn = () => <Button label="AAADDDSSS" onClick={() => {}} />;

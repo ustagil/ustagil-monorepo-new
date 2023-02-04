@@ -1,18 +1,12 @@
-import { FC, useState } from "react";
+import { FC, HTMLAttributes } from "react";
 
 type ButtonProps = {
-  title: string;
+  label: string;
+  onClick: HTMLAttributes<HTMLButtonElement>["onClick"];
 };
 
-export const Button: FC<ButtonProps> = ({ title }) => {
-  const [count, setCount] = useState(0);
-
-  return (
-    <button
-      style={{ fontSize: 50, color: "palegreen" }}
-      onClick={() => setCount(count + 1)}
-    >
-      {count}
-    </button>
-  );
-};
+export const Button: FC<ButtonProps> = ({ label, onClick }) => (
+  <button className="text-5xl font-bold underline" onClick={onClick}>
+    {label}
+  </button>
+);
