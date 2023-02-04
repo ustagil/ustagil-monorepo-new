@@ -1,7 +1,6 @@
 {
     "conventionalCommits.scopes": [
         "ui-react",
-        "blog",
-        "general"
+        "blog"
     ]
 }
