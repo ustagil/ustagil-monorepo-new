@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "turbo run --concurrency=4 dev",
     "build": "turbo run --concurrency=4 build",
+    "start": "turbo run --concurrency=4 start",
     "clean": "turbo run clean",
     "coverage": "turbo run --concurrency=4 coverage",
     "coverage:ci": "turbo run --concurrency=2 coverage -- --maxWorkers=2 --forceExit",
