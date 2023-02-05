@@ -5,6 +5,58 @@ __metadata:
   version: 6
   cacheKey: 8
 
+"@acme/api@workspace:packages/api":
+  version: 0.0.0-use.local
+  resolution: "@acme/api@workspace:packages/api"
+  dependencies:
+    "@acme/utils": "workspace:^"
+    typescript: ^4.9.3
+    vite: ^4.1.0
+  languageName: unknown
+  linkType: soft
+
+"@acme/constant@workspace:packages/constant":
+  version: 0.0.0-use.local
+  resolution: "@acme/constant@workspace:packages/constant"
+  dependencies:
+    typescript: ^4.9.3
+    vite: ^4.1.0
+  languageName: unknown
+  linkType: soft
+
+"@acme/state@workspace:^, @acme/state@workspace:packages/state":
+  version: 0.0.0-use.local
+  resolution: "@acme/state@workspace:packages/state"
+  dependencies:
+    "@lukemorales/query-key-factory": ^1.1.0
+    immer: ^9.0.19
+    react-query-kit: ^1.3.6
+    typescript: ^4.9.3
+    vite: ^4.1.0
+    zustand: ^4.3.2
+  languageName: unknown
+  linkType: soft
+
+"@acme/typings@workspace:packages/typings":
+  version: 0.0.0-use.local
+  resolution: "@acme/typings@workspace:packages/typings"
+  dependencies:
+    typescript: ^4.9.3
+    vite: ^4.1.0
+  languageName: unknown
+  linkType: soft
+
+"@acme/utils@workspace:^, @acme/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@acme/utils@workspace:packages/utils"
+  dependencies:
+    axios: ^1.3.2
+    jwt-decode: ^3.1.2
+    typescript: ^4.9.3
+    vite: ^4.1.0
+  languageName: unknown
+  linkType: soft
+
 "@ampproject/remapping@npm:^2.1.0":
   version: 2.2.0
   resolution: "@ampproject/remapping@npm:2.2.0"
@@ -2324,6 +2376,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@headlessui/react@npm:^1.7.9":
+  version: 1.7.9
+  resolution: "@headlessui/react@npm:1.7.9"
+  dependencies:
+    client-only: ^0.0.1
+  peerDependencies:
+    react: ^16 || ^17 || ^18
+    react-dom: ^16 || ^17 || ^18
+  checksum: e19338daba65853337f3f4a7e8f0fab8ed24be2b753ec2d6e6a051f9da7a6194ea8febf84d1b8b0a36262878628db7c085f9e176ac5ff627474abbc4f370916e
+  languageName: node
+  linkType: hard
+
+"@hookform/resolvers@npm:^2.9.10":
+  version: 2.9.10
+  resolution: "@hookform/resolvers@npm:2.9.10"
+  peerDependencies:
+    react-hook-form: ^7.0.0
+  checksum: ae3395372d6ff11506a72bb6b3c57046bd14b457c2fe1f0485f60cf2dba0ef4484e3a2fb5a0f6a217f6d701393ebc3683a2ede7c81c6f13e71f965f520c7af16
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.8":
   version: 0.11.8
   resolution: "@humanwhocodes/config-array@npm:0.11.8"
@@ -2516,6 +2589,15 @@ __metadata:
     "@jridgewell/resolve-uri": 3.1.0
     "@jridgewell/sourcemap-codec": 1.4.14
   checksum: 9d703b859cff5cd83b7308fd457a431387db5db96bd781a63bf48e183418dd9d3d44e76b9e4ae13237f6abeeb25d739ec9215c1d5bfdd08f66f750a50074a339
+  languageName: node
+  linkType: hard
+
+"@lukemorales/query-key-factory@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@lukemorales/query-key-factory@npm:1.1.0"
+  peerDependencies:
+    "@tanstack/query-core": ^4.0.0
+  checksum: abda3ff7954d8c6abb80677629b31fcd82d86b49ecae6844d7d552b71f95632f1b560a5751cafc2115d4e34b8659cf92e807e8e5b27c357992be6737c27fb517
   languageName: node
   linkType: hard
 
@@ -4258,6 +4340,51 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:4.24.4":
+  version: 4.24.4
+  resolution: "@tanstack/query-core@npm:4.24.4"
+  checksum: b357e950a41e5769878a3bfe9dd56a66828ccebb2f9396e568e8835bed71eb37926770a461e3aa5bafb7e1121c5141cee86aedf3ced88a2eacf754d545b107cd
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^4.24.4":
+  version: 4.24.4
+  resolution: "@tanstack/react-query@npm:4.24.4"
+  dependencies:
+    "@tanstack/query-core": 4.24.4
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 8cf008d690fc5d336f6471ea2bc0751189f03874dcc7930cf8944fb57fa34e3b5347823775dbd36629d53a7aacb9ce87482b1adb3ad80d277a3a6c73b797f6a2
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-table@npm:^8.7.9":
+  version: 8.7.9
+  resolution: "@tanstack/react-table@npm:8.7.9"
+  dependencies:
+    "@tanstack/table-core": 8.7.9
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: 3c704ac903405972641c9857e1466025bcdac04ee4890d64b018386cad5a778aca3a8d3f78542ae7a0ed609841d32ef3a7e563b079e87fa93b9ae8570a310499
+  languageName: node
+  linkType: hard
+
+"@tanstack/table-core@npm:8.7.9":
+  version: 8.7.9
+  resolution: "@tanstack/table-core@npm:8.7.9"
+  checksum: 78d2314928c29559088e4bada0248cc7f94e93756e1a2c1f37a651db30276e9ae960d647bd3a61b67b3f0f9f7e4dec5dd58eb49b8adb80ee5952ef417b6e581f
+  languageName: node
+  linkType: hard
+
 "@testing-library/dom@npm:^8.3.0":
   version: 8.20.0
   resolution: "@testing-library/dom@npm:8.20.0"
@@ -5864,6 +5991,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "axios@npm:1.3.2"
+  dependencies:
+    follow-redirects: ^1.15.0
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: 9791af75a6df137b15ef45d13ad11eb357b3860d2496347ee18778db9d0abc2320362a4452f1e070e3160f1dbcc518fcefdc9e005be097e7db39acb22cf608e5
+  languageName: node
+  linkType: hard
+
 "axobject-query@npm:^3.1.1":
   version: 3.1.1
   resolution: "axobject-query@npm:3.1.1"
@@ -6822,7 +6960,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"client-only@npm:0.0.1":
+"client-only@npm:0.0.1, client-only@npm:^0.0.1":
   version: 0.0.1
   resolution: "client-only@npm:0.0.1"
   checksum: 0c16bf660dadb90610553c1d8946a7fdfb81d624adea073b8440b7d795d5b5b08beb3c950c6a2cf16279365a3265158a236876d92bce16423c485c322d7dfaf8
@@ -7185,6 +7323,13 @@ __metadata:
   version: 0.5.0
   resolution: "cookie@npm:0.5.0"
   checksum: 1f4bd2ca5765f8c9689a7e8954183f5332139eb72b6ff783d8947032ec1fdf43109852c178e21a953a30c0dd42257828185be01b49d1eb1a67fd054ca588a180
+  languageName: node
+  linkType: hard
+
+"cookie@npm:^0.4.1":
+  version: 0.4.2
+  resolution: "cookie@npm:0.4.2"
+  checksum: a00833c998bedf8e787b4c342defe5fa419abd96b32f4464f718b91022586b8f1bafbddd499288e75c037642493c83083da426c6a9080d309e3bd90fd11baa9b
   languageName: node
   linkType: hard
 
@@ -9271,6 +9416,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:^1.15.0":
+  version: 1.15.2
+  resolution: "follow-redirects@npm:1.15.2"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: faa66059b66358ba65c234c2f2a37fcec029dc22775f35d9ad6abac56003268baf41e55f9ee645957b32c7d9f62baf1f0b906e68267276f54ec4b4c597c2b190
+  languageName: node
+  linkType: hard
+
 "for-each@npm:^0.3.3":
   version: 0.3.3
   resolution: "for-each@npm:0.3.3"
@@ -9351,6 +9506,17 @@ __metadata:
     combined-stream: ^1.0.8
     mime-types: ^2.1.12
   checksum: b019e8d35c8afc14a2bd8a7a92fa4f525a4726b6d5a9740e8d2623c30e308fbb58dc8469f90415a856698933c8479b01646a9dff33c87cc4e76d72aedbbf860d
+  languageName: node
+  linkType: hard
+
+"form-data@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "form-data@npm:4.0.0"
+  dependencies:
+    asynckit: ^0.4.0
+    combined-stream: ^1.0.8
+    mime-types: ^2.1.12
+  checksum: 01135bf8675f9d5c61ff18e2e2932f719ca4de964e3be90ef4c36aacfc7b9cb2fceb5eca0b7e0190e3383fe51c5b37f4cb80b62ca06a99aaabfcfd6ac7c9328c
   languageName: node
   linkType: hard
 
@@ -10451,6 +10617,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"immer@npm:^9.0.19":
+  version: 9.0.19
+  resolution: "immer@npm:9.0.19"
+  checksum: f02ee53989989c287cd548a3d817fccf0bfe56db919755ee94a72ea3ae78a00363fba93ee6c010fe54a664380c29c53d44ed4091c6a86cae60957ad2cfabc010
+  languageName: node
+  linkType: hard
+
 "import-fresh@npm:^3.0.0, import-fresh@npm:^3.1.0, import-fresh@npm:^3.2.1":
   version: 3.3.0
   resolution: "import-fresh@npm:3.3.0"
@@ -11532,6 +11705,13 @@ __metadata:
   version: 3.1.0
   resolution: "junk@npm:3.1.0"
   checksum: 6c4d68e8f8bc25b546baed802cd0e7be6a971e92f1e885c92cbfe98946d5690b961a32f8e7909e77765d3204c3e556d13c17f73e31697ffae1db07a58b9e68c0
+  languageName: node
+  linkType: hard
+
+"jwt-decode@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "jwt-decode@npm:3.1.2"
+  checksum: 20a4b072d44ce3479f42d0d2c8d3dabeb353081ba4982e40b83a779f2459a70be26441be6c160bfc8c3c6eadf9f6380a036fbb06ac5406b5674e35d8c4205eeb
   languageName: node
   linkType: hard
 
@@ -12668,6 +12848,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-themes@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "next-themes@npm:0.2.1"
+  peerDependencies:
+    next: "*"
+    react: "*"
+    react-dom: "*"
+  checksum: ebc248b956138e73436c4ed0a0f0a877a0a48a33156db577029b8b8469e48b5c777d61abf2baeb75953378febea74e067a4869ff90b4a3e94fce123289b862ba
+  languageName: node
+  linkType: hard
+
 "next@npm:13.1.6":
   version: 13.1.6
   resolution: "next@npm:13.1.6"
@@ -12838,6 +13029,16 @@ __metadata:
   version: 2.0.9
   resolution: "node-releases@npm:2.0.9"
   checksum: 3ae6b1b300dc72c1a628861093d339a01aa017d3ad9017b0478384be29d6f9c93b9e26c91fce79728cecaadc04d0f16834b7ae1a018730e3e54962ec8c6aa86f
+  languageName: node
+  linkType: hard
+
+"nookies@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "nookies@npm:2.5.2"
+  dependencies:
+    cookie: ^0.4.1
+    set-cookie-parser: ^2.4.6
+  checksum: 4cc6fd8d0ab9fce840ccdb161eefe9dee581f441429fc729f279924491ebd1c12c220f889b6e315d66f8ea00bef944966969c966c957a6b9918ced7d7f9cc8a8
   languageName: node
   linkType: hard
 
@@ -14066,6 +14267,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: ed7fcc2ba0a33404958e34d95d18638249a68c430e30fcb6c478497d72739ba64ce9810a24f53a7d921d0c065e5b78e3822759800698167256b04659366ca4d4
+  languageName: node
+  linkType: hard
+
 "prr@npm:~1.0.1":
   version: 1.0.1
   resolution: "prr@npm:1.0.1"
@@ -14343,6 +14551,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form@npm:^7.43.0":
+  version: 7.43.0
+  resolution: "react-hook-form@npm:7.43.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: f86ef57b4e1d78fa5d76b41d0cbac6fdcaaf5f73f7707f1e8cf01d536c3c7d60493932dbf9af9b128af0608a8963daf5712daf79b01071212d7468897c1e792d
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.7.1":
+  version: 4.7.1
+  resolution: "react-icons@npm:4.7.1"
+  peerDependencies:
+    react: "*"
+  checksum: ed3cbdc5fc0c4d7d2debf78fdc8c4c80aeacf85a506a9a3c11b1d5922de393ac0a6542012b7fb81761e9280c54d0f26827d50a92b54ec8f0c8e52364d89970b5
+  languageName: node
+  linkType: hard
+
 "react-inspector@npm:^5.1.0":
   version: 5.1.1
   resolution: "react-inspector@npm:5.1.1"
@@ -14374,6 +14600,18 @@ __metadata:
   version: 1.1.0
   resolution: "react-merge-refs@npm:1.1.0"
   checksum: 90884352999002d868ab9f1bcfe3222fb0f2178ed629f1da7e98e5a9b02a2c96b4aa72800db92aabd69d2483211b4be57a2088e89a11a0b660e7ada744d4ddf7
+  languageName: node
+  linkType: hard
+
+"react-query-kit@npm:^1.3.6":
+  version: 1.3.6
+  resolution: "react-query-kit@npm:1.3.6"
+  peerDependencies:
+    "@tanstack/react-query": "*"
+  peerDependenciesMeta:
+    "@tanstack/react-query":
+      optional: true
+  checksum: a3b5f8abb91539ce45779aab6a824a4927d8af352c64c5c88313902bc4f6f55de1ebb2c25f4267f18324705a16044cba95efcb603f3f3e28292b32563f5f5a68
   languageName: node
   linkType: hard
 
@@ -15258,6 +15496,13 @@ __metadata:
   version: 2.0.0
   resolution: "set-blocking@npm:2.0.0"
   checksum: 6e65a05f7cf7ebdf8b7c75b101e18c0b7e3dff4940d480efed8aad3a36a4005140b660fa1d804cb8bce911cac290441dc728084a30504d3516ac2ff7ad607b02
+  languageName: node
+  linkType: hard
+
+"set-cookie-parser@npm:^2.4.6":
+  version: 2.5.1
+  resolution: "set-cookie-parser@npm:2.5.1"
+  checksum: b99c37f976e68ae6eb7c758bf2bbce1e60bb54e3eccedaa25f2da45b77b9cab58d90674cf9edd7aead6fbeac6308f2eb48713320a47ca120d0e838d0194513b6
   languageName: node
   linkType: hard
 
@@ -16767,7 +17012,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ui-react@workspace:packages/ui-react"
   dependencies:
+    "@acme/state": "workspace:^"
     "@babel/core": ^7.20.12
+    "@headlessui/react": ^1.7.9
+    "@hookform/resolvers": ^2.9.10
     "@mdx-js/react": ^1.6.22
     "@storybook/addon-actions": ^6.5.16
     "@storybook/addon-docs": ^6.5.16
@@ -16777,20 +17025,27 @@ __metadata:
     "@storybook/builder-vite": ^0.4.0
     "@storybook/react": ^6.5.16
     "@storybook/testing-library": ^0.0.13
+    "@tanstack/react-query": ^4.24.4
+    "@tanstack/react-table": ^8.7.9
     "@types/babel__core": ^7
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
     "@vitejs/plugin-react": ^3.1.0
     autoprefixer: ^10.4.13
     babel-loader: ^8.3.0
+    next-themes: ^0.2.1
+    nookies: ^2.5.2
     postcss: ^8.4.21
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-hook-form: ^7.43.0
+    react-icons: ^4.7.1
     storybook-dark-mode: ^2.0.5
     tailwindcss: ^3.2.4
     typescript: ^4.9.3
     vite: ^4.1.0
     vite-plugin-dts: ^1.7.2
+    zod: ^3.20.2
   languageName: unknown
   linkType: soft
 
@@ -17102,6 +17357,15 @@ __metadata:
     punycode: 1.3.2
     querystring: 0.2.0
   checksum: 50d100d3dd2d98b9fe3ada48cadb0b08aa6be6d3ac64112b867b56b19be4bfcba03c2a9a0d7922bfd7ac17d4834e88537749fe182430dfd9b68e520175900d90
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:1.2.0, use-sync-external-store@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 5c639e0f8da3521d605f59ce5be9e094ca772bd44a4ce7322b055a6f58eeed8dda3c94cabd90c7a41fb6fa852210092008afe48f7038792fd47501f33299116a
   languageName: node
   linkType: hard
 
@@ -17899,6 +18163,30 @@ __metadata:
   bin:
     z-schema: bin/z-schema
   checksum: 8a1d66817ae4384dc3f63311f0cccaadd95cc9640eaade5fd3fbf91aa80d6bb82fb95d9b9171fa82ac371a0155b32b7f5f77bbe84dabaca611b66f74c628f0b8
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.20.2":
+  version: 3.20.2
+  resolution: "zod@npm:3.20.2"
+  checksum: 04172f7e9350372684ccd298d4716908edc9113751295b6c4e1b3ea84e2af8997e504b33ba36f4741417bb2a5dc90bfd40501f6b0e7389df10e42a63d6d8366c
+  languageName: node
+  linkType: hard
+
+"zustand@npm:^4.3.2":
+  version: 4.3.2
+  resolution: "zustand@npm:4.3.2"
+  dependencies:
+    use-sync-external-store: 1.2.0
+  peerDependencies:
+    immer: ">=9.0"
+    react: ">=16.8"
+  peerDependenciesMeta:
+    immer:
+      optional: true
+    react:
+      optional: true
+  checksum: fc443abf5bc9deac0d4e375847e7914e44c7ffc9f7f09b60e466cb9bbbcf5a46706bf2f9c8b9e6e6c9a1c5aea0bd6123cbf9fbcd39788ae27d8494d505969ae8
   languageName: node
   linkType: hard
 
