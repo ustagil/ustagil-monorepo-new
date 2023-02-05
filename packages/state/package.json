@@ -1,0 +1,32 @@
+{
+  "name": "@acme/state",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/state.umd.js",
+  "module": "./dist/state.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/state.es.js",
+      "require": "./dist/state.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  },
+  "dependencies": {
+    "@lukemorales/query-key-factory": "^1.1.0",
+    "immer": "^9.0.19",
+    "react-query-kit": "^1.3.6",
+    "zustand": "^4.3.2"
+  }
+}
