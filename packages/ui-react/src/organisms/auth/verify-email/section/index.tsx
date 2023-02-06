@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import { Section } from '../../../../atoms'
-import { AuthVerifyEmailForm } from '../../../../molecules'
+import { FC } from "react";
+import { Section } from "../../../../atoms";
+import { AuthVerifyEmailForm } from "../../../../molecules";
 
 export interface AuthVerifyEmailSectionProps {}
 
@@ -15,7 +15,7 @@ export const AuthVerifyEmailSection: FC<AuthVerifyEmailSectionProps> = () => {
         </div>
       </div>
     </Section>
-  )
-}
+  );
+};
 
-export default AuthVerifyEmailSection
+export default AuthVerifyEmailSection;

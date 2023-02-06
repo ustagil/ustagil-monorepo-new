@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { NextLink } from '..'
+import { FC } from "react";
+import { NextLink } from "..";
 
 export interface CompanyLogoProps {}
 
@@ -48,6 +48,6 @@ export const CompanyLogo: FC<CompanyLogoProps> = () => (
       </svg>
     </NextLink>
   </div>
-)
+);
 
-export default CompanyLogo
+export default CompanyLogo;

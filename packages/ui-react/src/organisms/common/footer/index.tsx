@@ -1,26 +1,26 @@
-import { WEB_APP_DOMAINS } from '@acme/constant'
-import Image from 'next/image'
-import { FC } from 'react'
-import { useForm } from 'react-hook-form'
-import { InputField, NextLink } from '../../../atoms'
-import { Button } from '../../../molecules'
+import { WEB_APP_DOMAINS } from "@acme/constant";
+import Image from "next/image";
+import { FC } from "react";
+import { useForm } from "react-hook-form";
+import { InputField, NextLink } from "../../../atoms";
+import { Button } from "../../../molecules";
 
 export interface CommonFooterProps {}
 
 type IFormValues = {
-  email: string
-}
+  email: string;
+};
 
 const Contact: FC = () => {
   const { register, handleSubmit } = useForm<IFormValues>({
     defaultValues: {
-      email: '',
+      email: "",
     },
-  })
+  });
 
-  const onSubmit = handleSubmit(data => {
-    console.log(data)
-  })
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+  });
 
   return (
     <div>
@@ -29,7 +29,7 @@ const Contact: FC = () => {
       <form onSubmit={onSubmit}>
         <InputField
           // eslint-disable-next-line react/jsx-props-no-spreading
-          {...register('email')}
+          {...register("email")}
           id="subscribe-email"
           label="E-Posta"
           placeholder=""
@@ -41,8 +41,8 @@ const Contact: FC = () => {
       <span className="mr-4 font-semibold">Takip Et:</span>
       <div className="flex">Social Icons</div>
     </div>
-  )
-}
+  );
+};
 
 const CopyRight: FC = () => (
   <div className="flex items-center justify-between">
@@ -56,11 +56,11 @@ const CopyRight: FC = () => (
       />
     </NextLink>
   </div>
-)
+);
 
 const LinksList: FC<{
-  title: string
-  links: { label: string; href: string }[]
+  title: string;
+  links: { label: string; href: string }[];
 }> = ({ title, links }) => (
   <div className="">
     <span className="block px-1 mb-6 text-lg font-semibold">{title}</span>
@@ -74,35 +74,35 @@ const LinksList: FC<{
       </NextLink>
     ))}
   </div>
-)
+);
 
 const Links: FC = () => (
   <div className="grid w-full grid-cols-2 xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-2">
     <LinksList
       title="Kurumsal"
       links={[
-        { label: 'Hakkımızda', href: '/company/about-us' },
-        { label: 'İnsan Kaynakları', href: '/company/human-resources' },
-        { label: 'İletişim', href: '/company/contact' },
+        { label: "Hakkımızda", href: "/company/about-us" },
+        { label: "İnsan Kaynakları", href: "/company/human-resources" },
+        { label: "İletişim", href: "/company/contact" },
       ]}
     />
     <LinksList
       title="Ustagil Products"
       links={[
-        { label: 'Account', href: WEB_APP_DOMAINS.account },
-        { label: 'Accounting', href: WEB_APP_DOMAINS.accounting },
-        { label: 'Blog', href: WEB_APP_DOMAINS.blog },
-        { label: 'Call Center', href: WEB_APP_DOMAINS.callcenter },
-        { label: 'Cargo Manager', href: WEB_APP_DOMAINS.cargomanager },
-        { label: 'Documentations', href: WEB_APP_DOMAINS.docs },
-        { label: 'Next App', href: WEB_APP_DOMAINS.nextapp },
-        { label: 'School Manager', href: WEB_APP_DOMAINS.schoolmanager },
-        { label: 'Storage Manager', href: WEB_APP_DOMAINS.storagemanager },
-        { label: 'Task Manager', href: WEB_APP_DOMAINS.taskmanager },
+        { label: "Account", href: WEB_APP_DOMAINS.account },
+        { label: "Accounting", href: WEB_APP_DOMAINS.accounting },
+        { label: "Blog", href: WEB_APP_DOMAINS.blog },
+        { label: "Call Center", href: WEB_APP_DOMAINS.callcenter },
+        { label: "Cargo Manager", href: WEB_APP_DOMAINS.cargomanager },
+        { label: "Documentations", href: WEB_APP_DOMAINS.docs },
+        { label: "Next App", href: WEB_APP_DOMAINS.nextapp },
+        { label: "School Manager", href: WEB_APP_DOMAINS.schoolmanager },
+        { label: "Storage Manager", href: WEB_APP_DOMAINS.storagemanager },
+        { label: "Task Manager", href: WEB_APP_DOMAINS.taskmanager },
       ]}
     />
   </div>
-)
+);
 
 export const CommonFooter: FC<CommonFooterProps> = () => (
   <footer className="pb-[72px] lg:pb-0 prose dark:prose-invert max-w-none prose-a:no-underline">
@@ -122,6 +122,6 @@ export const CommonFooter: FC<CommonFooterProps> = () => (
       </div>
     </div>
   </footer>
-)
+);
 
-export default CommonFooter
+export default CommonFooter;

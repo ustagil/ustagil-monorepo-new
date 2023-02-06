@@ -1,25 +1,25 @@
-import { useIntegrationsDelete, useIntegrationsGet } from '@acme/state'
-import { useRouter } from 'next/router'
-import { FC } from 'react'
-import { NextLink, Section } from '../../../../../atoms'
-import { Button } from '../../../../../molecules'
+import { useIntegrationsDelete, useIntegrationsGet } from "@acme/state";
+import { useRouter } from "next/router";
+import { FC } from "react";
+import { NextLink, Section } from "../../../../../atoms";
+import { Button } from "../../../../../molecules";
 
 export interface IntegrationByIdSectionProps {
-  id: string
+  id: string;
 }
 
 export const IntegrationByIdSection: FC<IntegrationByIdSectionProps> = ({
   id,
 }) => {
-  const router = useRouter()
+  const router = useRouter();
   const { data, isSuccess } = useIntegrationsGet({
     variables: { params: { id }, query: {} },
-  })
+  });
 
   const integrationDeleteMutation = useIntegrationsDelete({
-    onSuccess: () => router.push('/integrations'),
-    onError: () => router.push('/integrations'),
-  })
+    onSuccess: () => router.push("/integrations"),
+    onError: () => router.push("/integrations"),
+  });
 
   return (
     <Section id="integration-by-id-section">
@@ -69,7 +69,7 @@ export const IntegrationByIdSection: FC<IntegrationByIdSectionProps> = ({
         </div>
       )}
     </Section>
-  )
-}
+  );
+};
 
-export default IntegrationByIdSection
+export default IntegrationByIdSection;

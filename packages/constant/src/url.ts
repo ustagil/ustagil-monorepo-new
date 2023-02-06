@@ -1,5 +1,5 @@
-export const ACCOUNT_ID_PARAM = ':account-id'
-export const USER_ID_PARAM = ':user-id'
+export const ACCOUNT_ID_PARAM = ":account-id";
+export const USER_ID_PARAM = ":user-id";
 
 // Production
 
@@ -18,7 +18,7 @@ export const USER_ID_PARAM = ':user-id'
 // }
 
 // Local - Development
-const BASE_DOMAIN = 'localhost'
+const BASE_DOMAIN = "localhost";
 
 export const WEB_APP_DOMAINS = {
   account: `http://${BASE_DOMAIN}:3001`,
@@ -31,4 +31,4 @@ export const WEB_APP_DOMAINS = {
   schoolmanager: `http://${BASE_DOMAIN}:3008`,
   storagemanager: `http://${BASE_DOMAIN}:3009`,
   taskmanager: `http://${BASE_DOMAIN}:3010`,
-}
+};

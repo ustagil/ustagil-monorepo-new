@@ -1,19 +1,19 @@
-import { Listbox, Transition } from '@headlessui/react'
-import { forwardRef, Fragment } from 'react'
-import { ControllerRenderProps } from 'react-hook-form'
+import { Listbox, Transition } from "@headlessui/react";
+import { forwardRef, Fragment } from "react";
+import { ControllerRenderProps } from "react-hook-form";
 
 export type SelectOption = {
-  id: string
-  label: string
-  value: string | number
-  disabled?: boolean
-}
+  id: string;
+  label: string;
+  value: string | number;
+  disabled?: boolean;
+};
 
 export type SelectProps = {
-  options: SelectOption[]
-  className?: string
-  label: string
-} & ControllerRenderProps
+  options: SelectOption[];
+  className?: string;
+  label: string;
+} & ControllerRenderProps;
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ label, name, onBlur, onChange, options, value, className }, ref) => (
@@ -60,16 +60,16 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     active,
                     selected,
                   }) => `cursor-default select-none relative py-2 px-3  
-                    ${selected ? '' : ''}
-                    ${active ? 'bg-primary-200' : ''}
+                    ${selected ? "" : ""}
+                    ${active ? "bg-primary-200" : ""}
                     `}
                   value={option}
                 >
                   {({ selected, active }) => (
                     <span
                       className={`block truncate font-normal text-gray-600 text-sm 
-                        ${selected ? '' : ''}
-                        ${active ? 'text-gray-700' : ''}
+                        ${selected ? "" : ""}
+                        ${active ? "text-gray-700" : ""}
                         `}
                     >
                       {option.label}
@@ -82,9 +82,9 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         </div>
       </Listbox>
     </div>
-  ),
-)
+  )
+);
 
-Select.displayName = 'Select'
+Select.displayName = "Select";
 
-export default Select
+export default Select;

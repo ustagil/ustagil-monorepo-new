@@ -1,23 +1,23 @@
-import { useInvoicesDelete, useInvoicesGet } from '@acme/state'
-import { useRouter } from 'next/router'
-import { FC } from 'react'
-import { NextLink, Section } from '../../../../../atoms'
-import { Button } from '../../../../../molecules'
+import { useInvoicesDelete, useInvoicesGet } from "@acme/state";
+import { useRouter } from "next/router";
+import { FC } from "react";
+import { NextLink, Section } from "../../../../../atoms";
+import { Button } from "../../../../../molecules";
 
 export interface InvoiceByIdSectionProps {
-  id: string
+  id: string;
 }
 
 export const InvoiceByIdSection: FC<InvoiceByIdSectionProps> = ({ id }) => {
-  const router = useRouter()
+  const router = useRouter();
   const { data, isSuccess } = useInvoicesGet({
     variables: { params: { id }, query: {} },
-  })
+  });
 
   const invoiceDeleteMutation = useInvoicesDelete({
-    onSuccess: () => router.push('/invoices'),
-    onError: () => router.push('/invoices'),
-  })
+    onSuccess: () => router.push("/invoices"),
+    onError: () => router.push("/invoices"),
+  });
 
   return (
     <Section id="invoice-by-id-section">
@@ -69,7 +69,7 @@ export const InvoiceByIdSection: FC<InvoiceByIdSectionProps> = ({ id }) => {
         </div>
       )}
     </Section>
-  )
-}
+  );
+};
 
-export default InvoiceByIdSection
+export default InvoiceByIdSection;

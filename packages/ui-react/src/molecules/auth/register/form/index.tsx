@@ -1,70 +1,70 @@
-import { useAuthRegister } from '@acme/state'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useRouter } from 'next/router'
-import { stringify } from 'querystring'
-import { FC } from 'react'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
-import { InputField } from '../../../../atoms'
-import { Button } from '../../../../molecules'
+import { useAuthRegister } from "@acme/state";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/router";
+import { stringify } from "querystring";
+import { FC } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { InputField } from "../../../../atoms";
+import { Button } from "../../../../molecules";
 
 const schema = z.object({
   email: z.string().email().min(2),
   password: z.string().min(6),
-})
+});
 
 export interface AuthRegisterFormProps {}
 
 type IFormValues = {
-  email: string
-  password: string
-}
+  email: string;
+  password: string;
+};
 
 export const AuthRegisterForm: FC<AuthRegisterFormProps> = () => {
-  const router = useRouter()
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { isDirty, isValid },
   } = useForm<IFormValues>({
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
     resolver: zodResolver(schema),
-  })
+  });
 
   const authRegisterMutation = useAuthRegister({
     onSuccess: (data, variables, context) =>
       void router.push(
-        `/auth/verify-email?${stringify({ email: variables.body.email })}`,
+        `/auth/verify-email?${stringify({ email: variables.body.email })}`
       ),
     onError: (error, variables, context) =>
       void router.push(
-        `/auth/verify-email?${stringify({ email: variables.body.email })}`,
+        `/auth/verify-email?${stringify({ email: variables.body.email })}`
       ),
-  })
+  });
 
-  const onSubmit = handleSubmit(data => {
+  const onSubmit = handleSubmit((data) => {
     authRegisterMutation.mutate({
       body: data,
       params: {},
       query: {},
-    })
-  })
+    });
+  });
 
   return (
     <form onSubmit={onSubmit}>
       <InputField
         className=""
-        {...register('email')}
+        {...register("email")}
         label="E-Posta"
         placeholder=""
         type="email"
       />
       <InputField
         className="mt-3"
-        {...register('password')}
+        {...register("password")}
         label="Parola"
         placeholder=""
         type="password"
@@ -82,7 +82,7 @@ export const AuthRegisterForm: FC<AuthRegisterFormProps> = () => {
         </div>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default AuthRegisterForm
+export default AuthRegisterForm;

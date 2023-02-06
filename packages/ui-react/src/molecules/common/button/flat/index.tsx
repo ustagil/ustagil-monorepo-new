@@ -1,10 +1,10 @@
-import { FC } from 'react'
-import { ButtonBaseProps } from '..'
+import { FC } from "react";
+import { ButtonBaseProps } from "..";
 
 export interface ButtonFlatProps extends ButtonBaseProps {
-  variant: 'flat'
-  title: string
-  buttonRef?: React.ForwardedRef<HTMLButtonElement>
+  variant: "flat";
+  title: string;
+  buttonRef?: React.ForwardedRef<HTMLButtonElement>;
 }
 
 export const ButtonFlat: FC<ButtonFlatProps> = ({
@@ -17,8 +17,8 @@ export const ButtonFlat: FC<ButtonFlatProps> = ({
 }) => (
   <button
     className={`relative disabled:bg-gray-500 text-primary-400 font-semibold hover:bg-primary-200 active:bg-primary-100 min-w-[128px] transition duration-150 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-opacity-75 px-4 py-2 rounded ${
-      fullWidth ? 'w-full' : ''
-    } ${loading ? 'opacity-50' : ''}`}
+      fullWidth ? "w-full" : ""
+    } ${loading ? "opacity-50" : ""}`}
     ref={buttonRef}
     onClick={onClick}
     disabled={disabled || loading}
@@ -28,7 +28,7 @@ export const ButtonFlat: FC<ButtonFlatProps> = ({
       role="status"
       className={`
       absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2
-      ${!loading ? 'hidden' : ''}
+      ${!loading ? "hidden" : ""}
       `}
     >
       <svg
@@ -50,6 +50,6 @@ export const ButtonFlat: FC<ButtonFlatProps> = ({
       <span className="sr-only">Loading...</span>
     </div>
   </button>
-)
+);
 
-export default ButtonFlat
+export default ButtonFlat;

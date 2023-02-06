@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import { FC } from "react";
 
 export interface TableFooterProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const TableFooter: FC<TableFooterProps> = ({ children }) => (
   <tfoot className="border-t border-gray-600 bg-primary-500">{children}</tfoot>
-)
+);
 
-export default TableFooter
+export default TableFooter;

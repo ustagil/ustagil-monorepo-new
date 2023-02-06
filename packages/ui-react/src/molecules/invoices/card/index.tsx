@@ -1,10 +1,10 @@
-import { FC, ReactNode } from 'react'
-import { Card } from '../../../atoms'
+import { FC, ReactNode } from "react";
+import { Card } from "../../../atoms";
 
 export interface InvoicesDataCardProps {
-  title: string
-  point: string
-  icon: ReactNode
+  title: string;
+  point: string;
+  icon: ReactNode;
 }
 
 export const InvoicesDataCard: FC<InvoicesDataCardProps> = ({
@@ -23,6 +23,6 @@ export const InvoicesDataCard: FC<InvoicesDataCardProps> = ({
       </span>
     </div>
   </Card>
-)
+);
 
-export default InvoicesDataCard
+export default InvoicesDataCard;

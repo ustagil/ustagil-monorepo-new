@@ -1,4 +1,4 @@
-import { Integration } from '@acme/typings'
+import { Integration } from "@acme/typings";
 
 export function generateRandomIntegration(i: number): Integration {
   // return {
@@ -11,12 +11,12 @@ export function generateRandomIntegration(i: number): Integration {
   //   email: faker.internet.email(),
   // };
   return {
-    app: 'slack',
-    email: 'test@email.com',
-    errorMessage: 'Some Error',
+    app: "slack",
+    email: "test@email.com",
+    errorMessage: "Some Error",
     id: `${i}`,
-    lastSentMessage: 'Some Last Message',
+    lastSentMessage: "Some Last Message",
     name: `Name ${i}`,
     status: 1,
-  }
+  };
 }

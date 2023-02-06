@@ -2,41 +2,41 @@ import {
   useIntegrationEmailsCheck,
   useIntegrationEmailsGetNew,
   useIntegrationEmailStore,
-} from '@acme/state'
-import { FC, useState } from 'react'
-import { NextLink, Section } from '../../../../../atoms'
-import { Button } from '../../../../../molecules'
+} from "@acme/state";
+import { FC, useState } from "react";
+import { NextLink, Section } from "../../../../../atoms";
+import { Button } from "../../../../../molecules";
 
 export interface IntegrationAddCheckSectionProps {}
 
 export const IntegrationAddCheckSection: FC<
   IntegrationAddCheckSectionProps
 > = ({}) => {
-  const { email, setIntegrationEmail } = useIntegrationEmailStore(state => ({
+  const { email, setIntegrationEmail } = useIntegrationEmailStore((state) => ({
     email: state.integrationEmail,
     setIntegrationEmail: state.setIntegrationEmail,
-  }))
-  const [checked, setChecked] = useState(false)
-  const [loading, setLoading] = useState(false)
+  }));
+  const [checked, setChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const integrationEmailQuery = useIntegrationEmailsGetNew({
     variables: { body: {}, params: {}, query: {} },
     onSuccess(data) {
-      setIntegrationEmail(data.datas)
+      setIntegrationEmail(data.datas);
     },
-  })
+  });
 
   const integrationEmailCheckMutation = useIntegrationEmailsCheck({
     onMutate: () => setLoading(true),
     onSuccess: () => {
-      setChecked(true)
-      setLoading(false)
+      setChecked(true);
+      setLoading(false);
     },
     onError: () => {
-      setChecked(true)
-      setLoading(false)
+      setChecked(true);
+      setLoading(false);
     },
-  })
+  });
 
   return (
     <Section id="integration-add-check-section">
@@ -47,12 +47,12 @@ export const IntegrationAddCheckSection: FC<
           title="Check"
           loading={loading}
           onClick={() => {
-            if (!email) return
+            if (!email) return;
             integrationEmailCheckMutation.mutate({
               body: { email },
               params: {},
               query: {},
-            })
+            });
           }}
         />
         <NextLink href="/integrations/select" legacyBehavior>
@@ -65,7 +65,7 @@ export const IntegrationAddCheckSection: FC<
         </NextLink>
       </div>
     </Section>
-  )
-}
+  );
+};
 
-export default IntegrationAddCheckSection
+export default IntegrationAddCheckSection;

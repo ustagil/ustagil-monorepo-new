@@ -3,16 +3,16 @@ import {
   HTMLAttributes,
   InputHTMLAttributes,
   PropsWithChildren,
-} from 'react'
-import { UseFormRegisterReturn } from 'react-hook-form'
+} from "react";
+import { UseFormRegisterReturn } from "react-hook-form";
 
 export type InputFieldProps = HTMLAttributes<HTMLInputElement> &
   InputHTMLAttributes<HTMLInputElement> &
   Partial<UseFormRegisterReturn> & {
-    type?: string
-    label: string
-    error?: string
-  }
+    type?: string;
+    label: string;
+    error?: string;
+  };
 
 export const InputField = forwardRef<
   HTMLInputElement,
@@ -30,8 +30,8 @@ export const InputField = forwardRef<
     />
     {error && <span className="block mt-1 text-sm text-red-500">{error}</span>}
   </div>
-))
+));
 
-InputField.displayName = 'InputField'
+InputField.displayName = "InputField";
 
-export default InputField
+export default InputField;

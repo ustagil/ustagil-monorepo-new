@@ -1,10 +1,10 @@
-import { FC, ReactNode } from 'react'
-import { ButtonBaseProps } from '..'
+import { FC, ReactNode } from "react";
+import { ButtonBaseProps } from "..";
 
 export interface ButtonOutlinedIconProps extends ButtonBaseProps {
-  variant: 'outlined-icon'
-  buttonRef?: React.ForwardedRef<HTMLButtonElement>
-  icon: ReactNode
+  variant: "outlined-icon";
+  buttonRef?: React.ForwardedRef<HTMLButtonElement>;
+  icon: ReactNode;
 }
 
 export const ButtonOutlinedIcon: FC<ButtonOutlinedIconProps> = ({
@@ -17,8 +17,8 @@ export const ButtonOutlinedIcon: FC<ButtonOutlinedIconProps> = ({
 }) => (
   <button
     className={`relative flex items-center justify-center disabled:bg-gray-500 text-primary-400 font-semibold hover:bg-primary-200 active:bg-primary-100 w-10 h-10 border transition duration-150 ease-in-out border-primary-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-opacity-75 rounded-full ${
-      fullWidth ? 'w-full' : ''
-    } ${loading ? 'opacity-50' : ''}`}
+      fullWidth ? "w-full" : ""
+    } ${loading ? "opacity-50" : ""}`}
     ref={buttonRef}
     onClick={onClick}
     disabled={disabled || loading}
@@ -29,7 +29,7 @@ export const ButtonOutlinedIcon: FC<ButtonOutlinedIconProps> = ({
       role="status"
       className={`
       absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2
-      ${!loading ? 'hidden' : ''}
+      ${!loading ? "hidden" : ""}
       `}
     >
       <svg
@@ -51,6 +51,6 @@ export const ButtonOutlinedIcon: FC<ButtonOutlinedIconProps> = ({
       <span className="sr-only">Loading...</span>
     </div>
   </button>
-)
+);
 
-export default ButtonOutlinedIcon
+export default ButtonOutlinedIcon;

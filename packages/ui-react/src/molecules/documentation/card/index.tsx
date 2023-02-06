@@ -1,10 +1,10 @@
-import { FC } from 'react'
-import { Card, NextLink } from '../../../atoms'
+import { FC } from "react";
+import { Card, NextLink } from "../../../atoms";
 
 export interface DocumentationCardProps {
-  title: string
-  desc: string
-  slug: string
+  title: string;
+  desc: string;
+  slug: string;
 }
 
 export const DocumentationCard: FC<DocumentationCardProps> = ({
@@ -24,6 +24,6 @@ export const DocumentationCard: FC<DocumentationCardProps> = ({
       </div>
     </Card>
   </NextLink>
-)
+);
 
-export default DocumentationCard
+export default DocumentationCard;

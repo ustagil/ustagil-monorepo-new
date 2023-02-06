@@ -1,10 +1,10 @@
-import { FC, ReactNode } from 'react'
-import { ButtonBaseProps } from '..'
+import { FC, ReactNode } from "react";
+import { ButtonBaseProps } from "..";
 
 export interface ButtonContainedIconProps extends ButtonBaseProps {
-  variant: 'contained-icon'
-  buttonRef?: React.ForwardedRef<HTMLButtonElement>
-  icon: ReactNode
+  variant: "contained-icon";
+  buttonRef?: React.ForwardedRef<HTMLButtonElement>;
+  icon: ReactNode;
 }
 
 export const ButtonContainedIcon: FC<ButtonContainedIconProps> = ({
@@ -17,8 +17,8 @@ export const ButtonContainedIcon: FC<ButtonContainedIconProps> = ({
 }) => (
   <button
     className={`relative w-10 h-10 flex items-center justify-center disabled:bg-gray-500 text-white font-semibold hover:bg-primary-600 active:bg-primary-500 border transition duration-150 ease-in-out border-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-opacity-75 bg-primary-500 rounded-full ${
-      fullWidth ? 'w-full' : ''
-    } ${loading ? 'opacity-50' : ''}`}
+      fullWidth ? "w-full" : ""
+    } ${loading ? "opacity-50" : ""}`}
     ref={buttonRef}
     onClick={onClick}
     disabled={disabled || loading}
@@ -30,7 +30,7 @@ export const ButtonContainedIcon: FC<ButtonContainedIconProps> = ({
       role="status"
       className={`
       absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2
-      ${!loading ? 'hidden' : ''}
+      ${!loading ? "hidden" : ""}
       `}
     >
       <svg
@@ -52,6 +52,6 @@ export const ButtonContainedIcon: FC<ButtonContainedIconProps> = ({
       <span className="sr-only">Loading...</span>
     </div>
   </button>
-)
+);
 
-export default ButtonContainedIcon
+export default ButtonContainedIcon;

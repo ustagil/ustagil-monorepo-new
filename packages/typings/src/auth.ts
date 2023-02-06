@@ -1,44 +1,44 @@
 export type JWTTokenClaims = {
-  act: string
-  exp: number
-  iat: number
-  knd: string
-  sub: string
-}
+  act: string;
+  exp: number;
+  iat: number;
+  knd: string;
+  sub: string;
+};
 
 export type JWTTokenPayload = {
-  account: string
-  id: string
-  kind: string
-}
+  account: string;
+  id: string;
+  kind: string;
+};
 
 export type AuthResponse = {
-  accessToken: string
-}
+  accessToken: string;
+};
 
 export type AuthLoginDto = {
-  params: {}
-  query: {}
+  params: {};
+  query: {};
   body: {
-    email: string
-    password: string
-  }
-}
+    email: string;
+    password: string;
+  };
+};
 
 export type AuthRegisterDto = {
-  params: {}
-  query: {}
+  params: {};
+  query: {};
   body: {
-    email: string
-    password: string
-  }
-}
+    email: string;
+    password: string;
+  };
+};
 
 export type AuthVerifyEmailDto = {
-  params: {}
-  query: {}
+  params: {};
+  query: {};
   body: {
-    email: string
-    verifyCode: string
-  }
-}
+    email: string;
+    verifyCode: string;
+  };
+};

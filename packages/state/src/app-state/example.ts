@@ -1,20 +1,20 @@
-import { create } from 'zustand'
-import { immer } from 'zustand/middleware/immer'
+import { create } from "zustand";
+import { immer } from "zustand/middleware/immer";
 
 interface ExampleFormState {
-  example: string
+  example: string;
 
-  setExample: (data: { example: string }) => void
+  setExample: (data: { example: string }) => void;
 }
 
 export const useStoreFormRegisterCorporate = create<ExampleFormState>()(
-  immer(set => ({
-    example: '',
+  immer((set) => ({
+    example: "",
 
-    setExample: input => set(input),
-  })),
-)
+    setExample: (input) => set(input),
+  }))
+);
 
 export const accountSelector = (state: ExampleFormState) => ({
   example: state.example,
-})
+});

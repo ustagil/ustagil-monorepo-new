@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import { Grid, Section } from '../../../atoms'
-import { DashboardCard } from '../../../molecules'
+import { FC } from "react";
+import { Grid, Section } from "../../../atoms";
+import { DashboardCard } from "../../../molecules";
 
 export interface DashboardSectionProps {}
 
@@ -19,6 +19,6 @@ export const DashboardSection: FC<DashboardSectionProps> = ({}) => (
       <DashboardCard point={24} title="Some Data" />
     </Grid>
   </Section>
-)
+);
 
-export default DashboardSection
+export default DashboardSection;

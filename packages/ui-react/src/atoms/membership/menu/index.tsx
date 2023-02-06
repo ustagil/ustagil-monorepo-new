@@ -1,15 +1,15 @@
-import { Menu as HUMenu, Transition } from '@headlessui/react'
-import { useQueryClient } from '@tanstack/react-query'
-import { useRouter } from 'next/router'
-import { destroyCookie } from 'nookies'
-import { FC, Fragment } from 'react'
-import { NextLink } from '../..'
+import { Menu as HUMenu, Transition } from "@headlessui/react";
+import { useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/router";
+import { destroyCookie } from "nookies";
+import { FC, Fragment } from "react";
+import { NextLink } from "../..";
 
-export type MenuProps = { firstname: string; lastname: string }
+export type MenuProps = { firstname: string; lastname: string };
 
 export const Menu: FC<MenuProps> = ({ firstname, lastname }) => {
-  const queryClient = useQueryClient()
-  const router = useRouter()
+  const queryClient = useQueryClient();
+  const router = useRouter();
 
   return (
     <HUMenu as="div" className="relative">
@@ -48,7 +48,7 @@ export const Menu: FC<MenuProps> = ({ firstname, lastname }) => {
                 <NextLink
                   href="/membership/ads"
                   className={`${
-                    active ? 'bg-primary-500 text-white' : 'text-gray-900'
+                    active ? "bg-primary-500 text-white" : "text-gray-900"
                   } rounded-t flex items-center w-full pl-4 pr-2 py-2 text-sm`}
                 >
                   İlanlar
@@ -61,14 +61,14 @@ export const Menu: FC<MenuProps> = ({ firstname, lastname }) => {
               {({ active }) => (
                 <button
                   className={`${
-                    active ? 'bg-primary-500 text-white' : 'text-gray-900'
+                    active ? "bg-primary-500 text-white" : "text-gray-900"
                   } rounded-b flex items-center w-full pl-4 pr-2 py-2 text-sm`}
                   onClick={() => {
-                    destroyCookie(null, 'accessToken', {
-                      path: '/',
-                    })
-                    queryClient.removeQueries()
-                    router.replace('/')
+                    destroyCookie(null, "accessToken", {
+                      path: "/",
+                    });
+                    queryClient.removeQueries();
+                    router.replace("/");
                   }}
                 >
                   Çıkış Yap
@@ -79,7 +79,7 @@ export const Menu: FC<MenuProps> = ({ firstname, lastname }) => {
         </HUMenu.Items>
       </Transition>
     </HUMenu>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

@@ -1,10 +1,10 @@
-import { create } from 'zustand'
-import { immer } from 'zustand/middleware/immer'
+import { create } from "zustand";
+import { immer } from "zustand/middleware/immer";
 
 interface SidebarState {
-  collapsed: boolean
+  collapsed: boolean;
 
-  toggleCollape: () => void
+  toggleCollape: () => void;
 }
 
 export const useStoreSidebar = create<SidebarState>()(
@@ -15,5 +15,5 @@ export const useStoreSidebar = create<SidebarState>()(
       set({
         collapsed: !get().collapsed,
       }),
-  })),
-)
+  }))
+);

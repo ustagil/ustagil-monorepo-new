@@ -1,23 +1,23 @@
-import { useInvoicesList } from '@acme/state'
-import { Invoice } from '@acme/typings'
-import { PaginationState } from '@tanstack/react-table'
-import { FC, useState } from 'react'
-import { ImSpinner3 } from 'react-icons/im'
-import { IoDocumentTextOutline } from 'react-icons/io5'
-import { RiHandCoinLine } from 'react-icons/ri'
-import { TiFlowMerge } from 'react-icons/ti'
-import { Grid, Section } from '../../../../atoms'
-import { InvoicesDataCard, InvoiceTable } from '../../../../molecules'
+import { useInvoicesList } from "@acme/state";
+import { Invoice } from "@acme/typings";
+import { PaginationState } from "@tanstack/react-table";
+import { FC, useState } from "react";
+import { ImSpinner3 } from "react-icons/im";
+import { IoDocumentTextOutline } from "react-icons/io5";
+import { RiHandCoinLine } from "react-icons/ri";
+import { TiFlowMerge } from "react-icons/ti";
+import { Grid, Section } from "../../../../atoms";
+import { InvoicesDataCard, InvoiceTable } from "../../../../molecules";
 
 export interface InvoiceSectionProps {}
 
-const defaultData: Invoice[] = []
+const defaultData: Invoice[] = [];
 
 export const InvoiceSection: FC<InvoiceSectionProps> = ({}) => {
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: 10,
-  })
+  });
 
   const { data, isFetching } = useInvoicesList({
     variables: {
@@ -28,7 +28,7 @@ export const InvoiceSection: FC<InvoiceSectionProps> = ({}) => {
       },
     },
     keepPreviousData: true,
-  })
+  });
 
   return (
     <Section id="invoice-section">
@@ -71,7 +71,7 @@ export const InvoiceSection: FC<InvoiceSectionProps> = ({}) => {
         isFetching={isFetching}
       />
     </Section>
-  )
-}
+  );
+};
 
-export default InvoiceSection
+export default InvoiceSection;

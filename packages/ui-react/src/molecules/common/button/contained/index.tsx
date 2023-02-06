@@ -1,10 +1,10 @@
-import { FC } from 'react'
-import { ButtonBaseProps } from '..'
+import { FC } from "react";
+import { ButtonBaseProps } from "..";
 
 export interface ButtonContainedProps extends ButtonBaseProps {
-  variant: 'contained'
-  title: string
-  buttonRef?: React.ForwardedRef<HTMLButtonElement>
+  variant: "contained";
+  title: string;
+  buttonRef?: React.ForwardedRef<HTMLButtonElement>;
 }
 
 export const ButtonContained: FC<ButtonContainedProps> = ({
@@ -20,8 +20,8 @@ export const ButtonContained: FC<ButtonContainedProps> = ({
       min-w-[128px] border transition duration-150 ease-in-out 
       border-gray-300 focus:outline-none focus-visible:ring-2 
       focus-visible:ring-primary-500 focus-visible:ring-opacity-75 px-4 py-2 bg-primary-500 rounded
-       ${fullWidth ? 'w-full' : ''}
-       ${loading ? 'opacity-50' : ''}
+       ${fullWidth ? "w-full" : ""}
+       ${loading ? "opacity-50" : ""}
        `}
     ref={buttonRef}
     onClick={onClick}
@@ -32,7 +32,7 @@ export const ButtonContained: FC<ButtonContainedProps> = ({
       role="status"
       className={`
       absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2
-      ${!loading ? 'hidden' : ''}
+      ${!loading ? "hidden" : ""}
       `}
     >
       <svg
@@ -54,6 +54,6 @@ export const ButtonContained: FC<ButtonContainedProps> = ({
       <span className="sr-only">Loading...</span>
     </div>
   </button>
-)
+);
 
-export default ButtonContained
+export default ButtonContained;
