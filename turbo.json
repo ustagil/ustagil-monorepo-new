@@ -15,7 +15,8 @@
             ],
             "dependsOn": [
                 "^build"
-            ]
+            ],
+            "outputMode": "new-only"
         },
         "start": {
             "inputs": [
@@ -23,9 +24,12 @@
                 "dist/**",
                 ".next/**",
                 "package.json"
-            ]
+            ],
+            "outputMode": "new-only"
         },
-        "clean": {},
+        "clean": {
+            "outputMode": "errors-only"
+        },
         "coverage": {
             "inputs": [
                 "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
@@ -37,7 +41,8 @@
             ],
             "dependsOn": [
                 "^build"
-            ]
+            ],
+            "outputMode": "new-only"
         },
         "format": {
             "inputs": [
@@ -47,7 +52,8 @@
             ],
             "dependsOn": [
                 "^build"
-            ]
+            ],
+            "outputMode": "errors-only"
         },
         "lint": {
             "inputs": [
@@ -57,7 +63,8 @@
             ],
             "dependsOn": [
                 "^build"
-            ]
+            ],
+            "outputMode": "errors-only"
         },
         "precommit": {
             "inputs": [
@@ -67,7 +74,8 @@
             ],
             "dependsOn": [
                 "^build"
-            ]
+            ],
+            "outputMode": "errors-only"
         },
         "test": {
             "inputs": [
@@ -77,7 +85,8 @@
             ],
             "dependsOn": [
                 "^build"
-            ]
+            ],
+            "outputMode": "errors-only"
         }
     }
 }
