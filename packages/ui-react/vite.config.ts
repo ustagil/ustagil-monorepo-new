@@ -18,7 +18,21 @@ export default defineConfig({
       fileName: (format) => `ui-react.${format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: [
+        "@acme/state",
+        "@headlessui/react",
+        "@hookform/resolvers",
+        "@tanstack/react-query",
+        "@tanstack/react-table",
+        "next",
+        "next-themes",
+        "nookies",
+        "react",
+        "react-dom",
+        "react-hook-form",
+        "react-icons",
+        "zod",
+      ],
       output: {
         globals: {
           react: "React",

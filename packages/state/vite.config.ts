@@ -16,7 +16,13 @@ export default defineConfig({
       fileName: (format) => `state.${format}.js`,
     },
     rollupOptions: {
-      external: [],
+      external: [
+        "@acme/api",
+        "@lukemorales/query-key-factory",
+        "immer",
+        "react-query-kit",
+        "zustand",
+      ],
       output: {
         globals: {},
       },

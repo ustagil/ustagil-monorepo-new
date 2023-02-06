@@ -16,7 +16,7 @@ export default defineConfig({
       fileName: (format) => `api.${format}.js`,
     },
     rollupOptions: {
-      external: [],
+      external: ["@acme/utils"],
       output: {
         globals: {},
       },

@@ -16,7 +16,7 @@ export default defineConfig({
       fileName: (format) => `utils.${format}.js`,
     },
     rollupOptions: {
-      external: [],
+      external: ["@acme/typings", "axios", "jwt-decode"],
       output: {
         globals: {},
       },
