@@ -1,9 +1,9 @@
-import { FC } from 'react'
-import { HiOutlineCheckCircle, HiOutlineXCircle } from 'react-icons/hi'
+import { FC } from "react";
+import { HiOutlineCheckCircle, HiOutlineXCircle } from "react-icons/hi";
 
 export interface CheckProps {
-  checked: boolean
-  label: string
+  checked: boolean;
+  label: string;
 }
 
 export const Check: FC<CheckProps> = ({ checked, label }) => (
@@ -15,12 +15,12 @@ export const Check: FC<CheckProps> = ({ checked, label }) => (
     )}
     <span
       className={`ml-1 text-sm font-medium ${
-        checked ? 'text-gray-600' : 'text-gray-400'
+        checked ? "text-gray-600" : "text-gray-400"
       }`}
     >
       {label}
     </span>
   </div>
-)
+);
 
-export default Check
+export default Check;

@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { Card, Grid, Section } from '../../../atoms'
+import { FC } from "react";
+import { Card, Grid, Section } from "../../../atoms";
 
 export interface CalculatePriceSectionProps {}
 
@@ -16,6 +16,6 @@ export const CalculatePriceSection: FC<CalculatePriceSectionProps> = ({}) => (
       </Card>
     </Grid>
   </Section>
-)
+);
 
-export default CalculatePriceSection
+export default CalculatePriceSection;

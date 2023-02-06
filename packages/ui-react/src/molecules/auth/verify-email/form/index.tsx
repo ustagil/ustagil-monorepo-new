@@ -1,56 +1,56 @@
-import { useAuthVerifyEmail } from '@acme/state'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useRouter } from 'next/router'
-import { FC } from 'react'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
-import { InputField } from '../../../../atoms'
-import { Button } from '../../../../molecules'
+import { useAuthVerifyEmail } from "@acme/state";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/router";
+import { FC } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { InputField } from "../../../../atoms";
+import { Button } from "../../../../molecules";
 
 const schema = z.object({
   verifyCode: z.string().min(6),
-})
+});
 
 export interface AuthVerifyEmailFormProps {}
 
 type IFormValues = {
-  verifyCode: string
-}
+  verifyCode: string;
+};
 
 export const AuthVerifyEmailForm: FC<AuthVerifyEmailFormProps> = () => {
-  const router = useRouter()
-  const { email } = router.query
+  const router = useRouter();
+  const { email } = router.query;
   const {
     register,
     handleSubmit,
     formState: { isDirty, isValid },
   } = useForm<IFormValues>({
     defaultValues: {
-      verifyCode: '',
+      verifyCode: "",
     },
     resolver: zodResolver(schema),
-  })
+  });
 
   const authVerifyEmailMutation = useAuthVerifyEmail({
-    onSuccess: () => void router.push('/dashboard'),
-    onError: () => void router.push('/dashboard'),
-  })
+    onSuccess: () => void router.push("/dashboard"),
+    onError: () => void router.push("/dashboard"),
+  });
 
-  const onSubmit = handleSubmit(data => {
-    if (typeof email !== 'string') return
+  const onSubmit = handleSubmit((data) => {
+    if (typeof email !== "string") return;
 
     authVerifyEmailMutation.mutate({
       body: { ...data, email },
       params: {},
       query: {},
-    })
-  })
+    });
+  });
 
   return (
     <form onSubmit={onSubmit}>
       <InputField
         className="mt-3"
-        {...register('verifyCode')}
+        {...register("verifyCode")}
         label="Verify Code"
         placeholder=""
         type=""
@@ -67,7 +67,7 @@ export const AuthVerifyEmailForm: FC<AuthVerifyEmailFormProps> = () => {
         </div>
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default AuthVerifyEmailForm
+export default AuthVerifyEmailForm;

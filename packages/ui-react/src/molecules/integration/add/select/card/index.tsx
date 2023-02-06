@@ -1,13 +1,13 @@
-import Image from 'next/image'
-import { FC } from 'react'
-import { Card } from '../../../../../atoms'
+import Image from "next/image";
+import { FC } from "react";
+import { Card } from "../../../../../atoms";
 
 export interface IntegrationAddSelectCardProps {
-  appId: string
-  appName: string
-  appIcon: string
-  appIconAlt: string
-  onClick: (appId: string) => void
+  appId: string;
+  appName: string;
+  appIcon: string;
+  appIconAlt: string;
+  onClick: (appId: string) => void;
 }
 
 export const IntegrationAddSelectCard: FC<IntegrationAddSelectCardProps> = ({
@@ -27,6 +27,6 @@ export const IntegrationAddSelectCard: FC<IntegrationAddSelectCardProps> = ({
       </div>
     </div>
   </Card>
-)
+);
 
-export default IntegrationAddSelectCard
+export default IntegrationAddSelectCard;

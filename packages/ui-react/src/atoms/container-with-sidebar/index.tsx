@@ -1,9 +1,9 @@
-import { FC } from 'react'
-import { SidebarCommon, SidebarCommonProps } from '../../molecules'
+import { FC } from "react";
+import { SidebarCommon, SidebarCommonProps } from "../../molecules";
 
 export interface ContainerWithSidebarProps {
-  children: React.ReactNode
-  selectedPage: SidebarCommonProps['selectedPage']
+  children: React.ReactNode;
+  selectedPage: SidebarCommonProps["selectedPage"];
 }
 
 export const ContainerWithSidebar: FC<ContainerWithSidebarProps> = ({
@@ -14,6 +14,6 @@ export const ContainerWithSidebar: FC<ContainerWithSidebarProps> = ({
     <SidebarCommon selectedPage={selectedPage} />
     <div className="flex-1">{children}</div>
   </div>
-)
+);
 
-export default ContainerWithSidebar
+export default ContainerWithSidebar;

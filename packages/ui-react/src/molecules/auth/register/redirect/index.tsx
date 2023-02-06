@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import { NextLink } from '../../../../atoms'
-import { Button } from '../../../../molecules'
+import { FC } from "react";
+import { NextLink } from "../../../../atoms";
+import { Button } from "../../../../molecules";
 
 export interface AuthRegisterRedirectProps {}
 
@@ -18,6 +18,6 @@ export const AuthRegisterRedirect: FC<AuthRegisterRedirectProps> = () => (
       </NextLink>
     </div>
   </div>
-)
+);
 
-export default AuthRegisterRedirect
+export default AuthRegisterRedirect;

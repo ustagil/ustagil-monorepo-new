@@ -1,56 +1,56 @@
-import { useIntegrationsGet, useIntegrationsUpdate } from '@acme/state'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useRouter } from 'next/router'
-import { FC } from 'react'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
-import { InputField, Section } from '../../../../../atoms'
-import { Button } from '../../../../../molecules'
+import { useIntegrationsGet, useIntegrationsUpdate } from "@acme/state";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/router";
+import { FC } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { InputField, Section } from "../../../../../atoms";
+import { Button } from "../../../../../molecules";
 
 export interface IntegrationByIdEditSectionProps {
-  id: string
+  id: string;
 }
 
 const schema = z.object({
   name: z.string().min(6),
-})
+});
 
 type IFormValues = {
-  name: string
-}
+  name: string;
+};
 
 export const IntegrationByIdEditSection: FC<
   IntegrationByIdEditSectionProps
 > = ({ id }) => {
   const { data: integration, isSuccess } = useIntegrationsGet({
     variables: { params: { id }, query: {} },
-  })
+  });
 
-  const router = useRouter()
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors, isDirty, isValid },
   } = useForm<IFormValues>({
     defaultValues: {
-      name: integration?.datas.name ?? '',
+      name: integration?.datas.name ?? "",
     },
     resolver: zodResolver(schema),
-  })
+  });
 
   const integrationUpdateMutation = useIntegrationsUpdate({
     onSuccess: () => void router.push(`/integrations/${id}`),
     onError: () => void router.push(`/integrations/${id}`),
-  })
+  });
 
-  const onSubmit = handleSubmit(data => {
+  const onSubmit = handleSubmit((data) => {
     if (isSuccess) {
       integrationUpdateMutation.mutate({
         body: data,
         params: { id: integration?.datas.id },
-      })
+      });
     }
-  })
+  });
 
   return (
     <Section id="integration-by-id-section">
@@ -58,7 +58,7 @@ export const IntegrationByIdEditSection: FC<
         <form onSubmit={onSubmit}>
           <InputField
             className="max-w-sm"
-            {...register('name')}
+            {...register("name")}
             label="Name"
             placeholder=""
             type="name"
@@ -80,7 +80,7 @@ export const IntegrationByIdEditSection: FC<
         </form>
       )}
     </Section>
-  )
-}
+  );
+};
 
-export default IntegrationByIdEditSection
+export default IntegrationByIdEditSection;

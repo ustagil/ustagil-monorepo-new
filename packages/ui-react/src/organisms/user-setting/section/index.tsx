@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { Card, Grid, Section } from '../../../atoms'
+import { FC } from "react";
+import { Card, Grid, Section } from "../../../atoms";
 
 export interface UserSettingSectionProps {}
 
@@ -16,6 +16,6 @@ export const UserSettingSection: FC<UserSettingSectionProps> = ({}) => (
       </Card>
     </Grid>
   </Section>
-)
+);
 
-export default UserSettingSection
+export default UserSettingSection;

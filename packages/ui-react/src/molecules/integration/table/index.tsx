@@ -1,4 +1,4 @@
-import type { Integration } from '@acme/typings'
+import type { Integration } from "@acme/typings";
 import {
   createColumnHelper,
   flexRender,
@@ -7,7 +7,7 @@ import {
   getPaginationRowModel,
   PaginationState,
   useReactTable,
-} from '@tanstack/react-table'
+} from "@tanstack/react-table";
 import {
   Dispatch,
   FC,
@@ -17,7 +17,7 @@ import {
   useMemo,
   useRef,
   useState,
-} from 'react'
+} from "react";
 import {
   NextLink,
   Table as TableComp,
@@ -27,17 +27,17 @@ import {
   TableHead,
   TableHeadRow,
   TableHeadRowCell,
-} from '../../../atoms'
+} from "../../../atoms";
 
-const columnHelper = createColumnHelper<Integration>()
+const columnHelper = createColumnHelper<Integration>();
 
 export interface IntegrationTableProps {
-  data: Integration[]
-  pageCount: number
-  pageSize: number
-  pageIndex: number
-  setPagination: Dispatch<SetStateAction<PaginationState>>
-  isFetching: boolean
+  data: Integration[];
+  pageCount: number;
+  pageSize: number;
+  pageIndex: number;
+  setPagination: Dispatch<SetStateAction<PaginationState>>;
+  isFetching: boolean;
 }
 
 export const IntegrationTable: FC<IntegrationTableProps> = ({
@@ -51,7 +51,7 @@ export const IntegrationTable: FC<IntegrationTableProps> = ({
   const columns = useMemo(
     () => [
       {
-        id: 'select',
+        id: "select",
         header: ({ table }: { table: any }) => (
           <div className="px-1">
             <IndeterminateCheckbox
@@ -75,23 +75,23 @@ export const IntegrationTable: FC<IntegrationTableProps> = ({
           </div>
         ),
       },
-      columnHelper.accessor('name', {
-        cell: info => (
+      columnHelper.accessor("name", {
+        cell: (info) => (
           <NextLink href={`/integrations/${info.row.original.id}`}>
             <span className="underline">{info.getValue()}</span>
           </NextLink>
         ),
       }),
-      columnHelper.accessor('app', {}),
-      columnHelper.accessor('status', {}),
-      columnHelper.accessor('lastSentMessage', {}),
-      columnHelper.accessor('errorMessage', {}),
-      columnHelper.accessor('email', {}),
+      columnHelper.accessor("app", {}),
+      columnHelper.accessor("status", {}),
+      columnHelper.accessor("lastSentMessage", {}),
+      columnHelper.accessor("errorMessage", {}),
+      columnHelper.accessor("email", {}),
     ],
-    [],
-  )
+    []
+  );
 
-  const [rowSelection, setRowSelection] = useState({})
+  const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
     data,
@@ -110,21 +110,21 @@ export const IntegrationTable: FC<IntegrationTableProps> = ({
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     manualPagination: true,
-  })
+  });
 
   return (
     <div>
       <TableComp>
         <TableHead>
-          {table.getHeaderGroups().map(headerGroup => (
+          {table.getHeaderGroups().map((headerGroup) => (
             <TableHeadRow key={headerGroup.id}>
-              {headerGroup.headers.map(header => (
+              {headerGroup.headers.map((header) => (
                 <TableHeadRowCell key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext(),
+                        header.getContext()
                       )}
                 </TableHeadRowCell>
               ))}
@@ -132,9 +132,9 @@ export const IntegrationTable: FC<IntegrationTableProps> = ({
           ))}
         </TableHead>
         <TableBody>
-          {table.getRowModel().rows.map(row => (
+          {table.getRowModel().rows.map((row) => (
             <TableBodyRow key={row.id}>
-              {row.getVisibleCells().map(cell => (
+              {row.getVisibleCells().map((cell) => (
                 <TableBodyRowCell key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </TableBodyRowCell>
@@ -174,51 +174,51 @@ export const IntegrationTable: FC<IntegrationTableProps> = ({
           &gt;&gt;
         </button>
         <span className="flex items-center gap-1">
-          Page: {table.getState().pagination.pageIndex + 1} of{' '}
+          Page: {table.getState().pagination.pageIndex + 1} of{" "}
           {table.getPageCount()}
         </span>
         <span className="flex items-center gap-1">| Go to page:</span>
         <input
           type="number"
           defaultValue={table.getState().pagination.pageIndex + 1}
-          onChange={e => {
-            const page = e.target.value ? Number(e.target.value) - 1 : 0
-            table.setPageIndex(page)
+          onChange={(e) => {
+            const page = e.target.value ? Number(e.target.value) - 1 : 0;
+            table.setPageIndex(page);
           }}
           className="w-16 p-1 border rounded"
         />
         <select
           value={table.getState().pagination.pageSize}
-          onChange={e => {
-            table.setPageSize(Number(e.target.value))
+          onChange={(e) => {
+            table.setPageSize(Number(e.target.value));
           }}
         >
-          {[10, 20, 30, 40, 50].map(pageSize => (
+          {[10, 20, 30, 40, 50].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
           ))}
         </select>
-        {isFetching ? 'Loading...' : null}
+        {isFetching ? "Loading..." : null}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default IntegrationTable
+export default IntegrationTable;
 
 function IndeterminateCheckbox({
   indeterminate,
-  className = '',
+  className = "",
   ...rest
 }: { indeterminate?: boolean } & HTMLProps<HTMLInputElement>) {
-  const ref = useRef<HTMLInputElement>(null!)
+  const ref = useRef<HTMLInputElement>(null!);
 
   useEffect(() => {
-    if (typeof indeterminate === 'boolean') {
-      ref.current.indeterminate = !rest.checked && indeterminate
+    if (typeof indeterminate === "boolean") {
+      ref.current.indeterminate = !rest.checked && indeterminate;
     }
-  }, [ref, indeterminate, rest.checked])
+  }, [ref, indeterminate, rest.checked]);
 
   return (
     <>
@@ -229,9 +229,9 @@ function IndeterminateCheckbox({
         id="checkbox"
         type="checkbox"
         ref={ref}
-        className={className + ' cursor-pointer'}
+        className={className + " cursor-pointer"}
         {...rest}
       />
     </>
-  )
+  );
 }

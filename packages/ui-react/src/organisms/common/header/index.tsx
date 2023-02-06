@@ -1,14 +1,14 @@
-import { useTheme } from 'next-themes'
-import Image from 'next/image'
-import { FC } from 'react'
-import { BsFillGearFill, BsMoon, BsMoonFill } from 'react-icons/bs'
-import { NextLink } from '../../../atoms'
-import { Button } from '../../../molecules'
+import { useTheme } from "next-themes";
+import Image from "next/image";
+import { FC } from "react";
+import { BsFillGearFill, BsMoon, BsMoonFill } from "react-icons/bs";
+import { NextLink } from "../../../atoms";
+import { Button } from "../../../molecules";
 
 export interface CommonHeaderProps {}
 
 export const CommonHeader: FC<CommonHeaderProps> = () => {
-  const { setTheme } = useTheme()
+  const { setTheme } = useTheme();
 
   return (
     <header>
@@ -28,25 +28,25 @@ export const CommonHeader: FC<CommonHeaderProps> = () => {
             <Button
               variant="contained-icon"
               icon={<BsMoon />}
-              onClick={() => setTheme('dark')}
+              onClick={() => setTheme("dark")}
             />
             <Button
               variant="contained-icon"
               icon={<BsMoonFill />}
-              onClick={() => setTheme('light')}
+              onClick={() => setTheme("light")}
             />
             <Button
               variant="contained-icon"
               icon={<BsFillGearFill />}
               onClick={() => {
-                setTheme('system')
+                setTheme("system");
               }}
             />
           </div>
         </div>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default CommonHeader
+export default CommonHeader;

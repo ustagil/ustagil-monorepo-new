@@ -1,17 +1,19 @@
-import { useIntegrationEmailStore } from '@acme/state'
-import { FC } from 'react'
-import { NextLink, Section } from '../../../../../atoms'
-import { Button } from '../../../../../molecules'
+import { useIntegrationEmailStore } from "@acme/state";
+import { FC } from "react";
+import { NextLink, Section } from "../../../../../atoms";
+import { Button } from "../../../../../molecules";
 
 export interface IntegrationAddSummarizeSectionProps {}
 
 export const IntegrationAddSummarizeSection: FC<
   IntegrationAddSummarizeSectionProps
 > = ({}) => {
-  const { integrationEmail, selectedApp } = useIntegrationEmailStore(state => ({
-    integrationEmail: state.integrationEmail,
-    selectedApp: state.selectedApp,
-  }))
+  const { integrationEmail, selectedApp } = useIntegrationEmailStore(
+    (state) => ({
+      integrationEmail: state.integrationEmail,
+      selectedApp: state.selectedApp,
+    })
+  );
 
   return (
     <Section id="integration-add-summarize-section">
@@ -27,7 +29,7 @@ export const IntegrationAddSummarizeSection: FC<
         </NextLink>
       </div>
     </Section>
-  )
-}
+  );
+};
 
-export default IntegrationAddSummarizeSection
+export default IntegrationAddSummarizeSection;

@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { FC } from "react";
 
 export interface TableHeadRowCellProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const TableHeadRowCell: FC<TableHeadRowCellProps> = ({ children }) => (
@@ -10,6 +10,6 @@ export const TableHeadRowCell: FC<TableHeadRowCellProps> = ({ children }) => (
     {/* border-l border-gray-500  first:rounded-tl last:rounded-tr first:border-l-0 */}
     {children}
   </th>
-)
+);
 
-export default TableHeadRowCell
+export default TableHeadRowCell;

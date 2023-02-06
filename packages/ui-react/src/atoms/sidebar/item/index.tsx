@@ -1,13 +1,13 @@
-import React, { FC, FunctionComponentElement } from 'react'
-import { IconBaseProps } from 'react-icons/lib'
-import { NextLink } from '../..'
+import React, { FC, FunctionComponentElement } from "react";
+import { IconBaseProps } from "react-icons/lib";
+import { NextLink } from "../..";
 
 export interface SidebarItemProps {
-  href: string
-  title: string
-  collapsed: boolean
-  Icon: FunctionComponentElement<IconBaseProps>
-  selected?: boolean
+  href: string;
+  title: string;
+  collapsed: boolean;
+  Icon: FunctionComponentElement<IconBaseProps>;
+  selected?: boolean;
 }
 
 export const SidebarItem: FC<SidebarItemProps> = ({
@@ -20,14 +20,14 @@ export const SidebarItem: FC<SidebarItemProps> = ({
   <NextLink
     href={href}
     className={`block py-2 hover:bg-primary-500 hover:text-background 
-    ${collapsed ? 'px-3' : 'pl-3 pr-14'}
-    ${selected ? 'text-primary-400 ' : ''}`}
+    ${collapsed ? "px-3" : "pl-3 pr-14"}
+    ${selected ? "text-primary-400 " : ""}`}
   >
     <div className="flex items-center">
       {React.cloneElement(Icon, { size: 24 })}
       {!collapsed && <span className="ml-2">{title}</span>}
     </div>
   </NextLink>
-)
+);
 
-export default SidebarItem
+export default SidebarItem;

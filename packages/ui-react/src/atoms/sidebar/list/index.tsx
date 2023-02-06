@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import { FC } from "react";
 
 export interface SidebarListProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const SidebarList: FC<SidebarListProps> = ({ children }) => (
   <div className="">{children}</div>
-)
+);
 
-export default SidebarList
+export default SidebarList;

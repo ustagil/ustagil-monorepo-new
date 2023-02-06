@@ -1,10 +1,10 @@
-import { FC } from 'react'
-import { ButtonBaseProps } from '..'
+import { FC } from "react";
+import { ButtonBaseProps } from "..";
 
 export interface ButtonOutlinedProps extends ButtonBaseProps {
-  variant: 'outlined'
-  title: string
-  buttonRef?: React.ForwardedRef<HTMLButtonElement>
+  variant: "outlined";
+  title: string;
+  buttonRef?: React.ForwardedRef<HTMLButtonElement>;
 }
 
 export const ButtonOutlined: FC<ButtonOutlinedProps> = ({
@@ -17,8 +17,8 @@ export const ButtonOutlined: FC<ButtonOutlinedProps> = ({
 }) => (
   <button
     className={`relative disabled:bg-gray-500 text-primary-400 font-semibold hover:bg-primary-200 active:bg-primary-100 min-w-[128px] border transition duration-150 ease-in-out border-primary-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-opacity-75 px-4 py-2 rounded ${
-      fullWidth ? 'w-full' : ''
-    } ${loading ? 'opacity-50' : ''}`}
+      fullWidth ? "w-full" : ""
+    } ${loading ? "opacity-50" : ""}`}
     ref={buttonRef}
     onClick={onClick}
     disabled={disabled || loading}
@@ -28,7 +28,7 @@ export const ButtonOutlined: FC<ButtonOutlinedProps> = ({
       role="status"
       className={`
       absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2
-      ${!loading ? 'hidden' : ''}
+      ${!loading ? "hidden" : ""}
       `}
     >
       <svg
@@ -50,6 +50,6 @@ export const ButtonOutlined: FC<ButtonOutlinedProps> = ({
       <span className="sr-only">Loading...</span>
     </div>
   </button>
-)
+);
 
-export default ButtonOutlined
+export default ButtonOutlined;

@@ -1,13 +1,13 @@
-import { FC } from 'react'
+import { FC } from "react";
 
-type SwitchSideType = 'left' | 'right'
+type SwitchSideType = "left" | "right";
 
 export interface SwitchProps {
-  side: SwitchSideType
-  leftLabel: string
-  rightLabel: string
-  onSelectLeft: () => void
-  onSelectRight: () => void
+  side: SwitchSideType;
+  leftLabel: string;
+  rightLabel: string;
+  onSelectLeft: () => void;
+  onSelectRight: () => void;
 }
 
 export const Switch: FC<SwitchProps> = ({
@@ -20,7 +20,7 @@ export const Switch: FC<SwitchProps> = ({
   <div className="inline-flex items-center bg-white border-2 border-gray-300 rounded focus-within:ring-2 ring-primary-400 ">
     <button
       className={`outline-none focus:bg-primary-50 px-3 py-2 text-sm font-medium text-gray-500  ${
-        side === 'left' ? 'text-primary-500' : ''
+        side === "left" ? "text-primary-500" : ""
       } `}
       onClick={() => onSelectLeft()}
     >
@@ -38,13 +38,13 @@ export const Switch: FC<SwitchProps> = ({
     </svg>
     <button
       className={`outline-none focus:bg-primary-50 px-3 py-2 text-sm font-medium text-gray-500  ${
-        side === 'right' ? 'text-primary-500' : ''
+        side === "right" ? "text-primary-500" : ""
       } `}
       onClick={() => onSelectRight()}
     >
       {rightLabel}
     </button>
   </div>
-)
+);
 
-export default Switch
+export default Switch;

@@ -1,66 +1,66 @@
 import {
   useIntegrationEmailsCheckIntegration,
   useIntegrationEmailStore,
-} from '@acme/state'
-import { FC, useState } from 'react'
-import { VscInfo } from 'react-icons/vsc'
-import { NextLink, Section } from '../../../../../atoms'
-import { Button, IntegrationAddSelectCard } from '../../../../../molecules'
+} from "@acme/state";
+import { FC, useState } from "react";
+import { VscInfo } from "react-icons/vsc";
+import { NextLink, Section } from "../../../../../atoms";
+import { Button, IntegrationAddSelectCard } from "../../../../../molecules";
 
 // import slackSVGIcon from '/assets/Slack_icon_2019.svg'
 
 type IntegrationApp = {
-  appId: string
-  appName: string
-  appIcon: string
-  appIconAlt: string
-}
+  appId: string;
+  appName: string;
+  appIcon: string;
+  appIconAlt: string;
+};
 
 const apps: IntegrationApp[] = [
   {
-    appIcon: 'slackSVGIcon',
-    appIconAlt: 'Slack SVG Icon',
-    appId: 'slack',
-    appName: 'Slack',
+    appIcon: "slackSVGIcon",
+    appIconAlt: "Slack SVG Icon",
+    appId: "slack",
+    appName: "Slack",
   },
   {
-    appIcon: 'slackSVGIcon',
-    appIconAlt: 'Discord SVG Icon',
-    appId: 'discord',
-    appName: 'Discord',
+    appIcon: "slackSVGIcon",
+    appIconAlt: "Discord SVG Icon",
+    appId: "discord",
+    appName: "Discord",
   },
-]
+];
 
 export interface IntegrationAddSelectSectionProps {}
 
 export const IntegrationAddSelectSection: FC<
   IntegrationAddSelectSectionProps
 > = ({}) => {
-  const { selectedApp, setSelectedApp } = useIntegrationEmailStore(state => ({
+  const { selectedApp, setSelectedApp } = useIntegrationEmailStore((state) => ({
     selectedApp: state.selectedApp,
     setSelectedApp: state.setSelectedApp,
-  }))
+  }));
 
-  const [checked, setChecked] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [checked, setChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const integrationEmailsCheckIntegrationMutation =
     useIntegrationEmailsCheckIntegration({
       onMutate: () => setLoading(true),
       onSuccess: () => {
-        setChecked(true)
-        setLoading(false)
+        setChecked(true);
+        setLoading(false);
       },
       onError: () => {
-        setChecked(true)
-        setLoading(false)
+        setChecked(true);
+        setLoading(false);
       },
-    })
+    });
 
   return (
     <Section id="integration-add-select-section">
       <div className="grid grid-cols-1 gap-2 md:grid-cols-4">
-        {apps.map(app => (
+        {apps.map((app) => (
           <IntegrationAddSelectCard
             key={app.appId}
             appIcon={app.appIcon}
@@ -104,12 +104,12 @@ export const IntegrationAddSelectSection: FC<
             disabled={!selectedApp}
             loading={loading}
             onClick={() => {
-              if (!selectedApp) return
+              if (!selectedApp) return;
               integrationEmailsCheckIntegrationMutation.mutate({
                 body: { app: selectedApp },
                 params: {},
                 query: {},
-              })
+              });
             }}
           />
           <NextLink href="/integrations/summarize" legacyBehavior>
@@ -123,7 +123,7 @@ export const IntegrationAddSelectSection: FC<
         </div>
       </div>
     </Section>
-  )
-}
+  );
+};
 
-export default IntegrationAddSelectSection
+export default IntegrationAddSelectSection;

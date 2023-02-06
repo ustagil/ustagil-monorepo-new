@@ -1,17 +1,17 @@
 export type IntegrationEmailCheckDto = {
-  params: {}
-  query: {}
-  body: { email: string }
-}
+  params: {};
+  query: {};
+  body: { email: string };
+};
 
 export type IntegrationEmailCheckIntegrationDto = {
-  params: {}
-  query: {}
-  body: { app: string }
-}
+  params: {};
+  query: {};
+  body: { app: string };
+};
 
 export type IntegrationEmailGetNewDto = {
-  params: {}
-  query: {}
-  body: {}
-}
+  params: {};
+  query: {};
+  body: {};
+};

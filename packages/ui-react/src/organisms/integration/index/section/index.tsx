@@ -1,22 +1,22 @@
-import { useIntegrationsList } from '@acme/state'
+import { useIntegrationsList } from "@acme/state";
 import {
   Integration,
   IntegrationListDto,
   IntegrationStatus,
-} from '@acme/typings'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { PaginationState } from '@tanstack/react-table'
-import { FC, useState } from 'react'
-import { Controller, useForm } from 'react-hook-form'
-import * as z from 'zod'
+} from "@acme/typings";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { PaginationState } from "@tanstack/react-table";
+import { FC, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import * as z from "zod";
 import {
   InputField,
   NextLink,
   Section,
   Select,
   SelectOption,
-} from '../../../../atoms'
-import { Button, IntegrationTable } from '../../../../molecules'
+} from "../../../../atoms";
+import { Button, IntegrationTable } from "../../../../molecules";
 
 export interface IntegrationSectionProps {}
 
@@ -32,9 +32,9 @@ const schema = z.object({
     z.literal(1),
     z.literal(2),
   ]),
-})
+});
 
-const defaultData: Integration[] = []
+const defaultData: Integration[] = [];
 
 export const IntegrationSection: FC<IntegrationSectionProps> = () => {
   const {
@@ -44,24 +44,24 @@ export const IntegrationSection: FC<IntegrationSectionProps> = () => {
     watch,
     control,
   } = useForm<
-    Omit<IntegrationListDto['query'], 'status'> & { status: SelectOption }
+    Omit<IntegrationListDto["query"], "status"> & { status: SelectOption }
   >({
     defaultValues: {
-      name: '',
-      app: '',
-      email: '',
-      errorMessage: '',
-      lastSentMessage: '',
-      status: { id: '', label: 'Not Selected', value: '' },
+      name: "",
+      app: "",
+      email: "",
+      errorMessage: "",
+      lastSentMessage: "",
+      status: { id: "", label: "Not Selected", value: "" },
     },
     resolver: zodResolver(schema),
-  })
-  const { app, email, errorMessage, lastSentMessage, name, status } = watch()
+  });
+  const { app, email, errorMessage, lastSentMessage, name, status } = watch();
 
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: 10,
-  })
+  });
 
   const { data, isFetching } = useIntegrationsList({
     variables: {
@@ -78,7 +78,7 @@ export const IntegrationSection: FC<IntegrationSectionProps> = () => {
       },
     },
     keepPreviousData: true,
-  })
+  });
 
   return (
     <Section id="integration-section">
@@ -86,13 +86,13 @@ export const IntegrationSection: FC<IntegrationSectionProps> = () => {
         <div className="flex items-baseline justify-center flex-1">
           <form className="flex gap-3">
             <InputField
-              {...register('app')}
+              {...register("app")}
               className="max-w-sm"
               label="App"
               error={errors.app?.message?.toString()}
             />
             <InputField
-              {...register('email')}
+              {...register("email")}
               className="max-w-sm"
               label="E-Posta"
               type="email"
@@ -100,19 +100,19 @@ export const IntegrationSection: FC<IntegrationSectionProps> = () => {
               error={errors.email?.message?.toString()}
             />
             <InputField
-              {...register('errorMessage')}
+              {...register("errorMessage")}
               className="max-w-sm"
               label="Error Message"
               error={errors.errorMessage?.message?.toString()}
             />
             <InputField
-              {...register('lastSentMessage')}
+              {...register("lastSentMessage")}
               className="max-w-sm"
               label="Last Sent Message"
               error={errors.lastSentMessage?.message?.toString()}
             />
             <InputField
-              {...register('name')}
+              {...register("name")}
               className="max-w-sm"
               label="Name"
               error={errors.name?.message?.toString()}
@@ -126,17 +126,17 @@ export const IntegrationSection: FC<IntegrationSectionProps> = () => {
                   className="max-w-sm"
                   value={
                     field.value ?? {
-                      id: '',
-                      label: 'Not Selected',
-                      value: '',
+                      id: "",
+                      label: "Not Selected",
+                      value: "",
                     }
                   }
                   label="Status"
                   options={[
-                    { id: '', label: 'Not Selected', value: '' },
-                    { id: '1', label: 'Active', value: 1 },
-                    { id: '0', label: 'Deactive', value: 0 },
-                    { id: '2', label: 'Error', value: 2 },
+                    { id: "", label: "Not Selected", value: "" },
+                    { id: "1", label: "Active", value: 1 },
+                    { id: "0", label: "Deactive", value: 0 },
+                    { id: "2", label: "Error", value: 2 },
                   ]}
                 />
               )}
@@ -158,7 +158,7 @@ export const IntegrationSection: FC<IntegrationSectionProps> = () => {
         isFetching={isFetching}
       />
     </Section>
-  )
-}
+  );
+};
 
-export default IntegrationSection
+export default IntegrationSection;

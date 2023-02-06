@@ -1,9 +1,9 @@
-import { FC } from 'react'
-import { Card } from '../../../atoms'
+import { FC } from "react";
+import { Card } from "../../../atoms";
 
 export interface DashboardCardProps {
-  title: string
-  point: number
+  title: string;
+  point: number;
 }
 
 export const DashboardCard: FC<DashboardCardProps> = ({ point, title }) => (
@@ -15,6 +15,6 @@ export const DashboardCard: FC<DashboardCardProps> = ({ point, title }) => (
       <span>{point}</span>
     </div>
   </Card>
-)
+);
 
-export default DashboardCard
+export default DashboardCard;

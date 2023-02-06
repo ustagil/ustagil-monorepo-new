@@ -3,14 +3,14 @@ import {
   HTMLAttributes,
   InputHTMLAttributes,
   PropsWithChildren,
-} from 'react'
-import { UseFormRegisterReturn } from 'react-hook-form'
+} from "react";
+import { UseFormRegisterReturn } from "react-hook-form";
 
 export type InputCheckProps = HTMLAttributes<HTMLInputElement> &
   InputHTMLAttributes<HTMLInputElement> &
   Partial<UseFormRegisterReturn> & {
-    label: string
-  }
+    label: string;
+  };
 
 export const InputCheck = forwardRef<
   HTMLInputElement,
@@ -30,8 +30,8 @@ export const InputCheck = forwardRef<
       </span>
     </label>
   </div>
-))
+));
 
-InputCheck.displayName = 'InputCheck'
+InputCheck.displayName = "InputCheck";
 
-export default InputCheck
+export default InputCheck;

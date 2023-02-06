@@ -1,4 +1,4 @@
-import { Invoice } from '@acme/typings'
+import { Invoice } from "@acme/typings";
 import {
   createColumnHelper,
   flexRender,
@@ -7,8 +7,8 @@ import {
   getPaginationRowModel,
   PaginationState,
   useReactTable,
-} from '@tanstack/react-table'
-import { Dispatch, FC, SetStateAction, useMemo, useState } from 'react'
+} from "@tanstack/react-table";
+import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
 import {
   NextLink,
   Table as TableComp,
@@ -18,17 +18,17 @@ import {
   TableHead,
   TableHeadRow,
   TableHeadRowCell,
-} from '../../../atoms'
+} from "../../../atoms";
 
-const columnHelper = createColumnHelper<Invoice>()
+const columnHelper = createColumnHelper<Invoice>();
 
 export interface InvoiceTableProps {
-  data: Invoice[]
-  pageCount: number
-  pageSize: number
-  pageIndex: number
-  setPagination: Dispatch<SetStateAction<PaginationState>>
-  isFetching: boolean
+  data: Invoice[];
+  pageCount: number;
+  pageSize: number;
+  pageIndex: number;
+  setPagination: Dispatch<SetStateAction<PaginationState>>;
+  isFetching: boolean;
 }
 
 export const InvoiceTable: FC<InvoiceTableProps> = ({
@@ -41,25 +41,25 @@ export const InvoiceTable: FC<InvoiceTableProps> = ({
 }) => {
   const columns = useMemo(
     () => [
-      columnHelper.accessor('id', {
-        cell: info => (
+      columnHelper.accessor("id", {
+        cell: (info) => (
           <NextLink href={`/invoices/${info.row.original.id}`}>
             <span className="underline">{info.getValue()}</span>
           </NextLink>
         ),
       }),
-      columnHelper.accessor('amount', {}),
-      columnHelper.accessor('billingPlanName', {}),
-      columnHelper.accessor('invoiceDate', {}),
-      columnHelper.accessor('paidDate', {}),
-      columnHelper.accessor('paymentMethod', {}),
-      columnHelper.accessor('recepientName', {}),
-      columnHelper.accessor('status', {}),
+      columnHelper.accessor("amount", {}),
+      columnHelper.accessor("billingPlanName", {}),
+      columnHelper.accessor("invoiceDate", {}),
+      columnHelper.accessor("paidDate", {}),
+      columnHelper.accessor("paymentMethod", {}),
+      columnHelper.accessor("recepientName", {}),
+      columnHelper.accessor("status", {}),
     ],
-    [],
-  )
+    []
+  );
 
-  const [rowSelection, setRowSelection] = useState({})
+  const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
     data,
@@ -78,21 +78,21 @@ export const InvoiceTable: FC<InvoiceTableProps> = ({
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     manualPagination: true,
-  })
+  });
 
   return (
     <div>
       <TableComp>
         <TableHead>
-          {table.getHeaderGroups().map(headerGroup => (
+          {table.getHeaderGroups().map((headerGroup) => (
             <TableHeadRow key={headerGroup.id}>
-              {headerGroup.headers.map(header => (
+              {headerGroup.headers.map((header) => (
                 <TableHeadRowCell key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext(),
+                        header.getContext()
                       )}
                 </TableHeadRowCell>
               ))}
@@ -100,9 +100,9 @@ export const InvoiceTable: FC<InvoiceTableProps> = ({
           ))}
         </TableHead>
         <TableBody>
-          {table.getRowModel().rows.map(row => (
+          {table.getRowModel().rows.map((row) => (
             <TableBodyRow key={row.id}>
-              {row.getVisibleCells().map(cell => (
+              {row.getVisibleCells().map((cell) => (
                 <TableBodyRowCell key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </TableBodyRowCell>
@@ -142,35 +142,35 @@ export const InvoiceTable: FC<InvoiceTableProps> = ({
           &gt;&gt;
         </button>
         <span className="flex items-center gap-1">
-          Page: {table.getState().pagination.pageIndex + 1} of{' '}
+          Page: {table.getState().pagination.pageIndex + 1} of{" "}
           {table.getPageCount()}
         </span>
         <span className="flex items-center gap-1">| Go to page:</span>
         <input
           type="number"
           defaultValue={table.getState().pagination.pageIndex + 1}
-          onChange={e => {
-            const page = e.target.value ? Number(e.target.value) - 1 : 0
-            table.setPageIndex(page)
+          onChange={(e) => {
+            const page = e.target.value ? Number(e.target.value) - 1 : 0;
+            table.setPageIndex(page);
           }}
           className="w-16 p-1 border rounded"
         />
         <select
           value={table.getState().pagination.pageSize}
-          onChange={e => {
-            table.setPageSize(Number(e.target.value))
+          onChange={(e) => {
+            table.setPageSize(Number(e.target.value));
           }}
         >
-          {[10, 20, 30, 40, 50].map(pageSize => (
+          {[10, 20, 30, 40, 50].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
           ))}
         </select>
-        {isFetching ? 'Loading...' : null}
+        {isFetching ? "Loading..." : null}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default InvoiceTable
+export default InvoiceTable;

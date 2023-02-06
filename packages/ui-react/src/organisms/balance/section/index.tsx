@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import { Card, Grid, Section } from '../../../atoms'
+import { FC } from "react";
+import { Card, Grid, Section } from "../../../atoms";
 
 export interface BalanceSectionProps {}
 
@@ -16,6 +16,6 @@ export const BalanceSection: FC<BalanceSectionProps> = ({}) => (
       </Card>
     </Grid>
   </Section>
-)
+);
 
-export default BalanceSection
+export default BalanceSection;

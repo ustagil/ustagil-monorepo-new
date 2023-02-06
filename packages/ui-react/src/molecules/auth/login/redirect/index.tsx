@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import { NextLink } from '../../../../atoms'
-import { Button } from '../../../../molecules'
+import { FC } from "react";
+import { NextLink } from "../../../../atoms";
+import { Button } from "../../../../molecules";
 
 export interface AuthLoginRedirectProps {}
 
@@ -17,6 +17,6 @@ export const AuthLoginRedirect: FC<AuthLoginRedirectProps> = () => (
       </NextLink>
     </div>
   </div>
-)
+);
 
-export default AuthLoginRedirect
+export default AuthLoginRedirect;

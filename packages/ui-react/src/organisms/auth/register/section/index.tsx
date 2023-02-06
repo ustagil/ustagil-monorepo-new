@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import { Section } from '../../../../atoms'
-import { AuthLoginRedirect, AuthRegisterForm } from '../../../../molecules'
+import { FC } from "react";
+import { Section } from "../../../../atoms";
+import { AuthLoginRedirect, AuthRegisterForm } from "../../../../molecules";
 
 export interface AuthRegisterSectionProps {}
 
@@ -18,7 +18,7 @@ export const AuthRegisterSection: FC<AuthRegisterSectionProps> = () => {
         </div>
       </div>
     </Section>
-  )
-}
+  );
+};
 
-export default AuthRegisterSection
+export default AuthRegisterSection;

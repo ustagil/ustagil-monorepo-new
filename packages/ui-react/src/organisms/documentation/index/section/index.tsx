@@ -1,6 +1,6 @@
-import { FC } from 'react'
-import { Grid, Section } from '../../../../atoms'
-import { DocumentationCard } from '../../../../molecules'
+import { FC } from "react";
+import { Grid, Section } from "../../../../atoms";
+import { DocumentationCard } from "../../../../molecules";
 
 export interface DocumentationsSectionProps {}
 
@@ -49,6 +49,6 @@ export const DocumentationsSection: FC<DocumentationsSectionProps> = ({}) => (
       />
     </Grid>
   </Section>
-)
+);
 
-export default DocumentationsSection
+export default DocumentationsSection;
