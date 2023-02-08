@@ -3,7 +3,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { destroyCookie } from "nookies";
 import { FC, Fragment } from "react";
-import { NextLink } from "../..";
+import { NextLink } from "../../next-link";
 
 export type MenuProps = { firstname: string; lastname: string };
 

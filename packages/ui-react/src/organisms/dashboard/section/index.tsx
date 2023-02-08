@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { Grid, Section } from "../../../atoms";
-import { DashboardCard } from "../../../molecules";
+import { Grid } from "../../../atoms/grid";
+import { Section } from "../../../atoms/section";
+import { DashboardCard } from "../../../molecules/dashboard/card";
 
 export interface DashboardSectionProps {}
 

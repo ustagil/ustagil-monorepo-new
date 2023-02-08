@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { Grid, Section } from "../../../../atoms";
-import { DocumentationCard } from "../../../../molecules";
+import { Grid } from "../../../../atoms/grid";
+import { Section } from "../../../../atoms/section";
+import { DocumentationCard } from "../../../../molecules/documentation/card";
 
 export interface DocumentationsSectionProps {}
 

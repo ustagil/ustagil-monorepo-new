@@ -6,8 +6,10 @@ import { ImSpinner3 } from "react-icons/im";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { RiHandCoinLine } from "react-icons/ri";
 import { TiFlowMerge } from "react-icons/ti";
-import { Grid, Section } from "../../../../atoms";
-import { InvoicesDataCard, InvoiceTable } from "../../../../molecules";
+import { Grid } from "../../../../atoms/grid";
+import { Section } from "../../../../atoms/section";
+import { InvoicesDataCard } from "../../../../molecules/invoices/card";
+import { InvoiceTable } from "../../../../molecules/invoices/table";
 
 export interface InvoiceSectionProps {}
 

@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Section } from "../../../../atoms";
-import { AuthVerifyEmailForm } from "../../../../molecules";
+import { Section } from "../../../../atoms/section";
+import { AuthVerifyEmailForm } from "../../../../molecules/auth/verify-email/form";
 
 export interface AuthVerifyEmailSectionProps {}
 

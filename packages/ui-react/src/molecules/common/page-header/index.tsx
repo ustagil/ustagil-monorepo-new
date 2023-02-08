@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Section } from "../../../atoms";
+import { Section } from "../../../atoms/section";
 
 export interface PageHeaderProps {
   title: string;

@@ -4,8 +4,10 @@ import {
 } from "@acme/state";
 import { FC, useState } from "react";
 import { VscInfo } from "react-icons/vsc";
-import { NextLink, Section } from "../../../../../atoms";
-import { Button, IntegrationAddSelectCard } from "../../../../../molecules";
+import { NextLink } from "../../../../../atoms/next-link";
+import { Section } from "../../../../../atoms/section";
+import { Button } from "../../../../../molecules/common/button";
+import { IntegrationAddSelectCard } from "../../../../../molecules/integration/add/select/card";
 
 // import slackSVGIcon from '/assets/Slack_icon_2019.svg'
 

@@ -2,8 +2,8 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import { FC } from "react";
 import { BsFillGearFill, BsMoon, BsMoonFill } from "react-icons/bs";
-import { NextLink } from "../../../atoms";
-import { Button } from "../../../molecules";
+import { NextLink } from "../../../atoms/next-link";
+import { Button } from "../../../molecules/common/button";
 
 export interface CommonHeaderProps {}
 

@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { InputField, Section } from "../../../../../atoms";
-import { Button } from "../../../../../molecules";
+import { InputField } from "../../../../../atoms/form/input-field";
+import { Section } from "../../../../../atoms/section";
+import { Button } from "../../../../../molecules/common/button";
 
 export interface InvoiceByIdEditSectionProps {
   id: string;

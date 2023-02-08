@@ -1,5 +1,7 @@
 import { FC } from "react";
-import { Card, Grid, Section } from "../../../atoms";
+import { Card } from "../../../atoms/card";
+import { Grid } from "../../../atoms/grid";
+import { Section } from "../../../atoms/section";
 
 export interface CalculatePriceSectionProps {}
 

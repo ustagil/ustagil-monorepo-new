@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { NextLink } from "..";
+import { NextLink } from "../next-link";
 
 export interface CompanyLogoProps {}
 

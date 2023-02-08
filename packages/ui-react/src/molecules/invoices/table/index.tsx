@@ -9,8 +9,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
+import { NextLink } from "../../../atoms/next-link";
 import {
-  NextLink,
   Table as TableComp,
   TableBody,
   TableBodyRow,
@@ -18,7 +18,7 @@ import {
   TableHead,
   TableHeadRow,
   TableHeadRowCell,
-} from "../../../atoms";
+} from "../../../atoms/table";
 
 const columnHelper = createColumnHelper<Invoice>();
 

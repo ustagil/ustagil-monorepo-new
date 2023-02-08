@@ -2,8 +2,9 @@ import { WEB_APP_DOMAINS } from "@acme/constant";
 import Image from "next/image";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
-import { InputField, NextLink } from "../../../atoms";
-import { Button } from "../../../molecules";
+import { InputField } from "../../../atoms/form/input-field";
+import { NextLink } from "../../../atoms/next-link";
+import { Button } from "../../../molecules/common/button";
 
 export interface CommonFooterProps {}
 

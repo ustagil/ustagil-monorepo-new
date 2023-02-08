@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
-import { Card } from "../../../../../atoms";
+import { Card } from "../../../../../atoms/card";
 
 export interface IntegrationAddSelectCardProps {
   appId: string;

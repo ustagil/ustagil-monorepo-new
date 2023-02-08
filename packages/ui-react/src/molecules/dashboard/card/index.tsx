@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Card } from "../../../atoms";
+import { Card } from "../../../atoms/card";
 
 export interface DashboardCardProps {
   title: string;

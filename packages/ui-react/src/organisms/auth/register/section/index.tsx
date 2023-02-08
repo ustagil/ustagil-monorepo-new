@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { Section } from "../../../../atoms";
-import { AuthLoginRedirect, AuthRegisterForm } from "../../../../molecules";
+import { Section } from "../../../../atoms/section";
+import { AuthLoginRedirect } from "../../../../molecules/auth/login/redirect";
+import { AuthRegisterForm } from "../../../../molecules/auth/register/form";
 
 export interface AuthRegisterSectionProps {}
 

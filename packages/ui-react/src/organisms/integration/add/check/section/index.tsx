@@ -4,8 +4,9 @@ import {
   useIntegrationEmailStore,
 } from "@acme/state";
 import { FC, useState } from "react";
-import { NextLink, Section } from "../../../../../atoms";
-import { Button } from "../../../../../molecules";
+import { NextLink } from "../../../../../atoms/next-link";
+import { Section } from "../../../../../atoms/section";
+import { Button } from "../../../../../molecules/common/button";
 
 export interface IntegrationAddCheckSectionProps {}
 

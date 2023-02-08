@@ -13,7 +13,11 @@ import {
   VscJson,
   VscNote,
 } from "react-icons/vsc";
-import { SidebarContainer, SidebarItem, SidebarList } from "../../../atoms";
+import {
+  SidebarContainer,
+  SidebarItem,
+  SidebarList,
+} from "../../../atoms/sidebar";
 
 type SelectedPageName =
   | "dashboard"

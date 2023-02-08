@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { Card, NextLink } from "../../../atoms";
+import { Card } from "../../../atoms/card";
+import { NextLink } from "../../../atoms/next-link";
 
 export interface DocumentationCardProps {
   title: string;

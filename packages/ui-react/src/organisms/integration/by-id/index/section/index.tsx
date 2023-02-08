@@ -1,8 +1,9 @@
 import { useIntegrationsDelete, useIntegrationsGet } from "@acme/state";
 import { useRouter } from "next/router";
 import { FC } from "react";
-import { NextLink, Section } from "../../../../../atoms";
-import { Button } from "../../../../../molecules";
+import { NextLink } from "../../../../../atoms/next-link";
+import { Section } from "../../../../../atoms/section";
+import { Button } from "../../../../../molecules/common/button";
 
 export interface IntegrationByIdSectionProps {
   id: string;

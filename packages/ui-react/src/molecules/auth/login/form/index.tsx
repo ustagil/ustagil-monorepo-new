@@ -4,8 +4,8 @@ import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { InputField } from "../../../../atoms";
-import { Button } from "../../../../molecules";
+import { InputField } from "../../../../atoms/form/input-field";
+import { Button } from "../../../../molecules/common/button";
 
 const schema = z.object({
   email: z.string().email().min(2),

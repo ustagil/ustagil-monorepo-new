@@ -1,6 +1,6 @@
 import React, { FC, FunctionComponentElement } from "react";
 import { IconBaseProps } from "react-icons/lib";
-import { NextLink } from "../..";
+import { NextLink } from "../../next-link";
 
 export interface SidebarItemProps {
   href: string;

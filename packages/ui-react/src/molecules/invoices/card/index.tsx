@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Card } from "../../../atoms";
+import { Card } from "../../../atoms/card";
 
 export interface InvoicesDataCardProps {
   title: string;

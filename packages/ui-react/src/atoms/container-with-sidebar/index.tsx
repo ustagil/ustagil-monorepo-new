@@ -1,5 +1,8 @@
 import { FC } from "react";
-import { SidebarCommon, SidebarCommonProps } from "../../molecules";
+import {
+  SidebarCommon,
+  SidebarCommonProps,
+} from "../../molecules/common/sidebar";
 
 export interface ContainerWithSidebarProps {
   children: React.ReactNode;

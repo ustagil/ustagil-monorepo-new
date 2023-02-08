@@ -9,14 +9,12 @@ import { PaginationState } from "@tanstack/react-table";
 import { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
-import {
-  InputField,
-  NextLink,
-  Section,
-  Select,
-  SelectOption,
-} from "../../../../atoms";
-import { Button, IntegrationTable } from "../../../../molecules";
+import { InputField } from "../../../../atoms/form/input-field";
+import { Select, SelectOption } from "../../../../atoms/form/select";
+import { NextLink } from "../../../../atoms/next-link";
+import { Section } from "../../../../atoms/section";
+import { Button } from "../../../../molecules/common/button";
+import { IntegrationTable } from "../../../../molecules/integration/table";
 
 export interface IntegrationSectionProps {}
 
