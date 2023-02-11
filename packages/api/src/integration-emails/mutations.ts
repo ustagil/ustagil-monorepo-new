@@ -1,8 +1,8 @@
 import {
   IntegrationEmailCheckDto,
   IntegrationEmailCheckIntegrationDto,
-} from "@acme/typings";
-import { axiosInstance, sleep } from "@acme/utils";
+} from "@ustagil/typings";
+import { axiosInstance, sleep } from "@ustagil/utils";
 import { stringify } from "querystring";
 
 export const integrationEmailsCheck = async ({

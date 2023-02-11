@@ -17,7 +17,7 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        "@acme/api",
+        "@ustagil/api",
         "@lukemorales/query-key-factory",
         "immer",
         "react-query-kit",

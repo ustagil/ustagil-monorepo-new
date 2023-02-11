@@ -1,4 +1,4 @@
-import { useIntegrationEmailStore } from "@acme/state";
+import { useIntegrationEmailStore } from "@ustagil/state";
 import { FC } from "react";
 import { NextLink } from "../../../../../atoms/next-link";
 import { Section } from "../../../../../atoms/section";

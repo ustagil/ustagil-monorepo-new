@@ -1,5 +1,5 @@
 {
-  "name": "@acme/api",
+  "name": "@ustagil/api",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,11 +20,11 @@
     "build": "tsc && vite build"
   },
   "devDependencies": {
-    "@acme/utils": "workspace:^",
+    "@ustagil/utils": "workspace:^",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
   },
   "peerDependencies": {
-    "@acme/utils": "workspace:^"
+    "@ustagil/utils": "workspace:^"
   }
 }

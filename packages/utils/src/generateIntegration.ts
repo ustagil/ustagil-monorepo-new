@@ -1,4 +1,4 @@
-import { Integration } from "@acme/typings";
+import { Integration } from "@ustagil/typings";
 
 export function generateRandomIntegration(i: number): Integration {
   // return {

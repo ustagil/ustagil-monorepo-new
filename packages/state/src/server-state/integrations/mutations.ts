@@ -2,14 +2,14 @@ import {
   integrationsCreate,
   integrationsDelete,
   integrationsUpdate,
-} from "@acme/api";
+} from "@ustagil/api";
 import {
   APIResponse,
   Integration,
   IntegrationCreateDto,
   IntegrationDeleteDto,
   IntegrationUpdateDto,
-} from "@acme/typings";
+} from "@ustagil/typings";
 import { createMutation } from "react-query-kit";
 
 export const useIntegrationsCreate = createMutation<

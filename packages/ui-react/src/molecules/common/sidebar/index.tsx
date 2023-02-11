@@ -1,4 +1,4 @@
-import { useStoreSidebar } from "@acme/state";
+import { useStoreSidebar } from "@ustagil/state";
 import { FC } from "react";
 import {
   IoArrowBackCircleOutline,

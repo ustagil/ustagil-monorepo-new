@@ -1,4 +1,3 @@
-import { Invoice } from "@acme/typings";
 import {
   createColumnHelper,
   flexRender,
@@ -8,6 +7,7 @@ import {
   PaginationState,
   useReactTable,
 } from "@tanstack/react-table";
+import { Invoice } from "@ustagil/typings";
 import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
 import { NextLink } from "../../../atoms/next-link";
 import {

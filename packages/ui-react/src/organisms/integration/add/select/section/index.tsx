@@ -1,7 +1,7 @@
 import {
   useIntegrationEmailsCheckIntegration,
   useIntegrationEmailStore,
-} from "@acme/state";
+} from "@ustagil/state";
 import { FC, useState } from "react";
 import { VscInfo } from "react-icons/vsc";
 import { NextLink } from "../../../../../atoms/next-link";

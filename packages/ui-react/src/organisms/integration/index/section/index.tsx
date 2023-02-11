@@ -1,11 +1,11 @@
-import { useIntegrationsList } from "@acme/state";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { PaginationState } from "@tanstack/react-table";
+import { useIntegrationsList } from "@ustagil/state";
 import {
   Integration,
   IntegrationListDto,
   IntegrationStatus,
-} from "@acme/typings";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { PaginationState } from "@tanstack/react-table";
+} from "@ustagil/typings";
 import { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";

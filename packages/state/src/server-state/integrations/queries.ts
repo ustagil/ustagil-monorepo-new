@@ -1,10 +1,10 @@
-import { integrationsGet, integrationsList } from "@acme/api";
+import { integrationsGet, integrationsList } from "@ustagil/api";
 import {
   APIResponse,
   Integration,
   IntegrationGetDto,
   IntegrationListDto,
-} from "@acme/typings";
+} from "@ustagil/typings";
 import { createQuery } from "react-query-kit";
 
 export const useIntegrationsList = createQuery<

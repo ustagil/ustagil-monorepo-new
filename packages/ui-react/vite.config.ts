@@ -19,7 +19,7 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        "@acme/state",
+        "@ustagil/state",
         "@headlessui/react",
         "@hookform/resolvers",
         "@tanstack/react-query",

@@ -1,10 +1,10 @@
-import { invoicesGet, invoicesList } from "@acme/api";
+import { invoicesGet, invoicesList } from "@ustagil/api";
 import {
   APIResponse,
   Invoice,
   InvoiceGetDto,
   InvoiceListDto,
-} from "@acme/typings";
+} from "@ustagil/typings";
 import { createQuery } from "react-query-kit";
 
 export const useInvoicesList = createQuery<

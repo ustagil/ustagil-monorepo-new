@@ -1,11 +1,11 @@
-import { todosCreate, todosDelete, todosUpdate } from "@acme/api";
+import { todosCreate, todosDelete, todosUpdate } from "@ustagil/api";
 import {
   APIResponse,
   Todo,
   TodoCreateDto,
   TodoDeleteDto,
   TodoUpdateDto,
-} from "@acme/typings";
+} from "@ustagil/typings";
 import { createMutation } from "react-query-kit";
 
 export const useTodosCreate = createMutation<APIResponse<Todo>, TodoCreateDto>({

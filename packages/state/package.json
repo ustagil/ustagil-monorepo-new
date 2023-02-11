@@ -1,5 +1,5 @@
 {
-  "name": "@acme/state",
+  "name": "@ustagil/state",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,8 +20,8 @@
     "build": "tsc && vite build"
   },
   "devDependencies": {
-    "@acme/api": "workspace:^",
     "@lukemorales/query-key-factory": "^1.1.0",
+    "@ustagil/api": "workspace:^",
     "immer": "^9.0.19",
     "react-query-kit": "^1.3.6",
     "typescript": "^4.9.3",
@@ -29,8 +29,8 @@
     "zustand": "^4.3.2"
   },
   "peerDependencies": {
-    "@acme/api": "workspace:^",
     "@lukemorales/query-key-factory": "^1.1.0",
+    "@ustagil/api": "workspace:^",
     "immer": "^9.0.19",
     "react-query-kit": "^1.3.6",
     "zustand": "^4.3.2"

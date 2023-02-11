@@ -1,4 +1,4 @@
-import { ACCOUNT_ID_PARAM, USER_ID_PARAM } from "@acme/constant";
+import { ACCOUNT_ID_PARAM, USER_ID_PARAM } from "@ustagil/constant";
 import axios from "axios";
 import { jwtToken } from "./jwtToken";
 

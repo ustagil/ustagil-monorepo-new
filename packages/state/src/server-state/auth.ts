@@ -1,12 +1,12 @@
-import { authLogin, authRegister, authVerifyEmail } from "@acme/api";
+import { authLogin, authRegister, authVerifyEmail } from "@ustagil/api";
 import { AxiosError } from "axios";
-// import { useStoreSnacks } from '@acme/state';
+// import { useStoreSnacks } from '@ustagil/state';
 import {
   AuthLoginDto,
   AuthRegisterDto,
   AuthResponse,
   AuthVerifyEmailDto,
-} from "@acme/typings";
+} from "@ustagil/typings";
 import { setCookie } from "nookies";
 import { createMutation } from "react-query-kit";
 

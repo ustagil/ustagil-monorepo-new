@@ -1,5 +1,5 @@
-import { APIResponse, Todo, TodoGetDto, TodoListDto } from "@acme/typings";
-import { axiosInstance } from "@acme/utils";
+import { APIResponse, Todo, TodoGetDto, TodoListDto } from "@ustagil/typings";
+import { axiosInstance } from "@ustagil/utils";
 import { stringify } from "querystring";
 
 export const todosList = async ({ query }: TodoListDto) =>

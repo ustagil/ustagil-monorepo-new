@@ -1,6 +1,6 @@
-import { useInvoicesList } from "@acme/state";
-import { Invoice } from "@acme/typings";
 import { PaginationState } from "@tanstack/react-table";
+import { useInvoicesList } from "@ustagil/state";
+import { Invoice } from "@ustagil/typings";
 import { FC, useState } from "react";
 import { ImSpinner3 } from "react-icons/im";
 import { IoDocumentTextOutline } from "react-icons/io5";

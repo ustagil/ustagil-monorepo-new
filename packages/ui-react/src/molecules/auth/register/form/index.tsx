@@ -1,5 +1,5 @@
-import { useAuthRegister } from "@acme/state";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useAuthRegister } from "@ustagil/state";
 import { useRouter } from "next/router";
 import { stringify } from "querystring";
 import { FC } from "react";

@@ -1,4 +1,4 @@
-import { WEB_APP_DOMAINS } from "@acme/constant";
+import { WEB_APP_DOMAINS } from "@ustagil/constant";
 import Image from "next/image";
 import { FC } from "react";
 import { useForm } from "react-hook-form";

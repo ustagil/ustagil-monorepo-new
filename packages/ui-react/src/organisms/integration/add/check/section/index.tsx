@@ -2,7 +2,7 @@ import {
   useIntegrationEmailsCheck,
   useIntegrationEmailsGetNew,
   useIntegrationEmailStore,
-} from "@acme/state";
+} from "@ustagil/state";
 import { FC, useState } from "react";
 import { NextLink } from "../../../../../atoms/next-link";
 import { Section } from "../../../../../atoms/section";

@@ -22,8 +22,6 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "@acme/api": "workspace:^",
-    "@acme/state": "workspace:^",
     "@babel/core": "^7.20.12",
     "@headlessui/react": "^1.7.9",
     "@hookform/resolvers": "^2.9.10",
@@ -42,6 +40,8 @@
     "@types/babel__core": "^7",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@ustagil/api": "workspace:^",
+    "@ustagil/state": "workspace:^",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
@@ -62,12 +62,12 @@
     "zod": "^3.20.2"
   },
   "peerDependencies": {
-    "@acme/api": "workspace:^",
-    "@acme/state": "workspace:^",
     "@headlessui/react": "^1.7.9",
     "@hookform/resolvers": "^2.9.10",
     "@tanstack/react-query": "^4.24.4",
     "@tanstack/react-table": "^8.7.9",
+    "@ustagil/api": "workspace:^",
+    "@ustagil/state": "workspace:^",
     "next": "12.1.6",
     "next-themes": "^0.2.1",
     "nookies": "^2.5.2",

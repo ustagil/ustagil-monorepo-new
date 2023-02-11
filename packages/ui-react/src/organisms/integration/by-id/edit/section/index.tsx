@@ -1,5 +1,5 @@
-import { useIntegrationsGet, useIntegrationsUpdate } from "@acme/state";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useIntegrationsGet, useIntegrationsUpdate } from "@ustagil/state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";

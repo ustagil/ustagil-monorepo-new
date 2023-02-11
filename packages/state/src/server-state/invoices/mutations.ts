@@ -1,11 +1,11 @@
-import { invoicesCreate, invoicesDelete, invoicesUpdate } from "@acme/api";
+import { invoicesCreate, invoicesDelete, invoicesUpdate } from "@ustagil/api";
 import {
   APIResponse,
   Invoice,
   InvoiceCreateDto,
   InvoiceDeleteDto,
   InvoiceUpdateDto,
-} from "@acme/typings";
+} from "@ustagil/typings";
 import { createMutation } from "react-query-kit";
 
 export const useInvoicesCreate = createMutation<

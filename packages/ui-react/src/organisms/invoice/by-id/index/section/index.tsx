@@ -1,4 +1,4 @@
-import { useInvoicesDelete, useInvoicesGet } from "@acme/state";
+import { useInvoicesDelete, useInvoicesGet } from "@ustagil/state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { NextLink } from "../../../../../atoms/next-link";

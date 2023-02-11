@@ -1,4 +1,3 @@
-import type { Integration } from "@acme/typings";
 import {
   createColumnHelper,
   flexRender,
@@ -8,6 +7,7 @@ import {
   PaginationState,
   useReactTable,
 } from "@tanstack/react-table";
+import type { Integration } from "@ustagil/typings";
 import {
   Dispatch,
   FC,

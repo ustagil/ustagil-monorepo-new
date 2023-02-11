@@ -1,4 +1,4 @@
-import { useIntegrationsDelete, useIntegrationsGet } from "@acme/state";
+import { useIntegrationsDelete, useIntegrationsGet } from "@ustagil/state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { NextLink } from "../../../../../atoms/next-link";
