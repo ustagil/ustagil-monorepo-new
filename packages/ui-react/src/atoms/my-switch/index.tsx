@@ -2,7 +2,7 @@ import { FC } from "react";
 
 type SwitchSideType = "left" | "right";
 
-export interface SwitchProps {
+export interface MySwitchProps {
   side: SwitchSideType;
   leftLabel: string;
   rightLabel: string;
@@ -10,7 +10,7 @@ export interface SwitchProps {
   onSelectRight: () => void;
 }
 
-export const Switch: FC<SwitchProps> = ({
+export const MySwitch: FC<MySwitchProps> = ({
   side,
   leftLabel,
   rightLabel,
@@ -47,4 +47,4 @@ export const Switch: FC<SwitchProps> = ({
   </div>
 );
 
-export default Switch;
+export default MySwitch;
