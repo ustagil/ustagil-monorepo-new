@@ -1,8 +1,6 @@
 {
   "name": "@ustagil/storybook",
   "version": "0.0.1",
-  "repository": "https://github.com/vercel/examples.git",
-  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "start-storybook -p 6006",
@@ -12,8 +10,11 @@
     "clean": "rimraf .turbo"
   },
   "dependencies": {
-    "@ustagil/design-system": "workspace:*",
-    "@ustagil/pages": "workspace:*",
+    "@ustagil/ui-atom": "workspace:*",
+    "@ustagil/ui-molecule": "workspace:*",
+    "@ustagil/ui-organism": "workspace:*",
+    "@ustagil/ui-page": "workspace:*",
+    "@ustagil/ui-template": "workspace:*",
     "react": "latest",
     "react-dom": "latest"
   },

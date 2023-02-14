@@ -6,7 +6,7 @@ import {
   AuthRegisterDto,
   AuthResponse,
   AuthVerifyEmailDto,
-} from "@ustagil/typings";
+} from "@ustagil/typing";
 import { setCookie } from "nookies";
 import { createMutation } from "react-query-kit";
 

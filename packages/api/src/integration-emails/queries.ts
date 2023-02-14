@@ -1,4 +1,4 @@
-import { APIResponse, IntegrationEmailGetNewDto } from "@ustagil/typings";
+import { APIResponse, IntegrationEmailGetNewDto } from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/utils";
 
 export const integrationEmailsAddGet = async ({}: IntegrationEmailGetNewDto) =>

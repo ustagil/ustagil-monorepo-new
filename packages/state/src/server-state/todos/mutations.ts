@@ -5,7 +5,7 @@ import {
   TodoCreateDto,
   TodoDeleteDto,
   TodoUpdateDto,
-} from "@ustagil/typings";
+} from "@ustagil/typing";
 import { createMutation } from "react-query-kit";
 
 export const useTodosCreate = createMutation<APIResponse<Todo>, TodoCreateDto>({

@@ -1,5 +1,5 @@
 import { Inter } from "@next/font/google";
-import { Button } from "ui-react";
+import { Button } from "@ustagil/ui-molecule";
 
 const inter = Inter({ subsets: ["latin"] });
 

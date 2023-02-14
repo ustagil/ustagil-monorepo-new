@@ -1,5 +1,5 @@
 import { todosGet, todosList } from "@ustagil/api";
-import { APIResponse, Todo, TodoGetDto, TodoListDto } from "@ustagil/typings";
+import { APIResponse, Todo, TodoGetDto, TodoListDto } from "@ustagil/typing";
 import { createQuery } from "react-query-kit";
 
 export const useTodosList = createQuery<APIResponse<Todo[]>, TodoListDto>({

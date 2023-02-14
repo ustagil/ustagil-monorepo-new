@@ -1,4 +1,4 @@
-import { JWTTokenClaims } from "@ustagil/typings";
+import { JWTTokenClaims } from "@ustagil/typing";
 import jwtDecode from "jwt-decode";
 import { parseCookies } from "nookies";
 

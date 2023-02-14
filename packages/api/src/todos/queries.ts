@@ -1,4 +1,4 @@
-import { APIResponse, Todo, TodoGetDto, TodoListDto } from "@ustagil/typings";
+import { APIResponse, Todo, TodoGetDto, TodoListDto } from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/utils";
 import { stringify } from "querystring";
 

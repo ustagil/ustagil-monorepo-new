@@ -1,7 +1,7 @@
 import {
   IntegrationEmailCheckDto,
   IntegrationEmailCheckIntegrationDto,
-} from "@ustagil/typings";
+} from "@ustagil/typing";
 import { axiosInstance, sleep } from "@ustagil/utils";
 import { stringify } from "querystring";
 

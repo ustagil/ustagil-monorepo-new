@@ -3,7 +3,7 @@ import {
   AuthRegisterDto,
   AuthResponse,
   AuthVerifyEmailDto,
-} from "@ustagil/typings";
+} from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/utils";
 
 export const authLogin = async ({ body }: AuthLoginDto) =>

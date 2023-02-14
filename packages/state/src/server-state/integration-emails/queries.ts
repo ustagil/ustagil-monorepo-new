@@ -1,5 +1,5 @@
 import { integrationEmailsAddGet } from "@ustagil/api";
-import { APIResponse, IntegrationEmailGetNewDto } from "@ustagil/typings";
+import { APIResponse, IntegrationEmailGetNewDto } from "@ustagil/typing";
 import { createQuery } from "react-query-kit";
 
 export const useIntegrationEmailsGetNew = createQuery<

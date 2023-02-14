@@ -1,8 +1,6 @@
 {
   "name": "eslint-config-ustagil",
   "version": "0.0.1",
-  "repository": "https://github.com/vercel/examples.git",
-  "license": "MIT",
   "main": "index.js",
   "publishConfig": {
     "access": "public"

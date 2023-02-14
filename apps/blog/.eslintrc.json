@@ -1,3 +1,7 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": [
+    "ustagil",
+    "next/core-web-vitals"
+  ]
 }

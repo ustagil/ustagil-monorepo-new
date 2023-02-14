@@ -3,7 +3,7 @@ import {
   Invoice,
   InvoiceGetDto,
   InvoiceListDto,
-} from "@ustagil/typings";
+} from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/utils";
 import { stringify } from "querystring";
 

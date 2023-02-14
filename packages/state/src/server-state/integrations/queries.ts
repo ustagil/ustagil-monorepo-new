@@ -4,7 +4,7 @@ import {
   Integration,
   IntegrationGetDto,
   IntegrationListDto,
-} from "@ustagil/typings";
+} from "@ustagil/typing";
 import { createQuery } from "react-query-kit";
 
 export const useIntegrationsList = createQuery<
