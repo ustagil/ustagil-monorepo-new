@@ -1,6 +1,6 @@
 import {
   useIntegrationEmailsCheck,
-  useIntegrationEmailsGetNew,
+  // useIntegrationEmailsGetNew,
   useIntegrationEmailStore,
 } from "@ustagil/state";
 import { NextLink, Section } from "@ustagil/ui-atom";
@@ -11,7 +11,7 @@ export interface IntegrationAddCheckSectionProps {}
 
 export const IntegrationAddCheckSection: FC<IntegrationAddCheckSectionProps> =
   ({}) => {
-    const { email, setIntegrationEmail } = useIntegrationEmailStore(
+    const { email, setIntegrationEmail: _ } = useIntegrationEmailStore(
       (state) => ({
         email: state.integrationEmail,
         setIntegrationEmail: state.setIntegrationEmail,
@@ -20,12 +20,12 @@ export const IntegrationAddCheckSection: FC<IntegrationAddCheckSectionProps> =
     const [checked, setChecked] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const integrationEmailQuery = useIntegrationEmailsGetNew({
-      variables: { body: {}, params: {}, query: {} },
-      onSuccess(data) {
-        setIntegrationEmail(data.datas);
-      },
-    });
+    // const _integrationEmailQuery = useIntegrationEmailsGetNew({
+    //   variables: { body: {}, params: {}, query: {} },
+    //   onSuccess(data) {
+    //     setIntegrationEmail(data.datas);
+    //   },
+    // });
 
     const integrationEmailCheckMutation = useIntegrationEmailsCheck({
       onMutate: () => setLoading(true),

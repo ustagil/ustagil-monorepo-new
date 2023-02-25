@@ -6,22 +6,21 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/typings.umd.js",
-  "module": "./dist/typings.es.js",
+  "module": "dist/index.es.js",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/typings.es.js",
-      "require": "./dist/typings.umd.js"
-    }
-  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "rollup -c"
   },
   "devDependencies": {
-    "typescript": "^4.9.3",
-    "vite": "^4.1.0",
-    "vite-plugin-dts": "^1.7.2"
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/rollup": "^0.54.0",
+    "@types/rollup-plugin-peer-deps-external": "^2",
+    "@types/typescript": "^2.0.0",
+    "rollup": "^3.17.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5"
   }
 }
