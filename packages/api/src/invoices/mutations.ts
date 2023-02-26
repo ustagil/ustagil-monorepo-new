@@ -5,7 +5,7 @@ import {
   InvoiceDeleteDto,
   InvoiceUpdateDto,
 } from "@ustagil/typing";
-import { axiosInstance } from "@ustagil/utils";
+import { axiosInstance } from "@ustagil/util";
 import { stringify } from "querystring";
 
 export const invoicesCreate = async ({ query, body }: InvoiceCreateDto) =>

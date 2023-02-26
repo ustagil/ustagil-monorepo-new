@@ -1,11 +1,15 @@
 {
     "conventionalCommits.scopes": [
-        "ui-react",
         "blog",
+        "ui-atom",
+        "ui-molecule",
+        "ui-organism",
+        "ui-page",
+        "ui-template",
         "api",
         "constant",
         "state",
-        "typings",
-        "utils"
+        "typing",
+        "util"
     ]
 }

@@ -4,7 +4,7 @@ import {
   AuthResponse,
   AuthVerifyEmailDto,
 } from "@ustagil/typing";
-import { axiosInstance } from "@ustagil/utils";
+import { axiosInstance } from "@ustagil/util";
 
 export const authLogin = async ({ body }: AuthLoginDto) =>
   (await axiosInstance.post<AuthResponse>(`auth/login`, body)).data;
