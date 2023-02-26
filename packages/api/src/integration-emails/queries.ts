@@ -1,5 +1,5 @@
 import { APIResponse, IntegrationEmailGetNewDto } from "@ustagil/typing";
-import { axiosInstance } from "@ustagil/utils";
+import { axiosInstance } from "@ustagil/util";
 
 export const integrationEmailsAddGet = async ({}: IntegrationEmailGetNewDto) =>
   (await axiosInstance.get<APIResponse<string>>(`/integration-emails`)).data;

@@ -4614,7 +4614,7 @@ __metadata:
     "@types/rollup-plugin-peer-deps-external": ^2
     "@types/typescript": ^2.0.0
     "@ustagil/typing": "workspace:^"
-    "@ustagil/utils": "workspace:^"
+    "@ustagil/util": "workspace:^"
     rollup: ^3.17.2
     rollup-plugin-peer-deps-external: ^2.2.4
     rollup-plugin-typescript2: ^0.34.1
@@ -4622,7 +4622,7 @@ __metadata:
     typescript: ^4.9.3
   peerDependencies:
     "@ustagil/typing": "workspace:^"
-    "@ustagil/utils": "workspace:^"
+    "@ustagil/util": "workspace:^"
   languageName: unknown
   linkType: soft
 
@@ -4680,6 +4680,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ustagil/eslint-config@workspace:*, @ustagil/eslint-config@workspace:packages/eslint-config":
+  version: 0.0.0-use.local
+  resolution: "@ustagil/eslint-config@workspace:packages/eslint-config"
+  dependencies:
+    eslint: ^8.26.0
+    eslint-config-next: canary
+    eslint-config-prettier: ^8.5.0
+    eslint-config-turbo: latest
+    typescript: ^4.8.4
+  languageName: unknown
+  linkType: soft
+
 "@ustagil/state@workspace:^, @ustagil/state@workspace:packages/state":
   version: 0.0.0-use.local
   resolution: "@ustagil/state@workspace:packages/state"
@@ -4730,6 +4742,7 @@ __metadata:
     "@storybook/addon-links": ^6.5.13
     "@storybook/builder-vite": ^0.2.4
     "@storybook/react": ^6.5.13
+    "@ustagil/eslint-config": "workspace:*"
     "@ustagil/ui-atom": "workspace:*"
     "@ustagil/ui-molecule": "workspace:*"
     "@ustagil/ui-organism": "workspace:*"
@@ -4737,7 +4750,6 @@ __metadata:
     "@ustagil/ui-template": "workspace:*"
     autoprefixer: ^10.4.12
     eslint: ^8.26.0
-    eslint-config-ustagil: "workspace:*"
     react: latest
     react-dom: latest
     serve: ^14.0.1
@@ -4747,9 +4759,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ustagil/typing@workspace:^, @ustagil/typing@workspace:packages/typings":
+"@ustagil/typing@workspace:^, @ustagil/typing@workspace:packages/typing":
   version: 0.0.0-use.local
-  resolution: "@ustagil/typing@workspace:packages/typings"
+  resolution: "@ustagil/typing@workspace:packages/typing"
   dependencies:
     "@rollup/plugin-commonjs": ^24.0.1
     "@rollup/plugin-node-resolve": ^15.0.1
@@ -4900,9 +4912,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ustagil/utils@workspace:^, @ustagil/utils@workspace:packages/utils":
+"@ustagil/util@workspace:^, @ustagil/util@workspace:packages/util":
   version: 0.0.0-use.local
-  resolution: "@ustagil/utils@workspace:packages/utils"
+  resolution: "@ustagil/util@workspace:packages/util"
   dependencies:
     "@rollup/plugin-commonjs": ^24.0.1
     "@rollup/plugin-json": ^6.0.0
@@ -8822,18 +8834,6 @@ __metadata:
   checksum: 097c1a5fa669971cf0bd1198a00b64a6beb6917237c0d9599781c0a802536eb8f489a94d17841680bd2d02af00bd17608b909df596cb03034eb842a3dd6e2ef2
   languageName: node
   linkType: hard
-
-"eslint-config-ustagil@workspace:*, eslint-config-ustagil@workspace:packages/eslint-config":
-  version: 0.0.0-use.local
-  resolution: "eslint-config-ustagil@workspace:packages/eslint-config"
-  dependencies:
-    eslint: ^8.26.0
-    eslint-config-next: canary
-    eslint-config-prettier: ^8.5.0
-    eslint-config-turbo: latest
-    typescript: ^4.8.4
-  languageName: unknown
-  linkType: soft
 
 "eslint-import-resolver-node@npm:^0.3.6, eslint-import-resolver-node@npm:^0.3.7":
   version: 0.3.7

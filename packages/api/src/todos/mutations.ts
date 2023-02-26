@@ -5,7 +5,7 @@ import {
   TodoDeleteDto,
   TodoUpdateDto,
 } from "@ustagil/typing";
-import { axiosInstance } from "@ustagil/utils";
+import { axiosInstance } from "@ustagil/util";
 import { stringify } from "querystring";
 
 export const todosCreate = async ({ query, body }: TodoCreateDto) =>
