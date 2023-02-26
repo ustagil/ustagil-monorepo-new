@@ -1,5 +1,5 @@
-export default function About() {
-  return <div>About Page</div>
-}
+export const PageAbout = () => {
+  return <div>About Page</div>;
+};
 
 // About.Layout = Layout;

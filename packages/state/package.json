@@ -6,33 +6,44 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/state.umd.js",
-  "module": "./dist/state.es.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/state.es.js",
-      "require": "./dist/state.umd.js"
-    }
-  },
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "rollup -c"
   },
   "devDependencies": {
     "@lukemorales/query-key-factory": "^1.1.0",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@tanstack/query-core": "^4.24.10",
+    "@tanstack/react-query": "^4.24.10",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/rollup": "^0.54.0",
+    "@types/rollup-plugin-peer-deps-external": "^2",
+    "@types/typescript": "^2.0.0",
     "@ustagil/api": "workspace:^",
+    "@ustagil/typing": "workspace:^",
+    "axios": "^1.3.4",
     "immer": "^9.0.19",
+    "nookies": "^2.5.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-query-kit": "^1.3.6",
-    "typescript": "^4.9.3",
-    "vite": "^4.1.0",
-    "vite-plugin-dts": "^1.7.2",
+    "rollup": "^3.17.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5",
     "zustand": "^4.3.2"
   },
   "peerDependencies": {
     "@lukemorales/query-key-factory": "^1.1.0",
     "@ustagil/api": "workspace:^",
+    "@ustagil/typing": "workspace:^",
+    "axios": "*",
     "immer": "^9.0.19",
+    "nookies": "*",
     "react-query-kit": "^1.3.6",
     "zustand": "^4.3.2"
   }

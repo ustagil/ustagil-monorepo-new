@@ -16,7 +16,7 @@ export type SelectProps = {
 } & ControllerRenderProps;
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
-  ({ label, name, onBlur, onChange, options, value, className }, ref) => (
+  ({ label, name, onChange, options, value, className }) => (
     <div className={`w-full not-prose ${className}`}>
       <Listbox value={value} onChange={onChange} name={name}>
         <Listbox.Label className="text-sm font-medium text-gray-600 ">

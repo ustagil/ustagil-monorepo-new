@@ -39,7 +39,7 @@ const defaultData: Integration[] = [];
 export const IntegrationSection: FC<IntegrationSectionProps> = () => {
   const {
     register,
-    handleSubmit,
+    handleSubmit: _,
     formState: { errors },
     watch,
     control,

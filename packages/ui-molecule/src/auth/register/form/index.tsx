@@ -35,11 +35,11 @@ export const AuthRegisterForm: FC<AuthRegisterFormProps> = () => {
   });
 
   const authRegisterMutation = useAuthRegister({
-    onSuccess: (data, variables, context) =>
+    onSuccess: (_data, variables, _context) =>
       void router.push(
         `/auth/verify-email?${stringify({ email: variables.body.email })}`
       ),
-    onError: (error, variables, context) =>
+    onError: (_error, variables, _context) =>
       void router.push(
         `/auth/verify-email?${stringify({ email: variables.body.email })}`
       ),
