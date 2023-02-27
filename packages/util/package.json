@@ -9,7 +9,15 @@
   "module": "dist/index.es.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c"
+    "dev": "echo \"Dev\"",
+    "build": "rollup -c",
+    "start": "echo \"Start\"",
+    "clean": "echo \"Clean\"",
+    "coverage": "echo \"Coverage\"",
+    "format": "echo \"Format\"",
+    "lint": "echo \"Lint\"",
+    "precommit": "echo \"Precommit\"",
+    "test": "echo \"Test\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",

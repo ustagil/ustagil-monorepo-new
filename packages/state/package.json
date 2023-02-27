@@ -9,7 +9,15 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c"
+    "dev": "echo \"Dev\"",
+    "build": "rollup -c",
+    "start": "echo \"Start\"",
+    "clean": "echo \"Clean\"",
+    "coverage": "echo \"Coverage\"",
+    "format": "echo \"Format\"",
+    "lint": "echo \"Lint\"",
+    "precommit": "echo \"Precommit\"",
+    "test": "echo \"Test\""
   },
   "devDependencies": {
     "@lukemorales/query-key-factory": "^1.1.0",
