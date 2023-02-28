@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "clean": "echo \"Clean\"",
+    "clean": "rm -rf .next dist node_modules",
     "coverage": "echo \"Coverage\"",
     "format": "echo \"Format\"",
     "lint": "next lint",

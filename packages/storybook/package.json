@@ -6,7 +6,7 @@
     "dev": "start-storybook -p 6006",
     "build": "build-storybook --docs",
     "start": "serve storybook-static",
-    "clean": "rimraf .turbo",
+    "clean": "rm -rf storybook-static node_modules",
     "coverage": "echo \"Coverage\"",
     "format": "echo \"Format\"",
     "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",

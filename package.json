@@ -15,6 +15,7 @@
     "start": "turbo run --concurrency=4 start",
     "start:ci": "turbo run --concurrency=4 start -- --maxWorkers=2 --forceExit",
     "clean": "turbo run clean",
+    "clean:full": "turbo run clean && yarn cache clean && rm -rf node_modules",
     "clean:ci": "turbo run clean -- --maxWorkers=2 --forceExit",
     "coverage": "turbo run --concurrency=4 coverage",
     "coverage:ci": "turbo run --concurrency=2 coverage -- --maxWorkers=2 --forceExit",

@@ -12,7 +12,7 @@
     "dev": "echo \"Dev\"",
     "build": "rollup -c",
     "start": "echo \"Start\"",
-    "clean": "echo \"Clean\"",
+    "clean": "rm -rf dist node_modules",
     "coverage": "echo \"Coverage\"",
     "format": "echo \"Format\"",
     "lint": "echo \"Lint\"",
