@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "clean": "rm -rf .next dist node_modules",
+    "coverage": "echo \"Coverage\"",
+    "format": "echo \"Format\"",
+    "lint": "next lint",
+    "precommit": "echo \"Precommit\"",
+    "test": "echo \"Test\""
   },
   "dependencies": {
     "@headlessui/react": "^1.7.9",

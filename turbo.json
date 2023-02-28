@@ -41,40 +41,22 @@
                 "coverage/**"
             ],
             "dependsOn": [
-                "^build"
+                "^build",
+                "^coverage"
             ],
             "outputMode": "new-only"
         },
         "format": {
             "inputs": [
                 "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "package.json"
-            ],
-            "dependsOn": [
-                "^build"
+                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}"
             ],
             "outputMode": "errors-only"
         },
         "lint": {
             "inputs": [
                 "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "package.json"
-            ],
-            "dependsOn": [
-                "^build"
-            ],
-            "outputMode": "errors-only"
-        },
-        "precommit": {
-            "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "package.json"
-            ],
-            "dependsOn": [
-                "^build"
+                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}"
             ],
             "outputMode": "errors-only"
         },
@@ -85,7 +67,8 @@
                 "package.json"
             ],
             "dependsOn": [
-                "^build"
+                "^build",
+                "^test"
             ],
             "outputMode": "errors-only"
         }

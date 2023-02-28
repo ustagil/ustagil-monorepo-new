@@ -8,7 +8,15 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c"
+    "dev": "echo \"Dev\"",
+    "build": "rollup -c",
+    "start": "echo \"Start\"",
+    "clean": "rm -rf dist node_modules",
+    "coverage": "echo \"Coverage\"",
+    "format": "echo \"Format\"",
+    "lint": "echo \"Lint\"",
+    "precommit": "echo \"Precommit\"",
+    "test": "echo \"Test\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
