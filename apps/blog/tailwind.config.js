@@ -2,7 +2,14 @@ const colors = require("tailwindcss/colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "../../packages/ui-atom/src/**/*.{js,ts,jsx,tsx}",
+    "../../packages/ui-molecule/src/**/*.{js,ts,jsx,tsx}",
+    "../../packages/ui-organism/src/**/*.{js,ts,jsx,tsx}",
+    "../../packages/ui-page/src/**/*.{js,ts,jsx,tsx}",
+    "../../packages/ui-template/src/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: "class",
   theme: {
     extend: {
