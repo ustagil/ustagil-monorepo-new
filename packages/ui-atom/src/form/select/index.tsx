@@ -1,5 +1,5 @@
 import { Listbox, Transition } from "@headlessui/react";
-import React, { forwardRef, Fragment } from "react";
+import { forwardRef, Fragment } from "react";
 import { ControllerRenderProps } from "react-hook-form";
 
 export type SelectOption = {
