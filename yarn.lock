@@ -4620,9 +4620,6 @@ __metadata:
     rollup-plugin-typescript2: ^0.34.1
     tslib: ^2.5.0
     typescript: ^4.9.3
-  peerDependencies:
-    "@ustagil/typing": "workspace:^"
-    "@ustagil/util": "workspace:^"
   languageName: unknown
   linkType: soft
 
@@ -4722,8 +4719,6 @@ __metadata:
     zustand: ^4.3.2
   peerDependencies:
     "@lukemorales/query-key-factory": ^1.1.0
-    "@ustagil/api": "workspace:^"
-    "@ustagil/typing": "workspace:^"
     axios: "*"
     immer: ^9.0.19
     nookies: "*"
@@ -4823,8 +4818,6 @@ __metadata:
     tslib: ^2.5.0
     typescript: ^4.9.5
   peerDependencies:
-    "@ustagil/state": "workspace:^"
-    "@ustagil/ui-atom": "workspace:^"
     next: "*"
     react: ^17.0.0 || ^18.0.0-0
     react-dom: ^17.0.0 || ^18.0.0-0
@@ -4854,11 +4847,6 @@ __metadata:
     tslib: ^2.5.0
     typescript: ^4.9.5
   peerDependencies:
-    "@ustagil/constant": "workspace:^"
-    "@ustagil/state": "workspace:^"
-    "@ustagil/typing": "workspace:^"
-    "@ustagil/ui-atom": "workspace:^"
-    "@ustagil/ui-molecule": "workspace:^"
     next: "*"
     react: ^17.0.0 || ^18.0.0-0
     react-dom: ^17.0.0 || ^18.0.0-0
@@ -4933,7 +4921,6 @@ __metadata:
     tslib: ^2.5.0
     typescript: ^4.9.5
   peerDependencies:
-    "@ustagil/constant": "workspace:^"
     axios: "*"
     jwt-decode: "*"
     nookies: "*"

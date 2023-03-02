@@ -30,8 +30,6 @@
     "@types/rollup": "^0.54.0",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@types/typescript": "^2.0.0",
-    "@ustagil/api": "workspace:^",
-    "@ustagil/typing": "workspace:^",
     "axios": "^1.3.4",
     "immer": "^9.0.19",
     "nookies": "^2.5.2",
@@ -47,12 +45,14 @@
   },
   "peerDependencies": {
     "@lukemorales/query-key-factory": "^1.1.0",
-    "@ustagil/api": "workspace:^",
-    "@ustagil/typing": "workspace:^",
     "axios": "*",
     "immer": "^9.0.19",
     "nookies": "*",
     "react-query-kit": "^1.3.6",
     "zustand": "^4.3.2"
+  },
+  "dependencies": {
+    "@ustagil/api": "workspace:^",
+    "@ustagil/typing": "workspace:^"
   }
 }

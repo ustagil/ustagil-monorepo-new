@@ -28,15 +28,13 @@
     "@types/rollup": "^0.54.0",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@types/typescript": "^2.0.0",
-    "@ustagil/typing": "workspace:^",
-    "@ustagil/util": "workspace:^",
     "rollup": "^3.17.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-typescript2": "^0.34.1",
     "tslib": "^2.5.0",
     "typescript": "^4.9.3"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@ustagil/typing": "workspace:^",
     "@ustagil/util": "workspace:^"
   }

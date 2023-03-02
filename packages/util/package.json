@@ -26,7 +26,6 @@
     "@types/rollup": "^0.54.0",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@types/typescript": "^2.0.0",
-    "@ustagil/constant": "workspace:^",
     "axios": "^1.3.2",
     "jwt-decode": "^3.1.2",
     "nookies": "^2.5.2",
@@ -37,9 +36,11 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "@ustagil/constant": "workspace:^",
     "axios": "*",
     "jwt-decode": "*",
     "nookies": "*"
+  },
+  "dependencies": {
+    "@ustagil/constant": "workspace:^"
   }
 }
