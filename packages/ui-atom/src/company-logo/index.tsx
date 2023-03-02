@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { NextLink } from "../next-link";
 
 export interface CompanyLogoProps {}

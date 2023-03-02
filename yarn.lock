@@ -4743,13 +4743,14 @@ __metadata:
     "@storybook/builder-vite": ^0.2.4
     "@storybook/react": ^6.5.13
     "@ustagil/eslint-config": "workspace:*"
-    "@ustagil/ui-atom": "workspace:*"
+    "@ustagil/ui-atom": "workspace:^"
     "@ustagil/ui-molecule": "workspace:*"
     "@ustagil/ui-organism": "workspace:*"
     "@ustagil/ui-page": "workspace:*"
     "@ustagil/ui-template": "workspace:*"
-    autoprefixer: ^10.4.12
+    autoprefixer: ^10.4.13
     eslint: ^8.26.0
+    postcss: ^8.4.21
     react: latest
     react-dom: latest
     serve: ^14.0.1
@@ -4776,7 +4777,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@ustagil/ui-atom@workspace:*, @ustagil/ui-atom@workspace:^, @ustagil/ui-atom@workspace:packages/ui-atom":
+"@ustagil/ui-atom@workspace:^, @ustagil/ui-atom@workspace:packages/ui-atom":
   version: 0.0.0-use.local
   resolution: "@ustagil/ui-atom@workspace:packages/ui-atom"
   dependencies:
@@ -5957,7 +5958,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.12, autoprefixer@npm:^10.4.13":
+"autoprefixer@npm:^10.4.13":
   version: 10.4.13
   resolution: "autoprefixer@npm:10.4.13"
   dependencies:

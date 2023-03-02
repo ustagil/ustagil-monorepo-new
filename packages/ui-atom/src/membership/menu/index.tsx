@@ -2,7 +2,7 @@ import { Menu as HUMenu, Transition } from "@headlessui/react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { destroyCookie } from "nookies";
-import { FC, Fragment } from "react";
+import React, { FC, Fragment } from "react";
 import { NextLink } from "../../next-link";
 
 export type MenuProps = { firstname: string; lastname: string };
