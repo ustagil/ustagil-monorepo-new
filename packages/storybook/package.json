@@ -7,6 +7,7 @@
     "build": "build-storybook --docs",
     "start": "serve storybook-static",
     "clean": "rm -rf storybook-static node_modules",
+    "clean:rollup:cache": "echo \"Clean Rollup Cache\"",
     "coverage": "echo \"Coverage\"",
     "format": "echo \"Format\"",
     "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",

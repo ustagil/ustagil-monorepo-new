@@ -31,6 +31,10 @@
         "clean": {
             "outputMode": "errors-only"
         },
+        "clean:rollup:cache": {
+            "cache": false,
+            "outputMode": "errors-only"
+        },
         "coverage": {
             "inputs": [
                 "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",

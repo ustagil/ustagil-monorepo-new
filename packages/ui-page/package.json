@@ -12,6 +12,7 @@
     "build": "rollup -c",
     "start": "echo \"Start\"",
     "clean": "rm -rf dist node_modules",
+    "clean:rollup:cache": "rm -rf node_modules/.cache",
     "coverage": "echo \"Coverage\"",
     "format": "echo \"Format\"",
     "lint": "echo \"Lint\"",
