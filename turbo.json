@@ -3,7 +3,10 @@
     "pipeline": {
         "dev": {
             "cache": false,
-            "persistent": true
+            "persistent": true,
+            "dependsOn": [
+                "build"
+            ]
         },
         "build": {
             "inputs": [
@@ -62,6 +65,11 @@
                 "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
                 "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}"
             ],
+            "dependsOn": [
+                "^lint"
+            ],
+            "cache": false,
+            "persistent": false,
             "outputMode": "errors-only"
         },
         "test": {
