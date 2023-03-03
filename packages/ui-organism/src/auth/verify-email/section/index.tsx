@@ -2,6 +2,7 @@ import { Section } from "@ustagil/ui-atom";
 import { AuthVerifyEmailForm } from "@ustagil/ui-molecule";
 import { FC } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AuthVerifyEmailSectionProps {}
 
 export const AuthVerifyEmailSection: FC<AuthVerifyEmailSectionProps> = () => {

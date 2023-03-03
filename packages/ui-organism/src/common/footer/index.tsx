@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CommonFooterProps {}
 
 type IFormValues = {
@@ -28,7 +29,6 @@ const Contact: FC = () => {
       <span className="block">Ratione et omnis autem occaecati et.</span>
       <form onSubmit={onSubmit}>
         <InputField
-          // eslint-disable-next-line react/jsx-props-no-spreading
           {...register("email")}
           id="subscribe-email"
           label="E-Posta"

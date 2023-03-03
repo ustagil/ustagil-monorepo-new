@@ -2,9 +2,10 @@ import { Grid, Section } from "@ustagil/ui-atom";
 import { DocumentationCard } from "@ustagil/ui-molecule";
 import { FC } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface DocumentationsSectionProps {}
 
-export const DocumentationsSection: FC<DocumentationsSectionProps> = ({}) => (
+export const DocumentationsSection: FC<DocumentationsSectionProps> = () => (
   <Section id="documentation-section">
     <Grid>
       <DocumentationCard

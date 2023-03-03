@@ -11,6 +11,7 @@ const schema = z.object({
   verifyCode: z.string().min(6),
 });
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AuthVerifyEmailFormProps {}
 
 type IFormValues = {

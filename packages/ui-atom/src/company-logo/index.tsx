@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { NextLink } from "../next-link";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CompanyLogoProps {}
 
 export const CompanyLogo: FC<CompanyLogoProps> = () => (

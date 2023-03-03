@@ -13,6 +13,7 @@ const schema = z.object({
   password: z.string().min(6),
 });
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AuthRegisterFormProps {}
 
 type IFormValues = {
@@ -35,11 +36,11 @@ export const AuthRegisterForm: FC<AuthRegisterFormProps> = () => {
   });
 
   const authRegisterMutation = useAuthRegister({
-    onSuccess: (_data, variables, _context) =>
+    onSuccess: (_, variables) =>
       void router.push(
         `/auth/verify-email?${stringify({ email: variables.body.email })}`
       ),
-    onError: (_error, variables, _context) =>
+    onError: (_, variables) =>
       void router.push(
         `/auth/verify-email?${stringify({ email: variables.body.email })}`
       ),

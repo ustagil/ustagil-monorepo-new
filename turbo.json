@@ -1,5 +1,8 @@
 {
     "$schema": "https://turborepo.org/schema.json",
+    "globalEnv": [
+        "NEXT_PUBLIC_BACK_URL"
+    ],
     "pipeline": {
         "dev": {
             "cache": false,
@@ -65,10 +68,7 @@
                 "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
                 "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}"
             ],
-            "dependsOn": [
-                "^lint"
-            ],
-            "cache": false,
+            "cache": true,
             "persistent": false,
             "outputMode": "errors-only"
         },

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { BsFillGearFill, BsMoon, BsMoonFill } from "react-icons/bs";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CommonHeaderProps {}
 
 export const CommonHeader: FC<CommonHeaderProps> = () => {

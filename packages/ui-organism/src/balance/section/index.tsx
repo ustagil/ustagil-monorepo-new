@@ -1,9 +1,10 @@
 import { Card, Grid, Section } from "@ustagil/ui-atom";
 import { FC } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface BalanceSectionProps {}
 
-export const BalanceSection: FC<BalanceSectionProps> = ({}) => (
+export const BalanceSection: FC<BalanceSectionProps> = () => (
   <Section id="balance-section">
     <Grid>
       <Card>

@@ -12,7 +12,7 @@ export const useIntegrationsList = createQuery<
   IntegrationListDto
 >({
   primaryKey: "integrations list",
-  queryFn: async ({ queryKey: [_, variables] }) =>
+  queryFn: async ({ queryKey: [, variables] }) =>
     await integrationsList(variables),
 });
 
@@ -21,6 +21,6 @@ export const useIntegrationsGet = createQuery<
   IntegrationGetDto
 >({
   primaryKey: "integrations get",
-  queryFn: async ({ queryKey: [_, variables] }) =>
+  queryFn: async ({ queryKey: [, variables] }) =>
     await integrationsGet(variables),
 });

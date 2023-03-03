@@ -7,6 +7,6 @@ export const useIntegrationEmailsGetNew = createQuery<
   IntegrationEmailGetNewDto
 >({
   primaryKey: "integration emails get new",
-  queryFn: async ({ queryKey: [_, variables] }) =>
+  queryFn: async ({ queryKey: [, variables] }) =>
     await integrationEmailsAddGet(variables),
 });

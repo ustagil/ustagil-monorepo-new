@@ -1,9 +1,10 @@
 import { Card, Grid, Section } from "@ustagil/ui-atom";
 import { FC } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface UserSettingSectionProps {}
 
-export const UserSettingSection: FC<UserSettingSectionProps> = ({}) => (
+export const UserSettingSection: FC<UserSettingSectionProps> = () => (
   <Section id="user-setting-section">
     <Grid>
       <Card>

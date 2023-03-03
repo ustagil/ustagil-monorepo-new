@@ -10,7 +10,7 @@
     "clean:rollup:cache": "echo \"Clean Rollup Cache\"",
     "coverage": "echo \"Coverage\"",
     "format": "echo \"Format\"",
-    "lint": "TIMING=1 eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
+    "lint": "eslint . --no-error-on-unmatched-pattern",
     "precommit": "echo \"Precommit\"",
     "test": "echo \"Test\""
   },
