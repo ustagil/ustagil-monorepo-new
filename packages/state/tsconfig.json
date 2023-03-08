@@ -39,6 +39,8 @@
     "src"
   ],
   "exclude": [
+    "**/*.test.ts",
+    "jest.config.ts",
     "dist",
     "node_modules"
   ]

@@ -51,10 +51,8 @@
                 "coverage/**"
             ],
             "dependsOn": [
-                "^build",
                 "^coverage"
-            ],
-            "outputMode": "new-only"
+            ]
         },
         "format": {
             "inputs": [
@@ -79,10 +77,8 @@
                 "package.json"
             ],
             "dependsOn": [
-                "^build",
                 "^test"
-            ],
-            "outputMode": "errors-only"
+            ]
         }
     }
 }
