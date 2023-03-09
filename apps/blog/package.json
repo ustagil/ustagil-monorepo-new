@@ -10,7 +10,6 @@
     "coverage": "echo \"Coverage\"",
     "format": "prettier --check pages",
     "lint": "next lint",
-    "precommit": "echo \"Precommit\"",
     "test": "echo \"Test\""
   },
   "dependencies": {
