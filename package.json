@@ -37,7 +37,6 @@
     "@commitlint/config-lerna-scopes": "^17.4.2",
     "@manypkg/cli": "^0.20.0",
     "husky": "^8.0.0",
-    "rimraf": "^4.1.2",
     "turbo": "^1.7.2"
   }
 }
