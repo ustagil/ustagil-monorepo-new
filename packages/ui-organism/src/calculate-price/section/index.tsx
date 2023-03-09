@@ -1,9 +1,10 @@
 import { Card, Grid, Section } from "@ustagil/ui-atom";
 import { FC } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface CalculatePriceSectionProps {}
 
-export const CalculatePriceSection: FC<CalculatePriceSectionProps> = ({}) => (
+export const CalculatePriceSection: FC<CalculatePriceSectionProps> = () => (
   <Section id="calculate-price-section">
     <Grid>
       <Card>

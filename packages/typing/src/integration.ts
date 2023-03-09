@@ -11,10 +11,13 @@ export type Integration = {
   email: string;
 };
 
-export type IntegrationGetDto = { params: { id: string }; query: {} };
+export type IntegrationGetDto = {
+  params: { id: string };
+  query: Record<string, never>;
+};
 
 export type IntegrationListDto = {
-  params: {};
+  params: Record<string, never>;
   query: {
     pageIndex: number;
     pageSize: number;
@@ -28,8 +31,8 @@ export type IntegrationListDto = {
 };
 
 export type IntegrationCreateDto = {
-  params: {};
-  query: {};
+  params: Record<string, never>;
+  query: Record<string, never>;
   body: { name: string };
 };
 

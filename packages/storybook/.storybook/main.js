@@ -1,42 +1,40 @@
-const path = require("path");
-
 module.exports = {
   stories: [
     {
-      directory: "../../ui-atom/**",
+      directory: "../../ui-atom/src/**",
       files: "*.stories.*",
       // This config is not being used properly by <Story /> in MDX stories.
       // If it's not needed to have a prefix, removing it will fix the issue
       titlePrefix: "UI Atom",
     },
-    // {
-    //   directory: "../../ustagil-ui-molecule/src/**",
-    //   files: "*.stories.*",
-    //   // This config is not being used properly by <Story /> in MDX stories.
-    //   // If it's not needed to have a prefix, removing it will fix the issue
-    //   titlePrefix: "UI Molecule",
-    // },
-    // {
-    //   directory: "../../ustagil-ui-organism/src/**",
-    //   files: "*.stories.*",
-    //   // This config is not being used properly by <Story /> in MDX stories.
-    //   // If it's not needed to have a prefix, removing it will fix the issue
-    //   titlePrefix: "UI Organism",
-    // },
-    // {
-    //   directory: "../../ustagil-ui-template/src/**",
-    //   files: "*.stories.*",
-    //   // This config is not being used properly by <Story /> in MDX stories.
-    //   // If it's not needed to have a prefix, removing it will fix the issue
-    //   titlePrefix: "UI Template",
-    // },
-    // {
-    //   directory: "../../ustagil-ui-page/src/**",
-    //   files: "*.stories.*",
-    //   // This config is not being used properly by <Story /> in MDX stories.
-    //   // If it's not needed to have a prefix, removing it will fix the issue
-    //   titlePrefix: "UI Page",
-    // },
+    {
+      directory: "../../ui-molecule/src/**",
+      files: "*.stories.*",
+      // This config is not being used properly by <Story /> in MDX stories.
+      // If it's not needed to have a prefix, removing it will fix the issue
+      titlePrefix: "UI Molecule",
+    },
+    {
+      directory: "../../ui-organism/src/**",
+      files: "*.stories.*",
+      // This config is not being used properly by <Story /> in MDX stories.
+      // If it's not needed to have a prefix, removing it will fix the issue
+      titlePrefix: "UI Organism",
+    },
+    {
+      directory: "../../ui-template/src/**",
+      files: "*.stories.*",
+      // This config is not being used properly by <Story /> in MDX stories.
+      // If it's not needed to have a prefix, removing it will fix the issue
+      titlePrefix: "UI Template",
+    },
+    {
+      directory: "../../ui-page/src/**",
+      files: "*.stories.*",
+      // This config is not being used properly by <Story /> in MDX stories.
+      // If it's not needed to have a prefix, removing it will fix the issue
+      titlePrefix: "UI Page",
+    },
   ],
   addons: [
     // https://storybook.js.org/addons/@storybook/addon-links

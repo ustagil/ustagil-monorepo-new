@@ -12,11 +12,10 @@ export const useInvoicesList = createQuery<
   InvoiceListDto
 >({
   primaryKey: "invoices list",
-  queryFn: async ({ queryKey: [_, variables] }) =>
-    await invoicesList(variables),
+  queryFn: async ({ queryKey: [, variables] }) => await invoicesList(variables),
 });
 
 export const useInvoicesGet = createQuery<APIResponse<Invoice>, InvoiceGetDto>({
   primaryKey: "invoices get",
-  queryFn: async ({ queryKey: [_, variables] }) => await invoicesGet(variables),
+  queryFn: async ({ queryKey: [, variables] }) => await invoicesGet(variables),
 });

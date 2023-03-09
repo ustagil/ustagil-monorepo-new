@@ -27,5 +27,8 @@ export default defineConfig({
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
   ],
-  external: Object.keys(pkg.devDependencies),
+  external: [
+    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg.devDependencies ?? {}),
+  ],
 });

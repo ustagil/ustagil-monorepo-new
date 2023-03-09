@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 
 export interface TableFooterRowProps {
   children: React.ReactNode;

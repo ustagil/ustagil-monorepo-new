@@ -9,11 +9,12 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { RiHandCoinLine } from "react-icons/ri";
 import { TiFlowMerge } from "react-icons/ti";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InvoiceSectionProps {}
 
 const defaultData: Invoice[] = [];
 
-export const InvoiceSection: FC<InvoiceSectionProps> = ({}) => {
+export const InvoiceSection: FC<InvoiceSectionProps> = () => {
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: 10,

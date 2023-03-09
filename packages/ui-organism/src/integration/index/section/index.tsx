@@ -18,6 +18,7 @@ import { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IntegrationSectionProps {}
 
 const schema = z.object({
@@ -39,7 +40,6 @@ const defaultData: Integration[] = [];
 export const IntegrationSection: FC<IntegrationSectionProps> = () => {
   const {
     register,
-    handleSubmit: _,
     formState: { errors },
     watch,
     control,

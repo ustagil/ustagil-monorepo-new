@@ -1,9 +1,15 @@
 {
     "$schema": "https://turborepo.org/schema.json",
+    "globalEnv": [
+        "NEXT_PUBLIC_BACK_URL"
+    ],
     "pipeline": {
         "dev": {
             "cache": false,
-            "persistent": true
+            "persistent": true,
+            "dependsOn": [
+                "build"
+            ]
         },
         "build": {
             "inputs": [
@@ -26,9 +32,16 @@
                 ".next/**",
                 "package.json"
             ],
+            "dependsOn": [
+                "build"
+            ],
             "outputMode": "new-only"
         },
         "clean": {
+            "outputMode": "errors-only"
+        },
+        "clean:rollup:cache": {
+            "cache": false,
             "outputMode": "errors-only"
         },
         "coverage": {
@@ -41,36 +54,34 @@
                 "coverage/**"
             ],
             "dependsOn": [
-                "^build",
                 "^coverage"
-            ],
-            "outputMode": "new-only"
+            ]
         },
         "format": {
             "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}"
+                "src/**/*.{js,jsx,ts,tsx}"
+            ],
+            "dependsOn": [
+                "^format"
             ],
             "outputMode": "errors-only"
         },
         "lint": {
             "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}"
+                "src/**/*.{js,jsx,ts,tsx}"
+            ],
+            "dependsOn": [
+                "^lint"
             ],
             "outputMode": "errors-only"
         },
         "test": {
             "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "package.json"
+                "src/**/*.{js,jsx,ts,tsx}"
             ],
             "dependsOn": [
-                "^build",
                 "^test"
-            ],
-            "outputMode": "errors-only"
+            ]
         }
     }
 }

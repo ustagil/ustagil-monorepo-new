@@ -17,8 +17,8 @@ export type AuthResponse = {
 };
 
 export type AuthLoginDto = {
-  params: {};
-  query: {};
+  params: Record<string, never>;
+  query: Record<string, never>;
   body: {
     email: string;
     password: string;
@@ -26,8 +26,8 @@ export type AuthLoginDto = {
 };
 
 export type AuthRegisterDto = {
-  params: {};
-  query: {};
+  params: Record<string, never>;
+  query: Record<string, never>;
   body: {
     email: string;
     password: string;
@@ -35,8 +35,8 @@ export type AuthRegisterDto = {
 };
 
 export type AuthVerifyEmailDto = {
-  params: {};
-  query: {};
+  params: Record<string, never>;
+  query: Record<string, never>;
   body: {
     email: string;
     verifyCode: string;

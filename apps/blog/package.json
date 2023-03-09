@@ -8,9 +8,8 @@
     "start": "next start",
     "clean": "rm -rf .next dist node_modules",
     "coverage": "echo \"Coverage\"",
-    "format": "echo \"Format\"",
+    "format": "prettier --check pages",
     "lint": "next lint",
-    "precommit": "echo \"Precommit\"",
     "test": "echo \"Test\""
   },
   "dependencies": {
@@ -41,10 +40,12 @@
   },
   "devDependencies": {
     "@types/eslint": "^8",
+    "@types/prettier": "^2",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
     "tailwindcss": "^3.2.4"
   }
 }

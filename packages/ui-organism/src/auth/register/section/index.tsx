@@ -2,6 +2,7 @@ import { Section } from "@ustagil/ui-atom";
 import { AuthLoginRedirect, AuthRegisterForm } from "@ustagil/ui-molecule";
 import { FC } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AuthRegisterSectionProps {}
 
 export const AuthRegisterSection: FC<AuthRegisterSectionProps> = () => {

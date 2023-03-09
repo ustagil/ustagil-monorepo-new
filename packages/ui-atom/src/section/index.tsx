@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import React, { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
 export interface SectionProps {
   children: React.ReactNode;

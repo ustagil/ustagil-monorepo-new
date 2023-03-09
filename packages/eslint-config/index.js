@@ -1,6 +1,12 @@
 module.exports = {
-  extends: ['next', 'turbo', 'prettier'],
-  rules: {
-    '@next/next/no-html-link-for-pages': 'off',
-  },
-}
+  ignorePatterns: [
+    ".turbo",
+    ".next",
+    "dist",
+    "node_modules",
+    "storybook-static",
+    "**/*.cjs",
+    "**/*.css",
+  ],
+  extends: ["turbo", "plugin:prettier/recommended"],
+};

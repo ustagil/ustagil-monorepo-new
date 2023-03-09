@@ -9,13 +9,19 @@ export type Invoice = {
   paymentMethod: string;
 };
 
-export type InvoiceGetDto = { params: { id: string }; query: {} };
+export type InvoiceGetDto = {
+  params: { id: string };
+  query: Record<string, never>;
+};
 
-export type InvoiceListDto = { params: {}; query: {} };
+export type InvoiceListDto = {
+  params: Record<string, never>;
+  query: Record<string, never>;
+};
 
 export type InvoiceCreateDto = {
-  params: {};
-  query: {};
+  params: Record<string, never>;
+  query: Record<string, never>;
   body: { amount: number };
 };
 

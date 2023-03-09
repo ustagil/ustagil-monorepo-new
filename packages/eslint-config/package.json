@@ -1,17 +1,18 @@
 {
-  "name": "@ustagil/eslint-config",
+  "name": "eslint-config-ustagil",
   "version": "0.0.1",
   "main": "index.js",
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
-    "eslint": "^8.26.0",
-    "eslint-config-next": "canary",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-turbo": "latest"
+    "eslint": "^8.35.0",
+    "eslint-config-next": "^13.2.3",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-turbo": "^0.0.9",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-turbo": "^0.0.9",
+    "prettier": "^2.8.4"
   },
   "devDependencies": {
-    "typescript": "^4.8.4"
+    "@types/eslint": "^8",
+    "@types/prettier": "^2"
   }
 }

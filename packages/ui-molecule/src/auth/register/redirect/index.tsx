@@ -2,6 +2,7 @@ import { NextLink } from "@ustagil/ui-atom";
 import { FC } from "react";
 import { Button } from "../../../common/button";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AuthRegisterRedirectProps {}
 
 export const AuthRegisterRedirect: FC<AuthRegisterRedirectProps> = () => (

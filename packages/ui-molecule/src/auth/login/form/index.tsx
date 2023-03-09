@@ -12,6 +12,7 @@ const schema = z.object({
   password: z.string().min(6),
 });
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AuthLoginFormProps {}
 
 type IFormValues = {

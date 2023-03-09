@@ -8,7 +8,7 @@ const range = (len: number) => {
 
 export function makeData<T>(newData: (index: number) => T, ...lens: number[]) {
   const makeDataLevel = (depth = 0): T[] => {
-    const len = lens[depth]!;
+    const len = lens[depth];
     return range(len).map((_, i): T => {
       return {
         ...newData(i),

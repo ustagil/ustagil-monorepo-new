@@ -1,5 +1,5 @@
 import Link, { LinkProps } from "next/link";
-import { FC } from "react";
+import React, { FC } from "react";
 
 export interface NextLinkProps extends LinkProps {
   children: React.ReactNode;
