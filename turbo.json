@@ -32,6 +32,9 @@
                 ".next/**",
                 "package.json"
             ],
+            "dependsOn": [
+                "build"
+            ],
             "outputMode": "new-only"
         },
         "clean": {
@@ -56,25 +59,25 @@
         },
         "format": {
             "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}"
+                "src/**/*.{js,jsx,ts,tsx}"
+            ],
+            "dependsOn": [
+                "^format"
             ],
             "outputMode": "errors-only"
         },
         "lint": {
             "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}"
+                "src/**/*.{js,jsx,ts,tsx}"
             ],
-            "cache": true,
-            "persistent": false,
+            "dependsOn": [
+                "^lint"
+            ],
             "outputMode": "errors-only"
         },
         "test": {
             "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "package.json"
+                "src/**/*.{js,jsx,ts,tsx}"
             ],
             "dependsOn": [
                 "^test"

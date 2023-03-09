@@ -15,7 +15,7 @@
     "clean": "rm -rf dist node_modules",
     "clean:rollup:cache": "rm -rf node_modules/.cache",
     "coverage": "echo \"Coverage\"",
-    "format": "echo \"Format\"",
+    "format": "prettier --check src",
     "lint": "eslint ./src/** --no-error-on-unmatched-pattern",
     "precommit": "echo \"Precommit\"",
     "test": "echo \"Test\""
