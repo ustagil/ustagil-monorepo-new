@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import React from "react";
 import { UserSettingSection } from "./";
 
 export default {
