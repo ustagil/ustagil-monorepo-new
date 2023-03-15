@@ -23,7 +23,7 @@ export const InputCheck = forwardRef<
         {...{ ...rest, name }}
         ref={ref}
         type="checkbox"
-        className="text-primary-600 rounded"
+        className="rounded text-primary-600"
       />
       <span className="ml-2 text-sm text-gray-600 select-none hover:underline">
         {label}

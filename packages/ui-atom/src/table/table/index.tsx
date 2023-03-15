@@ -5,7 +5,7 @@ export interface TableProps {
 }
 
 export const Table: FC<TableProps> = ({ children }) => (
-  <table className="rounded_corners shadow">{children}</table>
+  <table className="shadow rounded_corners">{children}</table>
 );
 
 export default Table;
