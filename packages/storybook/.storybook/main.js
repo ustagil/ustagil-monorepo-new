@@ -1,56 +1,60 @@
+// import { mergeConfig } from "vite";
+
 module.exports = {
+  core: {
+    builder: "webpack5",
+  },
   stories: [
     {
       directory: "../../ui-atom/src/**",
-      files: "*.stories.*",
-      // This config is not being used properly by <Story /> in MDX stories.
-      // If it's not needed to have a prefix, removing it will fix the issue
+      files: "*.@(mdx|stories.*)",
       titlePrefix: "UI Atom",
     },
     {
       directory: "../../ui-molecule/src/**",
-      files: "*.stories.*",
-      // This config is not being used properly by <Story /> in MDX stories.
-      // If it's not needed to have a prefix, removing it will fix the issue
+      files: "*.@(mdx|stories.*)",
       titlePrefix: "UI Molecule",
     },
     {
       directory: "../../ui-organism/src/**",
-      files: "*.stories.*",
-      // This config is not being used properly by <Story /> in MDX stories.
-      // If it's not needed to have a prefix, removing it will fix the issue
+      files: "*.@(mdx|stories.*)",
       titlePrefix: "UI Organism",
     },
     {
       directory: "../../ui-template/src/**",
-      files: "*.stories.*",
-      // This config is not being used properly by <Story /> in MDX stories.
-      // If it's not needed to have a prefix, removing it will fix the issue
+      files: "*.@(mdx|stories.*)",
       titlePrefix: "UI Template",
     },
     {
       directory: "../../ui-page/src/**",
-      files: "*.stories.*",
-      // This config is not being used properly by <Story /> in MDX stories.
-      // If it's not needed to have a prefix, removing it will fix the issue
+      files: "*.@(mdx|stories.*)",
       titlePrefix: "UI Page",
     },
   ],
   addons: [
-    // https://storybook.js.org/addons/@storybook/addon-links
     "@storybook/addon-links",
-    // https://storybook.js.org/docs/react/essentials/introduction
     "@storybook/addon-essentials",
+    "@storybook/addon-mdx-gfm",
   ],
-  framework: "@storybook/react",
-  core: {
-    builder: "@storybook/builder-vite",
+  framework: {
+    name: "@storybook/nextjs",
+    options: {},
   },
   features: {
     storyStoreV7: true, // build stories on demand
   },
-  async viteFinal(config, { configType }) {
-    // customize the Vite config here
+  webpackFinal(config) {
     return config;
   },
+  // async viteFinal(config) {
+  //   return mergeConfig(config, {
+  //     define: {
+  //       "process.env": process.env,
+  //     },
+  //   });
+  // },
+  docs: {
+    autodocs: true,
+  },
 };
+
