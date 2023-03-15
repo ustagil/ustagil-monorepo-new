@@ -16,7 +16,7 @@ export type InvoiceGetDto = {
 
 export type InvoiceListDto = {
   params: Record<string, never>;
-  query: Record<string, never>;
+  query: { pageIndex: number; pageSize: number };
 };
 
 export type InvoiceCreateDto = {
