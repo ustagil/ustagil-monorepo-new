@@ -3,7 +3,6 @@ import {
   IntegrationEmailCheckIntegrationDto,
 } from "@ustagil/typing";
 import { axiosInstance, sleep } from "@ustagil/util";
-import { stringify } from "querystring";
 
 export const integrationEmailsCheck = async ({
   query,
@@ -11,7 +10,10 @@ export const integrationEmailsCheck = async ({
 }: IntegrationEmailCheckDto) => {
   await sleep(500);
   return (
-    await axiosInstance.post(`/integration-emails?${stringify(query)}`, body)
+    await axiosInstance.post(
+      `/integration-emails?${new URLSearchParams(query).toString()}`,
+      body
+    )
   ).status;
 };
 
@@ -21,6 +23,9 @@ export const integrationEmailsCheckIntegration = async ({
 }: IntegrationEmailCheckIntegrationDto) => {
   await sleep(500);
   return (
-    await axiosInstance.post(`/integration-emails?${stringify(query)}`, body)
+    await axiosInstance.post(
+      `/integration-emails?${new URLSearchParams(query).toString()}`,
+      body
+    )
   ).status;
 };

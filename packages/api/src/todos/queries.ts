@@ -1,14 +1,16 @@
 import { APIResponse, Todo, TodoGetDto, TodoListDto } from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/util";
-import { stringify } from "querystring";
 
 export const todosList = async ({ query }: TodoListDto) =>
-  (await axiosInstance.get<APIResponse<Todo[]>>(`/todos?${stringify(query)}`))
-    .data;
+  (
+    await axiosInstance.get<APIResponse<Todo[]>>(
+      `/todos?${new URLSearchParams(query).toString()}`
+    )
+  ).data;
 
 export const todosGet = async ({ params: { id }, query }: TodoGetDto) =>
   (
     await axiosInstance.get<APIResponse<Todo>>(
-      `/todos/${id}?${stringify(query)}`
+      `/todos/${id}?${new URLSearchParams(query).toString()}`
     )
   ).data;

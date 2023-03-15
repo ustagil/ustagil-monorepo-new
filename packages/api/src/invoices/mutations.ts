@@ -6,12 +6,11 @@ import {
   InvoiceUpdateDto,
 } from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/util";
-import { stringify } from "querystring";
 
 export const invoicesCreate = async ({ query, body }: InvoiceCreateDto) =>
   (
     await axiosInstance.post<APIResponse<Invoice>>(
-      `/invoices?${stringify(query)}`,
+      `/invoices?${new URLSearchParams(query).toString()}`,
       body
     )
   ).data;

@@ -6,12 +6,11 @@ import {
   TodoUpdateDto,
 } from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/util";
-import { stringify } from "querystring";
 
 export const todosCreate = async ({ query, body }: TodoCreateDto) =>
   (
     await axiosInstance.post<APIResponse<Todo>>(
-      `/todos?${stringify(query)}`,
+      `/todos?${new URLSearchParams(query).toString()}`,
       body
     )
   ).data;

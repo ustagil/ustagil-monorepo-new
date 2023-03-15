@@ -5,7 +5,6 @@ import {
   IntegrationListDto,
 } from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/util";
-import { stringify } from "querystring";
 
 export const integrationsList = async ({
   query: {
@@ -21,16 +20,16 @@ export const integrationsList = async ({
 }: IntegrationListDto) =>
   (
     await axiosInstance.get<APIResponse<Integration[]>>(
-      `/integrations?${stringify({
-        start: pageIndex * pageSize,
-        end: (pageIndex + 1) * pageSize,
-        app,
-        email,
-        errorMessage,
-        lastSentMessage,
-        name,
-        status,
-      })}`
+      `/integrations?${new URLSearchParams({
+        start: String(pageIndex * pageSize),
+        end: String((pageIndex + 1) * pageSize),
+        app: app ?? "",
+        email: email ?? "",
+        errorMessage: errorMessage ?? "",
+        lastSentMessage: lastSentMessage ?? "",
+        name: name ?? "",
+        status: status?.toString() ?? "",
+      }).toString()}`
     )
   ).data;
 
@@ -40,6 +39,6 @@ export const integrationsGet = async ({
 }: IntegrationGetDto) =>
   (
     await axiosInstance.get<APIResponse<Integration>>(
-      `/integrations/${id}?${stringify(query)}`
+      `/integrations/${id}?${new URLSearchParams(query).toString()}`
     )
   ).data;

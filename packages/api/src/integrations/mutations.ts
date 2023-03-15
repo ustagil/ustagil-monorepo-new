@@ -6,7 +6,6 @@ import {
   IntegrationUpdateDto,
 } from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/util";
-import { stringify } from "querystring";
 
 export const integrationsCreate = async ({
   query,
@@ -14,7 +13,7 @@ export const integrationsCreate = async ({
 }: IntegrationCreateDto) =>
   (
     await axiosInstance.post<APIResponse<Integration>>(
-      `/integrations?${stringify(query)}`,
+      `/integrations?${new URLSearchParams(query).toString()}`,
       body
     )
   ).data;

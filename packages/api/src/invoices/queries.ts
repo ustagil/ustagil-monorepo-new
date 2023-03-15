@@ -5,18 +5,20 @@ import {
   InvoiceListDto,
 } from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/util";
-import { stringify } from "querystring";
 
 export const invoicesList = async ({ query }: InvoiceListDto) =>
   (
     await axiosInstance.get<APIResponse<Invoice[]>>(
-      `/invoices?${stringify(query)}`
+      `/invoices?${new URLSearchParams({
+        pageIndex: query.pageIndex.toString(),
+        pageSize: query.pageSize.toString(),
+      }).toString()}`
     )
   ).data;
 
 export const invoicesGet = async ({ params: { id }, query }: InvoiceGetDto) =>
   (
     await axiosInstance.get<APIResponse<Invoice>>(
-      `/invoices/${id}?${stringify(query)}`
+      `/invoices/${id}?${new URLSearchParams(query).toString()}`
     )
   ).data;

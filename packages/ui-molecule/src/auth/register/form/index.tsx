@@ -2,7 +2,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuthRegister } from "@ustagil/state";
 import { InputField } from "@ustagil/ui-atom";
 import { useRouter } from "next/router";
-import { stringify } from "querystring";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -38,11 +37,15 @@ export const AuthRegisterForm: FC<AuthRegisterFormProps> = () => {
   const authRegisterMutation = useAuthRegister({
     onSuccess: (_, variables) =>
       void router.push(
-        `/auth/verify-email?${stringify({ email: variables.body.email })}`
+        `/auth/verify-email?${new URLSearchParams({
+          email: variables.body.email,
+        }).toString()}`
       ),
     onError: (_, variables) =>
       void router.push(
-        `/auth/verify-email?${stringify({ email: variables.body.email })}`
+        `/auth/verify-email?${new URLSearchParams({
+          email: variables.body.email,
+        }).toString()}`
       ),
   });
 
