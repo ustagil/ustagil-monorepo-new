@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo ...[HEAD^1]
+BASE=$(git merge-base main HEAD) 
+FILES=$(git diff --name-only $BASE HEAD | xargs)
 
-yarn format
-yarn lint
+yarn format -- $FILES
+yarn lint -- $FILES
+yarn changeset

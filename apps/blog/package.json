@@ -8,7 +8,7 @@
     "start": "next start",
     "clean": "rm -rf .next dist node_modules",
     "coverage": "echo \"Coverage\"",
-    "format": "prettier --check pages",
+    "format": "prettier --check ",
     "lint": "next lint",
     "test": "echo \"Test\""
   },

@@ -14,8 +14,8 @@
     "clean": "rm -rf dist node_modules",
     "clean:rollup:cache": "rm -rf node_modules/.cache",
     "coverage": "jest --coverage",
-    "format": "prettier --check src",
-    "lint": "eslint ./src/** --no-error-on-unmatched-pattern",
+    "format": "prettier --check ",
+    "lint": "eslint --no-error-on-unmatched-pattern",
     "test": "jest"
   },
   "devDependencies": {

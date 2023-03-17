@@ -10,7 +10,7 @@
     "clean:rollup:cache": "echo \"Clean Rollup Cache\"",
     "coverage": "echo \"Coverage\"",
     "format": "echo \"Format\"",
-    "lint": "eslint . --no-error-on-unmatched-pattern",
+    "lint": "eslint --no-error-on-unmatched-pattern",
     "test": "echo \"Test\""
   },
   "dependencies": {
