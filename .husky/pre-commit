@@ -6,4 +6,3 @@ FILES=$(git diff --name-only $BASE HEAD | xargs)
 
 yarn format -- $FILES
 yarn lint -- $FILES
-yarn changeset

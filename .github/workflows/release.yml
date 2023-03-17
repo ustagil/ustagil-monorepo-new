@@ -17,14 +17,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@heygrady'
+          cache: "yarn"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@CllDMR"
       - name: Setup .yarnrc.yml
         run: |
-          yarn config set npmScopes.heygrady.npmRegistryServer "https://npm.pkg.github.com"
-          yarn config set npmScopes.heygrady.npmAlwaysAuth true
-          yarn config set npmScopes.heygrady.npmAuthToken $NPM_AUTH_TOKEN
+          yarn config set npmScopes.CllDMR.npmRegistryServer "https://npm.pkg.github.com"
+          yarn config set npmScopes.CllDMR.npmAlwaysAuth true
+          yarn config set npmScopes.CllDMR.npmAuthToken $NPM_AUTH_TOKEN
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Cache node_modules and yarn cache
@@ -40,6 +40,10 @@ jobs:
           restore-keys: |
             root-node-modules-folder-
       - run: yarn install
+      - run: yarn format
+      - run: yarn lint
+      - run: yarn build
+      - run: yarn test
       # FIXME: run yarn lint and yarn test before releasing
       - name: Create Release Pull Request or Publish to Github Package Registry
         id: changesets
