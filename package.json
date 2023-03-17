@@ -28,7 +28,7 @@
     "test:ci": "turbo run test -- --forceExit",
     "postinstall": "husky install",
     "release": "yarn build && changeset publish",
-    "version": "changeset version && yarn install"
+    "version": "changeset version && yarn install --mode=update-lockfile"
   },
   "dependencies": {
     "@changesets/cli": "^2.26.0",

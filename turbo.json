@@ -61,9 +61,6 @@
             "inputs": [
                 "src/**/*.{js,jsx,ts,tsx}"
             ],
-            "dependsOn": [
-                "^format"
-            ],
             "outputMode": "errors-only"
         },
         "lint": {
