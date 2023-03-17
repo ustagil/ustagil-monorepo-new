@@ -27,7 +27,7 @@
     "test": "turbo run test",
     "test:ci": "turbo run test -- --forceExit",
     "postinstall": "husky install",
-    "release": "yarn build && changeset publish",
+    "release": "yarn build --filter=\\!@ustagil/storybook && changeset publish",
     "version": "changeset version && yarn install --mode=update-lockfile"
   },
   "dependencies": {
