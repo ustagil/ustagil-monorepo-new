@@ -6661,6 +6661,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@ustagil/monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@ustagil/monorepo@workspace:."
+  dependencies:
+    "@changesets/cli": ^2.26.0
+    "@commitlint/cli": ^17.4.4
+    "@commitlint/config-conventional": ^17.4.4
+    "@commitlint/config-lerna-scopes": ^17.4.2
+    "@manypkg/cli": ^0.20.0
+    husky: ^8.0.3
+    turbo: ^1.8.3
+  languageName: unknown
+  linkType: soft
+
 "@ustagil/state@workspace:^, @ustagil/state@workspace:packages/state":
   version: 0.0.0-use.local
   resolution: "@ustagil/state@workspace:packages/state"
@@ -16881,20 +16895,6 @@ __metadata:
   checksum: aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
   languageName: node
   linkType: hard
-
-"my-repo@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "my-repo@workspace:."
-  dependencies:
-    "@changesets/cli": ^2.26.0
-    "@commitlint/cli": ^17.4.4
-    "@commitlint/config-conventional": ^17.4.4
-    "@commitlint/config-lerna-scopes": ^17.4.2
-    "@manypkg/cli": ^0.20.0
-    husky: ^8.0.3
-    turbo: ^1.8.3
-  languageName: unknown
-  linkType: soft
 
 "nan@npm:^2.12.1":
   version: 2.17.0

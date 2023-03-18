@@ -1,5 +1,5 @@
 {
-  "name": "my-repo",
+  "name": "@ustagil/monorepo",
   "packageManager": "yarn@3.4.1",
   "private": true,
   "workspaces": [
