@@ -8,6 +8,11 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+permissions:
+  packages: write
+  contents: read
+  metadata: read
+
 jobs:
   release:
     name: Release
@@ -50,8 +55,6 @@ jobs:
         with:
           version: yarn version
           publish: yarn release
-        permissions:
-          packages: write
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
