@@ -1,4 +1,4 @@
-# eslint-config-ustagil
+# @ustagil/eslint-config
 
 ## 1.0.0
 

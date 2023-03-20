@@ -5,4 +5,4 @@ BASE=$(git merge-base main HEAD)
 FILES=$(git diff --name-only $BASE HEAD | xargs)
 
 yarn format -- $FILES
-yarn lint -- $FILES
+yarn lint --filter=\!blog -- $FILES

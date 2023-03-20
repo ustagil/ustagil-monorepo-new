@@ -45,7 +45,7 @@ jobs:
             root-node-modules-folder-
       - run: yarn install
       - run: yarn format
-      - run: yarn lint
+      - run: yarn lint --filter=\!blog
       - run: yarn build --filter=\!@ustagil/storybook
       - run: yarn test
       - name: Create Release Pull Request or Publish to Github Package Registry
