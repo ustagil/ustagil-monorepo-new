@@ -1,16 +1,20 @@
 {
-    "conventionalCommits.scopes": [
-        "blog",
-        "ui-atom",
-        "ui-molecule",
-        "ui-organism",
-        "ui-page",
-        "ui-template",
-        "api",
-        "constant",
-        "state",
-        "typing",
-        "util",
-        "storybook"
-    ]
+  "conventionalCommits.scopes": [
+    "blog",
+    "ui-atom",
+    "ui-molecule",
+    "ui-organism",
+    "ui-page",
+    "ui-template",
+    "api",
+    "constant",
+    "state",
+    "typing",
+    "util",
+    "storybook"
+  ],
+  "search.exclude": {
+    // "**/.yarn": true,
+    "**/.pnp.*": true
+  }
 }

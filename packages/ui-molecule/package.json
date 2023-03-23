@@ -27,6 +27,7 @@
     "@types/nookies": "^2.0.3",
     "@types/prettier": "^2.7.2",
     "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
     "@types/rollup": "^0.54.0",
     "@types/rollup-plugin-peer-deps-external": "^2.2.1",
     "@types/typescript": "^2.0.0",
@@ -49,13 +50,17 @@
     "tslib": "^2.5.0",
     "typescript": "^4.9.5"
   },
-  "peerDependencies": {
-    "next": "*",
-    "react": "^17.0.0 || ^18.0.0-0",
-    "react-dom": "^17.0.0 || ^18.0.0-0"
-  },
   "dependencies": {
+    "@hookform/resolvers": "^3.0.0",
+    "@tanstack/react-table": "^8.7.9",
     "@ustagil/state": "workspace:^",
-    "@ustagil/ui-atom": "workspace:^"
+    "@ustagil/typing": "workspace:^",
+    "@ustagil/ui-atom": "workspace:^",
+    "next": "^13.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.7",
+    "react-icons": "^4.8.0",
+    "zod": "^3.21.4"
   }
 }

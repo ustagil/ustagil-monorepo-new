@@ -1,60 +1,75 @@
-// import { mergeConfig } from "vite";
+import path from "path";
 
-module.exports = {
-  core: {
-    builder: "webpack5",
-  },
+const config = {
   stories: [
     {
-      directory: "../../ui-atom/src/**",
-      files: "*.@(mdx|stories.*)",
+      directory: path.resolve(__dirname, "../../ui-atom/src"),
+      files: "**/*.@(mdx|stories.*)",
       titlePrefix: "UI Atom",
     },
-    {
-      directory: "../../ui-molecule/src/**",
-      files: "*.@(mdx|stories.*)",
-      titlePrefix: "UI Molecule",
-    },
-    {
-      directory: "../../ui-organism/src/**",
-      files: "*.@(mdx|stories.*)",
-      titlePrefix: "UI Organism",
-    },
-    {
-      directory: "../../ui-template/src/**",
-      files: "*.@(mdx|stories.*)",
-      titlePrefix: "UI Template",
-    },
-    {
-      directory: "../../ui-page/src/**",
-      files: "*.@(mdx|stories.*)",
-      titlePrefix: "UI Page",
-    },
+    // {
+    //   directory: path.resolve(__dirname, "../../ui-molecule/src"),
+    //   files: "**/*.@(mdx|stories.*)",
+    //   titlePrefix: "UI Molecule",
+    // },
+    // {
+    //   directory: path.resolve(__dirname, "../../ui-organism/src"),
+    //   files: "**/*.@(mdx|stories.*)",
+    //   titlePrefix: "UI Organism",
+    // },
+    // {
+    //   directory: path.resolve(__dirname, "../../ui-template/src"),
+    //   files: "**/*.@(mdx|stories.*)",
+    //   titlePrefix: "UI Template",
+    // },
+    // {
+    //   directory: path.resolve(__dirname, "../../ui-page/src"),
+    //   files: "**/*.@(mdx|stories.*)",
+    //   titlePrefix: "UI Page",
+    // },
   ],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-mdx-gfm",
+    path.dirname(
+      require.resolve(path.join("@storybook/addon-links", "package.json"))
+    ),
+    path.dirname(
+      require.resolve(path.join("@storybook/addon-essentials", "package.json"))
+    ),
+    path.dirname(
+      require.resolve(path.join("@storybook/addon-actions", "package.json"))
+    ),
+    path.dirname(
+      require.resolve(
+        path.join("@storybook/addon-interactions", "package.json")
+      )
+    ),
   ],
   framework: {
-    name: "@storybook/nextjs",
+    name: path.dirname(
+      require.resolve(path.join("@storybook/nextjs", "package.json"))
+    ),
     options: {},
   },
-  features: {
-    storyStoreV7: true, // build stories on demand
+  docs: {
+    autodocs: "tag",
   },
   webpackFinal(config) {
+    // config.plugins.push(		new NodePolyfillPlugin({
+		// 	includeAliases: ['util']
+		// }));
+    const babelLoaderRule = config.module.rules.find(
+      (rule) => rule.test.toString() === /\.(mjs|tsx?|jsx?)$/.toString()
+    );
+    // set correct project root
+    babelLoaderRule.include = [
+      path.resolve(__dirname, "../../ui-atom/src"),
+      // path.resolve(__dirname, "../../ui-molecule/src"),
+      // path.resolve(__dirname, "../../ui-organism/src"),
+      // path.resolve(__dirname, "../../ui-template/src"),
+      // path.resolve(__dirname, "../../ui-page/src"),
+    ];
+
     return config;
   },
-  // async viteFinal(config) {
-  //   return mergeConfig(config, {
-  //     define: {
-  //       "process.env": process.env,
-  //     },
-  //   });
-  // },
-  docs: {
-    autodocs: true,
-  },
 };
-
+export default config;

@@ -39,7 +39,7 @@ export const AuthLoginForm: FC<AuthLoginFormProps> = () => {
     onError: () => void router.push("/dashboard"),
   });
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit((data: any) => {
     authLoginMutation.mutate({ body: data, params: {}, query: {} });
   });
 

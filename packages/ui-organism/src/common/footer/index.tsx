@@ -19,7 +19,7 @@ const Contact: FC = () => {
     },
   });
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit((data: any) => {
     console.log(data);
   });
 
