@@ -11,7 +11,7 @@
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "start": "echo \"Start\"",
-    "clean": "rm -rf dist node_modules",
+    "clean": "rm -rf dist node_modules .turbo",
     "clean:rollup:cache": "rm -rf node_modules/.cache",
     "coverage": "echo \"Coverage\"",
     "format": "prettier --check ",
