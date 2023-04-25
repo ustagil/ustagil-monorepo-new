@@ -11,7 +11,8 @@
     "state",
     "typing",
     "util",
-    "storybook"
+    "storybook",
+    "ui"
   ],
   "search.exclude": {
     // "**/.yarn": true,

@@ -1,0 +1,32 @@
+.rounded_corners {
+  /* Change these properties */
+  --border: theme("spacing[0.5]") solid theme("colors.gray.700");
+  border-radius: theme("spacing[1]");
+
+  /* Don't change these properties */
+  border-spacing: 0;
+  border-collapse: separate;
+  border: var(--border);
+  overflow: hidden;
+}
+
+/* Apply a border to the right of all but the last column */
+.rounded_corners th:not(:last-child),
+.rounded_corners td:not(:last-child) {
+  /* border-right: var(--border); */
+}
+
+/* Apply a border to the bottom of all but the last row */
+.rounded_corners > thead > tr:not(:last-child) > th,
+.rounded_corners > thead > tr:not(:last-child) > td,
+.rounded_corners > tbody > tr:not(:last-child) > th,
+.rounded_corners > tbody > tr:not(:last-child) > td,
+.rounded_corners > tfoot > tr:not(:last-child) > th,
+.rounded_corners > tfoot > tr:not(:last-child) > td,
+.rounded_corners > tr:not(:last-child) > td,
+.rounded_corners > tr:not(:last-child) > th,
+.rounded_corners > thead:not(:last-child),
+.rounded_corners > tbody:not(:last-child),
+.rounded_corners > tfoot:not(:last-child) {
+  /* border-bottom: var(--border); */
+}

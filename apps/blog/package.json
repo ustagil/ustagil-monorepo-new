@@ -23,6 +23,7 @@
     "@types/node": "18.15.0",
     "@ustagil/eslint-config": "workspace:^",
     "@ustagil/state": "workspace:^",
+    "@ustagil/ui": "workspace:^",
     "@ustagil/ui-molecule": "workspace:^",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.4",
