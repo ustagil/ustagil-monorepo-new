@@ -139,6 +139,14 @@ dist
 !.yarn/sdks
 !.yarn/versions
 
+# # Yarn Zero-Installs
+# .yarn/*
+# !.yarn/cache
+# !.yarn/patches
+# !.yarn/plugins
+# !.yarn/releases
+# !.yarn/sdks
+# !.yarn/versions
 
 .turbo
 storybook-static

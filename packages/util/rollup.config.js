@@ -1,5 +1,4 @@
 import commonjs from "@rollup/plugin-commonjs";
-import json from "@rollup/plugin-json";
 import resolve from "@rollup/plugin-node-resolve";
 import { defineConfig } from "rollup";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
@@ -25,7 +24,6 @@ export default defineConfig({
       preferBuiltins: true,
       browser: true,
     }),
-    json(),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
   ],
