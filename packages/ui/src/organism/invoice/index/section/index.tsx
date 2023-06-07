@@ -1,6 +1,6 @@
-import { Grid, Section } from "@@/atom";
-import { InvoicesDataCard, InvoiceTable } from "@@/molecule";
 import { PaginationState } from "@tanstack/react-table";
+import { Grid, Section } from "@ui/atom";
+import { InvoiceTable, InvoicesDataCard } from "@ui/molecule";
 import { useInvoicesList } from "@ustagil/state";
 import { Invoice } from "@ustagil/typing";
 import { FC, useState } from "react";

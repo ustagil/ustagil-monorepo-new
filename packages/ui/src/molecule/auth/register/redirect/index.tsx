@@ -1,4 +1,4 @@
-import { NextLink } from "@@/atom";
+import { NextLink } from "@ui/atom";
 import { FC } from "react";
 import { Button } from "../../../common/button";
 

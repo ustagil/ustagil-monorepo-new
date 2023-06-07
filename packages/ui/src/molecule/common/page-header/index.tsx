@@ -1,4 +1,4 @@
-import { Section } from "@@/atom";
+import { Section } from "@ui/atom";
 import { FC } from "react";
 
 export interface PageHeaderProps {

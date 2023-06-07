@@ -1,12 +1,12 @@
-import { InputField, NextLink, Section, Select, SelectOption } from "@@/atom";
-import { Button, IntegrationTable } from "@@/molecule";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PaginationState } from "@tanstack/react-table";
+import { InputField, NextLink, Section, Select, SelectOption } from "@ui/atom";
+import { Button, IntegrationTable } from "@ui/molecule";
 import { useIntegrationsList } from "@ustagil/state";
 import {
-  Integration,
-  IntegrationListDto,
-  IntegrationStatus,
+    Integration,
+    IntegrationListDto,
+    IntegrationStatus,
 } from "@ustagil/typing";
 import { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";

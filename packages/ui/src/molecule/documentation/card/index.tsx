@@ -1,4 +1,4 @@
-import { Card, NextLink } from "@@/atom";
+import { Card, NextLink } from "@ui/atom";
 import { FC } from "react";
 
 export interface DocumentationCardProps {

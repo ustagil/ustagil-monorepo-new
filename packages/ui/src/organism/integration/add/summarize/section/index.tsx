@@ -1,5 +1,5 @@
-import { NextLink, Section } from "@@/atom";
-import { Button } from "@@/molecule";
+import { NextLink, Section } from "@ui/atom";
+import { Button } from "@ui/molecule";
 import { useIntegrationEmailStore } from "@ustagil/state";
 import { FC } from "react";
 

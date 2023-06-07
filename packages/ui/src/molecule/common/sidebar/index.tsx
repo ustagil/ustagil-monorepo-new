@@ -1,18 +1,18 @@
-import { SidebarContainer, SidebarItem, SidebarList } from "@@/atom";
+import { SidebarContainer, SidebarItem, SidebarList } from "@ui/atom";
 import { useStoreSidebar } from "@ustagil/state";
 import { FC } from "react";
 import {
-  IoArrowBackCircleOutline,
-  IoArrowForwardCircleOutline,
+    IoArrowBackCircleOutline,
+    IoArrowForwardCircleOutline,
 } from "react-icons/io5";
 import { RxDashboard } from "react-icons/rx";
 import { TbReportMoney } from "react-icons/tb";
 import {
-  VscCreditCard,
-  VscDashboard,
-  VscGear,
-  VscJson,
-  VscNote,
+    VscCreditCard,
+    VscDashboard,
+    VscGear,
+    VscJson,
+    VscNote,
 } from "react-icons/vsc";
 
 type SelectedPageName =

@@ -1,8 +1,8 @@
-import { NextLink, Section } from "@@/atom";
-import { Button, IntegrationAddSelectCard } from "@@/molecule";
+import { NextLink, Section } from "@ui/atom";
+import { Button, IntegrationAddSelectCard } from "@ui/molecule";
 import {
-  useIntegrationEmailsCheckIntegration,
-  useIntegrationEmailStore,
+    useIntegrationEmailStore,
+    useIntegrationEmailsCheckIntegration,
 } from "@ustagil/state";
 import { FC, useState } from "react";
 import { VscInfo } from "react-icons/vsc";

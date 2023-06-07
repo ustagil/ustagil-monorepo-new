@@ -1,5 +1,5 @@
-import { Section } from "@@/atom";
-import { AuthVerifyEmailForm } from "@@/molecule";
+import { Section } from "@ui/atom";
+import { AuthVerifyEmailForm } from "@ui/molecule";
 import { FC } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
