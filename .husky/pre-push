@@ -4,15 +4,17 @@
 BASE=$(git merge-base main HEAD) 
 FILES=$(git diff --name-only $BASE HEAD | xargs)
 
+pnpm build
+pnpm test
+
 if [ -z "$FILES" ]
 then
-    pnpm format
-    pnpm lint --filter=\!blog 
-    pnpm build
-    pnpm test
+    # pnpm format
+    # pnpm lint --filter=\!blog 
+    echo "diff is empty, no need to process"
 else
-    pnpm format -- $FILES
-    pnpm lint --filter=\!blog -- $FILES
-    pnpm build -- $FILES
-    pnpm test -- $FILES
+    # pnpm format -- $FILES
+    # pnpm lint --filter=\!blog -- $FILES
+    pnpm format
+    pnpm lint --filter=\!blog
 fi

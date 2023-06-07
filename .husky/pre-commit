@@ -6,9 +6,12 @@ FILES=$(git diff --name-only $BASE HEAD | xargs)
 
 if [ -z "$FILES" ]
 then
+    # pnpm format
+    # pnpm lint --filter=\!blog
+    echo "diff is empty, no need to process"
+else
+    # pnpm format -- $FILES
+    # pnpm lint --filter=\!blog -- $FILES
     pnpm format
     pnpm lint --filter=\!blog
-else
-    pnpm format -- $FILES
-    pnpm lint --filter=\!blog -- $FILES
 fi
