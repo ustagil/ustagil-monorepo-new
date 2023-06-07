@@ -4,5 +4,11 @@
 BASE=$(git merge-base main HEAD) 
 FILES=$(git diff --name-only $BASE HEAD | xargs)
 
-yarn format -- $FILES
-yarn lint --filter=\!blog -- $FILES
+if [ -z "$FILES" ]
+then
+    pnpm format
+    pnpm lint --filter=\!blog
+else
+    pnpm format -- $FILES
+    pnpm lint --filter=\!blog -- $FILES
+fi

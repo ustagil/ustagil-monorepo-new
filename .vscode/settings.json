@@ -15,7 +15,7 @@
     "ui"
   ],
   "search.exclude": {
-    // "**/.yarn": true,
+    "**/.yarn": true,
     "**/.pnp.*": true
   },
   "typescript.tsdk": "..\\..\\node_modules\\typescript\\lib",
