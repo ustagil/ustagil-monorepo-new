@@ -1,5 +1,5 @@
-import { Section } from "@@/atom";
-import { AuthLoginForm, AuthRegisterRedirect } from "@@/molecule";
+import { Section } from "@ui/atom";
+import { AuthLoginForm, AuthRegisterRedirect } from "@ui/molecule";
 import { FC } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

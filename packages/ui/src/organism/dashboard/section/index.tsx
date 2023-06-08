@@ -1,5 +1,5 @@
-import { Grid, Section } from "@@/atom";
-import { DashboardCard } from "@@/molecule";
+import { Grid, Section } from "@ui/atom";
+import { DashboardCard } from "@ui/molecule";
 import { FC } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

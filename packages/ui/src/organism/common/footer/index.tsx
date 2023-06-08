@@ -1,5 +1,5 @@
-import { InputField, NextLink } from "@@/atom";
-import { Button } from "@@/molecule";
+import { InputField, NextLink } from "@ui/atom";
+import { Button } from "@ui/molecule";
 import { WEB_APP_DOMAINS } from "@ustagil/constant";
 import Image from "next/image";
 import { FC } from "react";

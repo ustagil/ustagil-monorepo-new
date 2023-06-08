@@ -1,9 +1,9 @@
-import { NextLink, Section } from "@@/atom";
-import { Button } from "@@/molecule";
+import { NextLink, Section } from "@ui/atom";
+import { Button } from "@ui/molecule";
 import {
-  useIntegrationEmailsCheck,
-  // useIntegrationEmailsGetNew,
-  useIntegrationEmailStore,
+    // useIntegrationEmailsGetNew,
+    useIntegrationEmailStore,
+    useIntegrationEmailsCheck,
 } from "@ustagil/state";
 import { FC, useState } from "react";
 

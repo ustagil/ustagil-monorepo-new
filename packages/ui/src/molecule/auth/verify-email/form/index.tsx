@@ -1,5 +1,5 @@
-import { InputField } from "@@/atom";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { InputField } from "@ui/atom";
 import { useAuthVerifyEmail } from "@ustagil/state";
 import { useRouter } from "next/router";
 import { FC } from "react";

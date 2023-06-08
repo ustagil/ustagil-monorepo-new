@@ -1,6 +1,6 @@
 {
   "name": "@ustagil/monorepo",
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "pnpm@8.3.1",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -16,7 +16,7 @@
     "start:ci": "turbo run --concurrency=4 start -- --maxWorkers=2 --forceExit",
     "clean": "turbo run clean",
     "clean:rollup:cache": "turbo run clean:rollup:cache",
-    "clean:full": "turbo run clean && yarn cache clean && rm -rf node_modules",
+    "clean:full": "turbo run clean && pnpm cache clean && rm -rf node_modules",
     "clean:ci": "turbo run clean -- --maxWorkers=2 --forceExit",
     "coverage": "turbo run coverage --concurrency=1 -- --maxWorkers=1",
     "coverage:ci": "turbo run coverage --concurrency=1 -- --forceExit --maxWorkers=1",
@@ -28,7 +28,7 @@
     "test:ci": "turbo run test -- --forceExit",
     "postinstall": "husky install",
     "release": "changeset publish",
-    "version": "changeset version && yarn install --mode=update-lockfile"
+    "version": "changeset version && pnpm install --mode=update-lockfile"
   },
   "dependencies": {
     "@changesets/cli": "^2.26.0",

@@ -1,4 +1,4 @@
-import { Card, Grid, Section } from "@@/atom";
+import { Card, Grid, Section } from "@ui/atom";
 import { FC } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

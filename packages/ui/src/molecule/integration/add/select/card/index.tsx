@@ -1,4 +1,4 @@
-import { Card } from "@@/atom";
+import { Card } from "@ui/atom";
 import Image from "next/image";
 import { FC } from "react";
 

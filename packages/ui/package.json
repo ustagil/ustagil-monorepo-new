@@ -1,15 +1,11 @@
 {
   "name": "@ustagil/ui",
   "version": "0.1.0",
-  "type": "module",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/*"
-  ],
+  "main": "src/index.ts",
+  "types": "src/index.ts",
   "scripts": {
-    "dev": "rollup -c -w",
-    "build": "rollup -c",
+    "dev": "echo \"Dev\"",
+    "build": "echo \"Build\"",
     "start": "echo \"Start\"",
     "clean": "rm -rf dist node_modules .turbo storybook-static",
     "clean:rollup:cache": "rm -rf node_modules/.cache",
@@ -23,6 +19,7 @@
   "dependencies": {
     "@babel/core": "^7.21.4",
     "@headlessui/react": "^1.7.13",
+    "@hookform/resolvers": "^2.9.11",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-terser": "^0.4.0",
@@ -34,6 +31,7 @@
     "@storybook/react": "^7.0.2",
     "@storybook/testing-library": "^0.1.0",
     "@tanstack/react-query": "^4.28.0",
+    "@tanstack/react-table": "^8.7.9",
     "@types/babel__core": "^7.20.0",
     "@types/eslint": "^8.37.0",
     "@types/node": "^18.15.11",
@@ -41,8 +39,10 @@
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "@types/rollup-plugin-peer-deps-external": "^2.2.1",
+    "@ustagil/constant": "workspace:^",
     "@ustagil/eslint-config": "workspace:^",
     "@ustagil/state": "workspace:^",
+    "@ustagil/typing": "workspace:^",
     "css-loader": "^6.7.3",
     "eslint": "^8.38.0",
     "eslint-config-next": "^13.3.0",
@@ -52,6 +52,7 @@
     "eslint-plugin-turbo": "^1.8.8",
     "jest": "^29.5.0",
     "next": "^13.3.0",
+    "next-themes": "^0.2.1",
     "nookies": "^2.5.2",
     "postcss-loader": "^7.2.4",
     "prettier": "^2.8.7",
@@ -69,7 +70,8 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
     "typescript": "^5.0.4",
-    "webpack": "^5.78.0"
+    "webpack": "^5.78.0",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

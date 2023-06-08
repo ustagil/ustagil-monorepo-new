@@ -1,4 +1,4 @@
-import { Card } from "@@/atom";
+import { Card } from "@ui/atom";
 import { FC } from "react";
 
 export interface DashboardCardProps {

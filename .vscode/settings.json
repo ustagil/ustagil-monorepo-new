@@ -14,10 +14,7 @@
     "storybook",
     "ui"
   ],
-  "search.exclude": {
-    // "**/.yarn": true,
-    "**/.pnp.*": true
-  },
+  "search.exclude": {},
   "typescript.tsdk": "..\\..\\node_modules\\typescript\\lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
 }

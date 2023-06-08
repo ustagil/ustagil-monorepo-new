@@ -1,7 +1,20 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn format
-yarn lint --filter=\!blog 
-yarn build
-yarn test
+BASE=$(git merge-base main HEAD) 
+FILES=$(git diff --name-only $BASE HEAD | xargs)
+
+pnpm build
+pnpm test
+
+if [ -z "$FILES" ]
+then
+    # pnpm format
+    # pnpm lint --filter=\!blog 
+    echo "diff is empty, no need to process"
+else
+    # pnpm format -- $FILES
+    # pnpm lint --filter=\!blog -- $FILES
+    pnpm format
+    pnpm lint --filter=\!blog
+fi

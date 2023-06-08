@@ -1,5 +1,5 @@
-import { NextLink } from "@@/atom";
-import { Button } from "@@/molecule";
+import { NextLink } from "@ui/atom";
+import { Button } from "@ui/molecule";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { FC } from "react";
