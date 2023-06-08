@@ -16,44 +16,44 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: "yarn"
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@ustagil"
-      - name: Setup .yarnrc.yml
-        run: |
-          yarn config set npmScopes.ustagil.npmRegistryServer "https://npm.pkg.github.com"
-          yarn config set npmScopes.ustagil.npmAlwaysAuth true
-          yarn config set npmScopes.ustagil.npmAuthToken $NPM_AUTH_TOKEN
-        env:
-          NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Cache node_modules and yarn cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-            apps/*/node_modules
-            packages/*/node_modules
-            scripts/*/node_modules
-            .yarn/cache
-          key: root-node-modules-folder-v1
-          restore-keys: |
-            root-node-modules-folder-
-      - run: yarn install
-      - run: yarn format
-      - run: yarn lint --filter=\!blog
-      - run: yarn build --filter=\!@ustagil/storybook
-      - run: yarn test
-      - name: Create Release Pull Request or Publish to Github Package Registry
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          version: yarn version
-          publish: yarn release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 16
+      #     cache: "yarn"
+      #     registry-url: "https://npm.pkg.github.com"
+      #     scope: "@ustagil"
+      # - name: Setup .yarnrc.yml
+      #   run: |
+      #     yarn config set npmScopes.ustagil.npmRegistryServer "https://npm.pkg.github.com"
+      #     yarn config set npmScopes.ustagil.npmAlwaysAuth true
+      #     yarn config set npmScopes.ustagil.npmAuthToken $NPM_AUTH_TOKEN
+      #   env:
+      #     NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Cache node_modules and yarn cache
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: |
+      #       node_modules
+      #       apps/*/node_modules
+      #       packages/*/node_modules
+      #       scripts/*/node_modules
+      #       .yarn/cache
+      #     key: root-node-modules-folder-v1
+      #     restore-keys: |
+      #       root-node-modules-folder-
+      # - run: yarn install
+      # - run: yarn format
+      # - run: yarn lint --filter=\!blog
+      # - run: yarn build --filter=\!@ustagil/storybook
+      # - run: yarn test
+      # - name: Create Release Pull Request or Publish to Github Package Registry
+      #   id: changesets
+      #   uses: changesets/action@v1
+      #   with:
+      #     version: yarn version
+      #     publish: yarn release
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     YARN_ENABLE_IMMUTABLE_INSTALLS: false
