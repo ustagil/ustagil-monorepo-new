@@ -28,6 +28,7 @@
     "test:ci": "turbo run test -- --forceExit",
     "postinstall": "husky install",
     "release": "changeset publish",
+    "changeset": "changeset",
     "version": "changeset version && pnpm install --mode=update-lockfile"
   },
   "dependencies": {
