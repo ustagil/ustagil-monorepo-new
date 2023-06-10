@@ -1,13 +1,10 @@
 # @ustagil/api
 
-## 1.0.0
-
-### Major Changes
-
-- init changeset
+## 0.0.1
 
 ### Patch Changes
 
+- reset and init versions
 - Updated dependencies
-  - @ustagil/typing@1.0.0
-  - @ustagil/util@1.0.0
+  - @ustagil/typing@0.0.1
+  - @ustagil/util@0.0.1

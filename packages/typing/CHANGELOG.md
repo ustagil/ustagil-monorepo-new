@@ -1,7 +1,7 @@
 # @ustagil/typing
 
-## 1.0.0
+## 0.0.1
 
-### Major Changes
+### Patch Changes
 
-- init changeset
+- reset and init versions

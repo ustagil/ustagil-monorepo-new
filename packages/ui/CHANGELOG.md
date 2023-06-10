@@ -1,4 +1,4 @@
-# @ustagil/util
+# @ustagil/ui
 
 ## 0.0.1
 
@@ -6,5 +6,7 @@
 
 - reset and init versions
 - Updated dependencies
+  - @ustagil/eslint-config@0.0.1
   - @ustagil/constant@0.0.1
   - @ustagil/typing@0.0.1
+  - @ustagil/state@0.0.1

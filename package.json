@@ -28,7 +28,8 @@
     "test:ci": "turbo run test -- --forceExit",
     "postinstall": "husky install",
     "release": "changeset publish",
-    "version": "changeset version && pnpm install --mode=update-lockfile"
+    "changeset": "changeset",
+    "changeset:version": "changeset version && pnpm install --lockfile-only"
   },
   "dependencies": {
     "@changesets/cli": "^2.26.0",

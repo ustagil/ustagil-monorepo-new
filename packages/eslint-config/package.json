@@ -1,6 +1,7 @@
 {
   "name": "@ustagil/eslint-config",
-  "version": "1.0.0",
+  "private": true,
+  "version": "0.0.1",
   "main": "index.json",
   "dependencies": {
     "eslint": "^8.35.0",
