@@ -12,7 +12,9 @@
     "typing",
     "util",
     "storybook",
-    "ui"
+    "ui",
+    "api-todo",
+    "api-user"
   ],
   "search.exclude": {},
   "typescript.tsdk": "..\\..\\node_modules\\typescript\\lib",
