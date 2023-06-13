@@ -1,5 +1,5 @@
 {
-  "name": "@ustagil/blog",
+  "name": "@ustagil/web-blog",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -22,8 +22,8 @@
     "@tanstack/react-table": "^8.7.9",
     "@types/node": "18.15.0",
     "@ustagil/eslint-config": "workspace:^",
-    "@ustagil/state": "workspace:^",
-    "@ustagil/ui": "workspace:^",
+    "@ustagil/web-state": "workspace:^",
+    "@ustagil/web-ui": "workspace:^",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.4",
     "immer": "^9.0.19",

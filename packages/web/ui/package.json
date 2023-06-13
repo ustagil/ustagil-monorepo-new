@@ -1,5 +1,5 @@
 {
-  "name": "@ustagil/ui",
+  "name": "@ustagil/web-ui",
   "private": true,
   "version": "0.0.1",
   "main": "src/index.ts",
@@ -40,9 +40,9 @@
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "@types/rollup-plugin-peer-deps-external": "^2.2.1",
-    "@ustagil/constant": "workspace:^",
+    "@ustagil/web-constant": "workspace:^",
     "@ustagil/eslint-config": "workspace:^",
-    "@ustagil/state": "workspace:^",
+    "@ustagil/web-state": "workspace:^",
     "@ustagil/typing": "workspace:^",
     "css-loader": "^6.7.3",
     "eslint": "^8.38.0",
