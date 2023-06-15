@@ -2,11 +2,6 @@
   "name": "@ustagil/monorepo",
   "packageManager": "pnpm@8.3.1",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "scripts/*"
-  ],
   "scripts": {
     "dev": "turbo run --concurrency=4 dev",
     "dev:ci": "turbo run --concurrency=4 dev -- --maxWorkers=2 --forceExit",
