@@ -8,13 +8,13 @@ BACKLOG
 ----- activate changeset
 ----- fix github workflows
 ----- add "tsc --noEmit" for typecheck script (package.json-?, github workflow)
------ implement manypkg for sync of versions of dependencies at whole monorepo
 ----- rearrange dependency lists of apps, packages
 ----- add nvm
 ----- reconfigure turbo output options for performance
------ clean deprecated dependencies
 
 SELECTED
+----- implement manypkg for sync of versions of dependencies at whole monorepo
+----- clean deprecated dependencies
 
 DONE
 +++++ remove stats file from ui package
