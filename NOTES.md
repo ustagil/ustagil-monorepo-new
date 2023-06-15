@@ -15,9 +15,9 @@ BACKLOG
 ----- clean deprecated dependencies
 
 SELECTED
------ remove stats file from ui package
 
 DONE
++++++ remove stats file from ui package
 +++++ remove tsconfig.dev.json file from ui package
 +++++ clear README files
 +++++ concentrate storybook files at storybook lib
