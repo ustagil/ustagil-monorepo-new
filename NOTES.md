@@ -6,7 +6,7 @@ start to planning projects
 add options to package.json as author, git, licence...
 activate changeset
 
-add package.json attributes of OpenSource stuff. Like author, repo, licence
+add package.json attributes of OpenSource stuff. Like author, repo, licence (look into nestjs project packages)
 
 fix github workflows
 
@@ -25,3 +25,5 @@ clear README files
 remove tsconfig.dev.json file from ui package
 
 add nvm
+
+clean deprecated dependencies
