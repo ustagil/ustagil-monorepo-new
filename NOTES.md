@@ -13,9 +13,9 @@ BACKLOG
 ----- add nvm
 ----- reconfigure turbo output options for performance
 ----- clean deprecated dependencies
------ remove stats file from ui package
 
 SELECTED
+----- remove stats file from ui package
 
 DONE
 +++++ remove tsconfig.dev.json file from ui package
