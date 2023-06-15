@@ -8,7 +8,7 @@ if [ -z "$FILES" ]
 then
     # pnpm format
     # pnpm lint --filter=\!blog
-    echo "diff is empty, no need to process"
+    echo "pre-commit: diff is empty, no need to process"
 else
     # pnpm format -- $FILES
     # pnpm lint --filter=\!blog -- $FILES
