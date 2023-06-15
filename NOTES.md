@@ -11,6 +11,7 @@ BACKLOG
 ----- implement manypkg for sync of versions of dependencies at whole monorepo
 ----- rearrange dependency lists of apps, packages
 ----- add nvm
+----- reconfigure turbo output options for performance
 ----- clean deprecated dependencies
 ----- remove stats file from ui package
 ----- remove tsconfig.dev.json file from ui package
