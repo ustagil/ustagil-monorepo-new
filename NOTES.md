@@ -17,8 +17,8 @@ BACKLOG
 ----- remove tsconfig.dev.json file from ui package
 
 SELECTED
------ clear README files
 
 DONE
++++++ clear README files
 +++++ concentrate storybook files at storybook lib
 +++++ disable rollup .cache at node_modules
