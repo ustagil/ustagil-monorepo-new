@@ -1,5 +1,5 @@
 import { SidebarContainer, SidebarItem, SidebarList } from "@ui/atom";
-import { useStoreSidebar } from "@ustagil/state";
+import { useStoreSidebar } from "@ustagil/web-state";
 import { FC } from "react";
 import {
     IoArrowBackCircleOutline,

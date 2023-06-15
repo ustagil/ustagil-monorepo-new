@@ -1,6 +1,6 @@
 import { NextLink, Section } from "@ui/atom";
 import { Button } from "@ui/molecule";
-import { useIntegrationsDelete, useIntegrationsGet } from "@ustagil/state";
+import { useIntegrationsDelete, useIntegrationsGet } from "@ustagil/web-state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 

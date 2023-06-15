@@ -3,7 +3,7 @@ import { Button, IntegrationAddSelectCard } from "@ui/molecule";
 import {
     useIntegrationEmailStore,
     useIntegrationEmailsCheckIntegration,
-} from "@ustagil/state";
+} from "@ustagil/web-state";
 import { FC, useState } from "react";
 import { VscInfo } from "react-icons/vsc";
 

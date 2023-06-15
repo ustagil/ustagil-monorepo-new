@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { InputField, Section } from "@ui/atom";
 import { Button } from "@ui/molecule";
-import { useIntegrationsGet, useIntegrationsUpdate } from "@ustagil/state";
+import { useIntegrationsGet, useIntegrationsUpdate } from "@ustagil/web-state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";

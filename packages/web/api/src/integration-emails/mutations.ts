@@ -2,7 +2,7 @@ import {
   IntegrationEmailCheckDto,
   IntegrationEmailCheckIntegrationDto,
 } from "@ustagil/typing";
-import { axiosInstance, sleep } from "@ustagil/util";
+import { axiosInstance, sleep } from "@ustagil/web-util";
 
 export const integrationEmailsCheck = async ({
   query,

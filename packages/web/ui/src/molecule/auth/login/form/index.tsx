@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { InputField } from "@ui/atom";
-import { useAuthLogin } from "@ustagil/state";
+import { useAuthLogin } from "@ustagil/web-state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";

@@ -1,8 +1,8 @@
 import { PaginationState } from "@tanstack/react-table";
 import { Grid, Section } from "@ui/atom";
 import { InvoiceTable, InvoicesDataCard } from "@ui/molecule";
-import { useInvoicesList } from "@ustagil/state";
 import { Invoice } from "@ustagil/typing";
+import { useInvoicesList } from "@ustagil/web-state";
 import { FC, useState } from "react";
 import { ImSpinner3 } from "react-icons/im";
 import { IoDocumentTextOutline } from "react-icons/io5";

@@ -1,11 +1,11 @@
 import {
-  integrationEmailsCheck,
-  integrationEmailsCheckIntegration,
-} from "@ustagil/api";
-import {
   IntegrationEmailCheckDto,
   IntegrationEmailCheckIntegrationDto,
 } from "@ustagil/typing";
+import {
+  integrationEmailsCheck,
+  integrationEmailsCheckIntegration,
+} from "@ustagil/web-api";
 import { createMutation } from "react-query-kit";
 
 export const useIntegrationEmailsCheck = createMutation<

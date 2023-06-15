@@ -1,15 +1,15 @@
 import {
-  integrationsCreate,
-  integrationsDelete,
-  integrationsUpdate,
-} from "@ustagil/api";
-import {
   APIResponse,
   Integration,
   IntegrationCreateDto,
   IntegrationDeleteDto,
   IntegrationUpdateDto,
 } from "@ustagil/typing";
+import {
+  integrationsCreate,
+  integrationsDelete,
+  integrationsUpdate,
+} from "@ustagil/web-api";
 import { createMutation } from "react-query-kit";
 
 export const useIntegrationsCreate = createMutation<

@@ -1,6 +1,6 @@
 import { NextLink, Section } from "@ui/atom";
 import { Button } from "@ui/molecule";
-import { useIntegrationEmailStore } from "@ustagil/state";
+import { useIntegrationEmailStore } from "@ustagil/web-state";
 import { FC } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

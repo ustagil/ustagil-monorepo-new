@@ -2,12 +2,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { PaginationState } from "@tanstack/react-table";
 import { InputField, NextLink, Section, Select, SelectOption } from "@ui/atom";
 import { Button, IntegrationTable } from "@ui/molecule";
-import { useIntegrationsList } from "@ustagil/state";
 import {
     Integration,
     IntegrationListDto,
     IntegrationStatus,
 } from "@ustagil/typing";
+import { useIntegrationsList } from "@ustagil/web-state";
 import { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";

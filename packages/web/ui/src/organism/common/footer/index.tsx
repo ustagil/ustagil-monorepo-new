@@ -1,6 +1,6 @@
 import { InputField, NextLink } from "@ui/atom";
 import { Button } from "@ui/molecule";
-import { WEB_APP_DOMAINS } from "@ustagil/constant";
+import { WEB_APP_DOMAINS } from "@ustagil/web-constant";
 import Image from "next/image";
 import { FC } from "react";
 import { useForm } from "react-hook-form";

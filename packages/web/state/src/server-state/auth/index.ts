@@ -1,4 +1,4 @@
-import { authLogin, authRegister, authVerifyEmail } from "@ustagil/api";
+import { authLogin, authRegister, authVerifyEmail } from "@ustagil/web-api";
 import { AxiosError } from "axios";
 // import { useStoreSnacks } from '@ustagil/state';
 import {

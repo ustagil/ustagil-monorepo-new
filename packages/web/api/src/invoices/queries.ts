@@ -4,7 +4,7 @@ import {
   InvoiceGetDto,
   InvoiceListDto,
 } from "@ustagil/typing";
-import { axiosInstance } from "@ustagil/util";
+import { axiosInstance } from "@ustagil/web-util";
 
 export const invoicesList = async ({ query }: InvoiceListDto) =>
   (

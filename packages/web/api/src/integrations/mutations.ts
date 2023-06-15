@@ -5,7 +5,7 @@ import {
   IntegrationDeleteDto,
   IntegrationUpdateDto,
 } from "@ustagil/typing";
-import { axiosInstance } from "@ustagil/util";
+import { axiosInstance } from "@ustagil/web-util";
 
 export const integrationsCreate = async ({
   query,
