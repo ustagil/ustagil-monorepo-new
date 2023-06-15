@@ -14,9 +14,9 @@ BACKLOG
 ----- reconfigure turbo output options for performance
 ----- clean deprecated dependencies
 ----- remove stats file from ui package
------ remove tsconfig.dev.json file from ui package
 
 SELECTED
+----- remove tsconfig.dev.json file from ui package
 
 DONE
 +++++ clear README files
