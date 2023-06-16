@@ -24,16 +24,18 @@
     "postinstall": "husky install",
     "release": "changeset publish",
     "changeset": "changeset",
-    "changeset:version": "changeset version && pnpm install --lockfile-only"
+    "changeset:version": "changeset version && pnpm install --lockfile-only",
+    "mc": "manypkg check",
+    "mf": "manypkg fix"
   },
   "dependencies": {
-    "@changesets/cli": "^2.26.0",
+    "@changesets/cli": "^2.26.1",
     "@commitlint/cli": "^17.6.5",
-    "@commitlint/config-conventional": "^17.4.4",
+    "@commitlint/config-conventional": "^17.6.5",
     "@commitlint/config-lerna-scopes": "^17.6.3",
     "@commitlint/config-pnpm-scopes": "^17.5.0",
-    "@manypkg/cli": "^0.20.0",
+    "@manypkg/cli": "^0.21.0",
     "husky": "^8.0.3",
-    "turbo": "^1.8.3"
+    "turbo": "^1.10.3"
   }
 }

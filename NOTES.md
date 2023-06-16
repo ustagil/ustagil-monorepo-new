@@ -1,4 +1,5 @@
 BACKLOG
+----- add manypkg check script to CI & CD
 ----- concentrate tailwindcss, ts and eslint configs, and apply them properly
 ----- collect config files and extend them from config package. Eslint, tsconfig
 ----- tailwindcss config should be scalable and compositable
