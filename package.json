@@ -25,8 +25,8 @@
     "release": "changeset publish",
     "changeset": "changeset",
     "changeset:version": "changeset version && pnpm install --lockfile-only",
-    "manypkg:check": "manypkg check",
-    "manypkg:fix": "manypkg fix"
+    "mc": "manypkg check",
+    "mf": "manypkg fix"
   },
   "dependencies": {
     "@changesets/cli": "^2.26.1",
