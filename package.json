@@ -24,7 +24,9 @@
     "postinstall": "husky install",
     "release": "changeset publish",
     "changeset": "changeset",
-    "changeset:version": "changeset version && pnpm install --lockfile-only"
+    "changeset:version": "changeset version && pnpm install --lockfile-only",
+    "manypkg:check": "manypkg check",
+    "manypkg:fix": "manypkg fix"
   },
   "dependencies": {
     "@changesets/cli": "^2.26.0",
