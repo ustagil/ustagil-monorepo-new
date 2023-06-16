@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-green-300">
       <span>HOME PAGE</span>
       <Button variant="contained" title="BASIC" />
     </div>
