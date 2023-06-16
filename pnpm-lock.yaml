@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -4515,7 +4519,7 @@ packages:
       tsconfig-paths: 4.2.0
       tsconfig-paths-webpack-plugin: 4.0.1
       typescript: 5.1.3
-      webpack: 5.87.0(esbuild@0.17.19)
+      webpack: 5.87.0
       webpack-node-externals: 3.0.0
     transitivePeerDependencies:
       - esbuild
@@ -9499,7 +9503,7 @@ packages:
       semver: 7.5.2
       tapable: 2.2.1
       typescript: 5.1.3
-      webpack: 5.87.0(esbuild@0.17.19)
+      webpack: 5.87.0
     dev: true
 
   /form-data@3.0.1:
@@ -14113,6 +14117,31 @@ packages:
       serialize-javascript: 6.0.1
       terser: 5.18.0
       webpack: 5.87.0(esbuild@0.17.19)
+    dev: false
+
+  /terser-webpack-plugin@5.3.9(webpack@5.87.0):
+    resolution: {integrity: sha512-ZuXsqE07EcggTWQjXUj+Aot/OMcD0bMKGgF63f7UxYcu5/AJF53aIpK1YoP5xR9l6s/Hy2b+t1AM0bLNPRuhwA==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      '@swc/core': '*'
+      esbuild: '*'
+      uglify-js: '*'
+      webpack: ^5.1.0
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      esbuild:
+        optional: true
+      uglify-js:
+        optional: true
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.18
+      jest-worker: 27.5.1
+      schema-utils: 3.3.0
+      serialize-javascript: 6.0.1
+      terser: 5.18.0
+      webpack: 5.87.0
+    dev: true
 
   /terser@5.18.0:
     resolution: {integrity: sha512-pdL757Ig5a0I+owA42l6tIuEycRuM7FPY4n62h44mRLRfnOxJkkOHd6i89dOpwZlpF6JXBwaAHF6yWzFrt+QyA==}
@@ -14276,7 +14305,7 @@ packages:
       micromatch: 4.0.5
       semver: 7.5.2
       typescript: 5.1.3
-      webpack: 5.87.0(esbuild@0.17.19)
+      webpack: 5.87.0
     dev: true
 
   /ts-node@10.9.1(@types/node@20.3.1)(typescript@5.1.3):
@@ -14808,6 +14837,46 @@ packages:
     resolution: {integrity: sha512-5tyDlKLqPfMqjT3Q9TAqf2YqjwmnUleZwzJi1A5qXnlBCdj2AtOJ6wAWdglTIDOPgOiOrXeBeFcsQ8+aGQ6QbA==}
     dev: false
 
+  /webpack@5.87.0:
+    resolution: {integrity: sha512-GOu1tNbQ7p1bDEoFRs2YPcfyGs8xq52yyPBZ3m2VGnXGtV9MxjrkABHm4V9Ia280OefsSLzvbVoXcfLxjKY/Iw==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    peerDependencies:
+      webpack-cli: '*'
+    peerDependenciesMeta:
+      webpack-cli:
+        optional: true
+    dependencies:
+      '@types/eslint-scope': 3.7.4
+      '@types/estree': 1.0.1
+      '@webassemblyjs/ast': 1.11.6
+      '@webassemblyjs/wasm-edit': 1.11.6
+      '@webassemblyjs/wasm-parser': 1.11.6
+      acorn: 8.9.0
+      acorn-import-assertions: 1.9.0(acorn@8.9.0)
+      browserslist: 4.21.9
+      chrome-trace-event: 1.0.3
+      enhanced-resolve: 5.15.0
+      es-module-lexer: 1.3.0
+      eslint-scope: 5.1.1
+      events: 3.3.0
+      glob-to-regexp: 0.4.1
+      graceful-fs: 4.2.11
+      json-parse-even-better-errors: 2.3.1
+      loader-runner: 4.3.0
+      mime-types: 2.1.35
+      neo-async: 2.6.2
+      schema-utils: 3.3.0
+      tapable: 2.2.1
+      terser-webpack-plugin: 5.3.9(webpack@5.87.0)
+      watchpack: 2.4.0
+      webpack-sources: 3.2.3
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
+    dev: true
+
   /webpack@5.87.0(esbuild@0.17.19):
     resolution: {integrity: sha512-GOu1tNbQ7p1bDEoFRs2YPcfyGs8xq52yyPBZ3m2VGnXGtV9MxjrkABHm4V9Ia280OefsSLzvbVoXcfLxjKY/Iw==}
     engines: {node: '>=10.13.0'}
@@ -14846,6 +14915,7 @@ packages:
       - '@swc/core'
       - esbuild
       - uglify-js
+    dev: false
 
   /whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
