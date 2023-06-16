@@ -29,7 +29,7 @@
     "@types/typescript": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
-    "@ustagil/eslint-config": "workspace:^",
+    "@ustagil/eslint-config": "0.0.1",
     "eslint": "^8.35.0",
     "eslint-config-next": "^13.2.4",
     "eslint-config-prettier": "^8.7.0",
@@ -47,7 +47,7 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@ustagil/typing": "workspace:^",
-    "@ustagil/web-util": "workspace:^"
+    "@ustagil/typing": "0.0.1",
+    "@ustagil/web-util": "0.0.1"
   }
 }
