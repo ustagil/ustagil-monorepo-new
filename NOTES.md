@@ -14,10 +14,10 @@ BACKLOG
 ----- reconfigure turbo output options for performance
 
 SELECTED
------ implement manypkg for sync of versions of dependencies at whole monorepo
------ clean deprecated dependencies
 
 DONE
++++++ implement manypkg for sync of versions of dependencies at whole monorepo
++++++ clean deprecated dependencies
 +++++ remove stats file from ui package
 +++++ remove tsconfig.dev.json file from ui package
 +++++ clear README files
