@@ -7,26 +7,26 @@ export class AppController {
 
   @Get()
   list(): string {
-    return this.appService.getHello();
+    return this.appService.list();
   }
 
   @Post()
   create(): string {
-    return this.appService.getHello();
+    return this.appService.create();
   }
 
   @Get(':id')
   read(): string {
-    return this.appService.getHello();
+    return this.appService.read();
   }
 
   @Patch(':id')
   update(): string {
-    return this.appService.getHello();
+    return this.appService.update();
   }
 
   @Delete(':id')
   delete(): string {
-    return this.appService.getHello();
+    return this.appService.delete();
   }
 }
