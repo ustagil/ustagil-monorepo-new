@@ -1,4 +1,12 @@
 import { Controller, Delete, Get, Patch, Post } from '@nestjs/common';
+import {
+  User,
+  UserCreateDto,
+  UserDeleteDto,
+  UserListDto,
+  UserReadDto,
+  UserUpdateDto,
+} from '@ustagil/typing';
 import { AppService } from './app.service';
 
 @Controller('users')
@@ -6,27 +14,27 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  list(): string {
-    return this.appService.list();
+  list(dto: UserListDto): User[] {
+    return this.appService.list(dto);
   }
 
   @Post()
-  create(): string {
-    return this.appService.create();
+  create(dto: UserCreateDto): User {
+    return this.appService.create(dto);
   }
 
   @Get(':id')
-  read(): string {
-    return this.appService.read();
+  read(dto: UserReadDto): User {
+    return this.appService.read(dto);
   }
 
   @Patch(':id')
-  update(): string {
-    return this.appService.update();
+  update(dto: UserUpdateDto): User {
+    return this.appService.update(dto);
   }
 
   @Delete(':id')
-  delete(): string {
-    return this.appService.delete();
+  delete(dto: UserDeleteDto): User {
+    return this.appService.delete(dto);
   }
 }
