@@ -11,9 +11,9 @@ BACKLOG
 ----- add "tsc --noEmit" for typecheck script (package.json-?, github workflow)
 ----- rearrange dependency lists of apps, packages
 ----- add nvm
------ reconfigure turbo output options for performance
 
 SELECTED
+----- reconfigure turbo output options for performance
 
 DONE
 +++++ implement manypkg for sync of versions of dependencies at whole monorepo
