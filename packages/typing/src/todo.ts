@@ -1,6 +1,6 @@
-export type Todo = { name: string };
+export type Todo = { id: string; name: string };
 
-export type TodoGetDto = {
+export type TodoReadDto = {
   params: { id: string };
   query: Record<string, never>;
 };
