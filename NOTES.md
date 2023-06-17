@@ -13,9 +13,9 @@ BACKLOG
 ----- add nvm
 
 SELECTED
------ reconfigure turbo output options for performance
 
 DONE
++++++ reconfigure turbo output options for performance
 +++++ implement manypkg for sync of versions of dependencies at whole monorepo
 +++++ clean deprecated dependencies
 +++++ remove stats file from ui package
