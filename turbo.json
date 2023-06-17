@@ -1,84 +1,47 @@
 {
-    "$schema": "https://turborepo.org/schema.json",
-    "globalEnv": [
-        "NEXT_PUBLIC_BACK_URL"
-    ],
-    "pipeline": {
-        "dev": {
-            "cache": false,
-            "persistent": true,
-            "dependsOn": [
-                "build"
-            ]
-        },
-        "build": {
-            "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "package.json"
-            ],
-            "outputs": [
-                "dist/**",
-                "storybook-static/**"
-            ],
-            "dependsOn": [
-                "^build"
-            ],
-            "outputMode": "new-only"
-        },
-        "start": {
-            "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "dist/**",
-                ".next/**",
-                "package.json"
-            ],
-            "dependsOn": [
-                "build"
-            ],
-            "outputMode": "new-only"
-        },
-        "clean": {
-            "outputMode": "errors-only"
-        },
-        "clean:rollup:cache": {
-            "cache": false,
-            "outputMode": "errors-only"
-        },
-        "coverage": {
-            "inputs": [
-                "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
-                "package.json"
-            ],
-            "outputs": [
-                "coverage/**"
-            ],
-            "dependsOn": [
-                "^coverage"
-            ]
-        },
-        "format": {
-            "inputs": [
-                "src/**/*.{js,jsx,ts,tsx}"
-            ],
-            "outputMode": "errors-only"
-        },
-        "lint": {
-            "inputs": [
-                "src/**/*.{js,jsx,ts,tsx}"
-            ],
-            "dependsOn": [
-                "^lint"
-            ],
-            "outputMode": "errors-only"
-        },
-        "test": {
-            "inputs": [
-                "src/**/*.{js,jsx,ts,tsx}"
-            ],
-            "dependsOn": [
-                "^test"
-            ]
-        }
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "build": {
+      "inputs": ["src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}"],
+      "outputs": ["dist/**", "storybook-static/**"],
+      "dependsOn": ["^build"],
+      "outputMode": "new-only"
+    },
+    "start": {
+      "inputs": [
+        "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
+        "dist/**",
+        ".next/**",
+        "package.json"
+      ],
+      "dependsOn": ["build"],
+      "outputMode": "new-only"
+    },
+    "clean": {
+      "outputMode": "errors-only"
+    },
+    "coverage": {
+      "inputs": [
+        "src/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
+        "test/**/*.{cjs,mjs,js,jsx,cts,mts,ts,tsx}",
+        "package.json"
+      ],
+      "outputs": ["coverage/**"]
+    },
+    "format": {
+      "inputs": ["src/**/*.{js,jsx,ts,tsx}"],
+      "outputMode": "errors-only"
+    },
+    "lint": {
+      "inputs": ["src/**/*.{js,jsx,ts,tsx}"],
+      "outputMode": "errors-only"
+    },
+    "test": {
+      "inputs": ["src/**/*.{js,jsx,ts,tsx}"]
     }
+  }
 }
