@@ -1,4 +1,6 @@
 BACKLOG
+----- create api-utils package
+----- fix test file errors at web-utils package
 ----- add manypkg check script to CI & CD
 ----- concentrate tailwindcss, ts and eslint configs, and apply them properly
 ----- collect config files and extend them from config package. Eslint, tsconfig
