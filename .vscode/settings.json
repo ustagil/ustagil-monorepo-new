@@ -1,17 +1,16 @@
 {
   "conventionalCommits.scopes": [
-    // apps
     "api-todo",
     "api-user",
     "web-blog",
-    // packages
     "eslint-config",
     "typing",
     "web-api",
     "web-constant",
     "web-state",
     "web-ui",
-    "web-util"
+    "web-util",
+    "api-auth"
   ],
   "search.exclude": {},
   "typescript.tsdk": "..\\..\\node_modules\\typescript\\lib",
