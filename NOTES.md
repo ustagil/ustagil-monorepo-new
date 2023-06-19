@@ -1,4 +1,5 @@
 BACKLOG
+----- clear, fix common eslint config
 ----- create api-utils package
 ----- fix test file errors at web-utils package
 ----- add manypkg check script to CI & CD
