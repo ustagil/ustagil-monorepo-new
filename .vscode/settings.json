@@ -11,7 +11,10 @@
     "web-ui",
     "web-util",
     "api-auth",
-    "api-util"
+    "api-util",
+    "api-article-command",
+    "api-article-http",
+    "api-article-query"
   ],
   "search.exclude": {},
   "typescript.tsdk": "..\\..\\node_modules\\typescript\\lib",
