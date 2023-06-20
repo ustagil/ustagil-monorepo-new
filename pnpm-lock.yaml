@@ -223,6 +223,9 @@ importers:
       '@nestjs/platform-express':
         specifier: ^10.0.0
         version: 10.0.0(@nestjs/common@10.0.0)(@nestjs/core@10.0.0)
+      '@ustagil/api-util':
+        specifier: workspace:^
+        version: link:../../../packages/api/util
       '@ustagil/typing':
         specifier: workspace:^
         version: link:../../../packages/typing
