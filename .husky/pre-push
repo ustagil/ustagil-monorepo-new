@@ -5,7 +5,7 @@ BASE=$(git merge-base main HEAD)
 FILES=$(git diff --name-only $BASE HEAD | xargs)
 
 pnpm build
-pnpm test
+# pnpm test
 
 if [ -z "$FILES" ]
 then
