@@ -1,4 +1,4 @@
-import { APIResponse, Todo, TodoGetDto, TodoListDto } from "@ustagil/typing";
+import { APIResponse, Todo, TodoListDto, TodoReadDto } from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/web-util";
 
 export const todosList = async ({ query }: TodoListDto) =>
@@ -8,7 +8,7 @@ export const todosList = async ({ query }: TodoListDto) =>
     )
   ).data;
 
-export const todosGet = async ({ params: { id }, query }: TodoGetDto) =>
+export const todosGet = async ({ params: { id }, query }: TodoReadDto) =>
   (
     await axiosInstance.get<APIResponse<Todo>>(
       `/todos/${id}?${new URLSearchParams(query).toString()}`
