@@ -10,7 +10,8 @@
     "web-state",
     "web-ui",
     "web-util",
-    "api-auth"
+    "api-auth",
+    "api-util"
   ],
   "search.exclude": {},
   "typescript.tsdk": "..\\..\\node_modules\\typescript\\lib",
