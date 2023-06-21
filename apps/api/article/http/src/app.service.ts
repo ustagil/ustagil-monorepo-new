@@ -1,5 +1,5 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
-import { ClientGrpc } from '@nestjs/microservices';
+import { ClientGrpc, ClientKafka } from '@nestjs/microservices';
 import {
   Article,
   ArticleCreateDto,
@@ -12,17 +12,26 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AppService implements OnModuleInit {
-  private articleService: ArticleService;
+  private articleGrpcService: ArticleGrpcService;
 
-  constructor(@Inject('ARTICLE_PACKAGE') private client: ClientGrpc) {}
+  constructor(
+    @Inject('ARTICLE_PACKAGE') private clientGrpc: ClientGrpc,
+    @Inject('ARTICLE_SERVICE') private clientKafka: ClientKafka,
+  ) {}
 
-  onModuleInit() {
-    this.articleService =
-      this.client.getService<ArticleService>('ArticleService');
+  async onModuleInit() {
+    this.articleGrpcService =
+      this.clientGrpc.getService<ArticleGrpcService>('ArticleService');
+    this.clientKafka.subscribeToResponseOf('article.list');
+    await this.clientKafka.connect();
   }
 
-  getHero(): Observable<string> {
-    return this.articleService.findOne({ id: 2 });
+  grpcTest(): Observable<string> {
+    return this.articleGrpcService.findOne({ id: 2 });
+  }
+
+  kafkaTest(): Observable<string> {
+    return this.clientKafka.send('article.list', { id: '2' });
   }
 
   articles: Article[] = [];
@@ -71,6 +80,6 @@ function removeObjectWithId<T extends { id: string }>(
   return null;
 }
 
-interface ArticleService {
+interface ArticleGrpcService {
   findOne(data: { id: number }): Observable<any>;
 }

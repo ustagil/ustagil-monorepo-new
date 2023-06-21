@@ -16,8 +16,10 @@ export class AppController {
 
   @Get()
   async list(dto: ArticleListDto): Promise<Article[]> {
-    const ttt = await firstValueFrom(this.appService.getHero());
-    console.log('ttt:', ttt);
+    const grpcTest = await firstValueFrom(this.appService.grpcTest());
+    console.log('grpcTest:', grpcTest);
+    const kafkaTest = await firstValueFrom(this.appService.kafkaTest());
+    console.log('kafkaTest:', kafkaTest);
 
     return this.appService.list(dto);
   }
