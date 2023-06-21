@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package article;
+
+service ArticleService {
+  rpc FindOne (ArticleById) returns (Article) {}
+}
+
+message ArticleById {
+  int32 id = 1;
+}
+
+message Article {
+  int32 id = 1;
+  string name = 2;
+}

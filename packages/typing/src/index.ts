@@ -1,3 +1,4 @@
+export * from "./article";
 export * from "./auth";
 export * from "./integration";
 export * from "./integration-email";
