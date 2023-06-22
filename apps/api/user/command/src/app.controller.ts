@@ -1,34 +1,29 @@
-import { Injectable } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
+import { MessagePattern } from '@nestjs/microservices';
 import {
   User,
-  UserCreateDto,
-  UserDeleteDto,
-  UserListDto,
-  UserReadDto,
-  UserUpdateDto,
+  UserKafkaCreateRequest,
+  UserKafkaCreateResponse,
+  UserKafkaDeleteRequest,
+  UserKafkaDeleteResponse,
+  UserKafkaUpdateRequest,
+  UserKafkaUpdateResponse,
 } from '@ustagil/typing';
 
-@Injectable()
-export class AppService {
+@Controller()
+export class AppController {
   users: User[] = [];
 
-  list(dto: UserListDto): User[] {
-    dto;
-    return this.users;
-  }
-
-  create(dto: UserCreateDto): User {
+  @MessagePattern('user.create')
+  create(dto: UserKafkaCreateRequest): UserKafkaCreateResponse {
     const nextId = this.users.length;
     const newUser: User = { id: `${nextId}`, ...dto.body };
     this.users.push(newUser);
     return newUser;
   }
 
-  read(dto: UserReadDto): User {
-    return this.users.find((e) => e.name === dto.params.id);
-  }
-
-  update(dto: UserUpdateDto): User {
+  @MessagePattern('user.update')
+  update(dto: UserKafkaUpdateRequest): UserKafkaUpdateResponse {
     const foundIndex = this.users.findIndex((e) => e.id === dto.params.id);
     this.users = this.users.map((e, i) =>
       i === foundIndex ? { ...e, ...dto.body } : e,
@@ -36,7 +31,8 @@ export class AppService {
     return this.users[foundIndex];
   }
 
-  delete(dto: UserDeleteDto): User {
+  @MessagePattern('user.delete')
+  delete(dto: UserKafkaDeleteRequest): UserKafkaDeleteResponse {
     return removeObjectWithId(this.users, dto.params.id);
   }
 }
