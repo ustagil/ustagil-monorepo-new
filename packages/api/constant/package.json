@@ -1,0 +1,35 @@
+{
+  "name": "@ustagil/api-constant",
+  "private": true,
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "clean": "rm -rf node_modules .turbo",
+    "format": "prettier --check ",
+    "lint": "eslint --no-error-on-unmatched-pattern"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.1",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@types/eslint": "^8.40.2",
+    "@types/prettier": "^2.7.3",
+    "@types/rollup-plugin-peer-deps-external": "^2.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
+    "@ustagil/eslint-config": "0.0.1",
+    "eslint": "^8.42.0",
+    "eslint-config-next": "^13.4.6",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-config-turbo": "^1.10.3",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-turbo": "^1.10.3",
+    "prettier": "^2.8.8",
+    "rollup": "^3.25.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.3",
+    "typescript": "^5.1.3"
+  }
+}

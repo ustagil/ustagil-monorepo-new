@@ -10,6 +10,7 @@
     "api-user-query",
     "web-blog",
     "api-util",
+    "api-constant",
     "eslint-config",
     "typing",
     "web-api",
