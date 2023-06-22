@@ -13,11 +13,16 @@ import {
 import { ClientGrpc, ClientKafka } from '@nestjs/microservices';
 import {
   Article,
-  ArticleCreateDto,
-  ArticleDeleteDto,
-  ArticleListDto,
-  ArticleReadDto,
-  ArticleUpdateDto,
+  ArticleGrpcListRequest,
+  ArticleGrpcListResponse,
+  ArticleGrpcReadRequest,
+  ArticleGrpcReadResponse,
+  ArticleKafkaCreateRequest,
+  ArticleKafkaCreateResponse,
+  ArticleKafkaDeleteRequest,
+  ArticleKafkaDeleteResponse,
+  ArticleKafkaUpdateRequest,
+  ArticleKafkaUpdateResponse,
 } from '@ustagil/typing';
 import { Observable, firstValueFrom, toArray } from 'rxjs';
 
@@ -43,8 +48,8 @@ export class AppController implements OnModuleInit {
 
   @Get()
   async list(
-    @Param() params: ArticleListDto['params'],
-    @Query() query: ArticleListDto['query'],
+    @Param() params: ArticleGrpcListRequest['params'],
+    @Query() query: ArticleGrpcListRequest['query'],
   ): Promise<Article[]> {
     return await firstValueFrom(
       this.articleGrpcService.list({ params, query }).pipe(toArray()),
@@ -53,19 +58,22 @@ export class AppController implements OnModuleInit {
 
   @Post()
   async create(
-    @Param() params: ArticleCreateDto['params'],
-    @Query() query: ArticleCreateDto['query'],
-    @Body() body: ArticleCreateDto['body'],
+    @Param() params: ArticleKafkaCreateRequest['params'],
+    @Query() query: ArticleKafkaCreateRequest['query'],
+    @Body() body: ArticleKafkaCreateRequest['body'],
   ): Promise<Article> {
     return await firstValueFrom(
-      this.clientKafka.send('article.create', { params, query, body }),
+      this.clientKafka.send<
+        ArticleKafkaCreateResponse,
+        ArticleKafkaCreateRequest
+      >('article.create', { params, query, body }),
     );
   }
 
   @Get(':id')
   async read(
-    @Param() params: ArticleReadDto['params'],
-    @Query() query: ArticleReadDto['query'],
+    @Param() params: ArticleGrpcReadRequest['params'],
+    @Query() query: ArticleGrpcReadRequest['query'],
   ): Promise<Article> {
     return await firstValueFrom(
       this.articleGrpcService.read({
@@ -77,11 +85,14 @@ export class AppController implements OnModuleInit {
 
   @Patch(':id')
   async update(
-    @Param() params: ArticleUpdateDto['params'],
-    @Body() body: ArticleUpdateDto['body'],
+    @Param() params: ArticleKafkaUpdateRequest['params'],
+    @Body() body: ArticleKafkaUpdateRequest['body'],
   ): Promise<Article> {
     return await firstValueFrom(
-      this.clientKafka.send('article.update', {
+      this.clientKafka.send<
+        ArticleKafkaUpdateResponse,
+        ArticleKafkaUpdateRequest
+      >('article.update', {
         params,
         body,
       }),
@@ -89,14 +100,19 @@ export class AppController implements OnModuleInit {
   }
 
   @Delete(':id')
-  async delete(@Param() params: ArticleDeleteDto['params']): Promise<Article> {
+  async delete(
+    @Param() params: ArticleKafkaDeleteRequest['params'],
+  ): Promise<Article> {
     return await firstValueFrom(
-      this.clientKafka.send('article.delete', { params }),
+      this.clientKafka.send<
+        ArticleKafkaDeleteResponse,
+        ArticleKafkaDeleteRequest
+      >('article.delete', { params }),
     );
   }
 }
 
 interface ArticleGrpcService {
-  list(data: ArticleListDto): Observable<Article>;
-  read(data: ArticleReadDto): Observable<any>;
+  list(data: ArticleGrpcListRequest): Observable<ArticleGrpcListResponse>;
+  read(data: ArticleGrpcReadRequest): Observable<ArticleGrpcReadResponse>;
 }

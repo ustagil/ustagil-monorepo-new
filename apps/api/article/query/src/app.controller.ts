@@ -1,6 +1,12 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
-import { Article, ArticleListDto, ArticleReadDto } from '@ustagil/typing';
+import {
+  Article,
+  ArticleGrpcListRequest,
+  ArticleGrpcListResponse,
+  ArticleGrpcReadRequest,
+  ArticleGrpcReadResponse,
+} from '@ustagil/typing';
 import { Observable, from } from 'rxjs';
 
 @Controller()
@@ -12,12 +18,12 @@ export class AppController {
   ];
 
   @GrpcMethod('ArticleService', 'List')
-  list(dto: ArticleListDto): Observable<Article> {
+  list(dto: ArticleGrpcListRequest): Observable<ArticleGrpcListResponse> {
     return from(this.articles);
   }
 
   @GrpcMethod('ArticleService', 'Read')
-  read(dto: ArticleReadDto): Article {
+  read(dto: ArticleGrpcReadRequest): ArticleGrpcReadResponse {
     return this.articles.find((e) => e.id === dto.params.id);
   }
 }

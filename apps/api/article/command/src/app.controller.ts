@@ -2,9 +2,12 @@ import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 import {
   Article,
-  ArticleCreateDto,
-  ArticleDeleteDto,
-  ArticleUpdateDto,
+  ArticleKafkaCreateRequest,
+  ArticleKafkaCreateResponse,
+  ArticleKafkaDeleteRequest,
+  ArticleKafkaDeleteResponse,
+  ArticleKafkaUpdateRequest,
+  ArticleKafkaUpdateResponse,
 } from '@ustagil/typing';
 
 @Controller()
@@ -12,7 +15,7 @@ export class AppController {
   articles: Article[] = [];
 
   @MessagePattern('article.create')
-  create(dto: ArticleCreateDto): Article {
+  create(dto: ArticleKafkaCreateRequest): ArticleKafkaCreateResponse {
     const nextId = this.articles.length;
     const newArticle: Article = { id: `${nextId}`, ...dto.body };
     this.articles.push(newArticle);
@@ -20,7 +23,7 @@ export class AppController {
   }
 
   @MessagePattern('article.update')
-  update(dto: ArticleUpdateDto): Article {
+  update(dto: ArticleKafkaUpdateRequest): ArticleKafkaUpdateResponse {
     const foundIndex = this.articles.findIndex((e) => e.id === dto.params.id);
     this.articles = this.articles.map((e, i) =>
       i === foundIndex ? { ...e, ...dto.body } : e,
@@ -29,7 +32,7 @@ export class AppController {
   }
 
   @MessagePattern('article.delete')
-  delete(dto: ArticleDeleteDto): Article {
+  delete(dto: ArticleKafkaDeleteRequest): ArticleKafkaDeleteResponse {
     return removeObjectWithId(this.articles, dto.params.id);
   }
 }
