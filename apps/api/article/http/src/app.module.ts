@@ -3,14 +3,13 @@ import { ConfigModule } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     ClientsModule.register([
       {
-        name: 'ARTICLE_PACKAGE',
+        name: 'ARTICLE_QUERY',
         transport: Transport.GRPC,
         options: {
           package: 'article',
@@ -20,7 +19,7 @@ import { AppService } from './app.service';
     ]),
     ClientsModule.register([
       {
-        name: 'ARTICLE_SERVICE',
+        name: 'ARTICLE_COMMAND',
         transport: Transport.KAFKA,
         options: {
           client: {
@@ -35,6 +34,6 @@ import { AppService } from './app.service';
     ]),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}

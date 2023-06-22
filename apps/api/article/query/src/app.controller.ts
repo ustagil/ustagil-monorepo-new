@@ -1,31 +1,23 @@
-import { Metadata, ServerUnaryCall } from '@grpc/grpc-js';
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
-import { AppService } from './app.service';
+import { Article, ArticleListDto, ArticleReadDto } from '@ustagil/typing';
+import { Observable, from } from 'rxjs';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  articles: Article[] = [
+    { id: '1', name: 'name 1' },
+    { id: '2', name: 'name 2' },
+    { id: '3', name: 'name 3' },
+  ];
 
-  @GrpcMethod('ArticleService', 'FindOne')
-  findOne(
-    data: ArticleById,
-    metadata: Metadata,
-    call: ServerUnaryCall<any, any>,
-  ): Article {
-    const items = [
-      { id: 1, name: 'John' },
-      { id: 2, name: 'Doe' },
-    ];
-    return items.find(({ id }) => id === data.id);
+  @GrpcMethod('ArticleService', 'List')
+  list(dto: ArticleListDto): Observable<Article> {
+    return from(this.articles);
   }
-}
 
-interface ArticleById {
-  id: number;
-}
-
-interface Article {
-  id: number;
-  name: string;
+  @GrpcMethod('ArticleService', 'Read')
+  read(dto: ArticleReadDto): Article {
+    return this.articles.find((e) => e.id === dto.params.id);
+  }
 }

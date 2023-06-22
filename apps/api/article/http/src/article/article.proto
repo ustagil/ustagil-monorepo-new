@@ -3,11 +3,23 @@ syntax = "proto3";
 package article;
 
 service ArticleService {
-  rpc FindOne (ArticleById) returns (Article) {}
+  rpc List (ArticleListDto) returns (stream Article) {}
+  rpc Read (ArticleReadDto) returns (Article) {}
 }
 
-message ArticleById {
-  int32 id = 1;
+message ArticleListDto {
+  map<string, string> params = 1;
+  map<string, string> query = 2;
+}
+
+message ArticleReadDto {
+  map<string, string> params = 1;
+  map<string, string> query = 2;
+
+  message Body {
+    string name = 1;
+  }
+  map<string, Body> body = 3;
 }
 
 message Article {
