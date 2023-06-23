@@ -1,5 +1,5 @@
 {
-  "name": "@ustagil/api-todo",
+  "name": "@ustagil/api-todo-command",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -21,10 +21,12 @@
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
-    "@nestjs/config": "^3.0.0",
     "@nestjs/core": "^9.0.0",
+    "@nestjs/microservices": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
-    "@ustagil/typing": "0.0.1",
+    "@ustagil/api-constant": "workspace:^",
+    "@ustagil/typing": "workspace:0.0.1",
+    "kafkajs": "^2.2.4",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },

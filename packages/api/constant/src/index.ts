@@ -14,5 +14,6 @@ export const API_TODO_QUERY_MS = 'TODO_QUERY';
 export const API_TODO_COMMAND_MS = 'TODO_COMMAND';
 export const API_TODO_GROUP_ID = 'todo-consumer';
 export const API_TODO_CLIENT_ID = 'todo';
+export const API_TODO_CLIENT_URL = '0.0.0.0:5002';
 
 export const API_KAFKA_BROKER = 'localhost:9092';

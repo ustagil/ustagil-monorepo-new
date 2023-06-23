@@ -1,34 +1,29 @@
-import { Injectable } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
+import { MessagePattern } from '@nestjs/microservices';
 import {
   Todo,
-  TodoCreateDto,
-  TodoDeleteDto,
-  TodoListDto,
-  TodoReadDto,
-  TodoUpdateDto,
+  TodoKafkaCreateRequest,
+  TodoKafkaCreateResponse,
+  TodoKafkaDeleteRequest,
+  TodoKafkaDeleteResponse,
+  TodoKafkaUpdateRequest,
+  TodoKafkaUpdateResponse,
 } from '@ustagil/typing';
 
-@Injectable()
-export class AppService {
+@Controller()
+export class AppController {
   todos: Todo[] = [];
 
-  list(dto: TodoListDto): Todo[] {
-    dto;
-    return this.todos;
-  }
-
-  create(dto: TodoCreateDto): Todo {
+  @MessagePattern('todo.create')
+  create(dto: TodoKafkaCreateRequest): TodoKafkaCreateResponse {
     const nextId = this.todos.length;
     const newTodo: Todo = { id: `${nextId}`, ...dto.body };
     this.todos.push(newTodo);
     return newTodo;
   }
 
-  read(dto: TodoReadDto): Todo {
-    return this.todos.find((e) => e.name === dto.params.id);
-  }
-
-  update(dto: TodoUpdateDto): Todo {
+  @MessagePattern('todo.update')
+  update(dto: TodoKafkaUpdateRequest): TodoKafkaUpdateResponse {
     const foundIndex = this.todos.findIndex((e) => e.id === dto.params.id);
     this.todos = this.todos.map((e, i) =>
       i === foundIndex ? { ...e, ...dto.body } : e,
@@ -36,7 +31,8 @@ export class AppService {
     return this.todos[foundIndex];
   }
 
-  delete(dto: TodoDeleteDto): Todo {
+  @MessagePattern('todo.delete')
+  delete(dto: TodoKafkaDeleteRequest): TodoKafkaDeleteResponse {
     return removeObjectWithId(this.todos, dto.params.id);
   }
 }
