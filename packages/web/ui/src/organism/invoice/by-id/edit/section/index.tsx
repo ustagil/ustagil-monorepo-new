@@ -1,7 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { InputField, Section } from "@ui/atom";
-import { Button } from "@ui/molecule";
-import { useInvoicesGet, useInvoicesUpdate } from "@ustagil/web-state";
+import { Section } from "@ui/atom";
+// import { useInvoicesGet, useInvoicesUpdate } from "@ustagil/web-state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
@@ -22,9 +21,9 @@ type IFormValues = {
 export const InvoiceByIdEditSection: FC<InvoiceByIdEditSectionProps> = ({
   id,
 }) => {
-  const { data: invoice, isSuccess } = useInvoicesGet({
-    variables: { params: { id }, query: {} },
-  });
+  // const { data: invoice, isSuccess } = useInvoicesGet({
+  //   variables: { params: { id }, query: {} },
+  // });
 
   const router = useRouter();
   const {
@@ -33,28 +32,28 @@ export const InvoiceByIdEditSection: FC<InvoiceByIdEditSectionProps> = ({
     formState: { errors, isDirty, isValid },
   } = useForm<IFormValues>({
     defaultValues: {
-      billingPlanName: invoice?.datas.billingPlanName ?? "",
+      // billingPlanName: invoice?.datas.billingPlanName ?? "",
     },
     resolver: zodResolver(schema),
   });
 
-  const invoiceUpdateMutation = useInvoicesUpdate({
-    onSuccess: () => void router.push(`/invoices/${id}`),
-    onError: () => void router.push(`/invoices/${id}`),
-  });
+  // const invoiceUpdateMutation = useInvoicesUpdate({
+  //   onSuccess: () => void router.push(`/invoices/${id}`),
+  //   onError: () => void router.push(`/invoices/${id}`),
+  // });
 
   const onSubmit = handleSubmit((data) => {
-    if (isSuccess) {
-      invoiceUpdateMutation.mutate({
-        body: data,
-        params: { id: invoice?.datas.id },
-      });
-    }
+    // if (isSuccess) {
+    //   invoiceUpdateMutation.mutate({
+    //     body: data,
+    //     params: { id: invoice?.datas.id },
+    //   });
+    // }
   });
 
   return (
     <Section id="invoice-by-id-section">
-      {isSuccess && (
+      {/* {isSuccess && (
         <form onSubmit={onSubmit}>
           <InputField
             className="max-w-sm"
@@ -75,7 +74,7 @@ export const InvoiceByIdEditSection: FC<InvoiceByIdEditSectionProps> = ({
             </div>
           </div>
         </form>
-      )}
+      )} */}
     </Section>
   );
 };

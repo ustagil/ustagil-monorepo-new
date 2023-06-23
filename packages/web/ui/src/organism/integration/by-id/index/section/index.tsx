@@ -1,6 +1,5 @@
-import { NextLink, Section } from "@ui/atom";
-import { Button } from "@ui/molecule";
-import { useIntegrationsDelete, useIntegrationsGet } from "@ustagil/web-state";
+import { Section } from "@ui/atom";
+// import { useIntegrationsDelete, useIntegrationsGet } from "@ustagil/web-state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
@@ -12,18 +11,18 @@ export const IntegrationByIdSection: FC<IntegrationByIdSectionProps> = ({
   id,
 }) => {
   const router = useRouter();
-  const { data, isSuccess } = useIntegrationsGet({
-    variables: { params: { id }, query: {} },
-  });
+  // const { data, isSuccess } = useIntegrationsGet({
+  //   variables: { params: { id }, query: {} },
+  // });
 
-  const integrationDeleteMutation = useIntegrationsDelete({
-    onSuccess: () => router.push("/integrations"),
-    onError: () => router.push("/integrations"),
-  });
+  // const integrationDeleteMutation = useIntegrationsDelete({
+  //   onSuccess: () => router.push("/integrations"),
+  //   onError: () => router.push("/integrations"),
+  // });
 
   return (
     <Section id="integration-by-id-section">
-      {isSuccess && (
+      {/* {isSuccess && (
         <div className="">
           <div className="flex justify-end gap-4">
             <NextLink href={`/integrations/${id}/edit`} legacyBehavior>
@@ -67,7 +66,7 @@ export const IntegrationByIdSection: FC<IntegrationByIdSectionProps> = ({
             <span>{data.datas.status}</span>
           </div>
         </div>
-      )}
+      )} */}
     </Section>
   );
 };

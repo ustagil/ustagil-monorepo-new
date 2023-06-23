@@ -1,24 +1,34 @@
 import {
-    PaginationState,
-    createColumnHelper,
-    flexRender,
-    getCoreRowModel,
-    getFilteredRowModel,
-    getPaginationRowModel,
-    useReactTable,
+  PaginationState,
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  useReactTable,
 } from "@tanstack/react-table";
 import {
-    NextLink,
-    TableBody,
-    TableBodyRow,
-    TableBodyRowCell,
-    Table as TableComp,
-    TableHead,
-    TableHeadRow,
-    TableHeadRowCell,
+  NextLink,
+  TableBody,
+  TableBodyRow,
+  TableBodyRowCell,
+  Table as TableComp,
+  TableHead,
+  TableHeadRow,
+  TableHeadRowCell,
 } from "@ui/atom";
-import { Invoice } from "@ustagil/typing";
 import { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
+
+interface Invoice {
+  id: string;
+  amount: string;
+  billingPlanName: string;
+  invoiceDate: string;
+  paidDate: string;
+  paymentMethod: string;
+  recepientName: string;
+  status: string;
+}
 
 const columnHelper = createColumnHelper<Invoice>();
 

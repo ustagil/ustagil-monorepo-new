@@ -1,10 +1,10 @@
 import { NextLink, Section } from "@ui/atom";
 import { Button } from "@ui/molecule";
-import {
-    // useIntegrationEmailsGetNew,
-    useIntegrationEmailStore,
-    useIntegrationEmailsCheck,
-} from "@ustagil/web-state";
+// import {
+//     // useIntegrationEmailsGetNew,
+//     useIntegrationEmailStore,
+//     useIntegrationEmailsCheck,
+// } from "@ustagil/web-state";
 import { FC, useState } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -13,12 +13,12 @@ export interface IntegrationAddCheckSectionProps {}
 export const IntegrationAddCheckSection: FC<
   IntegrationAddCheckSectionProps
 > = () => {
-  const { email, setIntegrationEmail: _ } = useIntegrationEmailStore(
-    (state) => ({
-      email: state.integrationEmail,
-      setIntegrationEmail: state.setIntegrationEmail,
-    })
-  );
+  // const { email, setIntegrationEmail: _ } = useIntegrationEmailStore(
+  //   (state) => ({
+  //     email: state.integrationEmail,
+  //     setIntegrationEmail: state.setIntegrationEmail,
+  //   })
+  // );
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -29,23 +29,23 @@ export const IntegrationAddCheckSection: FC<
   //   },
   // });
 
-  const integrationEmailCheckMutation = useIntegrationEmailsCheck({
-    onMutate: () => setLoading(true),
-    onSuccess: () => {
-      setChecked(true);
-      setLoading(false);
-    },
-    onError: () => {
-      setChecked(true);
-      setLoading(false);
-    },
-  });
+  // const integrationEmailCheckMutation = useIntegrationEmailsCheck({
+  //   onMutate: () => setLoading(true),
+  //   onSuccess: () => {
+  //     setChecked(true);
+  //     setLoading(false);
+  //   },
+  //   onError: () => {
+  //     setChecked(true);
+  //     setLoading(false);
+  //   },
+  // });
 
   return (
     <Section id="integration-add-check-section">
-      <p>Email: {email}</p>
+      {/* <p>Email: {email}</p> */}
       <div className="flex gap-3">
-        <Button
+        {/* <Button
           variant="outlined"
           title="Check"
           loading={loading}
@@ -57,7 +57,7 @@ export const IntegrationAddCheckSection: FC<
               query: {},
             });
           }}
-        />
+        /> */}
         <NextLink href="/integrations/select" legacyBehavior>
           <Button
             variant="flat"

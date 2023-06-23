@@ -1,15 +1,13 @@
-import { zodResolver } from "@hookform/resolvers/zod";
 import { PaginationState } from "@tanstack/react-table";
-import { InputField, NextLink, Section, Select, SelectOption } from "@ui/atom";
-import { Button, IntegrationTable } from "@ui/molecule";
-import {
-    Integration,
-    IntegrationListDto,
-    IntegrationStatus,
-} from "@ustagil/typing";
-import { useIntegrationsList } from "@ustagil/web-state";
+import { NextLink, Section } from "@ui/atom";
+import { Button } from "@ui/molecule";
+// import {
+//     Integration,
+//     IntegrationListDto,
+//     IntegrationStatus,
+// } from "@ustagil/typing";
+// import { useIntegrationsList } from "@ustagil/web-state";
 import { FC, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -29,57 +27,57 @@ const schema = z.object({
   ]),
 });
 
-const defaultData: Integration[] = [];
+// const defaultData: Integration[] = [];
 
 export const IntegrationSection: FC<IntegrationSectionProps> = () => {
-  const {
-    register,
-    formState: { errors },
-    watch,
-    control,
-  } = useForm<
-    Omit<IntegrationListDto["query"], "status"> & { status: SelectOption }
-  >({
-    defaultValues: {
-      name: "",
-      app: "",
-      email: "",
-      errorMessage: "",
-      lastSentMessage: "",
-      status: { id: "", label: "Not Selected", value: "" },
-    },
-    resolver: zodResolver(schema),
-  });
-  const { app, email, errorMessage, lastSentMessage, name, status } = watch();
+  // const {
+  //   register,
+  //   formState: { errors },
+  //   watch,
+  //   control,
+  // } = useForm<
+  //   Omit<IntegrationListDto["query"], "status"> & { status: SelectOption }
+  // >({
+  //   defaultValues: {
+  //     name: "",
+  //     app: "",
+  //     email: "",
+  //     errorMessage: "",
+  //     lastSentMessage: "",
+  //     status: { id: "", label: "Not Selected", value: "" },
+  //   },
+  //   resolver: zodResolver(schema),
+  // });
+  // const { app, email, errorMessage, lastSentMessage, name, status } = watch();
 
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: 10,
   });
 
-  const { data, isFetching } = useIntegrationsList({
-    variables: {
-      params: {},
-      query: {
-        pageIndex,
-        pageSize,
-        app,
-        email,
-        errorMessage,
-        lastSentMessage,
-        name,
-        status: status.value as IntegrationStatus,
-      },
-    },
-    keepPreviousData: true,
-  });
+  // const { data, isFetching } = useIntegrationsList({
+  //   variables: {
+  //     params: {},
+  //     query: {
+  //       pageIndex,
+  //       pageSize,
+  //       app,
+  //       email,
+  //       errorMessage,
+  //       lastSentMessage,
+  //       name,
+  //       status: status.value as IntegrationStatus,
+  //     },
+  //   },
+  //   keepPreviousData: true,
+  // });
 
   return (
     <Section id="integration-section">
       <div className="flex items-center justify-center">
         <div className="flex items-baseline justify-center flex-1">
           <form className="flex gap-3">
-            <InputField
+            {/* <InputField
               {...register("app")}
               className="max-w-sm"
               label="App"
@@ -134,7 +132,7 @@ export const IntegrationSection: FC<IntegrationSectionProps> = () => {
                   ]}
                 />
               )}
-            />
+            /> */}
           </form>
         </div>
         <div className="flex items-center justify-center">
@@ -143,14 +141,14 @@ export const IntegrationSection: FC<IntegrationSectionProps> = () => {
           </NextLink>
         </div>
       </div>
-      <IntegrationTable
+      {/* <IntegrationTable
         data={data?.datas ?? defaultData}
         pageCount={data?.count ? Math.ceil(data?.count / pageSize) : -1}
         pageIndex={pageIndex}
         pageSize={pageSize}
         setPagination={setPagination}
         isFetching={isFetching}
-      />
+      /> */}
     </Section>
   );
 };

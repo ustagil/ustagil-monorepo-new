@@ -1,33 +1,42 @@
 import {
-    PaginationState,
-    createColumnHelper,
-    flexRender,
-    getCoreRowModel,
-    getFilteredRowModel,
-    getPaginationRowModel,
-    useReactTable,
+  PaginationState,
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  useReactTable,
 } from "@tanstack/react-table";
 import {
-    NextLink,
-    TableBody,
-    TableBodyRow,
-    TableBodyRowCell,
-    Table as TableComp,
-    TableHead,
-    TableHeadRow,
-    TableHeadRowCell,
+  NextLink,
+  TableBody,
+  TableBodyRow,
+  TableBodyRowCell,
+  Table as TableComp,
+  TableHead,
+  TableHeadRow,
+  TableHeadRowCell,
 } from "@ui/atom";
-import type { Integration } from "@ustagil/typing";
 import {
-    Dispatch,
-    FC,
-    HTMLProps,
-    SetStateAction,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
+  Dispatch,
+  FC,
+  HTMLProps,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from "react";
+
+interface Integration {
+  id: string;
+  name: string;
+  app: string;
+  status: string;
+  lastSentMessage: string;
+  errorMessage: string;
+  email: string;
+}
 
 const columnHelper = createColumnHelper<Integration>();
 

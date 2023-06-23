@@ -1,6 +1,7 @@
-import { Integration } from "@ustagil/typing";
+// import { Integration } from "@ustagil/typing";
 
-export function generateRandomIntegration(i: number): Integration {
+// export function generateRandomIntegration(i: number): Integration {
+export function generateRandomIntegration(i: number): any {
   // return {
   //   id: faker.datatype.uuid(),
   //   name: faker.commerce.product(),

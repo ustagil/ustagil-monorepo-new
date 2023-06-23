@@ -1,7 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { InputField, Section } from "@ui/atom";
-import { Button } from "@ui/molecule";
-import { useIntegrationsGet, useIntegrationsUpdate } from "@ustagil/web-state";
+import { Section } from "@ui/atom";
+// import { useIntegrationsGet, useIntegrationsUpdate } from "@ustagil/web-state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
@@ -22,9 +21,9 @@ type IFormValues = {
 export const IntegrationByIdEditSection: FC<
   IntegrationByIdEditSectionProps
 > = ({ id }) => {
-  const { data: integration, isSuccess } = useIntegrationsGet({
-    variables: { params: { id }, query: {} },
-  });
+  // const { data: integration, isSuccess } = useIntegrationsGet({
+  //   variables: { params: { id }, query: {} },
+  // });
 
   const router = useRouter();
   const {
@@ -33,28 +32,28 @@ export const IntegrationByIdEditSection: FC<
     formState: { errors, isDirty, isValid },
   } = useForm<IFormValues>({
     defaultValues: {
-      name: integration?.datas.name ?? "",
+      // name: integration?.datas.name ?? "",
     },
     resolver: zodResolver(schema),
   });
 
-  const integrationUpdateMutation = useIntegrationsUpdate({
-    onSuccess: () => void router.push(`/integrations/${id}`),
-    onError: () => void router.push(`/integrations/${id}`),
-  });
+  // const integrationUpdateMutation = useIntegrationsUpdate({
+  //   onSuccess: () => void router.push(`/integrations/${id}`),
+  //   onError: () => void router.push(`/integrations/${id}`),
+  // });
 
   const onSubmit = handleSubmit((data) => {
-    if (isSuccess) {
-      integrationUpdateMutation.mutate({
-        body: data,
-        params: { id: integration?.datas.id },
-      });
-    }
+    // if (isSuccess) {
+    //   integrationUpdateMutation.mutate({
+    //     body: data,
+    //     params: { id: integration?.datas.id },
+    //   });
+    // }
   });
 
   return (
     <Section id="integration-by-id-section">
-      {isSuccess && (
+      {/* {isSuccess && (
         <form onSubmit={onSubmit}>
           <InputField
             className="max-w-sm"
@@ -78,7 +77,7 @@ export const IntegrationByIdEditSection: FC<
             </div>
           </div>
         </form>
-      )}
+      )} */}
     </Section>
   );
 };

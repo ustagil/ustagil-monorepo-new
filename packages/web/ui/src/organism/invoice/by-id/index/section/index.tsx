@@ -1,6 +1,5 @@
-import { NextLink, Section } from "@ui/atom";
-import { Button } from "@ui/molecule";
-import { useInvoicesDelete, useInvoicesGet } from "@ustagil/web-state";
+import { Section } from "@ui/atom";
+// import { useInvoicesDelete, useInvoicesGet } from "@ustagil/web-state";
 import { useRouter } from "next/router";
 import { FC } from "react";
 
@@ -10,18 +9,18 @@ export interface InvoiceByIdSectionProps {
 
 export const InvoiceByIdSection: FC<InvoiceByIdSectionProps> = ({ id }) => {
   const router = useRouter();
-  const { data, isSuccess } = useInvoicesGet({
-    variables: { params: { id }, query: {} },
-  });
+  // const { data, isSuccess } = useInvoicesGet({
+  //   variables: { params: { id }, query: {} },
+  // });
 
-  const invoiceDeleteMutation = useInvoicesDelete({
-    onSuccess: () => router.push("/invoices"),
-    onError: () => router.push("/invoices"),
-  });
+  // const invoiceDeleteMutation = useInvoicesDelete({
+  //   onSuccess: () => router.push("/invoices"),
+  //   onError: () => router.push("/invoices"),
+  // });
 
   return (
     <Section id="invoice-by-id-section">
-      {isSuccess && (
+      {/* {isSuccess && (
         <div className="">
           <div className="flex justify-end gap-4">
             <NextLink href={`/invoices/${id}/edit`} legacyBehavior>
@@ -67,7 +66,7 @@ export const InvoiceByIdSection: FC<InvoiceByIdSectionProps> = ({ id }) => {
             <span>{data.datas.status}</span>
           </div>
         </div>
-      )}
+      )} */}
     </Section>
   );
 };

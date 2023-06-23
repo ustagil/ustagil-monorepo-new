@@ -1,11 +1,10 @@
 import { NextLink, Section } from "@ui/atom";
-import { Button, IntegrationAddSelectCard } from "@ui/molecule";
-import {
-    useIntegrationEmailStore,
-    useIntegrationEmailsCheckIntegration,
-} from "@ustagil/web-state";
+import { Button } from "@ui/molecule";
+// import {
+//     useIntegrationEmailStore,
+//     useIntegrationEmailsCheckIntegration,
+// } from "@ustagil/web-state";
 import { FC, useState } from "react";
-import { VscInfo } from "react-icons/vsc";
 
 // import slackSVGIcon from '/assets/Slack_icon_2019.svg'
 
@@ -37,31 +36,31 @@ export interface IntegrationAddSelectSectionProps {}
 export const IntegrationAddSelectSection: FC<
   IntegrationAddSelectSectionProps
 > = () => {
-  const { selectedApp, setSelectedApp } = useIntegrationEmailStore((state) => ({
-    selectedApp: state.selectedApp,
-    setSelectedApp: state.setSelectedApp,
-  }));
+  // const { selectedApp, setSelectedApp } = useIntegrationEmailStore((state) => ({
+  //   selectedApp: state.selectedApp,
+  //   setSelectedApp: state.setSelectedApp,
+  // }));
 
   const [checked, setChecked] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const integrationEmailsCheckIntegrationMutation =
-    useIntegrationEmailsCheckIntegration({
-      onMutate: () => setLoading(true),
-      onSuccess: () => {
-        setChecked(true);
-        setLoading(false);
-      },
-      onError: () => {
-        setChecked(true);
-        setLoading(false);
-      },
-    });
+  // const integrationEmailsCheckIntegrationMutation =
+  //   useIntegrationEmailsCheckIntegration({
+  //     onMutate: () => setLoading(true),
+  //     onSuccess: () => {
+  //       setChecked(true);
+  //       setLoading(false);
+  //     },
+  //     onError: () => {
+  //       setChecked(true);
+  //       setLoading(false);
+  //     },
+  //   });
 
   return (
     <Section id="integration-add-select-section">
       <div className="grid grid-cols-1 gap-2 md:grid-cols-4">
-        {apps.map((app) => (
+        {/* {apps.map((app) => (
           <IntegrationAddSelectCard
             key={app.appId}
             appIcon={app.appIcon}
@@ -70,13 +69,13 @@ export const IntegrationAddSelectSection: FC<
             appName={app.appName}
             onClick={setSelectedApp}
           />
-        ))}
+        ))} */}
       </div>
       <div className="">
-        {!selectedApp && (
+        {/* {!selectedApp && (
           <div className="">Please select an application to integrate.</div>
-        )}
-        {selectedApp && (
+        )} */}
+        {/* {selectedApp && (
           <>
             <div className="flex items-center">
               <div className="">Selected App: {selectedApp}</div>
@@ -97,9 +96,9 @@ export const IntegrationAddSelectSection: FC<
               quaerat illo, temporibus excepturi?
             </p>
           </>
-        )}
+        )} */}
         <div className="flex gap-3">
-          <Button
+          {/* <Button
             variant="outlined"
             title="Check Integration"
             disabled={!selectedApp}
@@ -112,7 +111,7 @@ export const IntegrationAddSelectSection: FC<
                 query: {},
               });
             }}
-          />
+          /> */}
           <NextLink href="/integrations/summarize" legacyBehavior>
             <Button
               variant="flat"
