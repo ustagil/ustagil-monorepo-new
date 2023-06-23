@@ -5,11 +5,7 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {
-    "dev": "echo \"Dev\"",
-    "build": "echo \"Build\"",
-    "start": "echo \"Start\"",
-    "clean": "rm -rf dist node_modules coverage .turbo",
-    "clean:rollup:cache": "rm -rf node_modules/.cache",
+    "clean": "rm -rf node_modules coverage .turbo",
     "coverage": "jest --coverage",
     "format": "prettier --check ",
     "lint": "eslint --no-error-on-unmatched-pattern",

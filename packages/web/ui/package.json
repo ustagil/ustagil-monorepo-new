@@ -5,11 +5,7 @@
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {
-    "dev": "echo \"Dev\"",
-    "build": "echo \"Build\"",
-    "start": "echo \"Start\"",
-    "clean": "rm -rf dist node_modules .turbo storybook-static",
-    "clean:rollup:cache": "rm -rf node_modules/.cache",
+    "clean": "rm -rf node_modules .turbo storybook-static",
     "coverage": "jest --coverage",
     "format": "prettier --check ",
     "lint": "eslint --no-error-on-unmatched-pattern",
