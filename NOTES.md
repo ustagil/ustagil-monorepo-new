@@ -1,4 +1,11 @@
 BACKLOG
+----- create terraform
+----- create DOCKERFILE as prod
+----- re-init CHANGELOG
+----- add database as mongodb
+----- add CQRS stuff
+----- add grpc and kafka config as env
+----- add api env config validation
 ----- clear rollup dependencies
 ----- clear, fix common eslint config
 ----- create api-utils package
