@@ -12,6 +12,10 @@ import {
 } from '@nestjs/common';
 import { ClientGrpc, ClientKafka } from '@nestjs/microservices';
 import {
+  API_ARTICLE_COMMAND_MS,
+  API_ARTICLE_QUERY_MS,
+} from '@ustagil/api-constant';
+import {
   Article,
   ArticleGrpcListRequest,
   ArticleGrpcListResponse,
@@ -31,8 +35,8 @@ export class AppController implements OnModuleInit {
   private articleGrpcService: ArticleGrpcService;
 
   constructor(
-    @Inject('ARTICLE_QUERY') private clientGrpc: ClientGrpc,
-    @Inject('ARTICLE_COMMAND') private clientKafka: ClientKafka,
+    @Inject(API_ARTICLE_QUERY_MS) private clientGrpc: ClientGrpc,
+    @Inject(API_ARTICLE_COMMAND_MS) private clientKafka: ClientKafka,
   ) {}
 
   async onModuleInit() {

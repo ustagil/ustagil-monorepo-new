@@ -1,6 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import {
+  API_KAFKA_BROKER,
+  API_USER_CLIENT_ID,
+  API_USER_CLIENT_URL,
+  API_USER_COMMAND_MS,
+  API_USER_GROUP_ID,
+  API_USER_QUERY_MS,
+} from '@ustagil/api-constant';
 import { join } from 'path';
 import { AppController } from './app.controller';
 
@@ -9,25 +17,26 @@ import { AppController } from './app.controller';
     ConfigModule.forRoot(),
     ClientsModule.register([
       {
-        name: 'USER_QUERY',
+        name: API_USER_QUERY_MS,
         transport: Transport.GRPC,
         options: {
           package: 'user',
           protoPath: join(__dirname, 'user/user.proto'),
+          url: API_USER_CLIENT_URL,
         },
       },
     ]),
     ClientsModule.register([
       {
-        name: 'USER_COMMAND',
+        name: API_USER_COMMAND_MS,
         transport: Transport.KAFKA,
         options: {
           client: {
-            clientId: 'user',
-            brokers: ['localhost:9092'],
+            clientId: API_USER_CLIENT_ID,
+            brokers: [API_KAFKA_BROKER],
           },
           consumer: {
-            groupId: 'user-consumer',
+            groupId: API_USER_GROUP_ID,
           },
         },
       },
