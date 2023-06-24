@@ -1,5 +1,5 @@
 export type TodoKafkaResponse = {
-  id: string;
+  _id: string;
   name: string;
 };
 

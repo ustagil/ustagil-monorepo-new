@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
+import { InjectModel } from '@nestjs/mongoose';
 import {
-  Todo,
   TodoKafkaCreateRequest,
   TodoKafkaCreateResponse,
   TodoKafkaDeleteRequest,
@@ -9,45 +9,34 @@ import {
   TodoKafkaUpdateRequest,
   TodoKafkaUpdateResponse,
 } from '@ustagil/typing';
+import { Model } from 'mongoose';
+import { TodoModel } from './schema';
 
 @Controller()
 export class AppController {
-  todos: Todo[] = [];
+  constructor(
+    @InjectModel(TodoModel.name) private todoModel: Model<TodoModel>,
+  ) {}
 
   @MessagePattern('todo.create')
-  create(dto: TodoKafkaCreateRequest): TodoKafkaCreateResponse {
-    const nextId = this.todos.length;
-    const newTodo: Todo = { id: `${nextId}`, ...dto.body };
-    this.todos.push(newTodo);
-    return newTodo;
+  async create(dto: TodoKafkaCreateRequest): Promise<TodoKafkaCreateResponse> {
+    const createdTodo = new this.todoModel(dto.body);
+    return (await createdTodo.save()).toObject();
   }
 
   @MessagePattern('todo.update')
-  update(dto: TodoKafkaUpdateRequest): TodoKafkaUpdateResponse {
-    const foundIndex = this.todos.findIndex((e) => e.id === dto.params.id);
-    this.todos = this.todos.map((e, i) =>
-      i === foundIndex ? { ...e, ...dto.body } : e,
-    );
-    return this.todos[foundIndex];
+  async update(dto: TodoKafkaUpdateRequest): Promise<TodoKafkaUpdateResponse> {
+    return (
+      await this.todoModel
+        .findByIdAndUpdate(dto.params.id, dto.body, { new: true })
+        .exec()
+    ).toObject();
   }
 
   @MessagePattern('todo.delete')
-  delete(dto: TodoKafkaDeleteRequest): TodoKafkaDeleteResponse {
-    return removeObjectWithId(this.todos, dto.params.id);
+  async delete(dto: TodoKafkaDeleteRequest): Promise<TodoKafkaDeleteResponse> {
+    return (
+      await this.todoModel.findByIdAndRemove(dto.params.id).exec()
+    ).toObject();
   }
-}
-
-function removeObjectWithId<T extends { id: string }>(
-  arr: Array<T>,
-  id: string,
-): T {
-  const objWithIdIndex = arr.findIndex((obj) => obj.id === id);
-
-  if (objWithIdIndex > -1) {
-    const obj = arr[objWithIdIndex];
-    arr.splice(objWithIdIndex, 1);
-    return obj;
-  }
-
-  return null;
 }

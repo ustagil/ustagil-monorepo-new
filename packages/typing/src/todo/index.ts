@@ -2,4 +2,4 @@ export * from "./grpc";
 export * from "./http";
 export * from "./kafka";
 
-export type Todo = { id: string; name: string };
+export type Todo = { _id: string; name: string };

@@ -1,5 +1,5 @@
 export type TodoGrpcResponse = {
-  id: string;
+  _id: string;
   name: string;
 };
 
