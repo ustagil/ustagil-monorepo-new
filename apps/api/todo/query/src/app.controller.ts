@@ -22,7 +22,6 @@ export class AppController {
     dto: TodoGrpcListRequest,
   ): Promise<Observable<TodoGrpcListResponse>> {
     const todos = await this.todoModel.find({ ...dto.query }).exec();
-    // todos.
     return from(
       todos.map((todo) => {
         const { _id, ...q } = todo.toObject();
