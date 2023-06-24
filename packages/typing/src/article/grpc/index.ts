@@ -1,5 +1,5 @@
 export type ArticleGrpcResponse = {
-  id: string;
+  _id: string;
   name: string;
 };
 

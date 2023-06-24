@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
+import { InjectModel } from '@nestjs/mongoose';
 import {
-  Article,
   ArticleKafkaCreateRequest,
   ArticleKafkaCreateResponse,
   ArticleKafkaDeleteRequest,
@@ -9,45 +9,40 @@ import {
   ArticleKafkaUpdateRequest,
   ArticleKafkaUpdateResponse,
 } from '@ustagil/typing';
+import { Model } from 'mongoose';
+import { ArticleModel } from './schema';
 
 @Controller()
 export class AppController {
-  articles: Article[] = [];
+  constructor(
+    @InjectModel(ArticleModel.name) private articleModel: Model<ArticleModel>,
+  ) {}
 
   @MessagePattern('article.create')
-  create(dto: ArticleKafkaCreateRequest): ArticleKafkaCreateResponse {
-    const nextId = this.articles.length;
-    const newArticle: Article = { id: `${nextId}`, ...dto.body };
-    this.articles.push(newArticle);
-    return newArticle;
+  async create(
+    dto: ArticleKafkaCreateRequest,
+  ): Promise<ArticleKafkaCreateResponse> {
+    const createdArticle = new this.articleModel(dto.body);
+    return (await createdArticle.save()).toObject();
   }
 
   @MessagePattern('article.update')
-  update(dto: ArticleKafkaUpdateRequest): ArticleKafkaUpdateResponse {
-    const foundIndex = this.articles.findIndex((e) => e.id === dto.params.id);
-    this.articles = this.articles.map((e, i) =>
-      i === foundIndex ? { ...e, ...dto.body } : e,
-    );
-    return this.articles[foundIndex];
+  async update(
+    dto: ArticleKafkaUpdateRequest,
+  ): Promise<ArticleKafkaUpdateResponse> {
+    return (
+      await this.articleModel
+        .findByIdAndUpdate(dto.params.id, dto.body, { new: true })
+        .exec()
+    ).toObject();
   }
 
   @MessagePattern('article.delete')
-  delete(dto: ArticleKafkaDeleteRequest): ArticleKafkaDeleteResponse {
-    return removeObjectWithId(this.articles, dto.params.id);
+  async delete(
+    dto: ArticleKafkaDeleteRequest,
+  ): Promise<ArticleKafkaDeleteResponse> {
+    return (
+      await this.articleModel.findByIdAndRemove(dto.params.id).exec()
+    ).toObject();
   }
-}
-
-function removeObjectWithId<T extends { id: string }>(
-  arr: Array<T>,
-  id: string,
-): T {
-  const objWithIdIndex = arr.findIndex((obj) => obj.id === id);
-
-  if (objWithIdIndex > -1) {
-    const obj = arr[objWithIdIndex];
-    arr.splice(objWithIdIndex, 1);
-    return obj;
-  }
-
-  return null;
 }

@@ -1,5 +1,5 @@
 export type ArticleKafkaResponse = {
-  id: string;
+  _id: string;
   name: string;
 };
 
