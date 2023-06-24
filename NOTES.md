@@ -1,4 +1,5 @@
 BACKLOG
+----- add mongodb url as env variable
 ----- create terraform
 ----- create DOCKERFILE as prod
 ----- re-init CHANGELOG
