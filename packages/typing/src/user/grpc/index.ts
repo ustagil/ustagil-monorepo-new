@@ -1,5 +1,5 @@
 export type UserGrpcResponse = {
-  id: string;
+  _id: string;
   name: string;
 };
 

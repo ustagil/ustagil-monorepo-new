@@ -1,5 +1,5 @@
 export type UserKafkaResponse = {
-  id: string;
+  _id: string;
   name: string;
 };
 

@@ -1,29 +1,37 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
+import { InjectModel } from '@nestjs/mongoose';
 import {
-  User,
   UserGrpcListRequest,
   UserGrpcListResponse,
   UserGrpcReadRequest,
   UserGrpcReadResponse,
 } from '@ustagil/typing';
+import { Model } from 'mongoose';
 import { Observable, from } from 'rxjs';
+import { UserModel } from './schema';
 
 @Controller()
 export class AppController {
-  users: User[] = [
-    { id: '1', name: 'name 1' },
-    { id: '2', name: 'name 2' },
-    { id: '3', name: 'name 3' },
-  ];
+  constructor(
+    @InjectModel(UserModel.name) private userModel: Model<UserModel>,
+  ) {}
 
   @GrpcMethod('UserService', 'List')
-  list(dto: UserGrpcListRequest): Observable<UserGrpcListResponse> {
-    return from(this.users);
+  async list(
+    dto: UserGrpcListRequest,
+  ): Promise<Observable<UserGrpcListResponse>> {
+    const users = await this.userModel.find({ ...dto.query }).exec();
+    return from(
+      users.map((user) => {
+        const { _id, ...q } = user.toObject();
+        return { _id: _id.toHexString(), ...q };
+      }),
+    );
   }
 
   @GrpcMethod('UserService', 'Read')
-  read(dto: UserGrpcReadRequest): UserGrpcReadResponse {
-    return this.users.find((e) => e.id === dto.params.id);
+  async read(dto: UserGrpcReadRequest): Promise<UserGrpcReadResponse> {
+    return (await this.userModel.findById(dto.params.id).exec()).toObject();
   }
 }
