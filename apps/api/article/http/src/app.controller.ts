@@ -35,7 +35,11 @@ export class AppController implements OnModuleInit {
   private articleGrpcService: ArticleGrpcService;
 
   constructor(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     @Inject(API_ARTICLE_QUERY_MS) private clientGrpc: ClientGrpc,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     @Inject(API_ARTICLE_COMMAND_MS) private clientKafka: ClientKafka,
   ) {}
 

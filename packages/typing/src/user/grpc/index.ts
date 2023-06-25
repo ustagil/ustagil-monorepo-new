@@ -14,7 +14,7 @@ export type UserGrpcListRequest = {
 };
 
 // export type UserGrpcListResponse = UserGrpcResponse[];
-export type UserGrpcListResponse = UserGrpcResponse;
+export type UserGrpcListResponse = UserGrpcResponse | undefined | null;
 
 //-----
 
@@ -23,7 +23,7 @@ export type UserGrpcReadRequest = {
   query: object;
 };
 
-export type UserGrpcReadResponse = UserGrpcResponse;
+export type UserGrpcReadResponse = UserGrpcResponse | undefined | null;
 
 //-----
 
@@ -31,7 +31,10 @@ export type UserGrpcReadByUsernameRequest = {
   username: string;
 };
 
-export type UserGrpcReadByUsernameResponse = UserGrpcResponse;
+export type UserGrpcReadByUsernameResponse =
+  | UserGrpcResponse
+  | undefined
+  | null;
 
 export interface UserGrpcService {
   list(data: UserGrpcListRequest): Observable<UserGrpcListResponse>;

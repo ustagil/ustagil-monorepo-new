@@ -32,7 +32,11 @@ export class AppController implements OnModuleInit {
   private todoGrpcService: TodoGrpcService;
 
   constructor(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     @Inject(API_TODO_QUERY_MS) private clientGrpc: ClientGrpc,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     @Inject(API_TODO_COMMAND_MS) private clientKafka: ClientKafka,
   ) {}
 
