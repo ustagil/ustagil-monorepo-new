@@ -36,6 +36,7 @@
     "@commitlint/config-pnpm-scopes": "^17.5.0",
     "@manypkg/cli": "^0.21.0",
     "husky": "^8.0.3",
-    "turbo": "^1.10.3"
+    "turbo": "^1.10.3",
+    "typescript": "5.1.3"
   }
 }

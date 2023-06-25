@@ -32,6 +32,9 @@ importers:
       turbo:
         specifier: ^1.10.3
         version: 1.10.3
+      typescript:
+        specifier: 5.1.3
+        version: 5.1.3
 
   apps/api/article/command:
     dependencies:
