@@ -19,9 +19,8 @@ import {
 import {
   Article,
   ArticleGrpcListRequest,
-  ArticleGrpcListResponse,
   ArticleGrpcReadRequest,
-  ArticleGrpcReadResponse,
+  ArticleGrpcService,
   ArticleKafkaCreateRequest,
   ArticleKafkaCreateResponse,
   ArticleKafkaDeleteRequest,
@@ -29,7 +28,7 @@ import {
   ArticleKafkaUpdateRequest,
   ArticleKafkaUpdateResponse,
 } from '@ustagil/typing';
-import { Observable, firstValueFrom, toArray } from 'rxjs';
+import { firstValueFrom, toArray } from 'rxjs';
 
 @Controller('articles')
 export class AppController implements OnModuleInit {
@@ -137,9 +136,4 @@ export class AppController implements OnModuleInit {
 
     return article;
   }
-}
-
-interface ArticleGrpcService {
-  list(data: ArticleGrpcListRequest): Observable<ArticleGrpcListResponse>;
-  read(data: ArticleGrpcReadRequest): Observable<ArticleGrpcReadResponse>;
 }

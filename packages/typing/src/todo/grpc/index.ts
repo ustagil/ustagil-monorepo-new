@@ -1,3 +1,5 @@
+import { Observable } from "rxjs";
+
 export type TodoGrpcResponse = {
   _id: string;
   name: string;
@@ -21,3 +23,8 @@ export type TodoGrpcReadRequest = {
 };
 
 export type TodoGrpcReadResponse = TodoGrpcResponse | undefined | null;
+
+export interface TodoGrpcService {
+  list(data: TodoGrpcListRequest): Observable<TodoGrpcListResponse>;
+  read(data: TodoGrpcReadRequest): Observable<TodoGrpcReadResponse>;
+}

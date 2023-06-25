@@ -1,3 +1,5 @@
+import { Observable } from "rxjs";
+
 export type ArticleGrpcResponse = {
   _id: string;
   name: string;
@@ -21,3 +23,8 @@ export type ArticleGrpcReadRequest = {
 };
 
 export type ArticleGrpcReadResponse = ArticleGrpcResponse | undefined | null;
+
+export interface ArticleGrpcService {
+  list(data: ArticleGrpcListRequest): Observable<ArticleGrpcListResponse>;
+  read(data: ArticleGrpcReadRequest): Observable<ArticleGrpcReadResponse>;
+}

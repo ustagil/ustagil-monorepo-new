@@ -16,9 +16,8 @@ import { API_TODO_COMMAND_MS, API_TODO_QUERY_MS } from '@ustagil/api-constant';
 import {
   Todo,
   TodoGrpcListRequest,
-  TodoGrpcListResponse,
   TodoGrpcReadRequest,
-  TodoGrpcReadResponse,
+  TodoGrpcService,
   TodoKafkaCreateRequest,
   TodoKafkaCreateResponse,
   TodoKafkaDeleteRequest,
@@ -26,7 +25,7 @@ import {
   TodoKafkaUpdateRequest,
   TodoKafkaUpdateResponse,
 } from '@ustagil/typing';
-import { Observable, firstValueFrom, toArray } from 'rxjs';
+import { firstValueFrom, toArray } from 'rxjs';
 
 @Controller('todos')
 export class AppController implements OnModuleInit {
@@ -134,9 +133,4 @@ export class AppController implements OnModuleInit {
 
     return todo;
   }
-}
-
-interface TodoGrpcService {
-  list(data: TodoGrpcListRequest): Observable<TodoGrpcListResponse>;
-  read(data: TodoGrpcReadRequest): Observable<TodoGrpcReadResponse>;
 }
