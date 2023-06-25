@@ -26,7 +26,9 @@ export class AppController implements OnModuleInit {
   }
 
   @Post('login')
-  async login(@Body() body: AuthLoginDto['body']): Promise<User> {
+  async login(
+    @Body() body: AuthLoginDto['body'],
+  ): Promise<Omit<User, 'password'>> {
     const user = await firstValueFrom(
       this.userGrpcService.readByUsername({ username: body.username }),
     );
@@ -35,6 +37,8 @@ export class AppController implements OnModuleInit {
       throw new UnauthorizedException();
     }
 
-    return user;
+    const { password, ...result } = user;
+
+    return result;
   }
 }
