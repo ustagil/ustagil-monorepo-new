@@ -23,6 +23,7 @@ message UserReadRequest {
 }
 
 message User {
-  string id = 1;
-  string name = 2;
+  string _id = 1;
+  string username = 2;
+  string password = 3;
 }

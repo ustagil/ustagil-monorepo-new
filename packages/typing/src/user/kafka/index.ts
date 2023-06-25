@@ -1,6 +1,7 @@
 export type UserKafkaResponse = {
   _id: string;
-  name: string;
+  username: string;
+  password: string;
 };
 
 //-----
@@ -8,7 +9,7 @@ export type UserKafkaResponse = {
 export type UserKafkaCreateRequest = {
   params: object;
   query: object;
-  body: { name: string };
+  body: { username: string; password: string };
 };
 
 export type UserKafkaCreateResponse = UserKafkaResponse;
@@ -17,7 +18,7 @@ export type UserKafkaCreateResponse = UserKafkaResponse;
 
 export type UserKafkaUpdateRequest = {
   params: { id: string };
-  body: { name?: string };
+  body: { username?: string; password?: string };
 };
 
 export type UserKafkaUpdateResponse = UserKafkaResponse;

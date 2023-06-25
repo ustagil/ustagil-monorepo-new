@@ -1,6 +1,9 @@
+import { Observable } from "rxjs";
+
 export type UserGrpcResponse = {
   _id: string;
-  name: string;
+  username: string;
+  password: string;
 };
 
 //-----
@@ -21,3 +24,19 @@ export type UserGrpcReadRequest = {
 };
 
 export type UserGrpcReadResponse = UserGrpcResponse;
+
+//-----
+
+export type UserGrpcReadByUsernameRequest = {
+  username: string;
+};
+
+export type UserGrpcReadByUsernameResponse = UserGrpcResponse;
+
+export interface UserGrpcService {
+  list(data: UserGrpcListRequest): Observable<UserGrpcListResponse>;
+  read(data: UserGrpcReadRequest): Observable<UserGrpcReadResponse>;
+  readByUsername(
+    data: UserGrpcReadByUsernameRequest
+  ): Observable<UserGrpcReadByUsernameResponse>;
+}

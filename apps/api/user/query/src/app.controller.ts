@@ -4,6 +4,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import {
   UserGrpcListRequest,
   UserGrpcListResponse,
+  UserGrpcReadByUsernameRequest,
+  UserGrpcReadByUsernameResponse,
   UserGrpcReadRequest,
   UserGrpcReadResponse,
 } from '@ustagil/typing';
@@ -33,5 +35,14 @@ export class AppController {
   @GrpcMethod('UserService', 'Read')
   async read(dto: UserGrpcReadRequest): Promise<UserGrpcReadResponse> {
     return (await this.userModel.findById(dto.params.id).exec()).toObject();
+  }
+
+  @GrpcMethod('UserService', 'ReadByUsername')
+  async readByUsername(
+    dto: UserGrpcReadByUsernameRequest,
+  ): Promise<UserGrpcReadByUsernameResponse> {
+    return (
+      await this.userModel.findOne({ username: dto.username }).exec()
+    ).toObject();
   }
 }

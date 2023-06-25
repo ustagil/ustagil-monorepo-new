@@ -9,12 +9,18 @@ export type UserReadDto = {
 
 export type UserCreateDto = {
   query: any;
-  body: any;
+  body: {
+    username: string;
+    password: string;
+  };
 };
 
 export type UserUpdateDto = {
   params: { id: string };
-  body: any;
+  body: {
+    username?: string;
+    password?: string;
+  };
 };
 
 export type UserDeleteDto = {

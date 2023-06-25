@@ -20,7 +20,7 @@ export type AuthLoginDto = {
   params: Record<string, never>;
   query: Record<string, never>;
   body: {
-    email: string;
+    username: string;
     password: string;
   };
 };

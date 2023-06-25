@@ -15,9 +15,8 @@ import { API_USER_COMMAND_MS, API_USER_QUERY_MS } from '@ustagil/api-constant';
 import {
   User,
   UserGrpcListRequest,
-  UserGrpcListResponse,
   UserGrpcReadRequest,
-  UserGrpcReadResponse,
+  UserGrpcService,
   UserKafkaCreateRequest,
   UserKafkaCreateResponse,
   UserKafkaDeleteRequest,
@@ -25,7 +24,7 @@ import {
   UserKafkaUpdateRequest,
   UserKafkaUpdateResponse,
 } from '@ustagil/typing';
-import { Observable, firstValueFrom, toArray } from 'rxjs';
+import { firstValueFrom, toArray } from 'rxjs';
 
 @Controller('users')
 export class AppController implements OnModuleInit {
@@ -76,6 +75,8 @@ export class AppController implements OnModuleInit {
     @Param() params: UserGrpcReadRequest['params'],
     @Query() query: UserGrpcReadRequest['query'],
   ): Promise<User> {
+    console.log('user, http, read, params: ', params);
+
     return await firstValueFrom(
       this.userGrpcService.read({
         params,
@@ -111,9 +112,4 @@ export class AppController implements OnModuleInit {
       ),
     );
   }
-}
-
-interface UserGrpcService {
-  list(data: UserGrpcListRequest): Observable<UserGrpcListResponse>;
-  read(data: UserGrpcReadRequest): Observable<UserGrpcReadResponse>;
 }
