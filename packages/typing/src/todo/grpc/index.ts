@@ -20,4 +20,4 @@ export type TodoGrpcReadRequest = {
   query: object;
 };
 
-export type TodoGrpcReadResponse = TodoGrpcResponse;
+export type TodoGrpcReadResponse = TodoGrpcResponse | undefined | null;

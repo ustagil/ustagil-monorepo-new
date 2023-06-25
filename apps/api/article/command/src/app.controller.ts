@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, NotFoundException } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 import { InjectModel } from '@nestjs/mongoose';
 import {
@@ -22,27 +22,35 @@ export class AppController {
   async create(
     dto: ArticleKafkaCreateRequest,
   ): Promise<ArticleKafkaCreateResponse> {
-    const createdArticle = new this.articleModel(dto.body);
-    return (await createdArticle.save()).toObject();
+    const createdArticleDocument = new this.articleModel(dto.body);
+    const createdArticle = await createdArticleDocument.save();
+
+    return createdArticle.toObject();
   }
 
   @MessagePattern('article.update')
   async update(
     dto: ArticleKafkaUpdateRequest,
   ): Promise<ArticleKafkaUpdateResponse> {
-    return (
-      await this.articleModel
-        .findByIdAndUpdate(dto.params.id, dto.body, { new: true })
-        .exec()
-    ).toObject();
+    const article = await this.articleModel
+      .findByIdAndUpdate(dto.params.id, dto.body, { new: true })
+      .exec();
+
+    if (!article) throw new NotFoundException();
+
+    return article.toObject();
   }
 
   @MessagePattern('article.delete')
   async delete(
     dto: ArticleKafkaDeleteRequest,
   ): Promise<ArticleKafkaDeleteResponse> {
-    return (
-      await this.articleModel.findByIdAndRemove(dto.params.id).exec()
-    ).toObject();
+    const article = await this.articleModel
+      .findByIdAndRemove(dto.params.id)
+      .exec();
+
+    if (!article) throw new NotFoundException();
+
+    return article.toObject();
   }
 }

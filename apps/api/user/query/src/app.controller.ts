@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, NotFoundException } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { InjectModel } from '@nestjs/mongoose';
 import {
@@ -34,15 +34,23 @@ export class AppController {
 
   @GrpcMethod('UserService', 'Read')
   async read(dto: UserGrpcReadRequest): Promise<UserGrpcReadResponse> {
-    return (await this.userModel.findById(dto.params.id).exec()).toObject();
+    const user = await this.userModel.findById(dto.params.id).exec();
+
+    if (!user) throw new NotFoundException();
+
+    return user.toObject();
   }
 
   @GrpcMethod('UserService', 'ReadByUsername')
   async readByUsername(
     dto: UserGrpcReadByUsernameRequest,
   ): Promise<UserGrpcReadByUsernameResponse> {
-    return (
-      await this.userModel.findOne({ username: dto.username }).exec()
-    ).toObject();
+    const user = await this.userModel
+      .findOne({ username: dto.username })
+      .exec();
+
+    if (!user) throw new NotFoundException();
+
+    return user.toObject();
   }
 }

@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, NotFoundException } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { InjectModel } from '@nestjs/mongoose';
 import {
@@ -32,6 +32,10 @@ export class AppController {
 
   @GrpcMethod('TodoService', 'Read')
   async read(dto: TodoGrpcReadRequest): Promise<TodoGrpcReadResponse> {
-    return (await this.todoModel.findById(dto.params.id).exec()).toObject();
+    const todo = await this.todoModel.findById(dto.params.id).exec();
+
+    if (!todo) throw new NotFoundException();
+
+    return todo.toObject();
   }
 }

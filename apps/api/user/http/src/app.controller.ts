@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Inject,
+  NotFoundException,
   OnModuleInit,
   Param,
   Patch,
@@ -55,9 +56,11 @@ export class AppController implements OnModuleInit {
     @Param() params: UserGrpcListRequest['params'],
     @Query() query: UserGrpcListRequest['query'],
   ): Promise<User[]> {
-    return await firstValueFrom(
+    const users = await firstValueFrom(
       this.userGrpcService.list({ params, query }).pipe(toArray()),
     );
+
+    return users;
   }
 
   @Post()
@@ -66,12 +69,16 @@ export class AppController implements OnModuleInit {
     @Query() query: UserKafkaCreateRequest['query'],
     @Body() body: UserKafkaCreateRequest['body'],
   ): Promise<User> {
-    return await firstValueFrom(
+    const user = await firstValueFrom(
       this.clientKafka.send<UserKafkaCreateResponse, UserKafkaCreateRequest>(
         'user.create',
         { params, query, body },
       ),
     );
+
+    if (!user) throw new NotFoundException();
+
+    return user;
   }
 
   @Get(':id')
@@ -79,14 +86,16 @@ export class AppController implements OnModuleInit {
     @Param() params: UserGrpcReadRequest['params'],
     @Query() query: UserGrpcReadRequest['query'],
   ): Promise<User> {
-    console.log('user, http, read, params: ', params);
-
-    return await firstValueFrom(
+    const user = await firstValueFrom(
       this.userGrpcService.read({
         params,
         query,
       }),
     );
+
+    if (!user) throw new NotFoundException();
+
+    return user;
   }
 
   @Patch(':id')
@@ -94,7 +103,7 @@ export class AppController implements OnModuleInit {
     @Param() params: UserKafkaUpdateRequest['params'],
     @Body() body: UserKafkaUpdateRequest['body'],
   ): Promise<User> {
-    return await firstValueFrom(
+    const user = await firstValueFrom(
       this.clientKafka.send<UserKafkaUpdateResponse, UserKafkaUpdateRequest>(
         'user.update',
         {
@@ -103,17 +112,25 @@ export class AppController implements OnModuleInit {
         },
       ),
     );
+
+    if (!user) throw new NotFoundException();
+
+    return user;
   }
 
   @Delete(':id')
   async delete(
     @Param() params: UserKafkaDeleteRequest['params'],
   ): Promise<User> {
-    return await firstValueFrom(
+    const user = await firstValueFrom(
       this.clientKafka.send<UserKafkaDeleteResponse, UserKafkaDeleteRequest>(
         'user.delete',
         { params },
       ),
     );
+
+    if (!user) throw new NotFoundException();
+
+    return user;
   }
 }

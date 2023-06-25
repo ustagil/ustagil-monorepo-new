@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, NotFoundException } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { InjectModel } from '@nestjs/mongoose';
 import {
@@ -32,6 +32,10 @@ export class AppController {
 
   @GrpcMethod('ArticleService', 'Read')
   async read(dto: ArticleGrpcReadRequest): Promise<ArticleGrpcReadResponse> {
-    return (await this.articleModel.findById(dto.params.id).exec()).toObject();
+    const article = await this.articleModel.findById(dto.params.id).exec();
+
+    if (!article) throw new NotFoundException();
+
+    return article.toObject();
   }
 }

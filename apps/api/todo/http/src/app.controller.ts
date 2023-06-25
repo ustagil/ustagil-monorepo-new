@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Inject,
+  NotFoundException,
   OnModuleInit,
   Param,
   Patch,
@@ -56,9 +57,11 @@ export class AppController implements OnModuleInit {
     @Param() params: TodoGrpcListRequest['params'],
     @Query() query: TodoGrpcListRequest['query'],
   ): Promise<Todo[]> {
-    return await firstValueFrom(
+    const todos = await firstValueFrom(
       this.todoGrpcService.list({ params, query }).pipe(toArray()),
     );
+
+    return todos;
   }
 
   @Post()
@@ -67,12 +70,16 @@ export class AppController implements OnModuleInit {
     @Query() query: TodoKafkaCreateRequest['query'],
     @Body() body: TodoKafkaCreateRequest['body'],
   ): Promise<Todo> {
-    return await firstValueFrom(
+    const todo = await firstValueFrom(
       this.clientKafka.send<TodoKafkaCreateResponse, TodoKafkaCreateRequest>(
         'todo.create',
         { params, query, body },
       ),
     );
+
+    if (!todo) throw new NotFoundException();
+
+    return todo;
   }
 
   @Get(':id')
@@ -80,12 +87,16 @@ export class AppController implements OnModuleInit {
     @Param() params: TodoGrpcReadRequest['params'],
     @Query() query: TodoGrpcReadRequest['query'],
   ): Promise<Todo> {
-    return await firstValueFrom(
+    const todo = await firstValueFrom(
       this.todoGrpcService.read({
         params,
         query,
       }),
     );
+
+    if (!todo) throw new NotFoundException();
+
+    return todo;
   }
 
   @Patch(':id')
@@ -93,7 +104,7 @@ export class AppController implements OnModuleInit {
     @Param() params: TodoKafkaUpdateRequest['params'],
     @Body() body: TodoKafkaUpdateRequest['body'],
   ): Promise<Todo> {
-    return await firstValueFrom(
+    const todo = await firstValueFrom(
       this.clientKafka.send<TodoKafkaUpdateResponse, TodoKafkaUpdateRequest>(
         'todo.update',
         {
@@ -102,18 +113,26 @@ export class AppController implements OnModuleInit {
         },
       ),
     );
+
+    if (!todo) throw new NotFoundException();
+
+    return todo;
   }
 
   @Delete(':id')
   async delete(
     @Param() params: TodoKafkaDeleteRequest['params'],
   ): Promise<Todo> {
-    return await firstValueFrom(
+    const todo = await firstValueFrom(
       this.clientKafka.send<TodoKafkaDeleteResponse, TodoKafkaDeleteRequest>(
         'todo.delete',
         { params },
       ),
     );
+
+    if (!todo) throw new NotFoundException();
+
+    return todo;
   }
 }
 

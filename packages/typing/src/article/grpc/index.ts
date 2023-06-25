@@ -20,4 +20,4 @@ export type ArticleGrpcReadRequest = {
   query: object;
 };
 
-export type ArticleGrpcReadResponse = ArticleGrpcResponse;
+export type ArticleGrpcReadResponse = ArticleGrpcResponse | undefined | null;

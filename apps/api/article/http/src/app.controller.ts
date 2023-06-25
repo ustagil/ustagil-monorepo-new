@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Inject,
+  NotFoundException,
   OnModuleInit,
   Param,
   Patch,
@@ -59,9 +60,11 @@ export class AppController implements OnModuleInit {
     @Param() params: ArticleGrpcListRequest['params'],
     @Query() query: ArticleGrpcListRequest['query'],
   ): Promise<Article[]> {
-    return await firstValueFrom(
+    const articles = await firstValueFrom(
       this.articleGrpcService.list({ params, query }).pipe(toArray()),
     );
+
+    return articles;
   }
 
   @Post()
@@ -70,12 +73,16 @@ export class AppController implements OnModuleInit {
     @Query() query: ArticleKafkaCreateRequest['query'],
     @Body() body: ArticleKafkaCreateRequest['body'],
   ): Promise<Article> {
-    return await firstValueFrom(
+    const article = await firstValueFrom(
       this.clientKafka.send<
         ArticleKafkaCreateResponse,
         ArticleKafkaCreateRequest
       >('article.create', { params, query, body }),
     );
+
+    if (!article) throw new NotFoundException();
+
+    return article;
   }
 
   @Get(':id')
@@ -83,12 +90,16 @@ export class AppController implements OnModuleInit {
     @Param() params: ArticleGrpcReadRequest['params'],
     @Query() query: ArticleGrpcReadRequest['query'],
   ): Promise<Article> {
-    return await firstValueFrom(
+    const article = await firstValueFrom(
       this.articleGrpcService.read({
         params,
         query,
       }),
     );
+
+    if (!article) throw new NotFoundException();
+
+    return article;
   }
 
   @Patch(':id')
@@ -96,7 +107,7 @@ export class AppController implements OnModuleInit {
     @Param() params: ArticleKafkaUpdateRequest['params'],
     @Body() body: ArticleKafkaUpdateRequest['body'],
   ): Promise<Article> {
-    return await firstValueFrom(
+    const article = await firstValueFrom(
       this.clientKafka.send<
         ArticleKafkaUpdateResponse,
         ArticleKafkaUpdateRequest
@@ -105,18 +116,26 @@ export class AppController implements OnModuleInit {
         body,
       }),
     );
+
+    if (!article) throw new NotFoundException();
+
+    return article;
   }
 
   @Delete(':id')
   async delete(
     @Param() params: ArticleKafkaDeleteRequest['params'],
   ): Promise<Article> {
-    return await firstValueFrom(
+    const article = await firstValueFrom(
       this.clientKafka.send<
         ArticleKafkaDeleteResponse,
         ArticleKafkaDeleteRequest
       >('article.delete', { params }),
     );
+
+    if (!article) throw new NotFoundException();
+
+    return article;
   }
 }
 

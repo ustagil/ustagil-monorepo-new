@@ -12,7 +12,7 @@ export type UserKafkaCreateRequest = {
   body: { username: string; password: string };
 };
 
-export type UserKafkaCreateResponse = UserKafkaResponse;
+export type UserKafkaCreateResponse = UserKafkaResponse | undefined | null;
 
 //-----
 
@@ -21,7 +21,7 @@ export type UserKafkaUpdateRequest = {
   body: { username?: string; password?: string };
 };
 
-export type UserKafkaUpdateResponse = UserKafkaResponse;
+export type UserKafkaUpdateResponse = UserKafkaResponse | undefined | null;
 
 //-----
 
@@ -29,4 +29,4 @@ export type UserKafkaDeleteRequest = {
   params: { id: string };
 };
 
-export type UserKafkaDeleteResponse = UserKafkaResponse;
+export type UserKafkaDeleteResponse = UserKafkaResponse | undefined | null;

@@ -11,7 +11,10 @@ export type ArticleKafkaCreateRequest = {
   body: { name: string };
 };
 
-export type ArticleKafkaCreateResponse = ArticleKafkaResponse;
+export type ArticleKafkaCreateResponse =
+  | ArticleKafkaResponse
+  | undefined
+  | null;
 
 //-----
 
@@ -20,7 +23,10 @@ export type ArticleKafkaUpdateRequest = {
   body: { name?: string };
 };
 
-export type ArticleKafkaUpdateResponse = ArticleKafkaResponse;
+export type ArticleKafkaUpdateResponse =
+  | ArticleKafkaResponse
+  | undefined
+  | null;
 
 //-----
 
@@ -28,4 +34,7 @@ export type ArticleKafkaDeleteRequest = {
   params: { id: string };
 };
 
-export type ArticleKafkaDeleteResponse = ArticleKafkaResponse;
+export type ArticleKafkaDeleteResponse =
+  | ArticleKafkaResponse
+  | undefined
+  | null;

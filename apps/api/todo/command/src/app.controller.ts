@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, NotFoundException } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 import { InjectModel } from '@nestjs/mongoose';
 import {
@@ -20,23 +20,29 @@ export class AppController {
 
   @MessagePattern('todo.create')
   async create(dto: TodoKafkaCreateRequest): Promise<TodoKafkaCreateResponse> {
-    const createdTodo = new this.todoModel(dto.body);
-    return (await createdTodo.save()).toObject();
+    const createdTodoDocument = new this.todoModel(dto.body);
+    const createdTodo = await createdTodoDocument.save();
+
+    return createdTodo.toObject();
   }
 
   @MessagePattern('todo.update')
   async update(dto: TodoKafkaUpdateRequest): Promise<TodoKafkaUpdateResponse> {
-    return (
-      await this.todoModel
-        .findByIdAndUpdate(dto.params.id, dto.body, { new: true })
-        .exec()
-    ).toObject();
+    const todo = await this.todoModel
+      .findByIdAndUpdate(dto.params.id, dto.body, { new: true })
+      .exec();
+
+    if (!todo) throw new NotFoundException();
+
+    return todo.toObject();
   }
 
   @MessagePattern('todo.delete')
   async delete(dto: TodoKafkaDeleteRequest): Promise<TodoKafkaDeleteResponse> {
-    return (
-      await this.todoModel.findByIdAndRemove(dto.params.id).exec()
-    ).toObject();
+    const todo = await this.todoModel.findByIdAndRemove(dto.params.id).exec();
+
+    if (!todo) throw new NotFoundException();
+
+    return todo.toObject();
   }
 }

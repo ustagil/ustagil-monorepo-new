@@ -14,7 +14,7 @@ export type UserGrpcListRequest = {
 };
 
 // export type UserGrpcListResponse = UserGrpcResponse[];
-export type UserGrpcListResponse = UserGrpcResponse | undefined | null;
+export type UserGrpcListResponse = UserGrpcResponse;
 
 //-----
 
