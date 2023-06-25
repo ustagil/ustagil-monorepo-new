@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "dev:ci": "turbo run --concurrency=4 dev -- --maxWorkers=2 --forceExit",
-    "build": "turbo run --concurrency=4 build",
+    "build": "turbo run build",
     "build:ci": "turbo run --concurrency=4 build -- --maxWorkers=2 --forceExit",
     "start": "turbo run --parallel start",
     "start:ci": "turbo run --concurrency=4 start -- --maxWorkers=2 --forceExit",
