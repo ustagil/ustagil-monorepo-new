@@ -1,4 +1,11 @@
-import { Body, Controller, Inject, OnModuleInit, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Inject,
+  OnModuleInit,
+  Post,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
 import { API_USER_QUERY_MS } from '@ustagil/api-constant';
 import { AuthLoginDto, User, UserGrpcService } from '@ustagil/typing';
@@ -7,8 +14,11 @@ import { firstValueFrom } from 'rxjs';
 @Controller('auth')
 export class AppController implements OnModuleInit {
   private userGrpcService: UserGrpcService;
-
-  constructor(@Inject(API_USER_QUERY_MS) private clientGrpc: ClientGrpc) {}
+  constructor(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    @Inject(API_USER_QUERY_MS) private clientGrpc: ClientGrpc,
+  ) {}
 
   async onModuleInit() {
     this.userGrpcService =
@@ -17,8 +27,14 @@ export class AppController implements OnModuleInit {
 
   @Post('login')
   async login(@Body() body: AuthLoginDto['body']): Promise<User> {
-    return await firstValueFrom(
+    const user = await firstValueFrom(
       this.userGrpcService.readByUsername({ username: body.username }),
     );
+
+    if (user?.password !== body.password) {
+      throw new UnauthorizedException();
+    }
+
+    return user;
   }
 }
