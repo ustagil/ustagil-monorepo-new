@@ -147,15 +147,24 @@ importers:
       '@nestjs/core':
         specifier: ^9.0.0
         version: 9.0.0(@nestjs/common@9.0.0)(@nestjs/microservices@9.0.0)(@nestjs/platform-express@9.0.0)(reflect-metadata@0.1.13)(rxjs@7.2.0)
+      '@nestjs/jwt':
+        specifier: ^10.1.0
+        version: 10.1.0(@nestjs/common@9.0.0)
       '@nestjs/microservices':
         specifier: ^9.0.0
         version: 9.0.0(@nestjs/common@9.0.0)(@nestjs/core@9.0.0)(kafkajs@2.2.4)(reflect-metadata@0.1.13)(rxjs@7.2.0)
+      '@nestjs/passport':
+        specifier: ^10.0.0
+        version: 10.0.0(@nestjs/common@9.0.0)(passport@0.6.0)
       '@nestjs/platform-express':
         specifier: ^9.0.0
         version: 9.0.0(@nestjs/common@9.0.0)(@nestjs/core@9.0.0)
       '@ustagil/api-constant':
         specifier: workspace:^
         version: link:../../../../packages/api/constant
+      '@ustagil/api-util':
+        specifier: workspace:^
+        version: link:../../../../packages/api/util
       '@ustagil/typing':
         specifier: 0.0.1
         version: link:../../../../packages/typing
@@ -165,6 +174,15 @@ importers:
       class-validator:
         specifier: ^0.14.0
         version: 0.14.0
+      passport:
+        specifier: ^0.6.0
+        version: 0.6.0
+      passport-jwt:
+        specifier: ^4.0.1
+        version: 4.0.1
+      passport-local:
+        specifier: ^1.0.0
+        version: 1.0.0
       reflect-metadata:
         specifier: ^0.1.13
         version: 0.1.13
@@ -980,15 +998,24 @@ importers:
       '@nestjs/core':
         specifier: ^9.0.0
         version: 9.0.0(@nestjs/common@9.0.0)(@nestjs/microservices@9.0.0)(@nestjs/platform-express@9.0.0)(reflect-metadata@0.1.13)(rxjs@7.2.0)
+      '@nestjs/jwt':
+        specifier: ^10.1.0
+        version: 10.1.0(@nestjs/common@9.0.0)
       '@nestjs/microservices':
         specifier: ^9.0.0
         version: 9.0.0(@nestjs/common@9.0.0)(@nestjs/core@9.0.0)(kafkajs@2.2.4)(reflect-metadata@0.1.13)(rxjs@7.2.0)
+      '@nestjs/passport':
+        specifier: ^10.0.0
+        version: 10.0.0(@nestjs/common@9.0.0)(passport@0.6.0)
       '@nestjs/platform-express':
         specifier: ^9.0.0
         version: 9.0.0(@nestjs/common@9.0.0)(@nestjs/core@9.0.0)
       '@ustagil/api-constant':
         specifier: workspace:^
         version: link:../../../../packages/api/constant
+      '@ustagil/api-util':
+        specifier: workspace:^
+        version: link:../../../../packages/api/util
       '@ustagil/typing':
         specifier: 0.0.1
         version: link:../../../../packages/typing
@@ -998,6 +1025,15 @@ importers:
       class-validator:
         specifier: ^0.14.0
         version: 0.14.0
+      passport:
+        specifier: ^0.6.0
+        version: 0.6.0
+      passport-jwt:
+        specifier: ^4.0.1
+        version: 4.0.1
+      passport-local:
+        specifier: ^1.0.0
+        version: 1.0.0
       reflect-metadata:
         specifier: ^0.1.13
         version: 0.1.13
