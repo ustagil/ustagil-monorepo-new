@@ -17,3 +17,5 @@ export const API_TODO_CLIENT_ID = 'todo';
 export const API_TODO_CLIENT_URL = '0.0.0.0:5002';
 
 export const API_KAFKA_BROKER = 'localhost:9092';
+
+export const JWT_SECRET = 'SuperSecretKeyWOW';

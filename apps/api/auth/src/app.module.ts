@@ -1,7 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { JwtModule } from '@nestjs/jwt';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { API_USER_CLIENT_URL, API_USER_QUERY_MS } from '@ustagil/api-constant';
+import { PassportModule } from '@nestjs/passport';
+import {
+  API_USER_CLIENT_URL,
+  API_USER_QUERY_MS,
+  JWT_SECRET,
+} from '@ustagil/api-constant';
+import { BaseJwtStrategy, LocalStrategy } from '@ustagil/api-util';
 import { join } from 'path';
 import { AppController } from './app.controller';
 
@@ -19,8 +26,14 @@ import { AppController } from './app.controller';
         },
       },
     ]),
+    JwtModule.register({
+      global: true,
+      secret: JWT_SECRET,
+      signOptions: { expiresIn: '60s' },
+    }),
+    PassportModule,
   ],
   controllers: [AppController],
-  providers: [],
+  providers: [LocalStrategy, BaseJwtStrategy],
 })
 export class AppModule {}

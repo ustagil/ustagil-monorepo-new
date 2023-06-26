@@ -3,7 +3,7 @@ import type { Request } from 'express';
 export type MyRequest = Request & {
   user: {
     id: string;
-    role: Role;
+    // role: Role;
   };
   jwtPayload: JWTPayload;
 };

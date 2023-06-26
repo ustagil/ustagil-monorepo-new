@@ -1,44 +1,17 @@
-import {
-  Body,
-  Controller,
-  Inject,
-  OnModuleInit,
-  Post,
-  UnauthorizedException,
-} from '@nestjs/common';
-import { ClientGrpc } from '@nestjs/microservices';
-import { API_USER_QUERY_MS } from '@ustagil/api-constant';
-import { AuthLoginDto, User, UserGrpcService } from '@ustagil/typing';
-import { firstValueFrom } from 'rxjs';
+import { Controller, Post, Request, UseGuards } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import { LocalAuthGuard, MyRequest } from '@ustagil/api-util';
 
 @Controller('auth')
-export class AppController implements OnModuleInit {
-  private userGrpcService: UserGrpcService;
-  constructor(
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    @Inject(API_USER_QUERY_MS) private clientGrpc: ClientGrpc,
-  ) {}
+export class AppController {
+  constructor(private jwtService: JwtService) {}
 
-  async onModuleInit() {
-    this.userGrpcService =
-      this.clientGrpc.getService<UserGrpcService>('UserService');
-  }
-
+  @UseGuards(LocalAuthGuard)
   @Post('login')
-  async login(
-    @Body() body: AuthLoginDto['body'],
-  ): Promise<Omit<User, 'password'>> {
-    const user = await firstValueFrom(
-      this.userGrpcService.readByUsername({ username: body.username }),
-    );
-
-    if (user?.password !== body.password) {
-      throw new UnauthorizedException();
-    }
-
-    const { password, ...result } = user;
-
-    return result;
+  async login(@Request() req: MyRequest): Promise<any> {
+    const payload = { sub: req.user.id };
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
   }
 }
