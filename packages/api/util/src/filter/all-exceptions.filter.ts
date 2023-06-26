@@ -28,8 +28,8 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const description: ResponseBody['description'] = '',
       errorCode: ResponseBody['errorCode'] = '';
 
-    let statusCode: ResponseBody['statusCode'] = null,
-      message: ResponseBody['message'] = null;
+    let statusCode: ResponseBody['statusCode'] = 0,
+      message: ResponseBody['message'] = [];
 
     const timestamp: ResponseBody['timestamp'] = new Date().toISOString(),
       path: ResponseBody['path'] = httpAdapter.getRequestUrl(ctx.getRequest());
