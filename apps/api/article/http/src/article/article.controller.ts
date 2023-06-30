@@ -31,7 +31,7 @@ import {
 import { firstValueFrom, toArray } from 'rxjs';
 
 @Controller('articles')
-export class AppController implements OnModuleInit {
+export class ArticleController implements OnModuleInit {
   private articleGrpcService: ArticleGrpcService;
 
   constructor(

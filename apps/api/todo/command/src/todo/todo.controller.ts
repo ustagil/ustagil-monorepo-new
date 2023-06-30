@@ -10,10 +10,10 @@ import {
   TodoKafkaUpdateResponse,
 } from '@ustagil/typing';
 import { Model } from 'mongoose';
-import { TodoModel } from './schema';
+import { TodoModel } from './todo.schema';
 
 @Controller()
-export class AppController {
+export class TodoController {
   constructor(
     @InjectModel(TodoModel.name) private todoModel: Model<TodoModel>,
   ) {}

@@ -10,10 +10,10 @@ import {
   ArticleKafkaUpdateResponse,
 } from '@ustagil/typing';
 import { Model } from 'mongoose';
-import { ArticleModel } from './schema';
+import { ArticleModel } from './article.schema';
 
 @Controller()
-export class AppController {
+export class ArticleController {
   constructor(
     @InjectModel(ArticleModel.name) private articleModel: Model<ArticleModel>,
   ) {}

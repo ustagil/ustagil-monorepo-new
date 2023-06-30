@@ -28,7 +28,7 @@ import {
 import { firstValueFrom, toArray } from 'rxjs';
 
 @Controller('users')
-export class AppController implements OnModuleInit {
+export class UserController implements OnModuleInit {
   private userGrpcService: UserGrpcService;
 
   constructor(

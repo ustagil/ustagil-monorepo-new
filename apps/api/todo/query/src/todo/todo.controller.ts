@@ -9,10 +9,10 @@ import {
 } from '@ustagil/typing';
 import { Model } from 'mongoose';
 import { Observable, from } from 'rxjs';
-import { TodoModel } from './schema';
+import { TodoModel } from './todo.schema';
 
 @Controller()
-export class AppController {
+export class TodoController {
   constructor(
     @InjectModel(TodoModel.name) private todoModel: Model<TodoModel>,
   ) {}

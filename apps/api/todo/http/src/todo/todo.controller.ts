@@ -28,7 +28,7 @@ import {
 import { firstValueFrom, toArray } from 'rxjs';
 
 @Controller('todos')
-export class AppController implements OnModuleInit {
+export class TodoController implements OnModuleInit {
   private todoGrpcService: TodoGrpcService;
 
   constructor(
