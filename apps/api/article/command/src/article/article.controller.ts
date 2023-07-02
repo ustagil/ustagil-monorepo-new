@@ -1,56 +1,33 @@
-import { Controller, NotFoundException } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
+import { CommandBus } from '@nestjs/cqrs';
 import { MessagePattern } from '@nestjs/microservices';
-import { InjectModel } from '@nestjs/mongoose';
 import {
   ArticleKafkaCreateRequest,
-  ArticleKafkaCreateResponse,
   ArticleKafkaDeleteRequest,
-  ArticleKafkaDeleteResponse,
   ArticleKafkaUpdateRequest,
-  ArticleKafkaUpdateResponse,
 } from '@ustagil/typing';
-import { Model } from 'mongoose';
-import { ArticleModel } from './article.schema';
+import { CreateArticleCommand } from './create-article/create-article.command';
+import { DeleteArticleCommand } from './delete-article/delete-article.command';
+import { UpdateArticleCommand } from './update-article/update-article.command';
 
 @Controller()
 export class ArticleController {
-  constructor(
-    @InjectModel(ArticleModel.name) private articleModel: Model<ArticleModel>,
-  ) {}
+  constructor(private commandBus: CommandBus) {}
 
   @MessagePattern('article.create')
-  async create(
-    dto: ArticleKafkaCreateRequest,
-  ): Promise<ArticleKafkaCreateResponse> {
-    const createdArticleDocument = new this.articleModel(dto.body);
-    const createdArticle = await createdArticleDocument.save();
-
-    return createdArticle.toObject();
+  async create(dto: ArticleKafkaCreateRequest) {
+    await this.commandBus.execute(new CreateArticleCommand(dto.body.name));
   }
 
   @MessagePattern('article.update')
-  async update(
-    dto: ArticleKafkaUpdateRequest,
-  ): Promise<ArticleKafkaUpdateResponse> {
-    const article = await this.articleModel
-      .findByIdAndUpdate(dto.params.id, dto.body, { new: true })
-      .exec();
-
-    if (!article) throw new NotFoundException();
-
-    return article.toObject();
+  async update(dto: ArticleKafkaUpdateRequest) {
+    await this.commandBus.execute(
+      new UpdateArticleCommand(dto.params.id, dto.body.name),
+    );
   }
 
   @MessagePattern('article.delete')
-  async delete(
-    dto: ArticleKafkaDeleteRequest,
-  ): Promise<ArticleKafkaDeleteResponse> {
-    const article = await this.articleModel
-      .findByIdAndRemove(dto.params.id)
-      .exec();
-
-    if (!article) throw new NotFoundException();
-
-    return article.toObject();
+  async delete(dto: ArticleKafkaDeleteRequest) {
+    await this.commandBus.execute(new DeleteArticleCommand(dto.params.id));
   }
 }

@@ -47,10 +47,6 @@ export class ArticleController implements OnModuleInit {
     this.articleGrpcService =
       this.clientGrpc.getService<ArticleGrpcService>('ArticleService');
 
-    this.clientKafka.subscribeToResponseOf('article.create');
-    this.clientKafka.subscribeToResponseOf('article.update');
-    this.clientKafka.subscribeToResponseOf('article.delete');
-
     await this.clientKafka.connect();
   }
 
@@ -67,21 +63,15 @@ export class ArticleController implements OnModuleInit {
   }
 
   @Post()
-  async create(
+  create(
     @Param() params: ArticleKafkaCreateRequest['params'],
     @Query() query: ArticleKafkaCreateRequest['query'],
     @Body() body: ArticleKafkaCreateRequest['body'],
-  ): Promise<Article> {
-    const article = await firstValueFrom(
-      this.clientKafka.send<
-        ArticleKafkaCreateResponse,
-        ArticleKafkaCreateRequest
-      >('article.create', { params, query, body }),
-    );
-
-    if (!article) throw new NotFoundException();
-
-    return article;
+  ) {
+    this.clientKafka.emit<
+      ArticleKafkaCreateResponse,
+      ArticleKafkaCreateRequest
+    >('article.create', { params, query, body });
   }
 
   @Get(':id')
@@ -102,38 +92,24 @@ export class ArticleController implements OnModuleInit {
   }
 
   @Patch(':id')
-  async update(
+  update(
     @Param() params: ArticleKafkaUpdateRequest['params'],
     @Body() body: ArticleKafkaUpdateRequest['body'],
-  ): Promise<Article> {
-    const article = await firstValueFrom(
-      this.clientKafka.send<
-        ArticleKafkaUpdateResponse,
-        ArticleKafkaUpdateRequest
-      >('article.update', {
-        params,
-        body,
-      }),
-    );
-
-    if (!article) throw new NotFoundException();
-
-    return article;
+  ) {
+    this.clientKafka.emit<
+      ArticleKafkaUpdateResponse,
+      ArticleKafkaUpdateRequest
+    >('article.update', {
+      params,
+      body,
+    });
   }
 
   @Delete(':id')
-  async delete(
-    @Param() params: ArticleKafkaDeleteRequest['params'],
-  ): Promise<Article> {
-    const article = await firstValueFrom(
-      this.clientKafka.send<
-        ArticleKafkaDeleteResponse,
-        ArticleKafkaDeleteRequest
-      >('article.delete', { params }),
-    );
-
-    if (!article) throw new NotFoundException();
-
-    return article;
+  delete(@Param() params: ArticleKafkaDeleteRequest['params']) {
+    this.clientKafka.emit<
+      ArticleKafkaDeleteResponse,
+      ArticleKafkaDeleteRequest
+    >('article.delete', { params });
   }
 }
