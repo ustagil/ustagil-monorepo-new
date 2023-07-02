@@ -59,7 +59,7 @@ export class TodoController implements OnModuleInit {
   }
 
   @Post()
-  async create(
+  create(
     @Param() params: TodoKafkaCreateRequest['params'],
     @Query() query: TodoKafkaCreateRequest['query'],
     @Body() body: TodoKafkaCreateRequest['body'],
@@ -85,7 +85,7 @@ export class TodoController implements OnModuleInit {
   }
 
   @Patch(':id')
-  async update(
+  update(
     @Param() params: TodoKafkaUpdateRequest['params'],
     @Body() body: TodoKafkaUpdateRequest['body'],
   ) {
@@ -99,7 +99,7 @@ export class TodoController implements OnModuleInit {
   }
 
   @Delete(':id')
-  async delete(@Param() params: TodoKafkaDeleteRequest['params']) {
+  delete(@Param() params: TodoKafkaDeleteRequest['params']) {
     this.clientKafka.emit<TodoKafkaDeleteResponse, TodoKafkaDeleteRequest>(
       'todo.delete',
       { params },
