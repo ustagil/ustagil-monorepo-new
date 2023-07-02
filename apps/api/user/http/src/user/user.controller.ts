@@ -44,10 +44,6 @@ export class UserController implements OnModuleInit {
     this.userGrpcService =
       this.clientGrpc.getService<UserGrpcService>('UserService');
 
-    this.clientKafka.subscribeToResponseOf('user.create');
-    this.clientKafka.subscribeToResponseOf('user.update');
-    this.clientKafka.subscribeToResponseOf('user.delete');
-
     await this.clientKafka.connect();
   }
 
@@ -64,21 +60,15 @@ export class UserController implements OnModuleInit {
   }
 
   @Post()
-  async create(
+  create(
     @Param() params: UserKafkaCreateRequest['params'],
     @Query() query: UserKafkaCreateRequest['query'],
     @Body() body: UserKafkaCreateRequest['body'],
-  ): Promise<User> {
-    const user = await firstValueFrom(
-      this.clientKafka.send<UserKafkaCreateResponse, UserKafkaCreateRequest>(
-        'user.create',
-        { params, query, body },
-      ),
+  ) {
+    this.clientKafka.emit<UserKafkaCreateResponse, UserKafkaCreateRequest>(
+      'user.create',
+      { params, query, body },
     );
-
-    if (!user) throw new NotFoundException();
-
-    return user;
   }
 
   @Get(':id')
@@ -99,38 +89,24 @@ export class UserController implements OnModuleInit {
   }
 
   @Patch(':id')
-  async update(
+  update(
     @Param() params: UserKafkaUpdateRequest['params'],
     @Body() body: UserKafkaUpdateRequest['body'],
-  ): Promise<User> {
-    const user = await firstValueFrom(
-      this.clientKafka.send<UserKafkaUpdateResponse, UserKafkaUpdateRequest>(
-        'user.update',
-        {
-          params,
-          body,
-        },
-      ),
+  ) {
+    this.clientKafka.emit<UserKafkaUpdateResponse, UserKafkaUpdateRequest>(
+      'user.update',
+      {
+        params,
+        body,
+      },
     );
-
-    if (!user) throw new NotFoundException();
-
-    return user;
   }
 
   @Delete(':id')
-  async delete(
-    @Param() params: UserKafkaDeleteRequest['params'],
-  ): Promise<User> {
-    const user = await firstValueFrom(
-      this.clientKafka.send<UserKafkaDeleteResponse, UserKafkaDeleteRequest>(
-        'user.delete',
-        { params },
-      ),
+  delete(@Param() params: UserKafkaDeleteRequest['params']) {
+    this.clientKafka.emit<UserKafkaDeleteResponse, UserKafkaDeleteRequest>(
+      'user.delete',
+      { params },
     );
-
-    if (!user) throw new NotFoundException();
-
-    return user;
   }
 }
