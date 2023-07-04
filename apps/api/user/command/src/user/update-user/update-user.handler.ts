@@ -11,7 +11,7 @@ export class UpdateUserHandler implements ICommandHandler<UpdateUserCommand> {
       new UserDomain(command.id),
     );
 
-    userDomain.update();
+    userDomain.update(command.name);
     userDomain.commit();
   }
 }

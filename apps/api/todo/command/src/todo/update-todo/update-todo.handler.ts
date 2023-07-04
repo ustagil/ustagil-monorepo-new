@@ -11,7 +11,7 @@ export class UpdateTodoHandler implements ICommandHandler<UpdateTodoCommand> {
       new TodoDomain(command.id),
     );
 
-    todoDomain.update();
+    todoDomain.update(command.name);
     todoDomain.commit();
   }
 }

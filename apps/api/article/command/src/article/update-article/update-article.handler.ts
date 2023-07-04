@@ -13,7 +13,7 @@ export class UpdateArticleHandler
       new ArticleDomain(command.id),
     );
 
-    articleDomain.update();
+    articleDomain.update(command.name);
     articleDomain.commit();
   }
 }
