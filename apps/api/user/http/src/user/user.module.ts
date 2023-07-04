@@ -1,42 +1,51 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import {
-  API_KAFKA_BROKER,
-  API_USER_CLIENT_ID,
-  API_USER_CLIENT_URL,
-  API_USER_COMMAND_MS,
-  API_USER_GROUP_ID,
-  API_USER_QUERY_MS,
-} from '@ustagil/api-constant';
+import { API_USER_COMMAND_MS, API_USER_QUERY_MS } from '@ustagil/api-constant';
 import { join } from 'path';
+import { MyConfigService } from 'src/config';
 import { UserController } from './user.controller';
 
 @Module({
   imports: [
-    ClientsModule.register([
+    ClientsModule.registerAsync([
       {
         name: API_USER_QUERY_MS,
-        transport: Transport.GRPC,
-        options: {
-          package: 'user',
-          protoPath: join(__dirname, 'user.proto'),
-          url: API_USER_CLIENT_URL,
-        },
+        imports: [ConfigModule],
+        useFactory: async (configService: MyConfigService) => ({
+          transport: Transport.GRPC,
+          options: {
+            package: 'user',
+            protoPath: join(__dirname, 'user.proto'),
+            url: configService.get('API_USER_GRPC_CLIENT_URL', { infer: true }),
+          },
+        }),
+        inject: [ConfigService],
       },
     ]),
-    ClientsModule.register([
+    ClientsModule.registerAsync([
       {
         name: API_USER_COMMAND_MS,
-        transport: Transport.KAFKA,
-        options: {
-          client: {
-            clientId: API_USER_CLIENT_ID,
-            brokers: [API_KAFKA_BROKER],
+        imports: [ConfigModule],
+        useFactory: async (configService: MyConfigService) => ({
+          transport: Transport.KAFKA,
+          options: {
+            client: {
+              clientId: configService.get('API_USER_KAFKA_CLIENT_ID', {
+                infer: true,
+              }),
+              brokers: [
+                configService.get('API_USER_KAFKA_BROKER', { infer: true }),
+              ],
+            },
+            consumer: {
+              groupId: configService.get('API_USER_KAFKA_GROUP_ID', {
+                infer: true,
+              }),
+            },
           },
-          consumer: {
-            groupId: API_USER_GROUP_ID,
-          },
-        },
+        }),
+        inject: [ConfigService],
       },
     ]),
   ],

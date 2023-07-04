@@ -1,10 +1,23 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { MyConfigService } from './config';
 import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://root:example@172.17.0.1:27017'),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: MyConfigService) => {
+        return {
+          uri: configService.get('API_TODO_MONGODB_URI', { infer: true }),
+        };
+      },
+      inject: [ConfigService],
+    }),
     TodoModule,
   ],
 })

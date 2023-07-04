@@ -1,18 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
-import { JWT_SECRET } from '@ustagil/api-constant';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { JWTPayload, MyRequest } from '../request';
 
+type MyConfigService = ConfigService<
+  {
+    JWT_SECRET: string;
+  },
+  true
+>;
+
 @Injectable()
 export class BaseJwtStrategy extends PassportStrategy(Strategy) {
-  constructor(configService: ConfigService) {
+  constructor(configService: MyConfigService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      // secretOrKey: configService.getOrThrow('jwt.secret'),
-      secretOrKey: JWT_SECRET,
+      secretOrKey: configService.getOrThrow('JWT_SECRET'),
     });
   }
 

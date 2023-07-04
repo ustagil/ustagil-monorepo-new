@@ -1,19 +1,28 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule, JwtService } from '@nestjs/jwt';
-import { JWT_SECRET } from '@ustagil/api-constant';
 import { BaseJwtStrategy, JwtAuthGuard } from '@ustagil/api-util';
 import { ArticleModule } from './article/article.module';
+import { MyConfigService } from './config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    JwtModule.register({
-      global: true,
-      secret: JWT_SECRET,
-      signOptions: { expiresIn: '60s' },
+    ConfigModule.forRoot({
+      isGlobal: true,
     }),
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: MyConfigService) => ({
+        global: true,
+        secret: configService.get('JWT_SECRET', { infer: true }),
+        signOptions: {
+          expiresIn: configService.get('JWT_EXPIRE_IN', { infer: true }),
+        },
+      }),
+      inject: [ConfigService],
+    }),
+
     ArticleModule,
   ],
   providers: [

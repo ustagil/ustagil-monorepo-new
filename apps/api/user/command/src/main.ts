@@ -1,23 +1,28 @@
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { API_KAFKA_BROKER, API_USER_GROUP_ID } from '@ustagil/api-constant';
 import { AppModule } from './app.module';
+import { MyConfigService } from './config';
 
 async function bootstrap() {
-  const app = await NestFactory.createMicroservice<MicroserviceOptions>(
-    AppModule,
-    {
-      transport: Transport.KAFKA,
-      options: {
-        client: {
-          brokers: [API_KAFKA_BROKER],
-        },
-        consumer: {
-          groupId: API_USER_GROUP_ID,
-        },
+  const app = await NestFactory.create(AppModule);
+
+  await app.init();
+
+  const configService = app.get<MyConfigService>(ConfigService);
+
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.KAFKA,
+    options: {
+      client: {
+        brokers: [configService.get('API_USER_KAFKA_BROKER')],
+      },
+      consumer: {
+        groupId: configService.get('API_USER_KAFKA_GROUP_ID'),
       },
     },
-  );
-  app.listen();
+  });
+
+  await app.startAllMicroservices();
 }
 bootstrap();
