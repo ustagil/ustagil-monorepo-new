@@ -7,12 +7,10 @@ export type UserKafkaResponse = {
 //-----
 
 export type UserKafkaCreateRequest = {
-  params: object;
-  query: object;
   body: { username: string; password: string };
 };
 
-export type UserKafkaCreateResponse = UserKafkaResponse | undefined | null;
+export type UserKafkaCreateResponse = undefined;
 
 //-----
 
@@ -21,7 +19,7 @@ export type UserKafkaUpdateRequest = {
   body: { username?: string; password?: string };
 };
 
-export type UserKafkaUpdateResponse = UserKafkaResponse | undefined | null;
+export type UserKafkaUpdateResponse = undefined;
 
 //-----
 
@@ -29,4 +27,4 @@ export type UserKafkaDeleteRequest = {
   params: { id: string };
 };
 
-export type UserKafkaDeleteResponse = UserKafkaResponse | undefined | null;
+export type UserKafkaDeleteResponse = undefined;

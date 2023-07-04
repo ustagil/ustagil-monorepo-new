@@ -6,12 +6,10 @@ export type TodoKafkaResponse = {
 //-----
 
 export type TodoKafkaCreateRequest = {
-  params: object;
-  query: object;
   body: { name: string };
 };
 
-export type TodoKafkaCreateResponse = TodoKafkaResponse | undefined | null;
+export type TodoKafkaCreateResponse = undefined;
 
 //-----
 
@@ -20,7 +18,7 @@ export type TodoKafkaUpdateRequest = {
   body: { name?: string };
 };
 
-export type TodoKafkaUpdateResponse = TodoKafkaResponse | undefined | null;
+export type TodoKafkaUpdateResponse = undefined;
 
 //-----
 
@@ -28,4 +26,4 @@ export type TodoKafkaDeleteRequest = {
   params: { id: string };
 };
 
-export type TodoKafkaDeleteResponse = TodoKafkaResponse | undefined | null;
+export type TodoKafkaDeleteResponse = undefined;

@@ -1,22 +1,35 @@
-export type ArticleListDto = {
-  query: any;
+export type ArticleHttpResponse = {
+  _id: string;
+  name: string;
 };
 
-export type ArticleReadDto = {
-  query: any;
+export type ArticleHttpListRequest = {
+  query: object;
+};
+
+export type ArticleHttpListResponse = ArticleHttpResponse[] | undefined | null;
+
+export type ArticleHttpReadRequest = {
   params: { id: string };
 };
 
-export type ArticleCreateDto = {
-  query: any;
-  body: any;
+export type ArticleHttpReadResponse = ArticleHttpResponse | undefined | null;
+
+export type ArticleHttpCreateRequest = {
+  body: { name: string };
 };
 
-export type ArticleUpdateDto = {
+export type ArticleHttpCreateResponse = undefined;
+
+export type ArticleHttpUpdateRequest = {
   params: { id: string };
-  body: any;
+  body: { name?: string };
 };
 
-export type ArticleDeleteDto = {
+export type ArticleHttpUpdateResponse = undefined;
+
+export type ArticleHttpDeleteRequest = {
   params: { id: string };
 };
+
+export type ArticleHttpDeleteResponse = undefined;

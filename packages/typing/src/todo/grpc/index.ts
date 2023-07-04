@@ -8,7 +8,6 @@ export type TodoGrpcResponse = {
 //-----
 
 export type TodoGrpcListRequest = {
-  params: object;
   query: object;
 };
 
@@ -19,7 +18,6 @@ export type TodoGrpcListResponse = TodoGrpcResponse;
 
 export type TodoGrpcReadRequest = {
   params: { id: string };
-  query: object;
 };
 
 export type TodoGrpcReadResponse = TodoGrpcResponse | undefined | null;

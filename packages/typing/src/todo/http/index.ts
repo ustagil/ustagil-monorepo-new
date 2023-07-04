@@ -1,22 +1,35 @@
-export type TodoListDto = {
-  query: any;
+export type TodoHttpResponse = {
+  _id: string;
+  name: string;
 };
 
-export type TodoReadDto = {
-  query: any;
+export type TodoHttpListRequest = {
+  query: Record<string, any>;
+};
+
+export type TodoHttpListResponse = TodoHttpResponse[] | undefined | null;
+
+export type TodoHttpReadRequest = {
   params: { id: string };
 };
 
-export type TodoCreateDto = {
-  query: any;
-  body: any;
+export type TodoHttpReadResponse = TodoHttpResponse | undefined | null;
+
+export type TodoHttpCreateRequest = {
+  body: { name: string };
 };
 
-export type TodoUpdateDto = {
+export type TodoHttpCreateResponse = undefined;
+
+export type TodoHttpUpdateRequest = {
   params: { id: string };
-  body: any;
+  body: { name?: string };
 };
 
-export type TodoDeleteDto = {
+export type TodoHttpUpdateResponse = undefined;
+
+export type TodoHttpDeleteRequest = {
   params: { id: string };
 };
+
+export type TodoHttpDeleteResponse = undefined;

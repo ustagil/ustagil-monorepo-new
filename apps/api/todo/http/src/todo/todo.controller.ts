@@ -14,11 +14,16 @@ import {
 import { ClientGrpc, ClientKafka } from '@nestjs/microservices';
 import { API_TODO_COMMAND_MS, API_TODO_QUERY_MS } from '@ustagil/api-constant';
 import {
-  Todo,
-  TodoGrpcListRequest,
-  TodoGrpcReadRequest,
   TodoGrpcService,
-  TodoKafkaCreateRequest,
+  TodoHttpCreateRequest,
+  TodoHttpCreateResponse,
+  TodoHttpDeleteResponse,
+  TodoHttpListRequest,
+  TodoHttpListResponse,
+  TodoHttpReadRequest,
+  TodoHttpReadResponse,
+  TodoHttpUpdateRequest,
+  TodoHttpUpdateResponse,
   TodoKafkaDeleteRequest,
   TodoKafkaDeleteResponse,
   TodoKafkaUpdateRequest,
@@ -48,34 +53,27 @@ export class TodoController implements OnModuleInit {
 
   @Get()
   async list(
-    @Param() params: TodoGrpcListRequest['params'],
-    @Query() query: TodoGrpcListRequest['query'],
-  ): Promise<Todo[]> {
+    @Query() query: TodoHttpListRequest['query'],
+  ): Promise<TodoHttpListResponse> {
     const todos = await firstValueFrom(
-      this.todoGrpcService.list({ params, query }).pipe(toArray()),
+      this.todoGrpcService.list({ query }).pipe(toArray()),
     );
 
     return todos;
   }
 
   @Post()
-  create(
-    @Param() params: TodoKafkaCreateRequest['params'],
-    @Query() query: TodoKafkaCreateRequest['query'],
-    @Body() body: TodoKafkaCreateRequest['body'],
-  ) {
-    this.clientKafka.emit('todo.create', { params, query, body });
+  create(@Body() body: TodoHttpCreateRequest['body']): TodoHttpCreateResponse {
+    this.clientKafka.emit('todo.create', { body });
   }
 
   @Get(':id')
   async read(
-    @Param() params: TodoGrpcReadRequest['params'],
-    @Query() query: TodoGrpcReadRequest['query'],
-  ): Promise<Todo> {
+    @Param() params: TodoHttpReadRequest['params'],
+  ): Promise<TodoHttpReadResponse> {
     const todo = await firstValueFrom(
       this.todoGrpcService.read({
         params,
-        query,
       }),
     );
 
@@ -86,9 +84,9 @@ export class TodoController implements OnModuleInit {
 
   @Patch(':id')
   update(
-    @Param() params: TodoKafkaUpdateRequest['params'],
-    @Body() body: TodoKafkaUpdateRequest['body'],
-  ) {
+    @Param() params: TodoHttpUpdateRequest['params'],
+    @Body() body: TodoHttpUpdateRequest['body'],
+  ): TodoHttpUpdateResponse {
     this.clientKafka.emit<TodoKafkaUpdateResponse, TodoKafkaUpdateRequest>(
       'todo.update',
       {
@@ -99,7 +97,9 @@ export class TodoController implements OnModuleInit {
   }
 
   @Delete(':id')
-  delete(@Param() params: TodoKafkaDeleteRequest['params']) {
+  delete(
+    @Param() params: TodoKafkaDeleteRequest['params'],
+  ): TodoHttpDeleteResponse {
     this.clientKafka.emit<TodoKafkaDeleteResponse, TodoKafkaDeleteRequest>(
       'todo.delete',
       { params },

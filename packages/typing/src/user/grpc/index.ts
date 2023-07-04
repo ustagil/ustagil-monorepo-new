@@ -9,7 +9,6 @@ export type UserGrpcResponse = {
 //-----
 
 export type UserGrpcListRequest = {
-  params: object;
   query: object;
 };
 
@@ -20,7 +19,6 @@ export type UserGrpcListResponse = UserGrpcResponse;
 
 export type UserGrpcReadRequest = {
   params: { id: string };
-  query: object;
 };
 
 export type UserGrpcReadResponse = UserGrpcResponse | undefined | null;

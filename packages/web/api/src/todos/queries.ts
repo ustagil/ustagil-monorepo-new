@@ -1,16 +1,19 @@
-import { APIResponse, Todo, TodoListDto, TodoReadDto } from "@ustagil/typing";
+import {
+  APIResponse,
+  TodoHttpListRequest,
+  TodoHttpListResponse,
+  TodoHttpReadRequest,
+  TodoHttpReadResponse,
+} from "@ustagil/typing";
 import { axiosInstance } from "@ustagil/web-util";
 
-export const todosList = async ({ query }: TodoListDto) =>
+export const todosList = async ({ query }: TodoHttpListRequest) =>
   (
-    await axiosInstance.get<APIResponse<Todo[]>>(
+    await axiosInstance.get<APIResponse<TodoHttpListResponse>>(
       `/todos?${new URLSearchParams(query).toString()}`
     )
   ).data;
 
-export const todosGet = async ({ params: { id }, query }: TodoReadDto) =>
-  (
-    await axiosInstance.get<APIResponse<Todo>>(
-      `/todos/${id}?${new URLSearchParams(query).toString()}`
-    )
-  ).data;
+export const todosGet = async ({ params: { id } }: TodoHttpReadRequest) =>
+  (await axiosInstance.get<APIResponse<TodoHttpReadResponse>>(`/todos/${id}`))
+    .data;

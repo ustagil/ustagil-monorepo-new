@@ -17,10 +17,17 @@ import {
   API_ARTICLE_QUERY_MS,
 } from '@ustagil/api-constant';
 import {
-  Article,
-  ArticleGrpcListRequest,
-  ArticleGrpcReadRequest,
   ArticleGrpcService,
+  ArticleHttpCreateRequest,
+  ArticleHttpCreateResponse,
+  ArticleHttpDeleteRequest,
+  ArticleHttpDeleteResponse,
+  ArticleHttpListRequest,
+  ArticleHttpListResponse,
+  ArticleHttpReadRequest,
+  ArticleHttpReadResponse,
+  ArticleHttpUpdateRequest,
+  ArticleHttpUpdateResponse,
   ArticleKafkaCreateRequest,
   ArticleKafkaCreateResponse,
   ArticleKafkaDeleteRequest,
@@ -52,11 +59,10 @@ export class ArticleController implements OnModuleInit {
 
   @Get()
   async list(
-    @Param() params: ArticleGrpcListRequest['params'],
-    @Query() query: ArticleGrpcListRequest['query'],
-  ): Promise<Article[]> {
+    @Query() query: ArticleHttpListRequest['query'],
+  ): Promise<ArticleHttpListResponse> {
     const articles = await firstValueFrom(
-      this.articleGrpcService.list({ params, query }).pipe(toArray()),
+      this.articleGrpcService.list({ query }).pipe(toArray()),
     );
 
     return articles;
@@ -64,25 +70,21 @@ export class ArticleController implements OnModuleInit {
 
   @Post()
   create(
-    @Param() params: ArticleKafkaCreateRequest['params'],
-    @Query() query: ArticleKafkaCreateRequest['query'],
-    @Body() body: ArticleKafkaCreateRequest['body'],
-  ) {
+    @Body() body: ArticleHttpCreateRequest['body'],
+  ): ArticleHttpCreateResponse {
     this.clientKafka.emit<
       ArticleKafkaCreateResponse,
       ArticleKafkaCreateRequest
-    >('article.create', { params, query, body });
+    >('article.create', { body });
   }
 
   @Get(':id')
   async read(
-    @Param() params: ArticleGrpcReadRequest['params'],
-    @Query() query: ArticleGrpcReadRequest['query'],
-  ): Promise<Article> {
+    @Param() params: ArticleHttpReadRequest['params'],
+  ): Promise<ArticleHttpReadResponse> {
     const article = await firstValueFrom(
       this.articleGrpcService.read({
         params,
-        query,
       }),
     );
 
@@ -93,9 +95,9 @@ export class ArticleController implements OnModuleInit {
 
   @Patch(':id')
   update(
-    @Param() params: ArticleKafkaUpdateRequest['params'],
-    @Body() body: ArticleKafkaUpdateRequest['body'],
-  ) {
+    @Param() params: ArticleHttpUpdateRequest['params'],
+    @Body() body: ArticleHttpUpdateRequest['body'],
+  ): ArticleHttpUpdateResponse {
     this.clientKafka.emit<
       ArticleKafkaUpdateResponse,
       ArticleKafkaUpdateRequest
@@ -106,7 +108,9 @@ export class ArticleController implements OnModuleInit {
   }
 
   @Delete(':id')
-  delete(@Param() params: ArticleKafkaDeleteRequest['params']) {
+  delete(
+    @Param() params: ArticleHttpDeleteRequest['params'],
+  ): ArticleHttpDeleteResponse {
     this.clientKafka.emit<
       ArticleKafkaDeleteResponse,
       ArticleKafkaDeleteRequest
