@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { BaseJwtStrategy, JwtAuthGuard } from '@ustagil/api-util';
+import * as Joi from 'joi';
 import { MyConfigService } from './config';
 import { TodoModule } from './todo/todo.module';
 
@@ -10,6 +11,15 @@ import { TodoModule } from './todo/todo.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+      validationSchema: Joi.object({
+        PORT: Joi.number(),
+        JWT_SECRET: Joi.string(),
+        JWT_EXPIRE_IN: Joi.string(),
+        API_TODO_KAFKA_BROKER: Joi.string(),
+        API_TODO_KAFKA_CLIENT_ID: Joi.string(),
+        API_TODO_KAFKA_GROUP_ID: Joi.string(),
+        API_TODO_GRPC_CLIENT_URL: Joi.string(),
+      }),
     }),
     JwtModule.registerAsync({
       imports: [ConfigModule],

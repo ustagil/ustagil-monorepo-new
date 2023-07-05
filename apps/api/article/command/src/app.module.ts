@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import * as Joi from 'joi';
 import { ArticleModule } from './article/article.module';
 import { MyConfigService } from './config';
 
@@ -8,6 +9,11 @@ import { MyConfigService } from './config';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+      validationSchema: Joi.object({
+        API_ARTICLE_KAFKA_BROKER: Joi.string(),
+        API_ARTICLE_KAFKA_GROUP_ID: Joi.string(),
+        API_ARTICLE_MONGODB_URI: Joi.string(),
+      }),
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
