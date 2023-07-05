@@ -50,6 +50,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@ustagil/api-constant": "workspace:^",
     "@ustagil/typing": "workspace:0.0.1",
+    "joi": "^17.9.2",
     "kafkajs": "^2.2.4",
     "mongoose": "^7.3.1",
     "reflect-metadata": "^0.1.13",
