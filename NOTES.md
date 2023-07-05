@@ -18,12 +18,12 @@ BACKLOG
 SELECTED
 ----- add package.json attributes of OpenSource stuff. Like author, repo, licence (look into nestjs project packages)
 ----- add options to package.json as author, git, licence...
------ clear rollup dependencies
 ----- add api env config validation
 ----- add CQRS stuff
 ------+ partially added
 
 DONE
++++++ clear rollup dependencies
 +++++ create api-utils package
 +++++ add grpc and kafka config as env
 +++++ add database as mongodb
