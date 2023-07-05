@@ -1,7 +1,31 @@
 {
   "name": "@ustagil/web-util",
-  "private": true,
   "version": "0.0.1",
+  "description": "A package for common web application utilities",
+  "private": true,
+  "homepage": "https://ustagil-monorepo.vercel.app/",
+  "license": "",
+  "author": {
+    "email": "celal.demirx@gmail.com",
+    "name": "Ustagil",
+    "url": "https://github.com/ustagil"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ustagil/ustagil-monorepo-new",
+    "directory": "packages/web/util"
+  },
+  "maintainers": [
+    {
+      "email": "celal.demirx@gmail.com",
+      "name": "Celal Demir",
+      "url": "https://github.com/CllDMR"
+    }
+  ],
+  "bugs": {
+    "email": "celal.demirx@gmail.com",
+    "url": "https://github.com/ustagil/ustagil-monorepo-new/issues"
+  },
   "main": "src/index.ts",
   "types": "src/index.ts",
   "scripts": {

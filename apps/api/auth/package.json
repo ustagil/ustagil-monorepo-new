@@ -1,10 +1,31 @@
 {
   "name": "@ustagil/api-auth",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "An microservice for Authentication",
   "private": true,
-  "license": "UNLICENSED",
+  "homepage": "https://ustagil-monorepo.vercel.app/",
+  "license": "",
+  "author": {
+    "email": "celal.demirx@gmail.com",
+    "name": "Ustagil",
+    "url": "https://github.com/ustagil"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ustagil/ustagil-monorepo-new",
+    "directory": "apps/api/auth"
+  },
+  "maintainers": [
+    {
+      "email": "celal.demirx@gmail.com",
+      "name": "Celal Demir",
+      "url": "https://github.com/CllDMR"
+    }
+  ],
+  "bugs": {
+    "email": "celal.demirx@gmail.com",
+    "url": "https://github.com/ustagil/ustagil-monorepo-new/issues"
+  },
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",

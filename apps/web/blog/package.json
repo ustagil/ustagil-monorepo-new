@@ -1,7 +1,31 @@
 {
   "name": "@ustagil/web-blog",
   "version": "0.0.1",
+  "description": "A Nextjs web application for Ustagil Blog",
   "private": true,
+  "homepage": "https://ustagil-monorepo.vercel.app/",
+  "license": "",
+  "author": {
+    "email": "celal.demirx@gmail.com",
+    "name": "Ustagil",
+    "url": "https://github.com/ustagil"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ustagil/ustagil-monorepo-new",
+    "directory": "apps/web/blog"
+  },
+  "maintainers": [
+    {
+      "email": "celal.demirx@gmail.com",
+      "name": "Celal Demir",
+      "url": "https://github.com/CllDMR"
+    }
+  ],
+  "bugs": {
+    "email": "celal.demirx@gmail.com",
+    "url": "https://github.com/ustagil/ustagil-monorepo-new/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

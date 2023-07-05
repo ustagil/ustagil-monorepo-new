@@ -1,7 +1,31 @@
 {
   "name": "@ustagil/eslint-config",
-  "private": true,
   "version": "0.0.1",
+  "description": "A package for common Eslint configurations",
+  "private": true,
+  "homepage": "https://ustagil-monorepo.vercel.app/",
+  "license": "",
+  "author": {
+    "email": "celal.demirx@gmail.com",
+    "name": "Ustagil",
+    "url": "https://github.com/ustagil"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ustagil/ustagil-monorepo-new",
+    "directory": "packages/eslint-config"
+  },
+  "maintainers": [
+    {
+      "email": "celal.demirx@gmail.com",
+      "name": "Celal Demir",
+      "url": "https://github.com/CllDMR"
+    }
+  ],
+  "bugs": {
+    "email": "celal.demirx@gmail.com",
+    "url": "https://github.com/ustagil/ustagil-monorepo-new/issues"
+  },
   "main": "index.json",
   "dependencies": {
     "eslint": "^8.42.0",
