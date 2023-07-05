@@ -1,23 +1,14 @@
 BACKLOG
------ add mongodb url as env variable
 ----- create terraform
 ----- create DOCKERFILE as prod
 ----- re-init CHANGELOG
------ add database as mongodb
------ add CQRS stuff
------ add grpc and kafka config as env
------ add api env config validation
------ clear rollup dependencies
 ----- clear, fix common eslint config
------ create api-utils package
 ----- fix test file errors at web-utils package
 ----- add manypkg check script to CI & CD
 ----- concentrate tailwindcss, ts and eslint configs, and apply them properly
 ----- collect config files and extend them from config package. Eslint, tsconfig
 ----- tailwindcss config should be scalable and compositable
 ----- start to planning projects
------ add options to package.json as author, git, licence...
------ add package.json attributes of OpenSource stuff. Like author, repo, licence (look into nestjs project packages)
 ----- activate changeset
 ----- fix github workflows
 ----- add "tsc --noEmit" for typecheck script (package.json-?, github workflow)
@@ -25,8 +16,18 @@ BACKLOG
 ----- add nvm
 
 SELECTED
+----- add package.json attributes of OpenSource stuff. Like author, repo, licence (look into nestjs project packages)
+----- add options to package.json as author, git, licence...
+----- clear rollup dependencies
+----- add api env config validation
+----- add CQRS stuff
+------+ partially added
 
 DONE
++++++ create api-utils package
++++++ add grpc and kafka config as env
++++++ add database as mongodb
++++++ add mongodb url as env variable
 +++++ reconfigure turbo output options for performance
 +++++ implement manypkg for sync of versions of dependencies at whole monorepo
 +++++ clean deprecated dependencies
