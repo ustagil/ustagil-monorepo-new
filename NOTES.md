@@ -1,4 +1,8 @@
 BACKLOG
+----- implement an example of saga that has chorography with multiple microservice boundries
+------- failure tolerant system
+------- pending state
+------- decider, state machine like data-transaction management(?)
 ----- create terraform
 ----- create DOCKERFILE as prod
 ----- re-init CHANGELOG
@@ -16,13 +20,14 @@ BACKLOG
 ----- add nvm
 
 SELECTED
------ add package.json attributes of OpenSource stuff. Like author, repo, licence (look into nestjs project packages)
------ add options to package.json as author, git, licence...
 ----- add api env config validation
 ----- add CQRS stuff
-------+ partially added
+------+ partially added, command-side added
+------+ need: EventStoreDB, stream of events from EventStoreDB to MongoDB as synchronization of write-to-read,
 
 DONE
++++++ add package.json attributes of OpenSource stuff. Like author, repo, licence (look into nestjs project packages)
++++++ add options to package.json as author, git, licence...
 +++++ clear rollup dependencies
 +++++ create api-utils package
 +++++ add grpc and kafka config as env
