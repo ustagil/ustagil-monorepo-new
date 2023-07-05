@@ -12,12 +12,9 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.1",
-    "@rollup/plugin-node-resolve": "^15.1.0",
     "@types/eslint": "^8.40.2",
     "@types/jest": "^29.5.2",
     "@types/prettier": "^2.7.3",
-    "@types/rollup-plugin-peer-deps-external": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
     "@ustagil/eslint-config": "0.0.1",
@@ -32,9 +29,6 @@
     "jwt-decode": "^3.1.2",
     "nookies": "^2.5.2",
     "prettier": "^2.8.8",
-    "rollup": "^3.25.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-typescript2": "^0.34.1",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
     "tslib": "^2.5.3",

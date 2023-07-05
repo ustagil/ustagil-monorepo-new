@@ -10,7 +10,6 @@
     "start": "turbo run --parallel start",
     "start:ci": "turbo run --concurrency=4 start -- --maxWorkers=2 --forceExit",
     "clean": "turbo run clean",
-    "clean:rollup:cache": "turbo run clean:rollup:cache",
     "clean:full": "turbo run clean && pnpm cache clean && rm -rf node_modules",
     "clean:ci": "turbo run clean -- --maxWorkers=2 --forceExit",
     "coverage": "turbo run coverage --concurrency=1 -- --maxWorkers=1",
