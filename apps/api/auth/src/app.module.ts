@@ -43,6 +43,14 @@ import { MyConfigService } from './config';
     PassportModule,
   ],
   controllers: [AppController],
-  providers: [LocalStrategy, BaseJwtStrategy],
+  providers: [
+    LocalStrategy,
+    {
+      provide: BaseJwtStrategy,
+      useFactory: (configService: MyConfigService) =>
+        new BaseJwtStrategy(configService),
+      inject: [ConfigService],
+    },
+  ],
 })
 export class AppModule {}

@@ -26,7 +26,12 @@ import { TodoModule } from './todo/todo.module';
     TodoModule,
   ],
   providers: [
-    BaseJwtStrategy,
+    {
+      provide: BaseJwtStrategy,
+      useFactory: (configService: MyConfigService) =>
+        new BaseJwtStrategy(configService),
+      inject: [ConfigService],
+    },
     JwtService,
     {
       provide: APP_GUARD,

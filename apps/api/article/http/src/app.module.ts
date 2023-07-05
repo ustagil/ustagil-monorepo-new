@@ -26,7 +26,12 @@ import { MyConfigService } from './config';
     ArticleModule,
   ],
   providers: [
-    BaseJwtStrategy,
+    {
+      provide: BaseJwtStrategy,
+      useFactory: (configService: MyConfigService) =>
+        new BaseJwtStrategy(configService),
+      inject: [ConfigService],
+    },
     JwtService,
     {
       provide: APP_GUARD,

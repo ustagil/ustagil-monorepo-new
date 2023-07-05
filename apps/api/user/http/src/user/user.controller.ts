@@ -15,16 +15,10 @@ import { ClientGrpc, ClientKafka } from '@nestjs/microservices';
 import { API_USER_COMMAND_MS, API_USER_QUERY_MS } from '@ustagil/api-constant';
 import {
   UserGrpcService,
-  UserHttpCreateRequestBody,
   UserHttpCreateResponse,
-  UserHttpDeleteRequestParams,
   UserHttpDeleteResponse,
-  UserHttpListRequestQuery,
   UserHttpListResponse,
-  UserHttpReadRequestParams,
   UserHttpReadResponse,
-  UserHttpUpdateRequestBody,
-  UserHttpUpdateRequestParams,
   UserHttpUpdateResponse,
   UserKafkaCreateRequest,
   UserKafkaCreateResponse,
@@ -34,6 +28,14 @@ import {
   UserKafkaUpdateResponse,
 } from '@ustagil/typing';
 import { firstValueFrom, toArray } from 'rxjs';
+import {
+  UserHttpCreateRequestBodyDto,
+  UserHttpDeleteRequestParamsDto,
+  UserHttpListRequestQueryDto,
+  UserHttpReadRequestParamsDto,
+  UserHttpUpdateRequestBodyDto,
+  UserHttpUpdateRequestParamsDto,
+} from './dto';
 
 @Controller('users')
 export class UserController implements OnModuleInit {
@@ -57,7 +59,7 @@ export class UserController implements OnModuleInit {
 
   @Get()
   async list(
-    @Query() query: UserHttpListRequestQuery,
+    @Query() query: UserHttpListRequestQueryDto,
   ): Promise<UserHttpListResponse> {
     const users = await firstValueFrom(
       this.userGrpcService.list({ query }).pipe(toArray()),
@@ -67,7 +69,7 @@ export class UserController implements OnModuleInit {
   }
 
   @Post()
-  create(@Body() body: UserHttpCreateRequestBody): UserHttpCreateResponse {
+  create(@Body() body: UserHttpCreateRequestBodyDto): UserHttpCreateResponse {
     this.clientKafka.emit<UserKafkaCreateResponse, UserKafkaCreateRequest>(
       'user.create',
       { body },
@@ -76,7 +78,7 @@ export class UserController implements OnModuleInit {
 
   @Get(':id')
   async read(
-    @Param() params: UserHttpReadRequestParams,
+    @Param() params: UserHttpReadRequestParamsDto,
   ): Promise<UserHttpReadResponse> {
     const user = await firstValueFrom(
       this.userGrpcService.read({
@@ -91,8 +93,8 @@ export class UserController implements OnModuleInit {
 
   @Patch(':id')
   update(
-    @Param() params: UserHttpUpdateRequestParams,
-    @Body() body: UserHttpUpdateRequestBody,
+    @Param() params: UserHttpUpdateRequestParamsDto,
+    @Body() body: UserHttpUpdateRequestBodyDto,
   ): UserHttpUpdateResponse {
     this.clientKafka.emit<UserKafkaUpdateResponse, UserKafkaUpdateRequest>(
       'user.update',
@@ -104,7 +106,9 @@ export class UserController implements OnModuleInit {
   }
 
   @Delete(':id')
-  delete(@Param() params: UserHttpDeleteRequestParams): UserHttpDeleteResponse {
+  delete(
+    @Param() params: UserHttpDeleteRequestParamsDto,
+  ): UserHttpDeleteResponse {
     this.clientKafka.emit<UserKafkaDeleteResponse, UserKafkaDeleteRequest>(
       'user.delete',
       { params },
