@@ -15,7 +15,7 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
   ) {}
 
   async execute(command: CreateUserCommand) {
-    const user = UserDomain.create(command.name);
+    const user = UserDomain.create(command.username, command.password);
     const userDomain = this.publisher.mergeObjectContext(user);
 
     try {

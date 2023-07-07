@@ -5,7 +5,8 @@ type UserCreatedEventMetaData = MetadataType;
 
 type UserCreatedEventData = {
   id: string;
-  name: string;
+  username: string;
+  password: string;
 };
 
 export class UserCreatedEvent
@@ -15,7 +16,7 @@ export class UserCreatedEvent
   data: UserCreatedEventData;
   metadata: UserCreatedEventMetaData = {};
 
-  constructor(id: string, name: string) {
-    this.data = { id, name };
+  constructor(id: string, username: string, password: string) {
+    this.data = { id, username, password };
   }
 }

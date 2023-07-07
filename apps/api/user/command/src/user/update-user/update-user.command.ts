@@ -1,6 +1,7 @@
 export class UpdateUserCommand {
   constructor(
     public readonly id: string,
-    public readonly name?: string | undefined,
+    public readonly username?: string | undefined,
+    public readonly password?: string | undefined,
   ) {}
 }

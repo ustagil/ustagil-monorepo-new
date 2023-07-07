@@ -31,7 +31,7 @@ export class UpdateUserHandler implements ICommandHandler<UpdateUserCommand> {
       await UserDomain.evolveFromEvents(events),
     );
 
-    userDomain.update(command.name);
+    userDomain.update(command.username, command.password);
 
     this.eventStoreDBClient.appendToStream(
       'user-' + userDomain.id,

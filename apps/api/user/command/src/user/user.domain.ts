@@ -9,13 +9,15 @@ export class UserDomain extends AggregateRoot<
   UserCreatedEvent | UserDeletedEvent | UserUpdatedEvent
 > {
   private _id: string;
-  private name: string;
+  private username: string;
+  private password: string;
   private deleted: boolean;
 
-  private constructor(id: string, name = '') {
+  private constructor(id: string, username: string, password: string) {
     super();
     this.id = id;
-    this.name = name;
+    this.username = username;
+    this.password = password;
     this.deleted = false;
   }
 
@@ -26,26 +28,37 @@ export class UserDomain extends AggregateRoot<
     this._id = value;
   }
 
-  static create(name: string) {
+  static create(username: string, password: string) {
     // Business logic
-    const instance = new UserDomain(new Types.ObjectId().toHexString(), name);
-    instance.apply(new UserCreatedEvent(instance.id, instance.name));
+    const instance = new UserDomain(
+      new Types.ObjectId().toHexString(),
+      username,
+      password,
+    );
+    instance.apply(
+      new UserCreatedEvent(instance.id, instance.username, instance.password),
+    );
     return instance;
   }
 
   private static onCreate(event: UserCreatedEvent) {
-    return new UserDomain(event.data.id, event.data.name);
+    return new UserDomain(
+      event.data.id,
+      event.data.username,
+      event.data.password,
+    );
   }
 
-  update(name?: string) {
+  update(username?: string, password?: string) {
     if (this.deleted) return;
     // Business logic
-    this.apply(new UserUpdatedEvent(this.id, name));
+    this.apply(new UserUpdatedEvent(this.id, username, password));
   }
 
   private onUpdate(event: UserUpdatedEvent) {
     this.id = event.data.id;
-    event.data.name && (this.name = event.data.name);
+    event.data.username && (this.username = event.data.username);
+    event.data.password && (this.password = event.data.password);
   }
 
   delete() {
@@ -69,14 +82,22 @@ export class UserDomain extends AggregateRoot<
       switch (event?.type) {
         case 'UserCreatedEvent':
           userDomainInstance = UserDomain.onCreate(
-            new UserCreatedEvent(event.data.id, event.data.name),
+            new UserCreatedEvent(
+              event.data.id,
+              event.data.username,
+              event.data.password,
+            ),
           );
           break;
 
         case 'UserUpdatedEvent':
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           userDomainInstance.onUpdate(
-            new UserUpdatedEvent(event.data.id, event.data.name),
+            new UserUpdatedEvent(
+              event.data.id,
+              event.data.username,
+              event.data.password,
+            ),
           );
           break;
 

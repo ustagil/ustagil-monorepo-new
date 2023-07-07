@@ -5,7 +5,8 @@ type UserUpdatedEventMetaData = unknown;
 
 type UserUpdatedEventData = {
   id: string;
-  name?: string;
+  username?: string;
+  password?: string;
 };
 
 export class UserUpdatedEvent
@@ -15,7 +16,7 @@ export class UserUpdatedEvent
   data: UserUpdatedEventData;
   metadata: UserUpdatedEventMetaData = {};
 
-  constructor(id: string, name?: string) {
-    this.data = { id, name };
+  constructor(id: string, username?: string, password?: string) {
+    this.data = { id, username, password };
   }
 }
