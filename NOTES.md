@@ -1,4 +1,5 @@
 BACKLOG
+----- implement commandbus into user command controller
 ----- implement bcrypt for password hashing
 ----- implement authn register
 ----- implement an example of saga that has chorography with multiple microservice boundries
