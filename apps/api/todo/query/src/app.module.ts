@@ -1,18 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import * as Joi from 'joi';
-import { MyConfigService } from './config';
+import { MyConfigService, validateEnvConfig } from './config';
 import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      validationSchema: Joi.object({
-        API_TODO_MONGODB_URI: Joi.string(),
-        API_TODO_GRPC_CLIENT_URL: Joi.string(),
-      }),
+      validationSchema: validateEnvConfig,
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],

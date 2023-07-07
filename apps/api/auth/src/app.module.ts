@@ -5,21 +5,15 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { PassportModule } from '@nestjs/passport';
 import { API_USER_QUERY_MS } from '@ustagil/api-constant';
 import { BaseJwtStrategy, LocalStrategy } from '@ustagil/api-util';
-import * as Joi from 'joi';
 import { join } from 'path';
 import { AppController } from './app.controller';
-import { MyConfigService } from './config';
+import { MyConfigService, validateEnvConfig } from './config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      validationSchema: Joi.object({
-        PORT: Joi.number(),
-        JWT_SECRET: Joi.string(),
-        JWT_EXPIRE_IN: Joi.string(),
-        API_USER_GRPC_CLIENT_URL: Joi.string(),
-      }),
+      validationSchema: validateEnvConfig,
     }),
     ClientsModule.registerAsync([
       {

@@ -1,11 +1,18 @@
 import { ConfigService } from '@nestjs/config';
+import * as Joi from 'joi';
 
-export type MyConfigService = ConfigService<
-  {
-    API_USER_EVENTSTOREDB_URI: string;
-    API_USER_KAFKA_BROKER: string;
-    API_USER_KAFKA_GROUP_ID: string;
-    API_USER_MONGODB_URI: string;
-  },
-  true
->;
+type MyConfig = {
+  API_USER_EVENTSTOREDB_URI: string;
+  API_USER_KAFKA_BROKER: string;
+  API_USER_KAFKA_GROUP_ID: string;
+  API_USER_MONGODB_URI: string;
+};
+
+export type MyConfigService = ConfigService<MyConfig, true>;
+
+export const validateEnvConfig = Joi.object<MyConfig, true>({
+  API_USER_EVENTSTOREDB_URI: Joi.string(),
+  API_USER_KAFKA_BROKER: Joi.string(),
+  API_USER_KAFKA_GROUP_ID: Joi.string(),
+  API_USER_MONGODB_URI: Joi.string(),
+}).strict(true);
