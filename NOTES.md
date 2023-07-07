@@ -1,5 +1,4 @@
 BACKLOG
------ implement commandbus into user command controller
 ----- implement bcrypt for password hashing
 ----- implement authn register
 ----- implement an example of saga that has chorography with multiple microservice boundries
@@ -25,6 +24,7 @@ BACKLOG
 SELECTED
 
 DONE
+----- implement commandbus into user command controller
 +++++ add CQRS stuff
 +++++-+ partially added, command-side added
 +++++-+ need: EventStoreDB, stream of events from EventStoreDB to MongoDB as synchronization of write-to-read,
