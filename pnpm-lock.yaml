@@ -410,6 +410,12 @@ importers:
       '@ustagil/typing':
         specifier: workspace:*
         version: link:../../../packages/typing
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
+      class-validator:
+        specifier: ^0.14.0
+        version: 0.14.0
       joi:
         specifier: ^17.9.2
         version: 17.9.2

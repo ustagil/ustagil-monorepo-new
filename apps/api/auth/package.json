@@ -51,6 +51,8 @@
     "@ustagil/api-constant": "workspace:^",
     "@ustagil/api-util": "workspace:^",
     "@ustagil/typing": "workspace:*",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
     "joi": "^17.9.2",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
