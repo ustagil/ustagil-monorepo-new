@@ -12,7 +12,8 @@ export class UserCreatedHandler implements IEventHandler<UserCreatedEvent> {
   ) {}
 
   async handle(event: UserCreatedEvent) {
-    const userDocument = new this.userModel(event);
+    const { id, ...rest } = event.data;
+    const userDocument = new this.userModel({ _id: id, ...rest });
     const user = await userDocument.save();
 
     return user.toObject();

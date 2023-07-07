@@ -11,9 +11,8 @@ export class UserUpdatedHandler implements IEventHandler<UserUpdatedEvent> {
     @InjectModel(UserModel.name) private userModel: Model<UserModel>,
   ) {}
 
-  async handle({ id, ...rest }: UserUpdatedEvent) {
-    console.log('Async UserUpdatedEvent, id: ' + id);
-
+  async handle(event: UserUpdatedEvent) {
+    const { id, ...rest } = event.data;
     const user = await this.userModel.findById(id).exec();
 
     if (!user) throw new NotFoundException();

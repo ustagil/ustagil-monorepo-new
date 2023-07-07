@@ -12,13 +12,11 @@ export class UserDeletedHandler implements IEventHandler<UserDeletedEvent> {
   ) {}
 
   async handle(event: UserDeletedEvent) {
-    console.log('Async UserDeletedEvent, id: ' + event.id);
-
-    const user = await this.userModel.findById(event.id).exec();
+    const user = await this.userModel.findById(event.data.id).exec();
 
     if (!user) throw new NotFoundException();
 
-    await this.userModel.deleteOne({ _id: event.id }).exec();
+    await this.userModel.deleteOne({ _id: event.data.id }).exec();
 
     return user.toObject();
   }

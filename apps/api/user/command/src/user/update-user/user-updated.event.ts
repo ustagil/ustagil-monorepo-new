@@ -1,3 +1,21 @@
-export class UserUpdatedEvent {
-  constructor(public readonly id: string, public readonly name?: string) {}
+import { JSONEventType } from '@eventstore/db-client';
+import { IEvent } from '@nestjs/cqrs';
+
+type UserUpdatedEventMetaData = unknown;
+
+type UserUpdatedEventData = {
+  id: string;
+  name?: string;
+};
+
+export class UserUpdatedEvent
+  implements IEvent, JSONEventType<'UserUpdatedEvent', UserUpdatedEventData>
+{
+  type = 'UserUpdatedEvent' as const;
+  data: UserUpdatedEventData;
+  metadata: UserUpdatedEventMetaData = {};
+
+  constructor(id: string, name?: string) {
+    this.data = { id, name };
+  }
 }
