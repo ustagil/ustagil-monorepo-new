@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import * as Joi from 'joi';
 import { MyConfigService } from './config';
+import { EventStoreModule } from './eventstore.module';
 import { TodoModule } from './todo/todo.module';
 
 @Module({
@@ -24,6 +25,7 @@ import { TodoModule } from './todo/todo.module';
       },
       inject: [ConfigService],
     }),
+    EventStoreModule,
     TodoModule,
   ],
 })

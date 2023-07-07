@@ -12,13 +12,11 @@ export class TodoDeletedHandler implements IEventHandler<TodoDeletedEvent> {
   ) {}
 
   async handle(event: TodoDeletedEvent) {
-    console.log('Async TodoDeletedEvent, id: ' + event.id);
-
-    const todo = await this.todoModel.findById(event.id).exec();
+    const todo = await this.todoModel.findById(event.data.id).exec();
 
     if (!todo) throw new NotFoundException();
 
-    await this.todoModel.deleteOne({ _id: event.id }).exec();
+    await this.todoModel.deleteOne({ _id: event.data.id }).exec();
 
     return todo.toObject();
   }

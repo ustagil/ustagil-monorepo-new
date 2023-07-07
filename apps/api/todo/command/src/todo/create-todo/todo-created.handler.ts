@@ -12,7 +12,8 @@ export class TodoCreatedHandler implements IEventHandler<TodoCreatedEvent> {
   ) {}
 
   async handle(event: TodoCreatedEvent) {
-    const todoDocument = new this.todoModel(event);
+    const { id, ...rest } = event.data;
+    const todoDocument = new this.todoModel({ _id: id, ...rest });
     const todo = await todoDocument.save();
 
     return todo.toObject();

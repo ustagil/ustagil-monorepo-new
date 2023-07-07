@@ -11,9 +11,8 @@ export class TodoUpdatedHandler implements IEventHandler<TodoUpdatedEvent> {
     @InjectModel(TodoModel.name) private todoModel: Model<TodoModel>,
   ) {}
 
-  async handle({ id, ...rest }: TodoUpdatedEvent) {
-    console.log('Async TodoUpdatedEvent, id: ' + id);
-
+  async handle(event: TodoUpdatedEvent) {
+    const { id, ...rest } = event.data;
     const todo = await this.todoModel.findById(id).exec();
 
     if (!todo) throw new NotFoundException();
