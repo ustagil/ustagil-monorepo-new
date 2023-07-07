@@ -12,7 +12,7 @@ export class ArticleDomain extends AggregateRoot<
   private name: string;
   private deleted: boolean;
 
-  private constructor(id: string, name = '') {
+  private constructor(id: string, name: string) {
     super();
     this.id = id;
     this.name = name;
