@@ -2,7 +2,7 @@ import { ConfigService } from '@nestjs/config';
 
 export type MyConfigService = ConfigService<
   {
-    PORT: number;
+    PORT: string;
     JWT_SECRET: string;
     JWT_EXPIRE_IN: string;
     API_USER_KAFKA_BROKER: string;

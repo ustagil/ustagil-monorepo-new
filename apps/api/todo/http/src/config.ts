@@ -2,7 +2,7 @@ import { ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 
 type MyConfig = {
-  PORT: number;
+  PORT: string;
   JWT_SECRET: string;
   JWT_EXPIRE_IN: string;
   API_TODO_KAFKA_BROKER: string;
@@ -14,7 +14,10 @@ type MyConfig = {
 export type MyConfigService = ConfigService<MyConfig, true>;
 
 export const validateEnvConfig = Joi.object<MyConfig, true>({
-  PORT: Joi.number(),
+  PORT: Joi.string()
+    .regex(/^\d+$/)
+    .messages({ 'string.pattern.base': `Port must be number string.` })
+    .required(),
   JWT_SECRET: Joi.string(),
   JWT_EXPIRE_IN: Joi.string(),
   API_TODO_KAFKA_BROKER: Joi.string(),
