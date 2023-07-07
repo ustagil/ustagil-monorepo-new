@@ -17,7 +17,7 @@ async function bootstrap() {
     options: {
       package: 'article',
       protoPath: join(__dirname, 'article/article.proto'),
-      url: configService.get('API_ARTICLE_GRPC_CLIENT_URL'),
+      url: configService.get('API_ARTICLE_GRPC_CLIENT_URL', { infer: true }),
     },
   });
 

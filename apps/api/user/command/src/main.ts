@@ -15,10 +15,10 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       client: {
-        brokers: [configService.get('API_USER_KAFKA_BROKER')],
+        brokers: [configService.get('API_USER_KAFKA_BROKER', { infer: true })],
       },
       consumer: {
-        groupId: configService.get('API_USER_KAFKA_GROUP_ID'),
+        groupId: configService.get('API_USER_KAFKA_GROUP_ID', { infer: true }),
       },
     },
   });

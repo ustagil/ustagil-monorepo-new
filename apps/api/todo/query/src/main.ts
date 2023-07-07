@@ -17,7 +17,7 @@ async function bootstrap() {
     options: {
       package: 'todo',
       protoPath: join(__dirname, 'todo/todo.proto'),
-      url: configService.get('API_TODO_GRPC_CLIENT_URL'),
+      url: configService.get('API_TODO_GRPC_CLIENT_URL', { infer: true }),
     },
   });
 

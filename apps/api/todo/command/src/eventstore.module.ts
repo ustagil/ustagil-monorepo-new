@@ -8,7 +8,7 @@ const EventStore: Provider = {
   inject: [ConfigService],
   useFactory: (configService: MyConfigService) =>
     EventStoreDBClient.connectionString(
-      configService.get('API_TODO_EVENTSTOREDB_URI'),
+      configService.get('API_TODO_EVENTSTOREDB_URI', { infer: true }),
     ),
 };
 
