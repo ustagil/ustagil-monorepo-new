@@ -23,12 +23,12 @@ BACKLOG
 ----- add nvm
 
 SELECTED
------ add api env config validation
 ----- add CQRS stuff
 ------+ partially added, command-side added
 ------+ need: EventStoreDB, stream of events from EventStoreDB to MongoDB as synchronization of write-to-read,
 
 DONE
++++++ add api env config validation
 +++++ add package.json attributes of OpenSource stuff. Like author, repo, licence (look into nestjs project packages)
 +++++ add options to package.json as author, git, licence...
 +++++ clear rollup dependencies
