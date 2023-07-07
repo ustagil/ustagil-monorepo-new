@@ -12,7 +12,7 @@ export class TodoDomain extends AggregateRoot<
   private name: string;
   private deleted: boolean;
 
-  private constructor(id: string, name = '') {
+  private constructor(id: string, name: string) {
     super();
     this.id = id;
     this.name = name;
@@ -38,6 +38,7 @@ export class TodoDomain extends AggregateRoot<
   }
 
   update(name?: string) {
+    if (this.deleted) return;
     // Business logic
     this.apply(new TodoUpdatedEvent(this.id, name));
   }
