@@ -14,13 +14,11 @@ export class ArticleDeletedHandler
   ) {}
 
   async handle(event: ArticleDeletedEvent) {
-    console.log('Async ArticleDeletedEvent, id: ' + event.id);
-
-    const article = await this.articleModel.findById(event.id).exec();
+    const article = await this.articleModel.findById(event.data.id).exec();
 
     if (!article) throw new NotFoundException();
 
-    await this.articleModel.deleteOne({ _id: event.id }).exec();
+    await this.articleModel.deleteOne({ _id: event.data.id }).exec();
 
     return article.toObject();
   }

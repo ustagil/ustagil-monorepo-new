@@ -14,7 +14,8 @@ export class ArticleCreatedHandler
   ) {}
 
   async handle(event: ArticleCreatedEvent) {
-    const articleDocument = new this.articleModel(event);
+    const { id, ...rest } = event.data;
+    const articleDocument = new this.articleModel({ _id: id, ...rest });
     const article = await articleDocument.save();
 
     return article.toObject();

@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import * as Joi from 'joi';
 import { ArticleModule } from './article/article.module';
 import { MyConfigService } from './config';
+import { EventStoreModule } from './eventstore.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { MyConfigService } from './config';
       },
       inject: [ConfigService],
     }),
+    EventStoreModule,
     ArticleModule,
   ],
 })

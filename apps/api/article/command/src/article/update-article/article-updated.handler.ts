@@ -13,9 +13,8 @@ export class ArticleUpdatedHandler
     @InjectModel(ArticleModel.name) private articleModel: Model<ArticleModel>,
   ) {}
 
-  async handle({ id, ...rest }: ArticleUpdatedEvent) {
-    console.log('Async ArticleUpdatedEvent, id: ' + id);
-
+  async handle(event: ArticleUpdatedEvent) {
+    const { id, ...rest } = event.data;
     const article = await this.articleModel.findById(id).exec();
 
     if (!article) throw new NotFoundException();
