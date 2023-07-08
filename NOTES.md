@@ -21,9 +21,9 @@ BACKLOG
 ----- add nvm
 
 SELECTED
------ implement bcrypt for password hashing
 
 DONE
++++++ implement bcrypt for password hashing
 +++++ implement authn register
 +++++ implement commandbus into user command controller
 +++++ add CQRS stuff
