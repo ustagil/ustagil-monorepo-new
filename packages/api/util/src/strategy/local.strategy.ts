@@ -3,6 +3,7 @@ import { ClientGrpc } from '@nestjs/microservices';
 import { PassportStrategy } from '@nestjs/passport';
 import { API_USER_QUERY_MS } from '@ustagil/api-constant';
 import { UserGrpcService } from '@ustagil/typing';
+import * as bcrypt from 'bcrypt';
 import { Strategy } from 'passport-local';
 import { firstValueFrom } from 'rxjs';
 
@@ -25,7 +26,11 @@ export class LocalStrategy extends PassportStrategy(Strategy, 'LocalStrategy') {
       this.userGrpcService.readByUsername({ username: username }),
     );
 
-    if (user?.password !== password) {
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+
+    if (!(await bcrypt.compare(password, user.password))) {
       throw new UnauthorizedException();
     }
 

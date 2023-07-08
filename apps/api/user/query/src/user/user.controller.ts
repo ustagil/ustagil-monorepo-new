@@ -51,6 +51,7 @@ export class UserController {
 
     if (!user) throw new NotFoundException();
 
-    return user.toObject();
+    const { _id, password, username } = user.toObject();
+    return { _id: _id.toHexString(), password, username };
   }
 }

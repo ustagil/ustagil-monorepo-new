@@ -11,7 +11,10 @@ import { ClientKafka } from '@nestjs/microservices';
 import { API_USER_COMMAND_MS } from '@ustagil/api-constant';
 import { LocalAuthGuard, MyRequest } from '@ustagil/api-util';
 import { UserKafkaCreateRequest } from '@ustagil/typing';
+import * as bcrypt from 'bcrypt';
 import { RegisterAuthRequestBodyDto } from './register.dto';
+
+const saltOrRounds = 10;
 
 @Controller('auth')
 export class AppController {
@@ -33,6 +36,10 @@ export class AppController {
 
   @Post('register')
   async register(@Body() body: RegisterAuthRequestBodyDto): Promise<any> {
-    this.clientKafka.emit<any, UserKafkaCreateRequest>('user.create', { body });
+    const hash = await bcrypt.hash(body.password, saltOrRounds);
+
+    this.clientKafka.emit<any, UserKafkaCreateRequest>('user.create', {
+      body: { username: body.username, password: hash },
+    });
   }
 }
