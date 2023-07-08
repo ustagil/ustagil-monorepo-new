@@ -1,4 +1,7 @@
 BACKLOG
+----- implement Membership bounded context
+----- implement casl authorization
+----- organize-move apps-packages as "core"
 ----- implement http response body validation and striping unnecessary-private values
 ----- implement an example of saga that has chorography with multiple microservice boundries
 ------- failure tolerant system
