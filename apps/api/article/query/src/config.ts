@@ -9,6 +9,6 @@ type MyConfig = {
 export type MyConfigService = ConfigService<MyConfig, true>;
 
 export const validateEnvConfig = Joi.object<MyConfig, true>({
-  API_ARTICLE_GRPC_CLIENT_URL: Joi.string(),
-  API_ARTICLE_MONGODB_URI: Joi.string(),
+  API_ARTICLE_GRPC_CLIENT_URL: Joi.string().required(),
+  API_ARTICLE_MONGODB_URI: Joi.string().required(),
 }).strict(true);

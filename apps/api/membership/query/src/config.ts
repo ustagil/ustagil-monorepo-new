@@ -9,6 +9,6 @@ type MyConfig = {
 export type MyConfigService = ConfigService<MyConfig, true>;
 
 export const validateEnvConfig = Joi.object<MyConfig, true>({
-  API_MEMBERSHIP_MONGODB_URI: Joi.string(),
-  API_MEMBERSHIP_GRPC_CLIENT_URL: Joi.string(),
+  API_MEMBERSHIP_MONGODB_URI: Joi.string().required(),
+  API_MEMBERSHIP_GRPC_CLIENT_URL: Joi.string().required(),
 }).strict(true);
