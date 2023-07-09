@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ClientKafka } from '@nestjs/microservices';
-import { API_USER_COMMAND_MS } from '@ustagil/api-constant';
+import { API_MEMBERSHIP_COMMAND_MS } from '@ustagil/api-constant';
 import { LocalAuthGuard, MyRequest } from '@ustagil/api-util';
 import { UserKafkaCreateRequest } from '@ustagil/typing';
 import * as bcrypt from 'bcrypt';
@@ -22,7 +22,7 @@ export class AppController {
     private jwtService: JwtService,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    @Inject(API_USER_COMMAND_MS) private clientKafka: ClientKafka,
+    @Inject(API_MEMBERSHIP_COMMAND_MS) private clientKafka: ClientKafka,
   ) {}
 
   @UseGuards(LocalAuthGuard)

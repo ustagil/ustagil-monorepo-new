@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+import "account.proto";
+import "organization.proto";
+import "user.proto";
+
+package membership;

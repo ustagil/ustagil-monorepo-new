@@ -4,7 +4,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AccountModule } from './account/account.module';
 import { MyConfigService, validateEnvConfig } from './config';
 import { EventStoreModule } from './eventstore.module';
-import { MembershipModule } from './membership/membership.module';
 import { OrganizationModule } from './organization/organization.module';
 import { UserModule } from './user/user.module';
 
@@ -26,7 +25,6 @@ import { UserModule } from './user/user.module';
     EventStoreModule,
 
     AccountModule,
-    MembershipModule,
     OrganizationModule,
     UserModule,
   ],

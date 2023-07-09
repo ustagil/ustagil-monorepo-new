@@ -1,7 +1,7 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
 import { PassportStrategy } from '@nestjs/passport';
-import { API_USER_QUERY_MS } from '@ustagil/api-constant';
+import { API_MEMBERSHIP_QUERY_MS } from '@ustagil/api-constant';
 import { UserGrpcService } from '@ustagil/typing';
 import * as bcrypt from 'bcrypt';
 import { Strategy } from 'passport-local';
@@ -14,7 +14,7 @@ export class LocalStrategy extends PassportStrategy(Strategy, 'LocalStrategy') {
   constructor(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    @Inject(API_USER_QUERY_MS) private clientGrpc: ClientGrpc,
+    @Inject(API_MEMBERSHIP_QUERY_MS) private clientGrpc: ClientGrpc,
   ) {
     super({ usernameField: 'username' });
     this.userGrpcService =

@@ -13,8 +13,8 @@ import {
 } from '@nestjs/common';
 import { ClientGrpc, ClientKafka } from '@nestjs/microservices';
 import {
-  API_ORGANIZATION_COMMAND_MS,
-  API_ORGANIZATION_QUERY_MS,
+  API_MEMBERSHIP_COMMAND_MS,
+  API_MEMBERSHIP_QUERY_MS,
 } from '@ustagil/api-constant';
 import {
   OrganizationGrpcService,
@@ -38,17 +38,17 @@ import {
   OrganizationHttpUpdateRequestParamsDto,
 } from './dto';
 
-@Controller('organizations')
+@Controller('membership/organizations')
 export class OrganizationController implements OnModuleInit {
   private organizationGrpcService: OrganizationGrpcService;
 
   constructor(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    @Inject(API_ORGANIZATION_QUERY_MS) private clientGrpc: ClientGrpc,
+    @Inject(API_MEMBERSHIP_QUERY_MS) private clientGrpc: ClientGrpc,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    @Inject(API_ORGANIZATION_COMMAND_MS) private clientKafka: ClientKafka,
+    @Inject(API_MEMBERSHIP_COMMAND_MS) private clientKafka: ClientKafka,
   ) {}
 
   async onModuleInit() {

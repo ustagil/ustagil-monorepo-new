@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { API_USER_COMMAND_MS, API_USER_QUERY_MS } from '@ustagil/api-constant';
+import {
+  API_MEMBERSHIP_COMMAND_MS,
+  API_MEMBERSHIP_QUERY_MS,
+} from '@ustagil/api-constant';
 import { join } from 'path';
 import { MyConfigService } from 'src/config';
 import { UserController } from './user.controller';
@@ -10,14 +13,19 @@ import { UserController } from './user.controller';
   imports: [
     ClientsModule.registerAsync([
       {
-        name: API_USER_QUERY_MS,
+        name: API_MEMBERSHIP_QUERY_MS,
         imports: [ConfigModule],
         useFactory: async (configService: MyConfigService) => ({
           transport: Transport.GRPC,
           options: {
-            package: 'user',
-            protoPath: join(__dirname, 'user.proto'),
-            url: configService.get('API_USER_GRPC_CLIENT_URL', { infer: true }),
+            package: 'membership',
+            protoPath: join(__dirname, '..', 'protos', 'membership.proto'),
+            loader: {
+              includeDirs: [join(__dirname, '..', 'protos')],
+            },
+            url: configService.get('API_MEMBERSHIP_GRPC_CLIENT_URL', {
+              infer: true,
+            }),
           },
         }),
         inject: [ConfigService],
@@ -25,21 +33,23 @@ import { UserController } from './user.controller';
     ]),
     ClientsModule.registerAsync([
       {
-        name: API_USER_COMMAND_MS,
+        name: API_MEMBERSHIP_COMMAND_MS,
         imports: [ConfigModule],
         useFactory: async (configService: MyConfigService) => ({
           transport: Transport.KAFKA,
           options: {
             client: {
-              clientId: configService.get('API_USER_KAFKA_CLIENT_ID', {
+              clientId: configService.get('API_MEMBERSHIP_KAFKA_CLIENT_ID', {
                 infer: true,
               }),
               brokers: [
-                configService.get('API_USER_KAFKA_BROKER', { infer: true }),
+                configService.get('API_MEMBERSHIP_KAFKA_BROKER', {
+                  infer: true,
+                }),
               ],
             },
             consumer: {
-              groupId: configService.get('API_USER_KAFKA_GROUP_ID', {
+              groupId: configService.get('API_MEMBERSHIP_KAFKA_GROUP_ID', {
                 infer: true,
               }),
             },

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package account;
+
+service AccountService {
+  rpc List (AccountListRequest) returns (stream Account) {}
+  rpc Read (AccountReadRequest) returns (Account) {}
+}
+
+message AccountListRequest {
+  google.protobuf.Any params = 1;
+  google.protobuf.Any query = 2;
+}
+
+message AccountReadRequest {
+  message AccountReadRequestParams {
+    string id = 1; 
+  }
+  AccountReadRequestParams params = 1;
+  google.protobuf.Any query = 2;
+}
+
+message Account {
+  string _id = 1;
+  string name = 2;
+}
