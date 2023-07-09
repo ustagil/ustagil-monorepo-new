@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package membership;
+
+service MembershipService {
+  rpc List (MembershipListRequest) returns (stream Membership) {}
+  rpc Read (MembershipReadRequest) returns (Membership) {}
+}
+
+message MembershipListRequest {
+  google.protobuf.Any params = 1;
+  google.protobuf.Any query = 2;
+}
+
+message MembershipReadRequest {
+  message MembershipReadRequestParams {
+    string id = 1; 
+  }
+  MembershipReadRequestParams params = 1;
+  google.protobuf.Any query = 2;
+}
+
+message Membership {
+  string _id = 1;
+  string name = 2;
+}
