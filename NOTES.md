@@ -23,9 +23,9 @@ BACKLOG
 ----- add nvm
 
 SELECTED
------ implement Membership bounded context
 
 DONE
++++++ implement Membership bounded context
 +++++ implement bcrypt for password hashing
 +++++ implement authn register
 +++++ implement commandbus into user command controller
