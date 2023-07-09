@@ -18,11 +18,12 @@ import { UserController } from './user.controller';
         useFactory: async (configService: MyConfigService) => ({
           transport: Transport.GRPC,
           options: {
-            package: 'membership',
-            protoPath: join(__dirname, '..', 'protos', 'membership.proto'),
-            loader: {
-              includeDirs: [join(__dirname, '..', 'protos')],
-            },
+            package: ['user', 'organization', 'account'],
+            protoPath: [
+              join(__dirname, '..', 'protos/user.proto'),
+              join(__dirname, '..', 'protos/organization.proto'),
+              join(__dirname, '..', 'protos/account.proto'),
+            ],
             url: configService.get('API_MEMBERSHIP_GRPC_CLIENT_URL', {
               infer: true,
             }),

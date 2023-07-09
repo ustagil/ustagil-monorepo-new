@@ -7,6 +7,7 @@ package user;
 service UserService {
   rpc List (UserListRequest) returns (stream User) {}
   rpc Read (UserReadRequest) returns (User) {}
+  rpc ReadByUsername (UserReadByUsernameRequest) returns (User) {}
 }
 
 message UserListRequest {
@@ -20,6 +21,10 @@ message UserReadRequest {
   }
   UserReadRequestParams params = 1;
   google.protobuf.Any query = 2;
+}
+
+message UserReadByUsernameRequest {
+  string username = 1;
 }
 
 message User {
