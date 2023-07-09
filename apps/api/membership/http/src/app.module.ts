@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { BaseJwtStrategy, JwtAuthGuard } from '@ustagil/api-util';
+import { AccountModule } from './account/account.module';
 import { MyConfigService, validateEnvConfig } from './config';
 import { MembershipModule } from './membership/membership.module';
 import { OrganizationModule } from './organization/organization.module';
@@ -25,6 +26,7 @@ import { OrganizationModule } from './organization/organization.module';
       inject: [ConfigService],
     }),
 
+    AccountModule,
     MembershipModule,
     OrganizationModule,
   ],

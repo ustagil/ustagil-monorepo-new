@@ -32,6 +32,17 @@ async function bootstrap() {
     },
   });
 
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.GRPC,
+    options: {
+      package: 'account',
+      protoPath: join(__dirname, 'account/account.proto'),
+      url: configService.get('API_ACCOUNT_GRPC_CLIENT_URL', {
+        infer: true,
+      }),
+    },
+  });
+
   await app.startAllMicroservices();
 }
 bootstrap();

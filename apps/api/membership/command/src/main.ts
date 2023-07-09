@@ -43,6 +43,22 @@ async function bootstrap() {
     },
   });
 
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.KAFKA,
+    options: {
+      client: {
+        brokers: [
+          configService.get('API_ACCOUNT_KAFKA_BROKER', { infer: true }),
+        ],
+      },
+      consumer: {
+        groupId: configService.get('API_ACCOUNT_KAFKA_GROUP_ID', {
+          infer: true,
+        }),
+      },
+    },
+  });
+
   await app.startAllMicroservices();
 }
 bootstrap();

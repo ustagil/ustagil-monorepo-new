@@ -16,6 +16,11 @@ type MyConfig = {
   API_ORGANIZATION_KAFKA_CLIENT_ID: string;
   API_ORGANIZATION_KAFKA_GROUP_ID: string;
   API_ORGANIZATION_GRPC_CLIENT_URL: string;
+
+  API_ACCOUNT_KAFKA_BROKER: string;
+  API_ACCOUNT_KAFKA_CLIENT_ID: string;
+  API_ACCOUNT_KAFKA_GROUP_ID: string;
+  API_ACCOUNT_GRPC_CLIENT_URL: string;
 };
 
 export type MyConfigService = ConfigService<MyConfig, true>;
@@ -38,4 +43,9 @@ export const validateEnvConfig = Joi.object<MyConfig, true>({
   API_ORGANIZATION_KAFKA_CLIENT_ID: Joi.string(),
   API_ORGANIZATION_KAFKA_GROUP_ID: Joi.string(),
   API_ORGANIZATION_GRPC_CLIENT_URL: Joi.string(),
+
+  API_ACCOUNT_KAFKA_BROKER: Joi.string(),
+  API_ACCOUNT_KAFKA_CLIENT_ID: Joi.string(),
+  API_ACCOUNT_KAFKA_GROUP_ID: Joi.string(),
+  API_ACCOUNT_GRPC_CLIENT_URL: Joi.string(),
 }).strict(true);
