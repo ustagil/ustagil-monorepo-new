@@ -5,6 +5,7 @@ import { JwtModule, JwtService } from '@nestjs/jwt';
 import { BaseJwtStrategy, JwtAuthGuard } from '@ustagil/api-util';
 import { MyConfigService, validateEnvConfig } from './config';
 import { MembershipModule } from './membership/membership.module';
+import { OrganizationModule } from './organization/organization.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { MembershipModule } from './membership/membership.module';
     }),
 
     MembershipModule,
+    OrganizationModule,
   ],
   providers: [
     {

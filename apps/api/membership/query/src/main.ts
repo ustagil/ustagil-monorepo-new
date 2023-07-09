@@ -21,6 +21,17 @@ async function bootstrap() {
     },
   });
 
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.GRPC,
+    options: {
+      package: 'organization',
+      protoPath: join(__dirname, 'organization/organization.proto'),
+      url: configService.get('API_ORGANIZATION_GRPC_CLIENT_URL', {
+        infer: true,
+      }),
+    },
+  });
+
   await app.startAllMicroservices();
 }
 bootstrap();

@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { MyConfigService, validateEnvConfig } from './config';
 import { EventStoreModule } from './eventstore.module';
 import { MembershipModule } from './membership/membership.module';
+import { OrganizationModule } from './organization/organization.module';
 
 @Module({
   imports: [
@@ -21,7 +22,9 @@ import { MembershipModule } from './membership/membership.module';
       inject: [ConfigService],
     }),
     EventStoreModule,
+
     MembershipModule,
+    OrganizationModule,
   ],
 })
 export class AppModule {}

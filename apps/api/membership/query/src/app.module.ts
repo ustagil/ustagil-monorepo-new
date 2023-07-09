@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MyConfigService, validateEnvConfig } from './config';
 import { MembershipModule } from './membership/membership.module';
+import { OrganizationModule } from './organization/organization.module';
 
 @Module({
   imports: [
@@ -19,7 +20,9 @@ import { MembershipModule } from './membership/membership.module';
       },
       inject: [ConfigService],
     }),
+
     MembershipModule,
+    OrganizationModule,
   ],
 })
 export class AppModule {}

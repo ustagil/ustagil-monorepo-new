@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package organization;
+
+service OrganizationService {
+  rpc List (OrganizationListRequest) returns (stream Organization) {}
+  rpc Read (OrganizationReadRequest) returns (Organization) {}
+}
+
+message OrganizationListRequest {
+  google.protobuf.Any params = 1;
+  google.protobuf.Any query = 2;
+}
+
+message OrganizationReadRequest {
+  message OrganizationReadRequestParams {
+    string id = 1; 
+  }
+  OrganizationReadRequestParams params = 1;
+  google.protobuf.Any query = 2;
+}
+
+message Organization {
+  string _id = 1;
+  string name = 2;
+}
