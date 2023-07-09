@@ -1,5 +1,4 @@
 BACKLOG
------ implement Membership bounded context
 ----- implement casl authorization
 ----- organize-move apps-packages as "core"
 ----- implement http response body validation and striping unnecessary-private values
@@ -24,6 +23,7 @@ BACKLOG
 ----- add nvm
 
 SELECTED
+----- implement Membership bounded context
 
 DONE
 +++++ implement bcrypt for password hashing
