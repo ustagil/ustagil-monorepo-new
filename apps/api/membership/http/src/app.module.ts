@@ -7,6 +7,7 @@ import { AccountModule } from './account/account.module';
 import { MyConfigService, validateEnvConfig } from './config';
 import { MembershipModule } from './membership/membership.module';
 import { OrganizationModule } from './organization/organization.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { OrganizationModule } from './organization/organization.module';
     AccountModule,
     MembershipModule,
     OrganizationModule,
+    UserModule,
   ],
   providers: [
     {

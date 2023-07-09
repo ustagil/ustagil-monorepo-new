@@ -15,6 +15,17 @@ async function bootstrap() {
   app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.GRPC,
     options: {
+      package: 'account',
+      protoPath: join(__dirname, 'account/account.proto'),
+      url: configService.get('API_ACCOUNT_GRPC_CLIENT_URL', {
+        infer: true,
+      }),
+    },
+  });
+
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.GRPC,
+    options: {
       package: 'membership',
       protoPath: join(__dirname, 'membership/membership.proto'),
       url: configService.get('API_MEMBERSHIP_GRPC_CLIENT_URL', { infer: true }),
@@ -35,9 +46,9 @@ async function bootstrap() {
   app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.GRPC,
     options: {
-      package: 'account',
-      protoPath: join(__dirname, 'account/account.proto'),
-      url: configService.get('API_ACCOUNT_GRPC_CLIENT_URL', {
+      package: 'user',
+      protoPath: join(__dirname, 'user/user.proto'),
+      url: configService.get('API_USER_GRPC_CLIENT_URL', {
         infer: true,
       }),
     },

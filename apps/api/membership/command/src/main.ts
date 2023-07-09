@@ -16,6 +16,22 @@ async function bootstrap() {
     options: {
       client: {
         brokers: [
+          configService.get('API_ACCOUNT_KAFKA_BROKER', { infer: true }),
+        ],
+      },
+      consumer: {
+        groupId: configService.get('API_ACCOUNT_KAFKA_GROUP_ID', {
+          infer: true,
+        }),
+      },
+    },
+  });
+
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.KAFKA,
+    options: {
+      client: {
+        brokers: [
           configService.get('API_MEMBERSHIP_KAFKA_BROKER', { infer: true }),
         ],
       },
@@ -47,12 +63,10 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       client: {
-        brokers: [
-          configService.get('API_ACCOUNT_KAFKA_BROKER', { infer: true }),
-        ],
+        brokers: [configService.get('API_USER_KAFKA_BROKER', { infer: true })],
       },
       consumer: {
-        groupId: configService.get('API_ACCOUNT_KAFKA_GROUP_ID', {
+        groupId: configService.get('API_USER_KAFKA_GROUP_ID', {
           infer: true,
         }),
       },
